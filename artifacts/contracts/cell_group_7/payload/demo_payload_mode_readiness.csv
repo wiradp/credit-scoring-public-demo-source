@@ -1,0 +1,5 @@
+payload_mode,payload_mode_status,canonical_feature_count,expected_canonical_feature_count,complete_canonical_payload,basic_form_complete_payload_claim,requires_additional_context,mapping_gap_count,mapping_gaps_disclosed,limitation_disclosure_complete,payload_execution_status,ready_for_cell_7_10_summary
+BASIC_FORM,BASIC_FORM_PARTIAL_READY_WITH_GAPS,49,49,False,False,True,45,True,True,CONTRACT_ONLY,True
+SAMPLE_PROFILE,READY_WITH_WARNINGS,49,49,True,,False,0,True,True,CONTRACT_ONLY,True
+ADVANCED_EDITOR,READY_WITH_WARNINGS,49,49,True,,False,0,True,True,CONTRACT_ONLY,True
+CANONICAL_PAYLOAD,READY_WITH_WARNINGS,49,49,True,,False,0,True,True,CONTRACT_ONLY,True

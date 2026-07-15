@@ -1,0 +1,6 @@
+profile_id,profile_ready,profile_status,canonical_feature_count,expected_canonical_feature_count,limitation_disclosure_complete,handoff_ready_for_cell_7_9
+SP_LOW_RISK_SIGNAL,True,READY_WITH_WARNINGS,49,49,True,True
+SP_MEDIUM_RISK_SIGNAL,True,READY_WITH_WARNINGS,49,49,True,True
+SP_HIGHER_RISK_SIGNAL,True,READY_WITH_WARNINGS,49,49,True,True
+SP_MIXED_SIGNAL,True,READY_WITH_WARNINGS,49,49,True,True
+SP_LIMITATION_TRANSPARENCY,True,READY_WITH_WARNINGS,49,49,True,True

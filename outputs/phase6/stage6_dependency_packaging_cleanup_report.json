@@ -1,0 +1,235 @@
+{
+  "stage": "Stage 6",
+  "title": "Dependency & Public Demo Packaging Cleanup",
+  "generated": "2026-07-01",
+  "verdict": "STAGE6_READY_FOR_COMMIT_WITH_LIMITATIONS",
+  "non_claims": {
+    "public_demo_deployed": false,
+    "public_live_deployment_completed": false,
+    "production_ready": false,
+    "fairness_approved": false,
+    "legal_compliant": false,
+    "legally_compliant": false,
+    "deployment_authorized": false,
+    "credit_decision_ready": false,
+    "model_inference_ready": false
+  },
+  "implementation_steps": [
+    {
+      "step": "Step 1",
+      "name": "Create requirements-demo.txt",
+      "status": "PASSED",
+      "evidence": "Minimal public demo dependency source created."
+    },
+    {
+      "step": "Step 2",
+      "name": "Clean repository requirements.txt",
+      "status": "PASSED",
+      "evidence": "requirements.txt contains only valid requirement/comment/blank lines and remains broad project/dev/notebook environment."
+    },
+    {
+      "step": "Step 3/3B",
+      "name": "Patch Streamlit public error safety",
+      "status": "PASSED",
+      "evidence": ".streamlit/config.toml uses showErrorDetails = \"none\"."
+    },
+    {
+      "step": "Step 4",
+      "name": "Static dependency/config validation",
+      "status": "PASSED",
+      "evidence": "requirements-demo.txt, requirements.txt, and .streamlit/config.toml passed static checks."
+    },
+    {
+      "step": "Step 5",
+      "name": "Active app source import and legacy exposure static scan",
+      "status": "PASSED_WITH_BOUNDARY_NOTE",
+      "evidence": "No direct active import evidence for plotly/joblib/pydantic and no legacy dashboard route/import/link found."
+    },
+    {
+      "step": "Step 7B/7C",
+      "name": "Dependency install/import validation",
+      "status": "PASSED",
+      "evidence": "streamlit, pandas, numpy, scikit-learn, and lightgbm import successfully with versions matching requirements-demo.txt."
+    },
+    {
+      "step": "Step 7D",
+      "name": "Dependency consistency check",
+      "status": "PASSED",
+      "evidence": "python3 -m pip check reported no broken requirements."
+    },
+    {
+      "step": "Step 8/8B/8C",
+      "name": "Streamlit local launch/browser validation",
+      "status": "PASSED",
+      "evidence": "Local server started, HTTP reachability returned 200 OK, and server stopped cleanly."
+    },
+    {
+      "step": "Step 9/9B/9C/9D",
+      "name": "Model artifact metadata investigation",
+      "status": "FAILED_SAFE_BLOCKED",
+      "evidence": "Artifact exists and has pickle protocol signature, but safe loader and direct pickle diagnosis fail with UnpicklingError invalid load key '\\x10'."
+    },
+    {
+      "step": "Step 10",
+      "name": "Actual large-file audit",
+      "status": "COMPLETED_BLOCKS_FULL_REPO_DEPLOYMENT",
+      "evidence": "25 tracked large files found; full-repo deployment is blocked and curated package must exclude them."
+    },
+    {
+      "step": "Step 11/11B",
+      "name": "Curated package manifest dry-run and validation",
+      "status": "PASSED",
+      "evidence": "Resolved include list has 42 files, estimated size 1.589 MB, and no included files >=10 MB."
+    },
+    {
+      "step": "Step 12",
+      "name": "Assemble curated public demo package",
+      "status": "PASSED",
+      "evidence": "Package assembled under outputs/phase6/public_demo_package with model, data, notebooks, archive, phase1-5 outputs, and legacy dashboards excluded."
+    },
+    {
+      "step": "Step 13/13B/13C",
+      "name": "Isolated curated package launch/browser validation",
+      "status": "PASSED",
+      "evidence": "Package launched from isolated folder, HTTP reachability returned 200 OK, and server stopped cleanly."
+    }
+  ],
+  "readiness_dimensions": {
+    "REQUIREMENTS_DEMO_CREATED": true,
+    "REQUIREMENTS_TXT_SYNTACTICALLY_CLEAN": true,
+    "STREAMLIT_PUBLIC_ERROR_CONFIG_PATCHED": true,
+    "STATIC_DEPENDENCY_CONFIG_SCAN_PASSED": true,
+    "ACTIVE_SOURCE_STATIC_SCAN_PASSED": true,
+    "DEPENDENCY_INSTALL_VALIDATED": true,
+    "DEPENDENCY_IMPORT_VALIDATED": true,
+    "PIP_CHECK_PASSED": true,
+    "STREAMLIT_LOCAL_LAUNCH_VALIDATED": true,
+    "STREAMLIT_LOCAL_BROWSER_REACHABLE": true,
+    "MODEL_LOAD_METADATA_VERIFIED": false,
+    "MODEL_LOAD_FAILED_SAFE": true,
+    "ARTIFACT_FORMAT_INSPECTION_COMPLETED": true,
+    "PICKLETOOLS_METADATA_PROBE_COMPLETED": true,
+    "LARGE_FILE_ACTUAL_AUDIT_RUN": true,
+    "FULL_REPO_DEPLOYMENT_BLOCKED": true,
+    "CURATED_PACKAGE_MANIFEST_VALIDATED": true,
+    "CURATED_PACKAGE_ASSEMBLED": true,
+    "CURATED_PACKAGE_LAUNCH_VALIDATED": true,
+    "CURATED_PACKAGE_BROWSER_REACHABLE": true,
+    "MODEL_ARTIFACT_EXCLUDED_FROM_PACKAGE": true,
+    "LEGACY_DASHBOARDS_EXCLUDED_FROM_PACKAGE": true,
+    "PUBLIC_LIVE_DEPLOYMENT_COMPLETED": false
+  },
+  "dependency_validation": {
+    "requirements_demo_path": "requirements-demo.txt",
+    "install_source": "requirements-demo.txt",
+    "pip_check_passed": true,
+    "packages": [
+      {
+        "import_name": "streamlit",
+        "distribution": "streamlit",
+        "detected_version": "1.51.0",
+        "required_version": "1.51.0",
+        "status": "PASSED"
+      },
+      {
+        "import_name": "pandas",
+        "distribution": "pandas",
+        "detected_version": "2.3.3",
+        "required_version": "2.3.3",
+        "status": "PASSED"
+      },
+      {
+        "import_name": "numpy",
+        "distribution": "numpy",
+        "detected_version": "1.26.4",
+        "required_version": "1.26.4",
+        "status": "PASSED"
+      },
+      {
+        "import_name": "sklearn",
+        "distribution": "scikit-learn",
+        "detected_version": "1.7.2",
+        "required_version": "1.7.2",
+        "status": "PASSED"
+      },
+      {
+        "import_name": "lightgbm",
+        "distribution": "lightgbm",
+        "detected_version": "4.6.0",
+        "required_version": "4.6.0",
+        "status": "PASSED"
+      }
+    ]
+  },
+  "streamlit_validation": {
+    "main_repo_launch_passed": true,
+    "main_repo_browser_reachable": true,
+    "isolated_package_launch_passed": true,
+    "isolated_package_browser_reachable": true,
+    "http_status": "200 OK",
+    "servers_stopped_cleanly": true,
+    "inference_action_clicked": false
+  },
+  "model_artifact_status": {
+    "path": "models/final_model_calibrated.pkl",
+    "exists_in_main_repo": true,
+    "included_in_curated_package": false,
+    "header_classification": "pickle_protocol_signature",
+    "pickle_protocol_version": 4,
+    "pickletools_probe_completed": true,
+    "safe_loader_status": "DEMO_INFERENCE_FAILED_SAFE",
+    "direct_pickle_status": "FAILED_SAFE_UNPICKLING_ERROR",
+    "failure_message": "invalid load key, '\\x10'",
+    "model_load_metadata_verified": false,
+    "model_inference_ready": false
+  },
+  "large_file_audit": {
+    "completed": true,
+    "tracked_large_count": 25,
+    "untracked_large_count": 0,
+    "full_repo_deployment_blocked": true,
+    "largest_blocker": {
+      "path": "data/processed/X_train.csv",
+      "size_mb": 958.0,
+      "classification": "SEVERE_PACKAGE_BLOCKER"
+    }
+  },
+  "curated_package": {
+    "path": "outputs/phase6/public_demo_package",
+    "assembled": true,
+    "file_count": 42,
+    "estimated_total_size_mb": 1.589,
+    "files_ge_10mb": [],
+    "requirements_txt_derived_from_requirements_demo": true,
+    "model_artifact_included": false,
+    "legacy_dashboard_1_included": false,
+    "legacy_dashboard_2_included": false,
+    "legacy_utils_included": false,
+    "data_dir_included": false,
+    "notebooks_dir_included": false,
+    "archive_dir_included": false,
+    "outputs_phase1_to_phase5_included": false
+  },
+  "remaining_limitations": [
+    "Model-load metadata verification remains failed-safe / blocked.",
+    "Model artifact is excluded from the curated package.",
+    "Full-repo deployment remains blocked by tracked large files.",
+    "Curated package is assembled and locally validated, but not deployed.",
+    "Browser validation was limited to local reachability and user-visible inspection boundary; no inference-triggering action was clicked.",
+    "Streamlit emitted non-blocking use_container_width deprecation warnings and PyArrow dataframe auto-fix warnings during browser validation."
+  ],
+  "guardrails_preserved": {
+    "deploy_executed": false,
+    "public_live_deployment_completed": false,
+    "commit_created": false,
+    "predict_proba_executed": false,
+    "threshold_applied": false,
+    "shap_executed": false,
+    "probability_generated": false,
+    "score_generated": false,
+    "approval_or_rejection_generated": false,
+    "eligibility_generated": false,
+    "credit_decision_generated": false,
+    "adverse_action_generated": false
+  }
+}

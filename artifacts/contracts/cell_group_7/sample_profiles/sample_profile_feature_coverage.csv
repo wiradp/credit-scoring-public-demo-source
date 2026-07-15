@@ -1,0 +1,6 @@
+profile_id,expected_feature_count,actual_feature_count,missing_features,extra_features,duplicate_features,coverage_status
+SP_LOW_RISK_SIGNAL,49,49,[],[],[],READY
+SP_MEDIUM_RISK_SIGNAL,49,49,[],[],[],READY
+SP_HIGHER_RISK_SIGNAL,49,49,[],[],[],READY
+SP_MIXED_SIGNAL,49,49,[],[],[],READY
+SP_LIMITATION_TRANSPARENCY,49,49,[],[],[],READY

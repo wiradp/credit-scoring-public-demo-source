@@ -1,0 +1,105 @@
+{
+  "stage": "Stage 6",
+  "title": "Dependency & Public Demo Packaging Cleanup",
+  "generated": "2026-07-01",
+  "status": "STAGE6_READY_FOR_COMMIT_WITH_LIMITATIONS",
+  "artifacts": [
+    {
+      "artifact_id": "stage6_dependency_packaging_cleanup_report_md",
+      "path": "outputs/phase6/stage6_dependency_packaging_cleanup_report.md",
+      "artifact_type": "markdown_report",
+      "public_safe": true
+    },
+    {
+      "artifact_id": "stage6_dependency_packaging_cleanup_report_json",
+      "path": "outputs/phase6/stage6_dependency_packaging_cleanup_report.json",
+      "artifact_type": "json_report",
+      "public_safe": true
+    },
+    {
+      "artifact_id": "stage6_report_manifest_json",
+      "path": "outputs/phase6/stage6_report_manifest.json",
+      "artifact_type": "manifest",
+      "public_safe": true
+    },
+    {
+      "artifact_id": "stage6_curated_public_demo_package",
+      "path": "outputs/phase6/public_demo_package",
+      "artifact_type": "curated_local_package_directory",
+      "public_safe": true,
+      "deployed": false
+    }
+  ],
+  "source_files_summarized": [
+    "requirements-demo.txt",
+    "requirements.txt",
+    ".streamlit/config.toml",
+    "app/streamlit_app.py",
+    "app/src/*.py",
+    "artifacts/contracts/manifest/*",
+    "artifacts/contracts/cell_group_7/**/*",
+    "outputs/phase6/public_demo_package"
+  ],
+  "implementation_steps_documented": [
+    "Step 1 - requirements-demo.txt created",
+    "Step 2 - requirements.txt cleaned syntactically",
+    "Step 3/3B - .streamlit/config.toml public error safety patched",
+    "Step 4 - static dependency/config validation passed",
+    "Step 5 - active source import and legacy exposure static scan passed",
+    "Step 7B/7C - dependency install/import validation passed",
+    "Step 7D - pip check passed",
+    "Step 8/8B/8C - Streamlit local launch/browser validation passed",
+    "Step 9/9B/9C/9D - model-load metadata verification failed-safe / blocked",
+    "Step 10 - actual large-file audit completed",
+    "Step 11/11B - curated package manifest dry-run and validation passed",
+    "Step 12 - curated public demo package assembled",
+    "Step 13/13B/13C - isolated curated package launch/browser validation passed"
+  ],
+  "passed_validations": [
+    "dependency install/import validation",
+    "pip check",
+    "static dependency/config/source scan",
+    "Streamlit local launch and browser reachability",
+    "artifact format/header inspection",
+    "pickletools metadata probe",
+    "large-file audit",
+    "curated package manifest validation",
+    "curated package assembly",
+    "isolated curated package launch and browser reachability"
+  ],
+  "remaining_limitations": [
+    "model-load metadata verification failed-safe / blocked",
+    "model artifact excluded from package",
+    "full-repo deployment blocked by tracked large files",
+    "no public live deployment performed",
+    "no inference-triggering UI action executed",
+    "non-blocking Streamlit use_container_width and PyArrow dataframe warnings remain for future UI cleanup"
+  ],
+  "package_summary": {
+    "path": "outputs/phase6/public_demo_package",
+    "file_count": 42,
+    "estimated_total_size_mb": 1.589,
+    "model_artifact_included": false,
+    "legacy_dashboards_included": false,
+    "large_files_ge_10mb_included": false,
+    "deployed": false
+  },
+  "non_claims": {
+    "public_demo_deployed": false,
+    "production_ready": false,
+    "fairness_approved": false,
+    "legal_compliant": false,
+    "legally_compliant": false,
+    "deployment_authorized": false,
+    "credit_decision_ready": false,
+    "model_inference_ready": false
+  },
+  "guardrails": {
+    "predict_proba_executed": false,
+    "threshold_applied": false,
+    "shap_executed": false,
+    "credit_decision_generated": false,
+    "approval_or_rejection_generated": false,
+    "adverse_action_generated": false
+  }
+}

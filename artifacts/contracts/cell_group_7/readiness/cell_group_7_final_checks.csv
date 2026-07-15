@@ -1,0 +1,16 @@
+check_id,description,severity,passed,observed,expected
+ALL_REQUIRED_UPSTREAM_CELLS_PRESENT,Required upstream dataframes are present,CRITICAL,True,True,True
+ALL_CRITICAL_ARTIFACTS_AVAILABLE,Critical artifacts are available,CRITICAL,True,[],[]
+ALL_REQUIRED_CELLS_READY_OR_READY_WITH_WARNINGS,Required prior cells are ready enough for summary,CRITICAL,True,"{'cell_7_8_ready': True, 'cell_7_9_ready': True}",True
+NO_UPSTREAM_PROJECT_BLOCKERS,No upstream project blockers are present,CRITICAL,True,[],[]
+CELL_7_9_READY,Cell 7.9 is ready,CRITICAL,True,True,True
+PAYLOAD_MODES_PRESENT,All payload modes are present,CRITICAL,True,"['ADVANCED_EDITOR', 'BASIC_FORM', 'CANONICAL_PAYLOAD', 'SAMPLE_PROFILE']","['BASIC_FORM', 'SAMPLE_PROFILE', 'ADVANCED_EDITOR', 'CANONICAL_PAYLOAD']"
+BASIC_FORM_PARTIAL_STATUS_PRESERVED,Basic Form partial status is preserved,CRITICAL,True,"{'final_mode_status': 'BASIC_FORM_PARTIAL_READY_WITH_GAPS', 'complete_canonical_payload': False, 'requires_additional_context': True, 'mapping_gap_count': 45}","{'final_mode_status': 'BASIC_FORM_PARTIAL_READY_WITH_GAPS', 'complete_canonical_payload': False, 'requires_additional_context': True, 'mapping_gap_count': '> 0'}"
+BASIC_FORM_GAPS_DISCLOSED,Basic Form gaps remain disclosed,CRITICAL,True,45,> 0
+SAMPLE_PROFILE_READY_WITH_LIMITATIONS,Sample Profile mode is ready with limitations,CRITICAL,True,True,True
+ADVANCED_EDITOR_READY_WITH_LIMITATIONS,Advanced Editor mode is ready with limitations,CRITICAL,True,True,True
+CANONICAL_PAYLOAD_READY_WITH_LIMITATIONS,Canonical Payload mode is ready with limitations,CRITICAL,True,True,True
+LIMITATION_FIELDS_DISCLOSED,Limitation-aware fields are disclosed,CRITICAL,True,True,True
+HANDOFF_MANIFEST_COMPLETE,Required handoff artifacts are available,CRITICAL,True,13,13
+BOUNDARY_CHECKS_PASS,Boundary checks pass,CRITICAL,True,True,True
+FINAL_STATUS_READY_WITH_WARNINGS,Final status remains ready with warnings,CRITICAL,True,READY_WITH_WARNINGS,READY_WITH_WARNINGS

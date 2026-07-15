@@ -1,0 +1,93 @@
+{
+  "cell_group_id": "7",
+  "cell_group_name": "CELL GROUP 7 — CANONICAL DEMO INPUT & UI CONTRACT",
+  "status": "READY_WITH_WARNINGS",
+  "ready": true,
+  "verdict": "CELL_GROUP_7_READY_FOR_DEMO_APP_IMPLEMENTATION_WITH_LIMITATIONS",
+  "cells_evaluated": 6,
+  "ready_cells": 6,
+  "failed_cells": 0,
+  "project_blocker": null,
+  "payload_modes": [
+    "BASIC_FORM",
+    "SAMPLE_PROFILE",
+    "ADVANCED_EDITOR",
+    "CANONICAL_PAYLOAD"
+  ],
+  "final_mode_summary": [
+    {
+      "schema_mode": "BASIC_FORM",
+      "final_mode_status": "BASIC_FORM_PARTIAL_READY_WITH_GAPS",
+      "complete_canonical_payload": false,
+      "payload_assembly_ready": true,
+      "applicant_facing": true,
+      "technical_only": false,
+      "hidden_internal_contract": false,
+      "requires_additional_context": true,
+      "mapping_gap_count": 45,
+      "limitation_disclosure_required": true,
+      "limitation_disclosure_complete": true,
+      "mode_readiness_note": "Partial source-input path only; gaps must remain disclosed."
+    },
+    {
+      "schema_mode": "SAMPLE_PROFILE",
+      "final_mode_status": "READY_WITH_WARNINGS",
+      "complete_canonical_payload": true,
+      "payload_assembly_ready": true,
+      "applicant_facing": false,
+      "technical_only": false,
+      "hidden_internal_contract": false,
+      "requires_additional_context": false,
+      "mapping_gap_count": 0,
+      "limitation_disclosure_required": true,
+      "limitation_disclosure_complete": true,
+      "mode_readiness_note": "Complete synthetic demo template with limitations."
+    },
+    {
+      "schema_mode": "ADVANCED_EDITOR",
+      "final_mode_status": "READY_WITH_WARNINGS",
+      "complete_canonical_payload": true,
+      "payload_assembly_ready": true,
+      "applicant_facing": false,
+      "technical_only": true,
+      "hidden_internal_contract": false,
+      "requires_additional_context": false,
+      "mapping_gap_count": 0,
+      "limitation_disclosure_required": true,
+      "limitation_disclosure_complete": true,
+      "mode_readiness_note": "Complete technical canonical template with limitations."
+    },
+    {
+      "schema_mode": "CANONICAL_PAYLOAD",
+      "final_mode_status": "READY_WITH_WARNINGS",
+      "complete_canonical_payload": true,
+      "payload_assembly_ready": true,
+      "applicant_facing": false,
+      "technical_only": true,
+      "hidden_internal_contract": true,
+      "requires_additional_context": false,
+      "mapping_gap_count": 0,
+      "limitation_disclosure_required": true,
+      "limitation_disclosure_complete": true,
+      "mode_readiness_note": "Complete hidden internal contract with limitations."
+    }
+  ],
+  "derived_canonical_feature_count": 49,
+  "basic_form_gap_count": 45,
+  "limitation_fields": [
+    "grade_encoded",
+    "credit_age_months"
+  ],
+  "limitation_disclosure_complete": true,
+  "handoff_ready": true,
+  "handoff_target": "PHASE_5B_DEMO_APP_IMPLEMENTATION_WITH_LIMITATIONS",
+  "non_goals": [
+    "raw/train/test data loading",
+    "model or SHAP loading",
+    "threshold, inference, probability, or score computation",
+    "credit decision or adverse action generation",
+    "API request body, Streamlit, or FastAPI generation",
+    "disk persistence",
+    "production, deployment, compliance, or fairness approval claims"
+  ]
+}

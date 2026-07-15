@@ -1,0 +1,7 @@
+cell_id,cell_name,status,ready,report_available,failed_checks,project_blocker,verdict,evidence_source,readiness_note
+7.4,Canonical Demo Input Schema,READY_WITH_WARNINGS,True,True,0,,CELL_GROUP_7_CELL_7_4_READY_FOR_CELL_7_5_WITH_LIMITATIONS,canonical_demo_input_schema_df,Ready or ready with warnings.
+7.5,Widget Contract,READY_WITH_WARNINGS,True,True,0,,CELL_GROUP_7_CELL_7_5_READY_FOR_CELL_7_6_WITH_LIMITATIONS,widget_contract_df,Ready or ready with warnings.
+7.6,Validation Contract,READY_WITH_WARNINGS,True,True,0,,CELL_GROUP_7_CELL_7_6_READY_FOR_CELL_7_7_WITH_LIMITATIONS,validation_contract_df,Ready or ready with warnings.
+7.7,Normalization / Canonical Mapping Contract,READY_WITH_WARNINGS,True,True,0,,CELL_GROUP_7_CELL_7_7_READY_FOR_CELL_7_8_WITH_LIMITATIONS,normalization_mapping_contract_df,Ready or ready with warnings.
+7.8,Synthetic Sample Profiles Contract,READY_WITH_WARNINGS,True,True,0,,CELL_GROUP_7_CELL_7_8_READY_FOR_CELL_7_9_WITH_LIMITATIONS,sample_profile_feature_matrix_df,Ready or ready with warnings.
+7.9,Demo Payload Assembly Contract,READY_WITH_WARNINGS,True,True,0,,CELL_GROUP_7_CELL_7_9_READY_FOR_CELL_7_10_WITH_LIMITATIONS,demo_payload_template_df,Ready or ready with warnings.

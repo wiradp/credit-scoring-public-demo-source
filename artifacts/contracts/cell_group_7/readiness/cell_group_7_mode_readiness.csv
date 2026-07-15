@@ -1,0 +1,5 @@
+schema_mode,final_mode_status,complete_canonical_payload,payload_assembly_ready,applicant_facing,technical_only,hidden_internal_contract,requires_additional_context,mapping_gap_count,limitation_disclosure_required,limitation_disclosure_complete,mode_readiness_note
+BASIC_FORM,BASIC_FORM_PARTIAL_READY_WITH_GAPS,False,True,True,False,False,True,45,True,True,Partial source-input path only; gaps must remain disclosed.
+SAMPLE_PROFILE,READY_WITH_WARNINGS,True,True,False,False,False,False,0,True,True,Complete synthetic demo template with limitations.
+ADVANCED_EDITOR,READY_WITH_WARNINGS,True,True,False,True,False,False,0,True,True,Complete technical canonical template with limitations.
+CANONICAL_PAYLOAD,READY_WITH_WARNINGS,True,True,False,True,True,False,0,True,True,Complete hidden internal contract with limitations.

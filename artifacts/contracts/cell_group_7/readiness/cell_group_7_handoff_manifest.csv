@@ -1,0 +1,14 @@
+artifact_name,source_cell,artifact_type,required_for_demo_app,available,ready_for_handoff,handoff_role,limitation_notes
+canonical_demo_input_schema_df,7.4,schema_contract,True,True,True,Canonical demo input schema.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+widget_contract_df,7.5,widget_contract,True,True,True,Mode-aware widget metadata.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+validation_contract_df,7.6,validation_contract,True,True,True,Validation and disclosure metadata.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+normalization_mapping_contract_df,7.7,mapping_contract,True,True,True,Canonical mapping contract.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+payload_readiness_matrix_df,7.7,readiness_matrix,True,True,True,Mode-level payload readiness.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+sample_profile_catalog_df,7.8,sample_profile_contract,True,True,True,Synthetic profile catalog.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+sample_profile_feature_matrix_df,7.8,sample_profile_matrix,True,True,True,Synthetic profile feature values.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+sample_profile_limitation_disclosure_df,7.8,limitation_disclosure,True,True,True,Synthetic profile limitations.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+demo_payload_contract_df,7.9,payload_contract,True,True,True,Mode-level payload contract.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+demo_payload_template_df,7.9,payload_template_contract,True,True,True,Non-executable payload template.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+demo_payload_mode_readiness_df,7.9,mode_readiness,True,True,True,Payload mode readiness.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+demo_payload_profile_payload_map_df,7.9,profile_payload_map,True,True,True,Synthetic profile payload map.,In-memory handoff only; no disk persistence performed by Cell 7.10.
+demo_payload_limitation_disclosure_df,7.9,limitation_disclosure,True,True,True,Payload limitation disclosure.,In-memory handoff only; no disk persistence performed by Cell 7.10.

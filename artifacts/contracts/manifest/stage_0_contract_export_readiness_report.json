@@ -1,0 +1,37 @@
+{
+  "stage": "STAGE_0_CONTRACT_EXPORT_READINESS",
+  "status": "READY_WITH_WARNINGS",
+  "ready": true,
+  "verdict": "STAGE_0_CONTRACT_EXPORT_READY_WITH_LIMITATIONS",
+  "source_cell_group": "Cell Group 7",
+  "source_final_status": "READY_WITH_WARNINGS",
+  "source_final_verdict": "CELL_GROUP_7_READY_FOR_DEMO_APP_IMPLEMENTATION_WITH_LIMITATIONS",
+  "artifacts_specified": 23,
+  "artifacts_exported": 23,
+  "readback_checks_passed": true,
+  "payload_modes": 4,
+  "canonical_features": 49,
+  "basic_form_status": "BASIC_FORM_PARTIAL_READY_WITH_GAPS",
+  "basic_form_gap_count": 45,
+  "limitation_fields": [
+    "credit_age_months",
+    "grade_encoded"
+  ],
+  "boundary_checks_passed": true,
+  "operation_boundary_passed": true,
+  "project_blocker": null,
+  "next_stage": "STAGE_1_STREAMLIT_SKELETON",
+  "gate_components": {
+    "scope_defined": true,
+    "required_objects_ready": true,
+    "upstream_ready": true,
+    "contract_shape_ready": true,
+    "boundary_preservation_ready": true,
+    "export_spec_ready": true,
+    "export_manifest_ready": true,
+    "readback_ready": true
+  },
+  "manifest_csv": "artifacts/contracts/manifest/cell_group_7_contract_export_manifest.csv",
+  "manifest_json": "artifacts/contracts/manifest/cell_group_7_contract_export_manifest.json",
+  "created_at_utc": "2026-06-28T09:13:10.251042+00:00"
+}

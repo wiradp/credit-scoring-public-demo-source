@@ -1,0 +1,13 @@
+boundary_check_id,passed,severity,observed,expected
+NO_RAW_DATA_LOADING,True,CRITICAL,no evidence of violation,pass
+NO_MODEL_LOADING,True,CRITICAL,no evidence of violation,pass
+NO_SHAP_LOADING,True,CRITICAL,no evidence of violation,pass
+NO_INFERENCE_EXECUTED,True,CRITICAL,execution flags clear and no executable request object names present,pass
+NO_THRESHOLD_USED,True,CRITICAL,execution flags clear and no executable request object names present,pass
+NO_PROBABILITY_OR_SCORE_CALCULATED,True,CRITICAL,no evidence of violation,pass
+NO_CREDIT_DECISION_CREATED,True,CRITICAL,no evidence of violation,pass
+NO_ADVERSE_ACTION_NOTICE_CREATED,True,CRITICAL,no evidence of violation,pass
+NO_EXECUTABLE_API_REQUEST_CREATED,True,CRITICAL,execution flags clear and no executable request object names present,pass
+NO_STREAMLIT_OR_FASTAPI_GENERATED,True,CRITICAL,no evidence of violation,pass
+NO_DISK_PERSISTENCE,True,CRITICAL,execution flags clear and no executable request object names present,pass
+NO_FAIRNESS_COMPLIANCE_PRODUCTION_CLAIMS,True,CRITICAL,no evidence of violation,pass
