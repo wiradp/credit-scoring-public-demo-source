@@ -1,0 +1,74 @@
+{
+  "manifest_schema_version": "1.0.0",
+  "stage": "Stage 9",
+  "step": "Step 3",
+  "artifact_count": 5,
+  "artifacts": [
+    {
+      "relative_path": "artifacts/model/final_model_calibrated.pkl",
+      "size_bytes": 4881685,
+      "sha256": "b022b545bd7bb4294018a26a7d10af977e3c452b7f219dbdd9113adeac367cbf",
+      "media_type": "application/octet-stream",
+      "purpose": "Byte-identical verified calibrated model bundle for later controlled runtime integration",
+      "source_commit_or_generation_baseline": "4e1edde3bd4d68cfc446eeae6527e054f13ba67f",
+      "source_branch": "phase5b-demo-contracts",
+      "generation_status": "COPIED_BYTE_FOR_BYTE",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-15T12:32:57Z"
+    },
+    {
+      "relative_path": "artifacts/model/final_threshold.json",
+      "size_bytes": 96,
+      "sha256": "e45a19822f77d6b74cf5e76c0c0e6ff2f993bad4ab91e507509b3d74d410e28b",
+      "media_type": "application/json",
+      "purpose": "Byte-identical authoritative external operating-threshold artifact",
+      "source_commit_or_generation_baseline": "4e1edde3bd4d68cfc446eeae6527e054f13ba67f",
+      "source_branch": "phase5b-demo-contracts",
+      "generation_status": "COPIED_BYTE_FOR_BYTE",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-15T12:32:57Z"
+    },
+    {
+      "relative_path": "artifacts/model/model_artifact_manifest.json",
+      "size_bytes": 5225,
+      "sha256": "9c49149b1a3f72fc6e0f6fe5e5efa84f5c81f65224c1bd08daded1f6231461fd",
+      "media_type": "application/json",
+      "purpose": "Model lineage, structure, threshold, features, compatibility, and runtime-state manifest",
+      "source_commit_or_generation_baseline": "5cd4645af5706a71b2d95f7cc749219888cb5681",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "CREATED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-15T12:32:57Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_model_artifact_intake_report.md",
+      "size_bytes": 6623,
+      "sha256": "3014e22b490a43a0ca8767fbf2e1ae0da22f046771b1cfd3edb76f8510fe3acc",
+      "media_type": "text/markdown",
+      "purpose": "Human-readable verified model artifact intake and compatibility audit",
+      "source_commit_or_generation_baseline": "5cd4645af5706a71b2d95f7cc749219888cb5681",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "CREATED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-15T12:32:57Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_model_artifact_intake_report.json",
+      "size_bytes": 5556,
+      "sha256": "66cb6311a0ddbf7065e621dda6fcdb9172489e90aecacbe0749b95a74bc9aeca",
+      "media_type": "application/json",
+      "purpose": "Machine-readable verified model artifact intake and compatibility audit",
+      "source_commit_or_generation_baseline": "5cd4645af5706a71b2d95f7cc749219888cb5681",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "CREATED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-15T12:32:57Z"
+    }
+  ],
+  "source_commit_or_generation_baseline": "5cd4645af5706a71b2d95f7cc749219888cb5681",
+  "source_branch": "phase8-public-demo-source",
+  "generation_status": "COMPLETE",
+  "validation_status": "PASS",
+  "generated_at_utc": "2026-07-15T12:32:57Z",
+  "self_hash_policy": "The Step 3 manifest does not embed its own SHA-256 because that value would be self-referential."
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "Stage 9",
+  "step": "Step 3",
+  "report_name": "Verified Model Artifact Intake Report",
+  "deployment_classification": "PORTFOLIO_DEMO_ONLY",
+  "precondition_status": "PASS",
+  "source_artifact_audit_status": "PASS",
+  "trusted_bundle_inspection_status": "PASS",
+  "threshold_validation_status": "PASS",
+  "feature_contract_validation_status": "PASS",
+  "byte_preserving_copy_status": "PASS",
+  "source_lineage": {
+    "repository": "credit-scoring",
+    "repository_head": "b2b4db65b2026493a336a4b9d17dc228327db380",
+    "branch": "phase5b-demo-contracts",
+    "model": {"relative_path": "models/final_model_calibrated.pkl", "last_commit": "4e1edde3bd4d68cfc446eeae6527e054f13ba67f", "last_commit_subject": "Baseline before phase 4 continuation", "size_bytes": 4881685, "sha256": "b022b545bd7bb4294018a26a7d10af977e3c452b7f219dbdd9113adeac367cbf", "regular_file": true, "symlink": false, "git_tracked": true, "git_lfs_pointer": false},
+    "threshold": {"relative_path": "outputs/phase3/final_threshold.json", "last_commit": "4e1edde3bd4d68cfc446eeae6527e054f13ba67f", "last_commit_subject": "Baseline before phase 4 continuation", "size_bytes": 96, "sha256": "e45a19822f77d6b74cf5e76c0c0e6ff2f993bad4ab91e507509b3d74d410e28b", "regular_file": true, "symlink": false, "git_tracked": true, "git_lfs_pointer": false}
+  },
+  "target_baseline": {"repository": "credit-scoring-public-demo-source", "branch": "phase8-public-demo-source", "commit": "5cd4645af5706a71b2d95f7cc749219888cb5681", "initial_tracked_files": 45, "initial_working_tree_clean": true},
+  "copy_verification": {
+    "model": {"target_relative_path": "artifacts/model/final_model_calibrated.pkl", "target_size_bytes": 4881685, "target_sha256": "b022b545bd7bb4294018a26a7d10af977e3c452b7f219dbdd9113adeac367cbf", "source_target_size_match": true, "source_target_sha256_match": true},
+    "threshold": {"target_relative_path": "artifacts/model/final_threshold.json", "target_size_bytes": 96, "target_sha256": "e45a19822f77d6b74cf5e76c0c0e6ff2f993bad4ab91e507509b3d74d410e28b", "source_target_size_match": true, "source_target_sha256_match": true}
+  },
+  "bundle_inspection": {
+    "top_level_type": "builtins.dict",
+    "keys": ["model", "calibrator", "threshold", "feature_cols", "version"],
+    "model_class": "Booster",
+    "model_module": "lightgbm.basic",
+    "calibrator_class": "IsotonicRegression",
+    "calibrator_module": "sklearn.isotonic",
+    "model_has_predict": true,
+    "model_has_predict_proba": false,
+    "calibrator_has_predict": true,
+    "calibrator_has_predict_proba": false,
+    "prediction_or_transformation_method_invoked": false,
+    "future_runtime_adapter_note": "The inspected architecture exposes raw model predict and calibrator predict interfaces. A later independently authorized adapter must validate their composition; this step does not invoke them."
+  },
+  "threshold_validation": {"bundle_value": 0.1, "external_value": 0.1, "values_match": true, "tolerance": 1e-12, "range_valid": true, "recomputed_or_optimized": false},
+  "feature_validation": {
+    "expected_count": 49,
+    "bundle_count": 49,
+    "source_manifest_count": 49,
+    "target_canonical_count": 49,
+    "ordered_feature_names": ["acc_open_past_24mths", "bankruptcy_flag", "bc_open_to_buy", "bc_open_to_buy_missing_flag", "bc_util", "bc_util_missing_flag", "credit_age_months", "debt_to_income_revol", "delinq_2yrs", "delinq_flag", "dti", "fico_avg", "grade_encoded", "high_revol_util_flag", "home_ownership_encoded", "inq_last_6mths", "inq_per_open_acc", "installment", "is_60_month", "loan_amnt", "loan_to_income", "log_annual_inc", "log_loan_amnt", "log_revol_bal", "log_tot_cur_bal", "log_total_rev_hi_lim", "mo_sin_old_rev_tl_op", "mo_sin_old_rev_tl_op_missing_flag", "mo_sin_rcnt_rev_tl_op", "mo_sin_rcnt_rev_tl_op_missing_flag", "mort_acc", "mths_since_last_delinq", "mths_since_last_delinq_missing_flag", "num_actv_bc_tl", "open_acc", "payment_to_income", "pct_tl_nvr_dlq", "pub_rec", "pub_rec_bankruptcies", "pub_rec_flag", "purpose", "revol_bal", "revol_util", "term_months", "tot_cur_bal", "total_acc", "total_rev_hi_lim", "util_to_fico_ratio", "verification_encoded"],
+    "unique": true,
+    "blank_feature_names_present": false,
+    "bundle_source_feature_set_match": true,
+    "bundle_source_feature_order_match": true,
+    "bundle_target_feature_set_match": true,
+    "target_schema_order_declared_authoritative": false,
+    "target_schema_row_order_match_model_order": true,
+    "forbidden_real_identity_features": [],
+    "known_limitation_aware_features_present": ["grade_encoded", "credit_age_months"]
+  },
+  "runtime_state": {"model_artifact_present_in_target": true, "model_loading_activated": false, "model_loaded_by_application": false, "predict_executed": false, "predict_proba_executed": false, "inference_executed": false, "probability_generated": false, "public_deployment_performed": false},
+  "governance_boundaries": {"production_approval": false, "legal_compliance_conclusion": false, "fairness_clearance": false, "group_aware_threshold_activated": false, "current_public_deployment_authorized": false, "future_scope": "PORTFOLIO_DEMO_ONLY"},
+  "next_step_authorization": {"human_audit_authorized": true, "separate_git_scope_review_authorized": true, "runtime_adapter_implementation_authorized": false, "model_loading_activation_authorized": false, "predict_proba_execution_authorized": false, "public_deployment_authorized": false},
+  "validation_result": "PASS",
+  "generated_at_utc": "2026-07-15T12:32:57Z"
+}

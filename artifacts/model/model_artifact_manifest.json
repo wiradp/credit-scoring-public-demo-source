@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "Stage 9",
+  "step": "Step 3",
+  "artifact_role": "verified calibrated model bundle for portfolio demo",
+  "deployment_classification": "PORTFOLIO_DEMO_ONLY",
+  "source": {
+    "repository": "credit-scoring",
+    "repository_head": "b2b4db65b2026493a336a4b9d17dc228327db380",
+    "branch": "phase5b-demo-contracts",
+    "model_relative_path": "models/final_model_calibrated.pkl",
+    "model_last_commit": "4e1edde3bd4d68cfc446eeae6527e054f13ba67f",
+    "model_last_commit_subject": "Baseline before phase 4 continuation",
+    "threshold_relative_path": "outputs/phase3/final_threshold.json",
+    "threshold_last_commit": "4e1edde3bd4d68cfc446eeae6527e054f13ba67f",
+    "threshold_last_commit_subject": "Baseline before phase 4 continuation"
+  },
+  "target": {
+    "repository": "credit-scoring-public-demo-source",
+    "branch": "phase8-public-demo-source",
+    "baseline_commit": "5cd4645af5706a71b2d95f7cc749219888cb5681",
+    "model_relative_path": "artifacts/model/final_model_calibrated.pkl",
+    "threshold_relative_path": "artifacts/model/final_threshold.json"
+  },
+  "model_artifact": {
+    "source_size_bytes": 4881685,
+    "target_size_bytes": 4881685,
+    "source_sha256": "b022b545bd7bb4294018a26a7d10af977e3c452b7f219dbdd9113adeac367cbf",
+    "target_sha256": "b022b545bd7bb4294018a26a7d10af977e3c452b7f219dbdd9113adeac367cbf",
+    "source_target_identity": true,
+    "source_regular_file": true,
+    "source_symlink": false,
+    "source_git_tracked": true,
+    "source_git_lfs_pointer": false,
+    "target_regular_file": true,
+    "target_symlink": false,
+    "bundle_top_level_type": "builtins.dict",
+    "bundle_keys": ["model", "calibrator", "threshold", "feature_cols", "version"],
+    "model_class": "Booster",
+    "model_module": "lightgbm.basic",
+    "calibrator_class": "IsotonicRegression",
+    "calibrator_module": "sklearn.isotonic",
+    "interface_presence": {
+      "model_has_predict": true,
+      "model_has_predict_proba": false,
+      "calibrator_has_predict": true,
+      "calibrator_has_predict_proba": false
+    },
+    "future_runtime_adapter_interface": "raw model predict output followed by calibrator transformation to calibrated probability; implementation and method invocation remain unauthorized"
+  },
+  "threshold": {
+    "bundle_type": "float",
+    "bundle_value": 0.1,
+    "external_value": 0.1,
+    "values_match": true,
+    "tolerance": 1e-12,
+    "range_valid": true,
+    "source_size_bytes": 96,
+    "target_size_bytes": 96,
+    "source_sha256": "e45a19822f77d6b74cf5e76c0c0e6ff2f993bad4ab91e507509b3d74d410e28b",
+    "target_sha256": "e45a19822f77d6b74cf5e76c0c0e6ff2f993bad4ab91e507509b3d74d410e28b",
+    "source_target_identity": true,
+    "source_regular_file": true,
+    "source_symlink": false,
+    "source_git_tracked": true,
+    "source_git_lfs_pointer": false,
+    "target_regular_file": true,
+    "target_symlink": false
+  },
+  "features": {
+    "expected_count": 49,
+    "bundle_count": 49,
+    "source_manifest_count": 49,
+    "target_contract_count": 49,
+    "ordered_feature_names": [
+      "acc_open_past_24mths", "bankruptcy_flag", "bc_open_to_buy", "bc_open_to_buy_missing_flag", "bc_util", "bc_util_missing_flag", "credit_age_months", "debt_to_income_revol", "delinq_2yrs", "delinq_flag", "dti", "fico_avg", "grade_encoded", "high_revol_util_flag", "home_ownership_encoded", "inq_last_6mths", "inq_per_open_acc", "installment", "is_60_month", "loan_amnt", "loan_to_income", "log_annual_inc", "log_loan_amnt", "log_revol_bal", "log_tot_cur_bal", "log_total_rev_hi_lim", "mo_sin_old_rev_tl_op", "mo_sin_old_rev_tl_op_missing_flag", "mo_sin_rcnt_rev_tl_op", "mo_sin_rcnt_rev_tl_op_missing_flag", "mort_acc", "mths_since_last_delinq", "mths_since_last_delinq_missing_flag", "num_actv_bc_tl", "open_acc", "payment_to_income", "pct_tl_nvr_dlq", "pub_rec", "pub_rec_bankruptcies", "pub_rec_flag", "purpose", "revol_bal", "revol_util", "term_months", "tot_cur_bal", "total_acc", "total_rev_hi_lim", "util_to_fico_ratio", "verification_encoded"
+    ],
+    "unique": true,
+    "blank_feature_names_present": false,
+    "bundle_source_set_match": true,
+    "bundle_source_order_match": true,
+    "bundle_target_set_match": true,
+    "target_schema_order_declared_authoritative": false,
+    "target_schema_row_order_match_model_order": true,
+    "forbidden_identity_feature_conflicts": [],
+    "known_limitation_aware_features_present": ["grade_encoded", "credit_age_months"]
+  },
+  "runtime_state": {
+    "model_artifact_present": true,
+    "model_loading_activated": false,
+    "model_loaded_by_application": false,
+    "predict_executed": false,
+    "predict_proba_executed": false,
+    "inference_executed": false,
+    "probability_generated": false,
+    "public_deployment_performed": false
+  },
+  "inspection_environment": {
+    "python_version": "3.10.12",
+    "relevant_package_versions": {
+      "joblib": "1.5.3",
+      "lightgbm": "4.6.0",
+      "scikit-learn": "1.7.2",
+      "numpy": "1.26.4"
+    },
+    "loader": "joblib.load",
+    "isolated_metadata_only_subprocess": true,
+    "prediction_or_transformation_method_invoked": false
+  },
+  "validation_status": "PASS",
+  "generated_at_utc": "2026-07-15T12:32:57Z"
+}
