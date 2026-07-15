@@ -1,0 +1,38 @@
+{
+  "manifest_schema_version": "1.0.0",
+  "stage": "Stage 9",
+  "step": "Step 2",
+  "artifact_count": 2,
+  "artifacts": [
+    {
+      "relative_path": "outputs/stage9/stage9_public_inference_contract.md",
+      "size_bytes": 14879,
+      "sha256": "0e4ae1e23f500b52b62a18f3320977a10b7782bec1f4f91f4c7ea0981350149a",
+      "media_type": "text/markdown",
+      "purpose": "Human-readable frozen public inference safety and governance contract",
+      "source_commit": "6b7aae3a16650c048c802b69e1d4959f3b0a3a64",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "CREATED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-15T11:40:01Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_public_inference_contract.json",
+      "size_bytes": 14419,
+      "sha256": "8fb783382577d73ed6d329baa8d82432c538d16a91b224a2f30987a8c795ea47",
+      "media_type": "application/json",
+      "purpose": "Machine-readable frozen public inference safety and governance contract",
+      "source_commit": "6b7aae3a16650c048c802b69e1d4959f3b0a3a64",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "CREATED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-15T11:40:01Z"
+    }
+  ],
+  "source_commit": "6b7aae3a16650c048c802b69e1d4959f3b0a3a64",
+  "source_branch": "phase8-public-demo-source",
+  "generation_status": "COMPLETE",
+  "validation_status": "PASS",
+  "generated_at_utc": "2026-07-15T11:40:01Z",
+  "self_hash_policy": "The manifest does not embed its own SHA-256 because that value would be self-referential."
+}
