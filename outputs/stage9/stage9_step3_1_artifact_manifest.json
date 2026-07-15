@@ -1,0 +1,21 @@
+{
+  "manifest_schema_version": "1.0.0",
+  "stage": "Stage 9",
+  "step": "Step 3.1",
+  "artifact_count": 7,
+  "artifacts": [
+    {"relative_path": "artifacts/contracts/cell_group_7/sample_profiles/sample_profile_feature_matrix.csv", "size_bytes": 89769, "sha256": "c16f1786900ae0ec7878aac2dbc87018c34de459ae9a36dfabf0a43ca92f1bd6", "media_type": "text/csv", "purpose": "Repaired five-profile canonical synthetic fixture matrix", "baseline_commit": "541c4ff8c2a847aa7ffd1fdae751cd6e0a66d414", "source_branch": "phase8-public-demo-source", "generation_status": "MODIFIED", "validation_status": "PASS", "generated_at_utc": "2026-07-15T14:42:16Z"},
+    {"relative_path": "artifacts/contracts/cell_group_7/payload/demo_payload_profile_payload_map.csv", "size_bytes": 56570, "sha256": "0a805a0203ecf4f507bddaa0e2eeba2f7e4dc2dd52e9d9d5c7d130e393055a19", "media_type": "text/csv", "purpose": "Repaired direct sample-profile payload map", "baseline_commit": "541c4ff8c2a847aa7ffd1fdae751cd6e0a66d414", "source_branch": "phase8-public-demo-source", "generation_status": "MODIFIED", "validation_status": "PASS", "generated_at_utc": "2026-07-15T14:42:16Z"},
+    {"relative_path": "artifacts/contracts/manifest/cell_group_7_contract_export_manifest.csv", "size_bytes": 14734, "sha256": "c25b599d75ac11595c7ca118cffdc7fd43b8125ea0bfa0d340461ac574c3de3b", "media_type": "text/csv", "purpose": "Updated Cell Group 7 CSV export integrity manifest", "baseline_commit": "541c4ff8c2a847aa7ffd1fdae751cd6e0a66d414", "source_branch": "phase8-public-demo-source", "generation_status": "MODIFIED", "validation_status": "PASS", "generated_at_utc": "2026-07-15T14:42:16Z"},
+    {"relative_path": "artifacts/contracts/manifest/cell_group_7_contract_export_manifest.json", "size_bytes": 33987, "sha256": "626c5369dfe9a70ed2b37bd3aa43fb90abc0c2466f2b0635e41b4728e7adfbf9", "media_type": "application/json", "purpose": "Updated Cell Group 7 JSON export integrity manifest", "baseline_commit": "541c4ff8c2a847aa7ffd1fdae751cd6e0a66d414", "source_branch": "phase8-public-demo-source", "generation_status": "MODIFIED", "validation_status": "PASS", "generated_at_utc": "2026-07-15T14:42:16Z"},
+    {"relative_path": "outputs/stage9/stage9_sample_profile_categorical_repair_contract.json", "size_bytes": 3376, "sha256": "98b391bd31af98d7ff51cf1d92c848d170df93ec2bbf30e9e0d2b161874b1482", "media_type": "application/json", "purpose": "Frozen categorical repair policy and authorization boundary", "baseline_commit": "541c4ff8c2a847aa7ffd1fdae751cd6e0a66d414", "source_branch": "phase8-public-demo-source", "generation_status": "CREATED", "validation_status": "PASS", "generated_at_utc": "2026-07-15T15:18:26Z"},
+    {"relative_path": "outputs/stage9/stage9_sample_profile_categorical_repair_report.md", "size_bytes": 6161, "sha256": "d2485d9ed00510f9d321e86fe32f3f56a0bd1219182e3c40adb001cf19212370", "media_type": "text/markdown", "purpose": "Human-readable categorical contract repair evidence", "baseline_commit": "541c4ff8c2a847aa7ffd1fdae751cd6e0a66d414", "source_branch": "phase8-public-demo-source", "generation_status": "CREATED", "validation_status": "PASS", "generated_at_utc": "2026-07-15T15:18:26Z"},
+    {"relative_path": "outputs/stage9/stage9_sample_profile_categorical_repair_report.json", "size_bytes": 6085, "sha256": "d7bfaf3211501b60f3111b1c1adde286fb80dde7292c057ea151c5cbc65cbfdd", "media_type": "application/json", "purpose": "Machine-readable categorical contract repair evidence", "baseline_commit": "541c4ff8c2a847aa7ffd1fdae751cd6e0a66d414", "source_branch": "phase8-public-demo-source", "generation_status": "CREATED", "validation_status": "PASS", "generated_at_utc": "2026-07-15T15:18:26Z"}
+  ],
+  "baseline_commit": "541c4ff8c2a847aa7ffd1fdae751cd6e0a66d414",
+  "source_branch": "phase8-public-demo-source",
+  "generation_status": "COMPLETE",
+  "validation_status": "PASS",
+  "generated_at_utc": "2026-07-15T15:18:26Z",
+  "self_hash_policy": "The Step 3.1 manifest does not embed its own SHA-256 because that value would be self-referential."
+}
