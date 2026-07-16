@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "Stage 9",
+  "step": "Step 4",
+  "deployment_classification": "PORTFOLIO_DEMO_ONLY",
+  "repository_preconditions": {
+    "status": "PASS",
+    "branch": "phase8-public-demo-source",
+    "baseline_commit": "884318a10791a659f56ff0e12d95605bd78a5ea5",
+    "baseline_subject": "Repair sample profile categorical purpose contract",
+    "parent_commit": "541c4ff8c2a847aa7ffd1fdae751cd6e0a66d414",
+    "initial_tracked_file_count": 55,
+    "initial_working_tree_clean": true
+  },
+  "step3_1_repair_baseline": {
+    "status": "PASS",
+    "policy_id": "PURPOSE_FIXED_ALLOWED_CATEGORY_V1",
+    "feature": "purpose",
+    "replacement_category": "other",
+    "fixture_source": "FIXED_ALLOWED_CATEGORY_REPAIR",
+    "canonical_value_source": "SYNTHETIC_BASELINE",
+    "fixture_source_is_canonical_value_source": false,
+    "canonical_provenance_taxonomy_preserved": true
+  },
+  "frozen_contract_validation": {
+    "status": "PASS",
+    "expected_canonical_feature_count": 49,
+    "approval_or_rejection_output_allowed": false,
+    "fabricated_probability_allowed": false,
+    "raw_input_logging": false,
+    "canonical_payload_logging": false,
+    "public_deployment_performed": false
+  },
+  "artifact_integrity": {
+    "status": "PASS",
+    "model_size_bytes": 4881685,
+    "model_sha256": "b022b545bd7bb4294018a26a7d10af977e3c452b7f219dbdd9113adeac367cbf",
+    "threshold_size_bytes": 96,
+    "threshold_sha256": "e45a19822f77d6b74cf5e76c0c0e6ff2f993bad4ab91e507509b3d74d410e28b",
+    "threshold": 0.1
+  },
+  "source_change_scope": {
+    "modified_tracked_paths": ["app/src/demo_inference.py"],
+    "streamlit_ui_files_modified": false,
+    "requirements_modified": false,
+    "contract_files_modified": false,
+    "repair_files_modified": false,
+    "model_files_modified": false
+  },
+  "legacy_module_assessment": {
+    "pickle_load_call_found": false,
+    "executable_predict_proba_call_found": false,
+    "arbitrary_runtime_path_override_effective": false,
+    "legacy_risk_band_logic_active": false
+  },
+  "runtime_adapter": {
+    "fixed_path_resolution": true,
+    "verify_before_deserialization": true,
+    "loader": "joblib.load",
+    "cache_maximum_size": 1,
+    "authorized_mode": "SAMPLE_PROFILE",
+    "fail_closed": true
+  },
+  "sample_profile_authorization": {
+    "mode_string_alone_sufficient": false,
+    "profile_id_required": true,
+    "allowlisted_profile_count": 5,
+    "readiness_verified_from_committed_contract": true,
+    "full_payload_identity_verified": true,
+    "prediction_uses_internally_reconstructed_payload": true,
+    "forged_finite_payload_test_executed": true,
+    "forged_finite_payload_rejected": true,
+    "cross_profile_payload_rejected": true,
+    "missing_profile_id_rejected": true,
+    "unknown_profile_id_rejected": true
+  },
+  "status_contract": {
+    "canonical_available_status": "available",
+    "canonical_unavailable_status": "unavailable",
+    "legacy_status_separate": true,
+    "runtime_and_smoke_status_consistent": true
+  },
+  "bundle_validation": {
+    "status": "PASS",
+    "top_level_type": "builtins.dict",
+    "keys": ["model", "calibrator", "threshold", "feature_cols", "version"],
+    "model_module": "lightgbm.basic",
+    "model_class": "Booster",
+    "calibrator_module": "sklearn.isotonic",
+    "calibrator_class": "IsotonicRegression",
+    "feature_count": 49,
+    "feature_order_match": true
+  },
+  "categorical_handling": {
+    "status": "PASS",
+    "feature": "purpose",
+    "feature_index": 40,
+    "category_count": 14,
+    "value": "other",
+    "pandas_categorical_used": true,
+    "manual_ordinal_encoding_used": false
+  },
+  "payload_boundary": {
+    "status": "PASS",
+    "exact_feature_set_required": true,
+    "exact_feature_order_applied": true,
+    "strict_finite_numeric_parsing": true,
+    "missing_or_extra_completion_allowed": false,
+    "public_input_mode_activated": false
+  },
+  "test_execution": {
+    "status": "PASS",
+    "framework": "unittest",
+    "test_count": 27,
+    "pass_count": 27,
+    "fail_count": 0,
+    "error_count": 0,
+    "apptest_default_render_executed": true,
+    "apptest_default_render_passed": true,
+    "persisted_apptest_count": 1,
+    "apptest_exception_count": 0,
+    "apptest_model_predict_executed": false,
+    "apptest_probability_generated": false
+  },
+  "local_inference_results_summary": {
+    "profile_count": 5,
+    "successful_profile_count": 5,
+    "failed_profile_count": 0,
+    "unique_calibrated_probability_count": 5,
+    "minimum_calibrated_probability": 0.31875881523272215,
+    "maximum_calibrated_probability": 0.5721649484536082,
+    "all_probabilities_finite": true,
+    "all_probabilities_in_range": true,
+    "all_threshold_relations_valid": true,
+    "all_repeated_predictions_deterministic": true
+  },
+  "privacy_boundary": {
+    "raw_payload_recorded": false,
+    "canonical_payload_recorded": false,
+    "model_input_matrix_recorded": false,
+    "payload_difference_values_recorded": false,
+    "personal_data_used": false,
+    "synthetic_profiles_only": true
+  },
+  "governance_boundary": {
+    "credit_decision_generated": false,
+    "fairness_clearance": false,
+    "legal_compliance_conclusion": false,
+    "public_deployment_performed": false
+  },
+  "runtime_state": {
+    "model_artifact_present": true,
+    "runtime_adapter_implemented": true,
+    "model_loaded_in_controlled_local_test": true,
+    "model_predict_executed_locally": true,
+    "calibrator_predict_executed_locally": true,
+    "predict_proba_executed": false,
+    "local_inference_executed": true,
+    "local_probability_generated": true,
+    "sample_profile_mode_tested": true,
+    "basic_form_mode_tested": false,
+    "advanced_editor_mode_tested": false,
+    "canonical_payload_mode_tested": false,
+    "streamlit_ui_files_modified": false,
+    "public_host_tested": false,
+    "public_deployment_performed": false
+  },
+  "limitations": [
+    "The repaired category other is compatible with the model but is not proven risk-neutral.",
+    "Profile labels do not define expected probability ordering; equal calibrated probabilities are permitted.",
+    "Local controlled inference does not prove public-host or public-input behavior."
+  ],
+  "next_step_authorization": {
+    "human_audit_authorized": true,
+    "separate_git_scope_review_authorized": true,
+    "streamlit_ui_integration_authorized": false,
+    "public_input_activation_authorized": false,
+    "public_host_build_authorized": false,
+    "public_deployment_authorized": false
+  },
+  "validation_result": "PASS",
+  "generated_at_utc": "2026-07-16T06:16:58Z"
+}

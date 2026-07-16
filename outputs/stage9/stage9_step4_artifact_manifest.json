@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "Stage 9",
+  "step": "Step 4",
+  "baseline_commit": "884318a10791a659f56ff0e12d95605bd78a5ea5",
+  "source_branch": "phase8-public-demo-source",
+  "artifact_count": 5,
+  "artifacts": [
+    {
+      "relative_path": "app/src/demo_inference.py",
+      "size_bytes": 38299,
+      "sha256": "1eb8fdf3a39e4775f5817c2a4620dc7c6669d0d7ad844932f411fc25ebbc9074",
+      "media_type": "text/x-python",
+      "purpose": "Fixed-path fail-closed controlled local calibrated inference adapter",
+      "baseline_commit": "884318a10791a659f56ff0e12d95605bd78a5ea5",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "MODIFIED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-16T06:16:58Z"
+    },
+    {
+      "relative_path": "tests/test_stage9_controlled_runtime_adapter.py",
+      "size_bytes": 16129,
+      "sha256": "fa277e2a3fc323739e1e86e9e2b51ea779cbc836f7a43980189ffef449cac2b8",
+      "media_type": "text/x-python",
+      "purpose": "Unit, fail-closed, integrity, provenance, and static safety tests",
+      "baseline_commit": "884318a10791a659f56ff0e12d95605bd78a5ea5",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "CREATED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-16T06:16:58Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_controlled_runtime_adapter_report.md",
+      "size_bytes": 7633,
+      "sha256": "b94d20e248c1684fb63bed684256957a29a53e5fbc54ebba1bcf128bc6e69e52",
+      "media_type": "text/markdown",
+      "purpose": "Human-readable controlled runtime implementation and validation report",
+      "baseline_commit": "884318a10791a659f56ff0e12d95605bd78a5ea5",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "CREATED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-16T06:16:58Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_controlled_runtime_adapter_report.json",
+      "size_bytes": 6571,
+      "sha256": "bf8849930faa2bc5d3d0165b05fa24811204e726c3fb2748a101edbfc44436fe",
+      "media_type": "application/json",
+      "purpose": "Machine-readable controlled runtime implementation and validation report",
+      "baseline_commit": "884318a10791a659f56ff0e12d95605bd78a5ea5",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "CREATED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-16T06:16:58Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_local_inference_smoke_results.json",
+      "size_bytes": 6561,
+      "sha256": "0b62d758e7a448bb1c53a9413e0fd799b22f549bcb6fb610b8f1c71929d06883",
+      "media_type": "application/json",
+      "purpose": "Sanitized deterministic five-profile controlled local inference evidence",
+      "baseline_commit": "884318a10791a659f56ff0e12d95605bd78a5ea5",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "CREATED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-16T06:16:58Z"
+    }
+  ],
+  "generation_status": "COMPLETE",
+  "validation_status": "PASS",
+  "generated_at_utc": "2026-07-16T06:16:58Z"
+}

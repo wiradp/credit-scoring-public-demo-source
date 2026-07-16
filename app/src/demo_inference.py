@@ -1,27 +1,32 @@
-"""Safe demo inference skeleton for Stage 4.
+"""Fail-closed controlled local inference adapter for the portfolio demo.
 
-This module defines the guarded result shape for portfolio-demo inference. It
-does not load models, execute ``predict_proba``, apply thresholds, load SHAP,
-or import Streamlit.
+Only committed SAMPLE_PROFILE fixtures are authorized in Stage 9 Step 4. Model
+loading is fixed-path, integrity-gated, lazy, and limited to one cached runtime.
 """
 
 from __future__ import annotations
 
-import pickle
+import hashlib
+import csv
 import json
+import math
 from dataclasses import asdict, dataclass, field
+from functools import lru_cache
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping, Sequence
+
+import joblib
+import numpy as np
+import pandas as pd
 
 
-DEMO_INFERENCE_READY = "DEMO_INFERENCE_READY"
-DEMO_INFERENCE_BLOCKED_BY_PAYLOAD_GAP = "DEMO_INFERENCE_BLOCKED_BY_PAYLOAD_GAP"
-DEMO_INFERENCE_BLOCKED_BY_SCHEMA_ERROR = "DEMO_INFERENCE_BLOCKED_BY_SCHEMA_ERROR"
-DEMO_INFERENCE_BLOCKED_BY_MODEL_ARTIFACT_MISSING = (
-    "DEMO_INFERENCE_BLOCKED_BY_MODEL_ARTIFACT_MISSING"
-)
-DEMO_INFERENCE_FAILED_SAFE = "DEMO_INFERENCE_FAILED_SAFE"
-
+AVAILABLE = "available"
+UNAVAILABLE = "unavailable"
+DEMO_INFERENCE_READY = AVAILABLE
+DEMO_INFERENCE_BLOCKED_BY_PAYLOAD_GAP = UNAVAILABLE
+DEMO_INFERENCE_BLOCKED_BY_SCHEMA_ERROR = UNAVAILABLE
+DEMO_INFERENCE_BLOCKED_BY_MODEL_ARTIFACT_MISSING = UNAVAILABLE
+DEMO_INFERENCE_FAILED_SAFE = UNAVAILABLE
 DEMO_INFERENCE_STATUSES = [
     DEMO_INFERENCE_READY,
     DEMO_INFERENCE_BLOCKED_BY_PAYLOAD_GAP,
@@ -36,7 +41,6 @@ MODEL_INPUT_BLOCKED_EXTRA_FEATURES = "MODEL_INPUT_BLOCKED_EXTRA_FEATURES"
 MODEL_INPUT_BLOCKED_ORDER_UNKNOWN = "MODEL_INPUT_BLOCKED_ORDER_UNKNOWN"
 MODEL_INPUT_BLOCKED_DTYPE_ERROR = "MODEL_INPUT_BLOCKED_DTYPE_ERROR"
 MODEL_INPUT_BLOCKED_REFERENCE_UNAVAILABLE = "MODEL_INPUT_BLOCKED_REFERENCE_UNAVAILABLE"
-
 MODEL_INPUT_STATUSES = [
     MODEL_INPUT_COMPATIBLE,
     MODEL_INPUT_BLOCKED_MISSING_FEATURES,
@@ -46,22 +50,16 @@ MODEL_INPUT_STATUSES = [
     MODEL_INPUT_BLOCKED_REFERENCE_UNAVAILABLE,
 ]
 
-RISK_SIGNAL_LABEL = "Default-risk signal"
+RISK_SIGNAL_LABEL = "Estimated default-risk probability"
 RISK_SIGNAL_BANDS = [
-    "LOW_SIGNAL",
-    "MEDIUM_SIGNAL",
-    "HIGH_SIGNAL",
-    "VERY_HIGH_SIGNAL",
+    "Below the model operating threshold",
+    "At or above the model operating threshold",
 ]
-RISK_SIGNAL_BAND_NOTE = (
-    "Risk signal bands are descriptive demo bands for model behavior preview only. "
-    "They are not decision thresholds."
-)
-
+RISK_SIGNAL_BAND_NOTE = "This is a model operating-threshold relation, not a lending decision or risk band."
 SAFE_INFERENCE_LABELS = {
     "page_title": "Safe Demo Inference",
     "signal_preview": "Default-Risk Signal Preview",
-    "probability_preview": "Demo Probability Preview",
+    "probability_preview": "Calibrated Probability Preview",
     "behavior_preview": "Model Behavior Preview",
     "guardrails": "Inference Guardrails",
     "limitations": "Limitations",
@@ -70,10 +68,75 @@ SAFE_INFERENCE_LABELS = {
 
 REQUIRED_PAYLOAD_FIELD_COUNT = 49
 REQUIRED_PAYLOAD_READINESS_STATUS = "READY_FOR_CONTRACT_PREVIEW"
-DEFAULT_MODEL_ARTIFACT_PATH = Path(__file__).resolve().parents[2] / "models" / "final_model_calibrated.pkl"
-DEFAULT_FEATURE_MANIFEST_PATH = Path(__file__).resolve().parents[2] / "data" / "splits" / "feature_manifest.json"
 PAYLOAD_MODE_BASIC_FORM = "BASIC_FORM"
+AUTHORIZED_MODE = "SAMPLE_PROFILE"
+MODEL_SHA256 = "b022b545bd7bb4294018a26a7d10af977e3c452b7f219dbdd9113adeac367cbf"
+MODEL_SIZE = 4_881_685
+THRESHOLD_SHA256 = "e45a19822f77d6b74cf5e76c0c0e6ff2f993bad4ab91e507509b3d74d410e28b"
+THRESHOLD_SIZE = 96
+EXPECTED_THRESHOLD = 0.1
+THRESHOLD_TOLERANCE = 1e-12
+PURPOSE_FEATURE = "purpose"
+PURPOSE_CATEGORIES = (
+    "car", "credit_card", "debt_consolidation", "educational", "home_improvement",
+    "house", "major_purchase", "medical", "moving", "other", "renewable_energy",
+    "small_business", "vacation", "wedding",
+)
 
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+MODEL_PATH = PROJECT_ROOT / "artifacts/model/final_model_calibrated.pkl"
+THRESHOLD_PATH = PROJECT_ROOT / "artifacts/model/final_threshold.json"
+MODEL_MANIFEST_PATH = PROJECT_ROOT / "artifacts/model/model_artifact_manifest.json"
+PUBLIC_CONTRACT_PATH = PROJECT_ROOT / "outputs/stage9/stage9_public_inference_contract.json"
+REPAIR_CONTRACT_PATH = PROJECT_ROOT / "outputs/stage9/stage9_sample_profile_categorical_repair_contract.json"
+PROFILE_MATRIX_PATH = PROJECT_ROOT / "artifacts/contracts/cell_group_7/sample_profiles/sample_profile_feature_matrix.csv"
+PROFILE_CATALOG_PATH = PROJECT_ROOT / "artifacts/contracts/cell_group_7/sample_profiles/sample_profile_catalog.csv"
+PROFILE_READINESS_PATH = PROJECT_ROOT / "artifacts/contracts/cell_group_7/sample_profiles/sample_profile_payload_readiness.csv"
+PROFILE_COVERAGE_PATH = PROJECT_ROOT / "artifacts/contracts/cell_group_7/sample_profiles/sample_profile_feature_coverage.csv"
+PROFILE_MATRIX_SIZE = 89_769
+PROFILE_MATRIX_SHA256 = "c16f1786900ae0ec7878aac2dbc87018c34de459ae9a36dfabf0a43ca92f1bd6"
+AUTHORIZED_PROFILE_IDS = (
+    "SP_LOW_RISK_SIGNAL",
+    "SP_MEDIUM_RISK_SIGNAL",
+    "SP_HIGHER_RISK_SIGNAL",
+    "SP_MIXED_SIGNAL",
+    "SP_LIMITATION_TRANSPARENCY",
+)
+LIMITATION_AWARE_FEATURES = ("grade_encoded", "credit_age_months")
+DEFAULT_MODEL_ARTIFACT_PATH = MODEL_PATH
+DEFAULT_FEATURE_MANIFEST_PATH = MODEL_MANIFEST_PATH
+
+FAILURE_MESSAGES = {
+    "MODE_NOT_AUTHORIZED_FOR_STEP4": "This input mode is not authorized for controlled Stage 4 inference.",
+    "PATH_OVERRIDE_REJECTED": "Runtime path overrides are not permitted.",
+    "SAMPLE_PROFILE_ID_REQUIRED": "A committed synthetic profile identifier is required.",
+    "SAMPLE_PROFILE_ID_INVALID": "The synthetic profile identifier is not authorized.",
+    "SAMPLE_PROFILE_ID_CONFLICT": "Conflicting synthetic profile identifiers were supplied.",
+    "SAMPLE_PROFILE_NOT_READY": "The committed synthetic profile is not ready for controlled inference.",
+    "SAMPLE_PROFILE_CONTRACT_INVALID": "The committed synthetic profile contract could not be verified.",
+    "SAMPLE_PROFILE_PAYLOAD_MISMATCH": "The supplied payload does not match the committed synthetic profile.",
+    "CONTRACT_INVALID": "The frozen inference contract could not be verified.",
+    "REPAIR_CONTRACT_INVALID": "The categorical repair contract could not be verified.",
+    "MODEL_MANIFEST_INVALID": "The model manifest could not be verified.",
+    "MODEL_ARTIFACT_MISSING": "The verified model artifact is unavailable.",
+    "MODEL_ARTIFACT_SYMLINK": "The model artifact failed its file-safety check.",
+    "MODEL_ARTIFACT_HASH_MISMATCH": "The model artifact failed its integrity check.",
+    "THRESHOLD_ARTIFACT_MISSING": "The frozen threshold artifact is unavailable.",
+    "THRESHOLD_ARTIFACT_HASH_MISMATCH": "The threshold artifact failed its integrity check.",
+    "BUNDLE_STRUCTURE_INVALID": "The verified runtime bundle has an invalid structure.",
+    "MODEL_INTERFACE_INVALID": "The model interface is incompatible.",
+    "CALIBRATOR_INTERFACE_INVALID": "The calibrator interface is incompatible.",
+    "THRESHOLD_MISMATCH": "The runtime threshold does not match the frozen threshold.",
+    "FEATURE_COUNT_INVALID": "The canonical feature count is invalid.",
+    "FEATURE_SET_MISMATCH": "The canonical feature set is invalid.",
+    "FEATURE_ORDER_MISMATCH": "The canonical feature order is invalid.",
+    "FEATURE_VALUE_INVALID": "A canonical feature value is invalid.",
+    "CATEGORICAL_METADATA_INVALID": "Categorical metadata is incompatible.",
+    "UNKNOWN_CATEGORY": "A categorical value is not authorized by the model metadata.",
+    "MODEL_OUTPUT_INVALID": "The model returned an invalid internal value.",
+    "CALIBRATOR_OUTPUT_INVALID": "The calibrator returned an invalid probability.",
+    "INFERENCE_RUNTIME_FAILURE": "Controlled local inference is unavailable.",
+}
 
 GUARDRAIL_METADATA_DEFAULTS = {
     "demo_inference_only": True,
@@ -94,30 +157,51 @@ GUARDRAIL_METADATA_DEFAULTS = {
     "production_ready_claimed": False,
     "safe_failure": False,
     "failure_reason": None,
+    "portfolio_demo_only": True,
 }
+
+
+class RuntimeValidationError(ValueError):
+    """Internal exception carrying a sanitized failure code."""
+
+    def __init__(self, code: str):
+        self.code = code
+        super().__init__(code)
 
 
 @dataclass(frozen=True)
 class DemoInferenceResult:
-    """Stage 4 guarded result object for safe demo inference previews."""
-
     mode: str
     inference_status: str = DEMO_INFERENCE_FAILED_SAFE
     risk_signal: float | None = None
     risk_signal_band: str | None = None
     risk_signal_label: str = RISK_SIGNAL_LABEL
+    calibrated_default_probability: float | None = None
+    model_operating_threshold: float | None = None
+    threshold_relation: str | None = None
+    feature_count: int | None = None
+    model_artifact_sha256: str | None = None
+    raw_model_output_internal: float | None = None
+    canonical_value_source: str | None = None
+    purpose_fixture_source: str | None = None
+    synthetic_profile_id: str | None = None
+    sample_profile_identity_verified: bool = False
+    sample_profile_readiness_verified: bool = False
+    sample_profile_payload_match: bool = False
+    value_source_counts: dict[str, int] = field(default_factory=dict)
+    limitation_aware_features: tuple[str, ...] = ()
+    limitation_aware_count: int = 0
+    credit_decision: None = None
     input_validation: dict[str, Any] = field(default_factory=dict)
     model_input_compatibility: dict[str, Any] = field(default_factory=dict)
     metadata: dict[str, Any] = field(default_factory=dict)
     limitations: list[dict[str, Any]] = field(default_factory=list)
-    readiness_note: str = "Safe demo inference has not been executed."
+    readiness_note: str = "Controlled local inference has not been executed."
     error_message: str | None = None
 
 
 @dataclass(frozen=True)
 class ModelArtifactLoadResult:
-    """Read-only model artifact load result with fail-safe metadata."""
-
     model: Any | None = None
     model_path: str | None = None
     model_loaded: bool = False
@@ -130,8 +214,6 @@ class ModelArtifactLoadResult:
 
 @dataclass(frozen=True)
 class FeatureManifestLoadResult:
-    """Read-only feature manifest load result for model input validation."""
-
     feature_names: list[str] = field(default_factory=list)
     manifest_path: str | None = None
     manifest_loaded: bool = False
@@ -140,830 +222,529 @@ class FeatureManifestLoadResult:
     error_message: str | None = None
 
 
-def guardrail_metadata(
-    *,
-    model_loaded: bool = False,
-    inference_executed: bool = False,
-    predict_proba_executed: bool = False,
-    safe_failure: bool = False,
-    failure_reason: str | None = None,
-) -> dict[str, Any]:
-    """Return fresh Stage 4 guardrail metadata with no decisioning claims."""
+@dataclass(frozen=True)
+class VerifiedRuntime:
+    model: Any
+    calibrator: Any
+    threshold: float
+    feature_cols: tuple[str, ...]
+    categorical_features: dict[str, tuple[str, ...]]
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _strict_json(path: Path) -> Any:
+    def reject_constant(value: str) -> None:
+        raise ValueError(value)
+    return json.loads(path.read_text(encoding="utf-8"), parse_constant=reject_constant)
+
+
+def _verify_regular_file(path: Path, size: int, digest: str, missing_code: str, hash_code: str) -> None:
+    if not path.exists() or not path.is_file():
+        raise RuntimeValidationError(missing_code)
+    if path.is_symlink():
+        raise RuntimeValidationError("MODEL_ARTIFACT_SYMLINK" if path == MODEL_PATH else hash_code)
+    if path.stat().st_size != size or _sha256(path) != digest:
+        raise RuntimeValidationError(hash_code)
+
+
+def _validate_preload_contracts() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], float]:
+    try:
+        contract = _strict_json(PUBLIC_CONTRACT_PATH)
+    except (OSError, ValueError, TypeError):
+        raise RuntimeValidationError("CONTRACT_INVALID") from None
+    deployment = contract.get("deployment_classification", {})
+    payload_contract = contract.get("canonical_payload_contract", {})
+    output_contract = contract.get("output_contract", {})
+    privacy = contract.get("privacy_and_logging", {})
+    if not (
+        deployment.get("classification") == "PORTFOLIO_DEMO_ONLY"
+        and deployment.get("public_deployment_performed") is False
+        and payload_contract.get("expected_canonical_feature_count") == REQUIRED_PAYLOAD_FIELD_COUNT
+        and output_contract.get("approval_rejection_output_allowed") is False
+        and output_contract.get("fabricated_probability_allowed") is False
+        and privacy.get("RAW_INPUT_LOGGING") is False
+        and privacy.get("CANONICAL_PAYLOAD_LOGGING") is False
+    ):
+        raise RuntimeValidationError("CONTRACT_INVALID")
+    try:
+        repair = _strict_json(REPAIR_CONTRACT_PATH)
+    except (OSError, ValueError, TypeError):
+        raise RuntimeValidationError("REPAIR_CONTRACT_INVALID") from None
+    policy = repair.get("repair_policy", {})
+    model_contract = repair.get("model_contract", {})
+    if not (
+        repair.get("blocked_feature") == PURPOSE_FEATURE
+        and model_contract.get("feature_index") == 40
+        and model_contract.get("allowed_categories") == list(PURPOSE_CATEGORIES)
+        and policy.get("policy_id") == "PURPOSE_FIXED_ALLOWED_CATEGORY_V1"
+        and policy.get("replacement_category") == "other"
+        and policy.get("fixture_source") == "FIXED_ALLOWED_CATEGORY_REPAIR"
+        and policy.get("canonical_value_source") == "SYNTHETIC_BASELINE"
+        and policy.get("fixture_source_is_canonical_value_source") is False
+        and policy.get("canonical_provenance_taxonomy_preserved") is True
+    ):
+        raise RuntimeValidationError("REPAIR_CONTRACT_INVALID")
+    try:
+        manifest = _strict_json(MODEL_MANIFEST_PATH)
+    except (OSError, ValueError, TypeError):
+        raise RuntimeValidationError("MODEL_MANIFEST_INVALID") from None
+    artifact = manifest.get("model_artifact", {})
+    threshold_meta = manifest.get("threshold", {})
+    features = manifest.get("features", {})
+    if not (
+        manifest.get("validation_status") == "PASS"
+        and artifact.get("source_target_identity") is True
+        and artifact.get("target_regular_file") is True
+        and artifact.get("target_symlink") is False
+        and artifact.get("target_size_bytes") == MODEL_SIZE
+        and artifact.get("target_sha256") == MODEL_SHA256
+        and threshold_meta.get("source_target_identity") is True
+        and features.get("expected_count") == REQUIRED_PAYLOAD_FIELD_COUNT
+    ):
+        raise RuntimeValidationError("MODEL_MANIFEST_INVALID")
+    _verify_regular_file(MODEL_PATH, MODEL_SIZE, MODEL_SHA256, "MODEL_ARTIFACT_MISSING", "MODEL_ARTIFACT_HASH_MISMATCH")
+    _verify_regular_file(THRESHOLD_PATH, THRESHOLD_SIZE, THRESHOLD_SHA256, "THRESHOLD_ARTIFACT_MISSING", "THRESHOLD_ARTIFACT_HASH_MISMATCH")
+    try:
+        threshold_json = _strict_json(THRESHOLD_PATH)
+        external = float(threshold_json["threshold"])
+    except (OSError, ValueError, TypeError, KeyError):
+        raise RuntimeValidationError("THRESHOLD_MISMATCH") from None
+    if not math.isfinite(external) or not 0 < external < 1 or abs(external - EXPECTED_THRESHOLD) > THRESHOLD_TOLERANCE:
+        raise RuntimeValidationError("THRESHOLD_MISMATCH")
+    return contract, repair, manifest, external
+
+
+def _validate_bundle(bundle: Any, manifest: Mapping[str, Any], external_threshold: float) -> VerifiedRuntime:
+    if type(bundle) is not dict or not {"model", "calibrator", "threshold", "feature_cols"}.issubset(bundle):
+        raise RuntimeValidationError("BUNDLE_STRUCTURE_INVALID")
+    model, calibrator = bundle["model"], bundle["calibrator"]
+    if type(model).__module__ != "lightgbm.basic" or type(model).__name__ != "Booster" or not callable(getattr(model, "predict", None)):
+        raise RuntimeValidationError("MODEL_INTERFACE_INVALID")
+    if type(calibrator).__module__ != "sklearn.isotonic" or type(calibrator).__name__ != "IsotonicRegression" or not callable(getattr(calibrator, "predict", None)):
+        raise RuntimeValidationError("CALIBRATOR_INTERFACE_INVALID")
+    cols = bundle["feature_cols"]
+    if isinstance(cols, (str, bytes)) or not isinstance(cols, Sequence):
+        raise RuntimeValidationError("BUNDLE_STRUCTURE_INVALID")
+    feature_cols = tuple(cols)
+    if len(feature_cols) != REQUIRED_PAYLOAD_FIELD_COUNT:
+        raise RuntimeValidationError("FEATURE_COUNT_INVALID")
+    if any(not isinstance(x, str) or not x.strip() for x in feature_cols) or len(set(feature_cols)) != len(feature_cols):
+        raise RuntimeValidationError("FEATURE_SET_MISMATCH")
+    expected = tuple(manifest.get("features", {}).get("ordered_feature_names", []))
+    if feature_cols != expected:
+        raise RuntimeValidationError("FEATURE_ORDER_MISMATCH")
+    try:
+        bundle_threshold = float(bundle["threshold"])
+    except (TypeError, ValueError):
+        raise RuntimeValidationError("THRESHOLD_MISMATCH") from None
+    if not math.isfinite(bundle_threshold) or abs(bundle_threshold - external_threshold) > THRESHOLD_TOLERANCE:
+        raise RuntimeValidationError("THRESHOLD_MISMATCH")
+    categories = getattr(model, "pandas_categorical", None)
+    if not isinstance(categories, list) or len(categories) != 1 or tuple(categories[0]) != PURPOSE_CATEGORIES:
+        raise RuntimeValidationError("CATEGORICAL_METADATA_INVALID")
+    if feature_cols.index(PURPOSE_FEATURE) != 40:
+        raise RuntimeValidationError("FEATURE_ORDER_MISMATCH")
+    return VerifiedRuntime(model, calibrator, bundle_threshold, feature_cols, {PURPOSE_FEATURE: PURPOSE_CATEGORIES})
+
+
+def _read_csv_rows(path: Path) -> list[dict[str, str]]:
+    if not path.exists() or not path.is_file() or path.is_symlink():
+        raise RuntimeValidationError("SAMPLE_PROFILE_CONTRACT_INVALID")
+    try:
+        with path.open(newline="", encoding="utf-8-sig") as stream:
+            return list(csv.DictReader(stream))
+    except (OSError, csv.Error, UnicodeError):
+        raise RuntimeValidationError("SAMPLE_PROFILE_CONTRACT_INVALID") from None
+
+
+@lru_cache(maxsize=1)
+def _committed_profile_contracts() -> tuple[dict[str, dict[str, str]], dict[str, str], tuple[str, ...]]:
+    _verify_regular_file(
+        PROFILE_MATRIX_PATH,
+        PROFILE_MATRIX_SIZE,
+        PROFILE_MATRIX_SHA256,
+        "SAMPLE_PROFILE_CONTRACT_INVALID",
+        "SAMPLE_PROFILE_CONTRACT_INVALID",
+    )
+    rows = _read_csv_rows(PROFILE_MATRIX_PATH)
+    readiness_rows = _read_csv_rows(PROFILE_READINESS_PATH)
+    if len(rows) != 245:
+        raise RuntimeValidationError("SAMPLE_PROFILE_CONTRACT_INVALID")
+    profile_ids = {row.get("profile_id", "") for row in rows}
+    if profile_ids != set(AUTHORIZED_PROFILE_IDS):
+        raise RuntimeValidationError("SAMPLE_PROFILE_CONTRACT_INVALID")
+    profiles: dict[str, dict[str, str]] = {}
+    limitation_features: set[str] = set()
+    seen: set[tuple[str, str]] = set()
+    for row in rows:
+        profile_id = row.get("profile_id", "")
+        feature = row.get("canonical_feature", "")
+        key = (profile_id, feature)
+        if not feature or key in seen:
+            raise RuntimeValidationError("SAMPLE_PROFILE_CONTRACT_INVALID")
+        seen.add(key)
+        profiles.setdefault(profile_id, {})[feature] = row.get("synthetic_value", "")
+        if str(row.get("limitation_aware", "")).strip().lower() == "true":
+            limitation_features.add(feature)
+    if any(len(payload) != 49 for payload in profiles.values()):
+        raise RuntimeValidationError("SAMPLE_PROFILE_CONTRACT_INVALID")
+    readiness: dict[str, str] = {}
+    for row in readiness_rows:
+        profile_id = row.get("profile_id", "")
+        if profile_id in readiness:
+            raise RuntimeValidationError("SAMPLE_PROFILE_CONTRACT_INVALID")
+        ready = str(row.get("profile_ready", "")).strip().lower() == "true"
+        count_ok = row.get("canonical_feature_count") == "49" and row.get("expected_canonical_feature_count") == "49"
+        handoff = str(row.get("handoff_ready_for_cell_7_9", "")).strip().lower() == "true"
+        readiness[profile_id] = "READY" if ready and count_ok and handoff else "NOT_READY"
+    if set(readiness) != set(AUTHORIZED_PROFILE_IDS) or limitation_features != set(LIMITATION_AWARE_FEATURES):
+        raise RuntimeValidationError("SAMPLE_PROFILE_CONTRACT_INVALID")
+    return profiles, readiness, tuple(sorted(limitation_features))
+
+
+@lru_cache(maxsize=1)
+def _verified_runtime() -> VerifiedRuntime:
+    _, _, manifest, external = _validate_preload_contracts()
+    try:
+        bundle = joblib.load(MODEL_PATH)
+    except Exception:
+        raise RuntimeValidationError("BUNDLE_STRUCTURE_INVALID") from None
+    return _validate_bundle(bundle, manifest, external)
+
+
+def clear_runtime_cache() -> None:
+    _verified_runtime.cache_clear()
+    _committed_profile_contracts.cache_clear()
+
+
+def guardrail_metadata(*, model_loaded: bool = False, inference_executed: bool = False,
+                       predict_proba_executed: bool = False, safe_failure: bool = False,
+                       failure_reason: str | None = None) -> dict[str, Any]:
     metadata = dict(GUARDRAIL_METADATA_DEFAULTS)
-    metadata.update(
-        {
-            "model_loaded": bool(model_loaded),
-            "inference_executed": bool(inference_executed),
-            "predict_proba_executed": bool(predict_proba_executed),
-            "safe_failure": bool(safe_failure),
-            "failure_reason": failure_reason,
-        }
-    )
-    return metadata
-
-
-def _model_loader_metadata(
-    *,
-    model_path: Path,
-    model_loaded: bool = False,
-    model_available: bool = False,
-    has_predict_proba: bool = False,
-    load_status: str = DEMO_INFERENCE_BLOCKED_BY_MODEL_ARTIFACT_MISSING,
-    failure_reason: str | None = None,
-    model_class: str | None = None,
-) -> dict[str, Any]:
-    """Return model-loader metadata while preserving no-inference guardrails."""
-    metadata = guardrail_metadata(
-        model_loaded=model_loaded,
-        inference_executed=False,
-        predict_proba_executed=False,
-        safe_failure=not model_loaded,
-        failure_reason=failure_reason,
-    )
-    metadata.update(
-        {
-            "model_artifact_path": str(model_path),
-            "model_artifact_available": bool(model_available),
-            "has_predict_proba": bool(has_predict_proba),
-            "model_class": model_class,
-            "model_load_status": load_status,
-            "threshold_loaded_for_decisioning": False,
-            "shap_loaded": False,
-            "shap_executed": False,
-        }
-    )
+    metadata.update({
+        "model_loaded": bool(model_loaded), "inference_executed": bool(inference_executed),
+        "predict_proba_executed": bool(predict_proba_executed), "safe_failure": bool(safe_failure),
+        "failure_reason": failure_reason,
+    })
     return metadata
 
 
 def model_artifact_path(path: str | Path | None = None) -> Path:
-    """Resolve the configured read-only model artifact path."""
-    return Path(path).expanduser().resolve() if path is not None else DEFAULT_MODEL_ARTIFACT_PATH
+    if path is not None:
+        raise RuntimeValidationError("PATH_OVERRIDE_REJECTED")
+    return MODEL_PATH
 
 
 def feature_manifest_path(path: str | Path | None = None) -> Path:
-    """Resolve the configured read-only feature manifest path."""
-    return Path(path).expanduser().resolve() if path is not None else DEFAULT_FEATURE_MANIFEST_PATH
+    if path is not None:
+        raise RuntimeValidationError("PATH_OVERRIDE_REJECTED")
+    return MODEL_MANIFEST_PATH
 
 
 def load_model_artifact(path: str | Path | None = None) -> ModelArtifactLoadResult:
-    """Load the demo model artifact read-only without executing inference.
-
-    The loader intentionally does not import SHAP, read threshold artifacts, or
-    call prediction methods. Dependency and pickle failures are converted into
-    safe blocked results for UI display.
-    """
-    resolved_path = model_artifact_path(path)
-
-    if not resolved_path.exists() or not resolved_path.is_file():
-        error_message = f"Model artifact is not available: {resolved_path}"
-        metadata = _model_loader_metadata(
-            model_path=resolved_path,
-            model_available=False,
-            load_status=DEMO_INFERENCE_BLOCKED_BY_MODEL_ARTIFACT_MISSING,
-            failure_reason="MODEL_ARTIFACT_MISSING",
-        )
-        return ModelArtifactLoadResult(
-            model_path=str(resolved_path),
-            load_status=DEMO_INFERENCE_BLOCKED_BY_MODEL_ARTIFACT_MISSING,
-            metadata=metadata,
-            error_message=error_message,
-        )
-
+    if path is not None:
+        return ModelArtifactLoadResult(load_status=DEMO_INFERENCE_FAILED_SAFE, error_message=FAILURE_MESSAGES["PATH_OVERRIDE_REJECTED"], metadata=guardrail_metadata(safe_failure=True, failure_reason="PATH_OVERRIDE_REJECTED"))
     try:
-        with resolved_path.open("rb") as file:
-            model = pickle.load(file)
-    except (ModuleNotFoundError, ImportError) as exc:
-        error_message = f"Model artifact dependency is unavailable: {exc}"
-        metadata = _model_loader_metadata(
-            model_path=resolved_path,
-            model_available=True,
-            load_status=DEMO_INFERENCE_FAILED_SAFE,
-            failure_reason="MODEL_ARTIFACT_IMPORT_ERROR",
-        )
-        return ModelArtifactLoadResult(
-            model_path=str(resolved_path),
-            model_available=True,
-            load_status=DEMO_INFERENCE_FAILED_SAFE,
-            metadata=metadata,
-            error_message=error_message,
-        )
-    except (pickle.PickleError, EOFError, AttributeError, ValueError, TypeError, OSError) as exc:
-        error_message = f"Model artifact could not be loaded safely: {exc}"
-        metadata = _model_loader_metadata(
-            model_path=resolved_path,
-            model_available=True,
-            load_status=DEMO_INFERENCE_FAILED_SAFE,
-            failure_reason="MODEL_ARTIFACT_LOAD_ERROR",
-        )
-        return ModelArtifactLoadResult(
-            model_path=str(resolved_path),
-            model_available=True,
-            load_status=DEMO_INFERENCE_FAILED_SAFE,
-            metadata=metadata,
-            error_message=error_message,
-        )
-
-    has_predict_proba = callable(getattr(model, "predict_proba", None))
-    model_class = type(model).__name__
-    if not has_predict_proba:
-        error_message = (
-            "Loaded model object is unsupported for demo inference because it "
-            "does not expose a callable predict_proba method."
-        )
-        metadata = _model_loader_metadata(
-            model_path=resolved_path,
-            model_available=True,
-            model_loaded=False,
-            has_predict_proba=False,
-            load_status=DEMO_INFERENCE_FAILED_SAFE,
-            failure_reason="UNSUPPORTED_MODEL_OBJECT_WITHOUT_PREDICT_PROBA",
-            model_class=model_class,
-        )
-        return ModelArtifactLoadResult(
-            model_path=str(resolved_path),
-            model_available=True,
-            has_predict_proba=False,
-            load_status=DEMO_INFERENCE_FAILED_SAFE,
-            metadata=metadata,
-            error_message=error_message,
-        )
-
-    metadata = _model_loader_metadata(
-        model_path=resolved_path,
-        model_available=True,
-        model_loaded=True,
-        has_predict_proba=True,
-        load_status=DEMO_INFERENCE_READY,
-        failure_reason=None,
-        model_class=model_class,
-    )
-    return ModelArtifactLoadResult(
-        model=model,
-        model_path=str(resolved_path),
-        model_loaded=True,
-        model_available=True,
-        has_predict_proba=True,
-        load_status=DEMO_INFERENCE_READY,
-        metadata=metadata,
-    )
+        runtime = _verified_runtime()
+    except RuntimeValidationError as exc:
+        return ModelArtifactLoadResult(load_status=DEMO_INFERENCE_FAILED_SAFE, error_message=FAILURE_MESSAGES.get(exc.code, FAILURE_MESSAGES["INFERENCE_RUNTIME_FAILURE"]), metadata=guardrail_metadata(safe_failure=True, failure_reason=exc.code))
+    return ModelArtifactLoadResult(model=runtime, model_path="artifacts/model/final_model_calibrated.pkl", model_loaded=True, model_available=True, has_predict_proba=False, load_status=DEMO_INFERENCE_READY, metadata=guardrail_metadata(model_loaded=True))
 
 
 def load_feature_manifest(path: str | Path | None = None) -> FeatureManifestLoadResult:
-    """Load expected model feature names from the read-only feature manifest."""
-    resolved_path = feature_manifest_path(path)
-    base_metadata = {
-        "feature_manifest_path": str(resolved_path),
-        "feature_manifest_loaded": False,
-        "feature_manifest_valid": False,
-        "expected_feature_count": 0,
-        "expected_feature_names_unique": False,
-    }
-
-    if not resolved_path.exists() or not resolved_path.is_file():
-        return FeatureManifestLoadResult(
-            manifest_path=str(resolved_path),
-            metadata=base_metadata,
-            error_message=f"Feature manifest is not available: {resolved_path}",
-        )
-
+    if path is not None:
+        return FeatureManifestLoadResult(error_message=FAILURE_MESSAGES["PATH_OVERRIDE_REJECTED"], metadata={"failure_reason": "PATH_OVERRIDE_REJECTED"})
     try:
-        with resolved_path.open("r", encoding="utf-8") as file:
-            manifest = json.load(file)
-    except (json.JSONDecodeError, OSError) as exc:
-        return FeatureManifestLoadResult(
-            manifest_path=str(resolved_path),
-            manifest_loaded=False,
-            metadata=base_metadata,
-            error_message=f"Feature manifest could not be loaded safely: {exc}",
-        )
-
-    feature_names = manifest.get("feature_cols")
-    n_features = manifest.get("n_features")
-    valid_list = isinstance(feature_names, list) and all(
-        isinstance(feature_name, str) and bool(feature_name)
-        for feature_name in feature_names
-    )
-    unique_names = valid_list and len(set(feature_names)) == len(feature_names)
-    count_matches = valid_list and len(feature_names) == REQUIRED_PAYLOAD_FIELD_COUNT
-    declared_count_matches = n_features in {None, REQUIRED_PAYLOAD_FIELD_COUNT}
-    manifest_valid = bool(valid_list and unique_names and count_matches and declared_count_matches)
-
-    metadata = {
-        **base_metadata,
-        "feature_manifest_loaded": True,
-        "feature_manifest_valid": manifest_valid,
-        "expected_feature_count": len(feature_names) if isinstance(feature_names, list) else 0,
-        "declared_n_features": n_features,
-        "expected_feature_names_unique": unique_names,
-        "feature_count_matches_required": count_matches,
-        "declared_count_matches_required": declared_count_matches,
-    }
-    if not manifest_valid:
-        return FeatureManifestLoadResult(
-            manifest_path=str(resolved_path),
-            manifest_loaded=True,
-            manifest_valid=False,
-            metadata=metadata,
-            error_message=(
-                "Feature manifest must provide unique feature_cols with "
-                f"{REQUIRED_PAYLOAD_FIELD_COUNT} items."
-            ),
-        )
-
-    return FeatureManifestLoadResult(
-        feature_names=list(feature_names),
-        manifest_path=str(resolved_path),
-        manifest_loaded=True,
-        manifest_valid=True,
-        metadata=metadata,
-    )
+        manifest = _strict_json(MODEL_MANIFEST_PATH)
+        names = list(manifest["features"]["ordered_feature_names"])
+    except (OSError, ValueError, TypeError, KeyError):
+        return FeatureManifestLoadResult(error_message=FAILURE_MESSAGES["MODEL_MANIFEST_INVALID"])
+    return FeatureManifestLoadResult(names, "artifacts/model/model_artifact_manifest.json", True, len(names) == 49)
 
 
-def _sequence_from_model_feature_metadata(value: Any) -> list[str] | None:
-    """Return a string sequence from model feature metadata, if available."""
-    if value is None:
-        return None
-    if isinstance(value, str):
-        return [value]
+def _finite_numeric(value: Any) -> float | int:
+    if isinstance(value, bool) or value is None or isinstance(value, (dict, list, set, tuple)):
+        raise RuntimeValidationError("FEATURE_VALUE_INVALID")
     try:
-        return [str(item) for item in list(value)]
-    except TypeError:
-        return None
+        number = float(value)
+    except (TypeError, ValueError):
+        raise RuntimeValidationError("FEATURE_VALUE_INVALID") from None
+    if not math.isfinite(number):
+        raise RuntimeValidationError("FEATURE_VALUE_INVALID")
+    return int(number) if number.is_integer() else number
 
 
-def extract_model_feature_metadata(model: Any) -> dict[str, list[str]]:
-    """Extract model feature-name metadata without executing prediction."""
-    sources: dict[str, list[str]] = {}
-
-    feature_names_in = _sequence_from_model_feature_metadata(
-        getattr(model, "feature_names_in_", None)
-    )
-    if feature_names_in:
-        sources["model.feature_names_in_"] = feature_names_in
-
-    feature_name_attr = _sequence_from_model_feature_metadata(
-        getattr(model, "feature_name_", None)
-    )
-    if feature_name_attr:
-        sources["model.feature_name_"] = feature_name_attr
-
-    if hasattr(model, "get_booster"):
-        try:
-            booster = model.get_booster()
-            booster_features = _sequence_from_model_feature_metadata(
-                getattr(booster, "feature_names", None)
-            )
-            if booster_features:
-                sources["model.get_booster().feature_names"] = booster_features
-        except Exception:
-            pass
-
-    booster_attr = getattr(model, "booster_", None)
-    if booster_attr is not None and hasattr(booster_attr, "feature_name"):
-        try:
-            booster_attr_features = _sequence_from_model_feature_metadata(
-                booster_attr.feature_name()
-            )
-            if booster_attr_features:
-                sources["model.booster_.feature_name()"] = booster_attr_features
-        except Exception:
-            pass
-
-    for attr_name in ["estimator", "base_estimator"]:
-        nested_model = getattr(model, attr_name, None)
-        nested_features = _sequence_from_model_feature_metadata(
-            getattr(nested_model, "feature_names_in_", None)
-        )
-        if nested_features:
-            sources[f"model.{attr_name}.feature_names_in_"] = nested_features
-
-    return sources
+def _normalize_payload(payload: Mapping[str, Any], runtime: VerifiedRuntime) -> dict[str, float | int | str]:
+    if not isinstance(payload, Mapping):
+        raise RuntimeValidationError("FEATURE_VALUE_INVALID")
+    if len(payload) != REQUIRED_PAYLOAD_FIELD_COUNT:
+        raise RuntimeValidationError("FEATURE_COUNT_INVALID")
+    if set(payload) != set(runtime.feature_cols):
+        raise RuntimeValidationError("FEATURE_SET_MISMATCH")
+    normalized: dict[str, float | int | str] = {}
+    for feature in runtime.feature_cols:
+        value = payload[feature]
+        if feature == PURPOSE_FEATURE:
+            if not isinstance(value, str) or value not in PURPOSE_CATEGORIES:
+                raise RuntimeValidationError("UNKNOWN_CATEGORY")
+            normalized[feature] = value
+        else:
+            normalized[feature] = _finite_numeric(value)
+    return normalized
 
 
-def compare_model_feature_metadata(
-    *,
-    expected_features: list[str],
-    model: Any | None = None,
-) -> dict[str, Any]:
-    """Compare model feature metadata against manifest features when available."""
-    if model is None:
-        return {
-            "model_feature_metadata_available": False,
-            "model_feature_metadata_conflict": False,
-            "model_feature_metadata_sources": [],
-            "model_feature_metadata_note": "Model object is not loaded for metadata comparison.",
-        }
-
-    sources = extract_model_feature_metadata(model)
-    comparisons = []
-    conflict_sources = []
-    for source_name, feature_names in sources.items():
-        same_names = set(feature_names) == set(expected_features)
-        same_order = feature_names == expected_features
-        comparison = {
-            "source": source_name,
-            "feature_count": len(feature_names),
-            "matches_manifest_names": same_names,
-            "matches_manifest_order": same_order,
-            "missing_expected_count": len([name for name in expected_features if name not in feature_names]),
-            "extra_model_feature_count": len([name for name in feature_names if name not in expected_features]),
-        }
-        comparisons.append(comparison)
-        if not same_names or not same_order:
-            conflict_sources.append(source_name)
-
-    return {
-        "model_feature_metadata_available": bool(sources),
-        "model_feature_metadata_conflict": bool(conflict_sources),
-        "model_feature_metadata_sources": list(sources.keys()),
-        "model_feature_metadata_comparisons": comparisons,
-        "conflict_sources": conflict_sources,
-    }
+def _ordered_model_frame(payload: Mapping[str, Any], runtime: VerifiedRuntime) -> pd.DataFrame:
+    normalized = _normalize_payload(payload, runtime)
+    purpose = normalized[PURPOSE_FEATURE]
+    data: dict[str, Any] = {}
+    for feature in runtime.feature_cols:
+        if feature == PURPOSE_FEATURE:
+            data[feature] = pd.Categorical([purpose], categories=list(PURPOSE_CATEGORIES))
+        else:
+            data[feature] = [normalized[feature]]
+    frame = pd.DataFrame(data, columns=list(runtime.feature_cols))
+    if str(frame[PURPOSE_FEATURE].dtype) != "category" or frame[PURPOSE_FEATURE].isna().any():
+        raise RuntimeValidationError("CATEGORICAL_METADATA_INVALID")
+    return frame
 
 
-def _is_missing_payload_value(value: Any) -> bool:
-    """Return whether a payload value is unsafe for model input validation."""
-    if value is None:
-        return True
-    if isinstance(value, str):
-        return value.strip() in {
-            "",
-            "<missing>",
-            "<mapping_gap>",
-            "<contract_placeholder>",
-            "<not_available>",
-            "<contract_only>",
-        }
+def validate_model_input_compatibility(*, payload: Mapping[str, Any], feature_manifest_path_override: str | Path | None = None, model: Any | None = None) -> dict[str, Any]:
+    if feature_manifest_path_override is not None:
+        return {"compatible": False, "status": MODEL_INPUT_BLOCKED_REFERENCE_UNAVAILABLE, "error_code": "PATH_OVERRIDE_REJECTED", "error_message": FAILURE_MESSAGES["PATH_OVERRIDE_REJECTED"]}
     try:
-        return bool(value != value)
-    except Exception:
-        return False
+        runtime = model if isinstance(model, VerifiedRuntime) else _verified_runtime()
+        frame = _ordered_model_frame(payload, runtime)
+    except RuntimeValidationError as exc:
+        return {"compatible": False, "status": MODEL_INPUT_BLOCKED_DTYPE_ERROR, "error_code": exc.code, "error_message": FAILURE_MESSAGES.get(exc.code, FAILURE_MESSAGES["INFERENCE_RUNTIME_FAILURE"])}
+    return {"compatible": True, "status": MODEL_INPUT_COMPATIBLE, "expected_feature_count": 49, "payload_feature_count": len(payload), "missing_features": [], "extra_features": [], "dtype_error_count": 0, "feature_order_source": "verified bundle feature_cols", "ordered_features": list(runtime.feature_cols), "purpose_dtype": str(frame[PURPOSE_FEATURE].dtype)}
 
 
-def _safe_numeric_value(value: Any) -> tuple[bool, float | int | None]:
-    """Return whether a payload value can be safely converted for model input."""
-    if isinstance(value, bool):
-        return True, int(value)
-    if isinstance(value, int):
-        return True, value
-    if isinstance(value, float):
-        if _is_missing_payload_value(value):
-            return False, None
-        return True, value
-    if isinstance(value, str):
-        stripped = value.strip()
-        if _is_missing_payload_value(stripped):
-            return False, None
+def blocked_demo_inference_result(*, mode: str, inference_status: str = DEMO_INFERENCE_FAILED_SAFE,
+                                  readiness_note: str | None = None, error_message: str | None = None,
+                                  input_validation: dict[str, Any] | None = None,
+                                  model_input_compatibility: dict[str, Any] | None = None,
+                                  limitations: list[dict[str, Any]] | None = None,
+                                  failure_reason: str | None = None) -> DemoInferenceResult:
+    code = failure_reason or inference_status
+    return DemoInferenceResult(mode=mode, inference_status=UNAVAILABLE,
+        input_validation=input_validation or {}, model_input_compatibility=model_input_compatibility or {},
+        metadata={**guardrail_metadata(safe_failure=True, failure_reason=code), "legacy_inference_status": inference_status}, limitations=limitations or [],
+        readiness_note=readiness_note or "Controlled local inference is unavailable.",
+        error_message=error_message or FAILURE_MESSAGES.get(code, FAILURE_MESSAGES["INFERENCE_RUNTIME_FAILURE"]))
+
+
+def _resolve_profile_id(payload_result: Any) -> str:
+    candidates: list[str] = []
+    for name in ("synthetic_profile_id", "profile_id"):
+        value = getattr(payload_result, name, None)
+        if value is not None:
+            candidates.append(str(value))
+    metadata = getattr(payload_result, "metadata", None)
+    if isinstance(metadata, Mapping) and metadata.get("selected_sample") is not None:
+        candidates.append(str(metadata["selected_sample"]))
+    if not candidates:
+        raise RuntimeValidationError("SAMPLE_PROFILE_ID_REQUIRED")
+    if len(set(candidates)) != 1:
+        raise RuntimeValidationError("SAMPLE_PROFILE_ID_CONFLICT")
+    profile_id = candidates[0]
+    if profile_id not in AUTHORIZED_PROFILE_IDS:
+        raise RuntimeValidationError("SAMPLE_PROFILE_ID_INVALID")
+    return profile_id
+
+
+def _authorize_committed_profile(
+    profile_id: str,
+    runtime: VerifiedRuntime,
+    caller_payload: Mapping[str, Any] | None = None,
+) -> tuple[dict[str, float | int | str], tuple[str, ...]]:
+    if profile_id not in AUTHORIZED_PROFILE_IDS:
+        raise RuntimeValidationError("SAMPLE_PROFILE_ID_INVALID")
+    profiles, readiness, limitation_features = _committed_profile_contracts()
+    if readiness.get(profile_id) != "READY":
+        raise RuntimeValidationError("SAMPLE_PROFILE_NOT_READY")
+    try:
+        authoritative = _normalize_payload(profiles[profile_id], runtime)
+    except (KeyError, RuntimeValidationError):
+        raise RuntimeValidationError("SAMPLE_PROFILE_CONTRACT_INVALID") from None
+    if set(authoritative) != set(runtime.feature_cols) or authoritative.get(PURPOSE_FEATURE) != "other":
+        raise RuntimeValidationError("SAMPLE_PROFILE_CONTRACT_INVALID")
+    if caller_payload is not None:
         try:
-            return True, float(stripped)
-        except ValueError:
-            return False, None
-    if hasattr(value, "item"):
-        try:
-            return _safe_numeric_value(value.item())
-        except Exception:
-            return False, None
-    return False, None
+            caller_normalized = _normalize_payload(caller_payload, runtime)
+        except RuntimeValidationError as exc:
+            if exc.code in {"FEATURE_COUNT_INVALID", "FEATURE_SET_MISMATCH", "FEATURE_VALUE_INVALID", "UNKNOWN_CATEGORY"}:
+                raise RuntimeValidationError("SAMPLE_PROFILE_PAYLOAD_MISMATCH") from None
+            raise
+        if caller_normalized != authoritative:
+            raise RuntimeValidationError("SAMPLE_PROFILE_PAYLOAD_MISMATCH")
+    return authoritative, limitation_features
 
 
-def validate_model_input_compatibility(
-    *,
-    payload: dict[str, Any],
-    feature_manifest_path_override: str | Path | None = None,
-    model: Any | None = None,
-) -> dict[str, Any]:
-    """Validate payload keys, order, and dtypes against the feature manifest."""
-    manifest_result = load_feature_manifest(feature_manifest_path_override)
-    if not manifest_result.manifest_valid:
-        return {
-            "status": MODEL_INPUT_BLOCKED_REFERENCE_UNAVAILABLE,
-            "compatible": False,
-            "feature_manifest": manifest_result.metadata,
-            "error_message": manifest_result.error_message,
-        }
-
-    expected_features = manifest_result.feature_names
-    payload_keys = list(payload.keys())
-    missing_features = [feature for feature in expected_features if feature not in payload]
-    extra_features = [feature for feature in payload_keys if feature not in set(expected_features)]
-
-    if missing_features:
-        return {
-            "status": MODEL_INPUT_BLOCKED_MISSING_FEATURES,
-            "compatible": False,
-            "feature_manifest": manifest_result.metadata,
-            "expected_feature_count": len(expected_features),
-            "payload_feature_count": len(payload_keys),
-            "missing_features": missing_features,
-            "extra_features": extra_features,
-            "error_message": "Payload is missing required model features.",
-        }
-
-    if extra_features:
-        return {
-            "status": MODEL_INPUT_BLOCKED_EXTRA_FEATURES,
-            "compatible": False,
-            "feature_manifest": manifest_result.metadata,
-            "expected_feature_count": len(expected_features),
-            "payload_feature_count": len(payload_keys),
-            "missing_features": missing_features,
-            "extra_features": extra_features,
-            "error_message": "Payload includes unsafe extra model-input fields.",
-        }
-
-    dtype_errors = []
-    ordered_values: list[float | int] = []
-    for feature_name in expected_features:
-        value = payload.get(feature_name)
-        ok, converted = _safe_numeric_value(value)
-        if not ok:
-            dtype_errors.append({"feature": feature_name, "value_type": type(value).__name__})
-            continue
-        ordered_values.append(converted)
-
-    if dtype_errors:
-        return {
-            "status": MODEL_INPUT_BLOCKED_DTYPE_ERROR,
-            "compatible": False,
-            "feature_manifest": manifest_result.metadata,
-            "expected_feature_count": len(expected_features),
-            "payload_feature_count": len(payload_keys),
-            "missing_features": [],
-            "extra_features": [],
-            "dtype_error_count": len(dtype_errors),
-            "dtype_errors": dtype_errors[:10],
-            "error_message": "Payload values are not safely numeric-convertible.",
-        }
-
-    model_metadata = compare_model_feature_metadata(
-        expected_features=expected_features,
-        model=model,
-    )
-    if model_metadata.get("model_feature_metadata_conflict"):
-        return {
-            "status": MODEL_INPUT_BLOCKED_ORDER_UNKNOWN,
-            "compatible": False,
-            "feature_manifest": manifest_result.metadata,
-            "expected_feature_count": len(expected_features),
-            "payload_feature_count": len(payload_keys),
-            "missing_features": [],
-            "extra_features": [],
-            "model_feature_metadata": model_metadata,
-            "error_message": "Model feature metadata conflicts with feature_manifest.",
-        }
-
-    return {
-        "status": MODEL_INPUT_COMPATIBLE,
-        "compatible": True,
-        "feature_manifest": manifest_result.metadata,
-        "expected_feature_count": len(expected_features),
-        "payload_feature_count": len(payload_keys),
-        "missing_features": [],
-        "extra_features": [],
-        "dtype_error_count": 0,
-        "feature_order_source": "feature_manifest.feature_cols",
-        "ordered_features": list(expected_features),
-        "ordered_values": ordered_values,
-        "model_feature_metadata": model_metadata,
-    }
-
-
-def blocked_demo_inference_result(
-    *,
-    mode: str,
-    inference_status: str,
-    readiness_note: str,
-    error_message: str | None = None,
-    input_validation: dict[str, Any] | None = None,
-    model_input_compatibility: dict[str, Any] | None = None,
-    limitations: list[dict[str, Any]] | None = None,
-    failure_reason: str | None = None,
-) -> DemoInferenceResult:
-    """Return a fail-safe blocked result without executing inference."""
-    return DemoInferenceResult(
-        mode=mode,
-        inference_status=inference_status,
-        input_validation=input_validation or {},
-        model_input_compatibility=model_input_compatibility or {},
-        metadata=guardrail_metadata(
-            safe_failure=True,
-            failure_reason=failure_reason or error_message or inference_status,
-        ),
-        limitations=limitations or [],
-        readiness_note=readiness_note,
-        error_message=error_message,
-    )
-
-
-def validate_payload_for_demo_inference(
-    payload_result: Any,
-    *,
-    feature_manifest_path_override: str | Path | None = None,
-    model: Any | None = None,
-) -> DemoInferenceResult:
-    """Validate a Stage 3 payload result before demo inference."""
+def validate_payload_for_demo_inference(payload_result: Any, *, feature_manifest_path_override: str | Path | None = None, model: Any | None = None) -> DemoInferenceResult:
     mode = str(getattr(payload_result, "mode", "UNKNOWN"))
-    payload = getattr(payload_result, "payload", {}) or {}
-    coverage = getattr(payload_result, "coverage", {}) or {}
-    readiness_status = str(getattr(payload_result, "readiness_status", "UNKNOWN"))
-
-    payload_field_count = int(coverage.get("payload_field_count", len(payload)) or 0)
-    mapping_gap_count = int(coverage.get("mapping_gap_count", 0) or 0)
-    missing_required_count = int(coverage.get("missing_required_count", 0) or 0)
-    input_validation = {
-        "mode": mode,
-        "payload_readiness_status": readiness_status,
-        "payload_field_count": payload_field_count,
-        "required_payload_field_count": REQUIRED_PAYLOAD_FIELD_COUNT,
-        "mapping_gap_count": mapping_gap_count,
-        "missing_required_count": missing_required_count,
-        "payload_readiness_required": REQUIRED_PAYLOAD_READINESS_STATUS,
-    }
-
-    if mode == PAYLOAD_MODE_BASIC_FORM:
-        input_validation["blocked_reason"] = "BASIC_FORM_PARTIAL_SOURCE_INPUT_WITH_MAPPING_GAPS"
-        return blocked_demo_inference_result(
-            mode=mode,
-            inference_status=DEMO_INFERENCE_BLOCKED_BY_PAYLOAD_GAP,
-            readiness_note="BASIC_FORM is blocked from demo inference because it has documented mapping gaps.",
-            input_validation=input_validation,
-            limitations=list(getattr(payload_result, "limitations", []) or []),
-            failure_reason="BASIC_FORM_MAPPING_GAP_BLOCK",
+    if feature_manifest_path_override is not None:
+        return blocked_demo_inference_result(mode=mode, failure_reason="PATH_OVERRIDE_REJECTED")
+    if mode != AUTHORIZED_MODE:
+        return blocked_demo_inference_result(mode=mode, failure_reason="MODE_NOT_AUTHORIZED_FOR_STEP4")
+    try:
+        profile_id = _resolve_profile_id(payload_result)
+        runtime = model if isinstance(model, VerifiedRuntime) else _verified_runtime()
+        authoritative, limitation_features = _authorize_committed_profile(
+            profile_id, runtime, getattr(payload_result, "payload", None)
         )
-
-    blocking_reasons = []
-    if readiness_status != REQUIRED_PAYLOAD_READINESS_STATUS:
-        blocking_reasons.append("PAYLOAD_READINESS_NOT_READY_FOR_CONTRACT_PREVIEW")
-    if payload_field_count != REQUIRED_PAYLOAD_FIELD_COUNT:
-        blocking_reasons.append("PAYLOAD_FIELD_COUNT_MISMATCH")
-    if mapping_gap_count != 0:
-        blocking_reasons.append("MAPPING_GAP_COUNT_NONZERO")
-    if missing_required_count != 0:
-        blocking_reasons.append("MISSING_REQUIRED_COUNT_NONZERO")
-
-    if blocking_reasons:
-        input_validation["blocking_reasons"] = blocking_reasons
-        return blocked_demo_inference_result(
-            mode=mode,
-            inference_status=DEMO_INFERENCE_BLOCKED_BY_SCHEMA_ERROR,
-            readiness_note="Payload is not ready for safe demo inference.",
-            input_validation=input_validation,
-            limitations=list(getattr(payload_result, "limitations", []) or []),
-            failure_reason="PAYLOAD_SCHEMA_VALIDATION_BLOCK",
-        )
-
-    model_input_compatibility = validate_model_input_compatibility(
-        payload=payload,
-        feature_manifest_path_override=feature_manifest_path_override,
-        model=model,
-    )
-    if not model_input_compatibility.get("compatible"):
-        return blocked_demo_inference_result(
-            mode=mode,
-            inference_status=DEMO_INFERENCE_BLOCKED_BY_SCHEMA_ERROR,
-            readiness_note="Payload is blocked because model input compatibility was not proven.",
-            input_validation=input_validation,
-            model_input_compatibility=model_input_compatibility,
-            limitations=list(getattr(payload_result, "limitations", []) or []),
-            error_message=str(model_input_compatibility.get("error_message")),
-            failure_reason=str(model_input_compatibility.get("status")),
-        )
-
-    return DemoInferenceResult(
-        mode=mode,
-        inference_status=DEMO_INFERENCE_READY,
-        input_validation={**input_validation, "blocking_reasons": []},
-        model_input_compatibility=model_input_compatibility,
-        metadata=guardrail_metadata(),
+        compatibility = validate_model_input_compatibility(payload=authoritative, model=runtime)
+    except RuntimeValidationError as exc:
+        return blocked_demo_inference_result(mode=mode, inference_status="DEMO_INFERENCE_BLOCKED_BY_SCHEMA_ERROR", failure_reason=exc.code)
+    return DemoInferenceResult(mode=mode, inference_status=DEMO_INFERENCE_READY,
+        synthetic_profile_id=profile_id, sample_profile_identity_verified=True,
+        sample_profile_readiness_verified=True, sample_profile_payload_match=True,
+        value_source_counts={"USER_SUPPLIED": 0, "SYNTHETIC_BASELINE": 49, "DERIVED": 0},
+        limitation_aware_features=limitation_features, limitation_aware_count=len(limitation_features),
+        canonical_value_source="SYNTHETIC_BASELINE", purpose_fixture_source="FIXED_ALLOWED_CATEGORY_REPAIR",
+        input_validation={"mode": mode, "payload_field_count": len(authoritative), "blocking_reasons": []},
+        model_input_compatibility=compatibility, metadata={**guardrail_metadata(), "legacy_inference_status": "DEMO_INFERENCE_READY"},
         limitations=list(getattr(payload_result, "limitations", []) or []),
-        readiness_note="Payload passed Stage 4 validation for safe demo inference.",
-    )
+        readiness_note="The synthetic sample profile passed controlled Stage 4 validation.")
 
 
-def _has_blocking_model_input_issue(model_input_compatibility: dict[str, Any]) -> bool:
-    """Return whether compatibility metadata contains any blocking issue."""
-    return bool(
-        model_input_compatibility.get("status") != MODEL_INPUT_COMPATIBLE
-        or not model_input_compatibility.get("compatible")
-        or model_input_compatibility.get("dtype_error_count", 0) != 0
-        or model_input_compatibility.get("missing_features")
-        or model_input_compatibility.get("extra_features")
-    )
-
-
-def _is_ready_for_predict_proba(validation_result: DemoInferenceResult) -> bool:
-    """Return whether every Stage 4 precondition for predict_proba is satisfied."""
-    compatibility = validation_result.model_input_compatibility
-    ordered_features = compatibility.get("ordered_features")
-    ordered_values = compatibility.get("ordered_values")
-    return bool(
-        validation_result.inference_status == DEMO_INFERENCE_READY
-        and compatibility.get("status") == MODEL_INPUT_COMPATIBLE
-        and isinstance(ordered_features, list)
-        and isinstance(ordered_values, list)
-        and len(ordered_features) == REQUIRED_PAYLOAD_FIELD_COUNT
-        and len(ordered_values) == REQUIRED_PAYLOAD_FIELD_COUNT
-        and not _has_blocking_model_input_issue(compatibility)
-    )
-
-
-def _model_input_frame(
-    *,
-    ordered_features: list[str],
-    ordered_values: list[float | int],
-) -> Any:
-    """Return a one-row model input frame if pandas is available, else a matrix.
-
-    pandas preserves column names for models that validate feature names. The
-    fallback matrix is only used when pandas is unavailable and the loaded model
-    accepts array-like input.
-    """
+def _one_finite_value(output: Any, code: str, probability: bool = False) -> float:
     try:
-        import pandas as pd
-    except ModuleNotFoundError:
-        return [ordered_values]
-    except ImportError:
-        return [ordered_values]
-    return pd.DataFrame([ordered_values], columns=ordered_features)
+        vector = np.asarray(output).reshape(-1)
+        if vector.size != 1:
+            raise ValueError
+        value = float(vector[0])
+    except (TypeError, ValueError, IndexError):
+        raise RuntimeValidationError(code) from None
+    if not math.isfinite(value) or (probability and not 0 <= value <= 1):
+        raise RuntimeValidationError(code)
+    return value
 
 
-def _extract_default_risk_signal(probability_output: Any) -> float:
-    """Extract the positive-class probability from a predict_proba output."""
-    try:
-        rows = probability_output.tolist()
-    except AttributeError:
-        rows = probability_output
-
-    if not rows:
-        raise ValueError("predict_proba returned an empty output.")
-    first_row = rows[0]
-    try:
-        row_values = list(first_row)
-    except TypeError as exc:
-        raise ValueError("predict_proba output is not row-like.") from exc
-
-    if len(row_values) < 2:
-        raise ValueError("predict_proba output does not include a positive-class column.")
-
-    signal = float(row_values[1])
-    if signal < 0.0 or signal > 1.0:
-        raise ValueError("predict_proba output is outside the expected probability range.")
-    return signal
+def _predict_frame(runtime: VerifiedRuntime, frame: pd.DataFrame) -> tuple[float, float]:
+    raw_vector = np.asarray(runtime.model.predict(frame)).reshape(-1)
+    raw = _one_finite_value(raw_vector, "MODEL_OUTPUT_INVALID")
+    calibrated_vector = np.asarray(runtime.calibrator.predict(raw_vector)).reshape(-1)
+    probability = _one_finite_value(calibrated_vector, "CALIBRATOR_OUTPUT_INVALID", probability=True)
+    return raw, probability
 
 
-def _blocked_model_result(
-    *,
-    mode: str,
-    model_load_result: ModelArtifactLoadResult,
-    input_validation: dict[str, Any] | None = None,
-    model_input_compatibility: dict[str, Any] | None = None,
+def _execute_committed_profile(
+    profile_id: str,
+    runtime: VerifiedRuntime,
+    authoritative: Mapping[str, Any],
+    limitation_features: tuple[str, ...],
     limitations: list[dict[str, Any]] | None = None,
 ) -> DemoInferenceResult:
-    """Return a safe blocked result for model artifact failures."""
-    failure_reason = str(model_load_result.metadata.get("failure_reason") or model_load_result.load_status)
-    inference_status = (
-        DEMO_INFERENCE_BLOCKED_BY_MODEL_ARTIFACT_MISSING
-        if model_load_result.load_status == DEMO_INFERENCE_BLOCKED_BY_MODEL_ARTIFACT_MISSING
-        else DEMO_INFERENCE_FAILED_SAFE
+    frame = _ordered_model_frame(authoritative, runtime)
+    raw, probability = _predict_frame(runtime, frame)
+    relation = threshold_relation(probability, runtime.threshold)
+    metadata = guardrail_metadata(model_loaded=True, inference_executed=True)
+    metadata.update({
+        "legacy_inference_status": "DEMO_INFERENCE_READY",
+        "model_load_status": AVAILABLE,
+        "model_input_feature_count": 49,
+        "risk_signal_band_is_decision_threshold": False,
+        "threshold_applied": True,
+        "canonical_value_source": "SYNTHETIC_BASELINE",
+        "purpose_fixture_source": "FIXED_ALLOWED_CATEGORY_REPAIR",
+    })
+    return DemoInferenceResult(
+        mode=AUTHORIZED_MODE,
+        inference_status=AVAILABLE,
+        risk_signal=probability,
+        risk_signal_band=relation,
+        calibrated_default_probability=probability,
+        model_operating_threshold=runtime.threshold,
+        threshold_relation=relation,
+        feature_count=49,
+        model_artifact_sha256=MODEL_SHA256,
+        raw_model_output_internal=raw,
+        canonical_value_source="SYNTHETIC_BASELINE",
+        purpose_fixture_source="FIXED_ALLOWED_CATEGORY_REPAIR",
+        synthetic_profile_id=profile_id,
+        sample_profile_identity_verified=True,
+        sample_profile_readiness_verified=True,
+        sample_profile_payload_match=True,
+        value_source_counts={"USER_SUPPLIED": 0, "SYNTHETIC_BASELINE": 49, "DERIVED": 0},
+        limitation_aware_features=limitation_features,
+        limitation_aware_count=len(limitation_features),
+        input_validation={"mode": AUTHORIZED_MODE, "payload_field_count": 49, "blocking_reasons": []},
+        model_input_compatibility={
+            "compatible": True,
+            "status": MODEL_INPUT_COMPATIBLE,
+            "expected_feature_count": 49,
+            "payload_feature_count": 49,
+            "feature_order_source": "verified bundle feature_cols",
+            "purpose_dtype": "category",
+        },
+        metadata=metadata,
+        limitations=limitations or [],
+        readiness_note="Controlled local inference produced a calibrated default-risk probability for a verified committed synthetic profile.",
     )
-    return blocked_demo_inference_result(
-        mode=mode,
-        inference_status=inference_status,
-        readiness_note="Model artifact is not available for safe demo inference.",
-        input_validation=input_validation,
-        model_input_compatibility=model_input_compatibility,
-        limitations=limitations,
-        error_message=model_load_result.error_message,
-        failure_reason=failure_reason,
-    )
+
+
+def run_committed_sample_profile_inference(profile_id: str) -> DemoInferenceResult:
+    """Infer one allowlisted ready profile using only its committed fixture values."""
+    try:
+        runtime = _verified_runtime()
+        authoritative, limitation_features = _authorize_committed_profile(str(profile_id), runtime)
+        return _execute_committed_profile(str(profile_id), runtime, authoritative, limitation_features)
+    except RuntimeValidationError as exc:
+        return blocked_demo_inference_result(mode=AUTHORIZED_MODE, failure_reason=exc.code)
+    except Exception:
+        return blocked_demo_inference_result(mode=AUTHORIZED_MODE, failure_reason="INFERENCE_RUNTIME_FAILURE")
+
+
+def threshold_relation(probability: float, threshold: float = EXPECTED_THRESHOLD) -> str:
+    return "Below the model operating threshold" if probability < threshold else "At or above the model operating threshold"
 
 
 def assign_risk_signal_band(risk_signal: float | int) -> str:
-    """Assign a descriptive demo band without applying a decision threshold."""
     signal = float(risk_signal)
-    if signal < 0.0 or signal > 1.0:
-        raise ValueError("Risk signal must be within the 0.0 to 1.0 preview range.")
-    if signal < 0.20:
-        return "LOW_SIGNAL"
-    if signal < 0.40:
-        return "MEDIUM_SIGNAL"
-    if signal < 0.65:
-        return "HIGH_SIGNAL"
-    return "VERY_HIGH_SIGNAL"
+    if not math.isfinite(signal) or not 0 <= signal <= 1:
+        raise ValueError("Probability must be finite and within [0, 1].")
+    return threshold_relation(signal)
 
 
 def format_risk_signal(risk_signal: float | int | None) -> dict[str, Any]:
-    """Return safe display metadata for a default-risk signal preview."""
     if risk_signal is None:
-        return {
-            "risk_signal": None,
-            "risk_signal_display": "Not available",
-            "risk_signal_band": None,
-            "risk_signal_label": RISK_SIGNAL_LABEL,
-            "risk_signal_band_note": RISK_SIGNAL_BAND_NOTE,
-            "band_is_decision_threshold": False,
-        }
-
+        return {"risk_signal": None, "risk_signal_display": "Not available", "risk_signal_band": None,
+                "risk_signal_label": RISK_SIGNAL_LABEL, "risk_signal_band_note": RISK_SIGNAL_BAND_NOTE,
+                "band_is_decision_threshold": False}
     signal = float(risk_signal)
-    band = assign_risk_signal_band(signal)
-    return {
-        "risk_signal": signal,
-        "risk_signal_display": f"{signal:.3f}",
-        "risk_signal_band": band,
-        "risk_signal_label": RISK_SIGNAL_LABEL,
-        "risk_signal_band_note": RISK_SIGNAL_BAND_NOTE,
-        "band_is_decision_threshold": False,
-    }
+    relation = assign_risk_signal_band(signal)
+    return {"risk_signal": signal, "risk_signal_display": f"{signal:.3f}", "risk_signal_band": relation,
+            "risk_signal_label": RISK_SIGNAL_LABEL, "risk_signal_band_note": RISK_SIGNAL_BAND_NOTE,
+            "band_is_decision_threshold": False}
 
 
-def run_safe_demo_inference(
-    payload_result: Any,
-    *,
-    model_path: str | Path | None = None,
-    feature_manifest_path_override: str | Path | None = None,
-) -> DemoInferenceResult:
-    """Run guarded demo predict_proba only after all Stage 4 checks pass.
-
-    This function does not apply thresholds, generate decisions, load SHAP, or
-    produce explanations. It only returns a default-risk signal preview when all
-    input, model, and guardrail checks pass.
-    """
+def run_safe_demo_inference(payload_result: Any, *, model_path: str | Path | None = None,
+                            feature_manifest_path_override: str | Path | None = None) -> DemoInferenceResult:
     mode = str(getattr(payload_result, "mode", "UNKNOWN"))
-    model_load_result = load_model_artifact(model_path)
-    if not (
-        model_load_result.model_loaded
-        and model_load_result.has_predict_proba
-        and model_load_result.model is not None
-    ):
-        return _blocked_model_result(
-            mode=mode,
-            model_load_result=model_load_result,
-            limitations=list(getattr(payload_result, "limitations", []) or []),
-        )
-
-    validation_result = validate_payload_for_demo_inference(
-        payload_result,
-        feature_manifest_path_override=feature_manifest_path_override,
-        model=model_load_result.model,
-    )
-    if not _is_ready_for_predict_proba(validation_result):
-        return validation_result
-
-    compatibility = validation_result.model_input_compatibility
-    ordered_features = compatibility["ordered_features"]
-    ordered_values = compatibility["ordered_values"]
-    model_input = _model_input_frame(
-        ordered_features=ordered_features,
-        ordered_values=ordered_values,
-    )
-
+    limitations = list(getattr(payload_result, "limitations", []) or [])
+    if model_path is not None or feature_manifest_path_override is not None:
+        return blocked_demo_inference_result(mode=mode, limitations=limitations, failure_reason="PATH_OVERRIDE_REJECTED")
+    if mode != AUTHORIZED_MODE:
+        return blocked_demo_inference_result(mode=mode, limitations=limitations, failure_reason="MODE_NOT_AUTHORIZED_FOR_STEP4")
     try:
-        probability_output = model_load_result.model.predict_proba(model_input)
-        risk_signal = _extract_default_risk_signal(probability_output)
-    except Exception as exc:
-        return blocked_demo_inference_result(
-            mode=mode,
-            inference_status=DEMO_INFERENCE_FAILED_SAFE,
-            readiness_note="Safe demo inference failed before producing a preview.",
-            input_validation=validation_result.input_validation,
-            model_input_compatibility=compatibility,
-            limitations=validation_result.limitations,
-            error_message=f"predict_proba failed safely: {exc}",
-            failure_reason="PREDICT_PROBA_FAILED_SAFE",
+        runtime = _verified_runtime()
+        profile_id = _resolve_profile_id(payload_result)
+        authoritative, limitation_features = _authorize_committed_profile(
+            profile_id, runtime, getattr(payload_result, "payload", None)
         )
-
-    metadata = guardrail_metadata(
-        model_loaded=True,
-        inference_executed=True,
-        predict_proba_executed=True,
-        safe_failure=False,
-        failure_reason=None,
-    )
-    metadata.update(
-        {
-            "model_artifact_path": model_load_result.model_path,
-            "model_load_status": model_load_result.load_status,
-            "feature_order_source": compatibility.get("feature_order_source"),
-            "model_input_feature_count": len(ordered_features),
-            "risk_signal_band_note": RISK_SIGNAL_BAND_NOTE,
-            "risk_signal_band_is_decision_threshold": False,
-        }
-    )
-    risk_signal_display = format_risk_signal(risk_signal)
-    return DemoInferenceResult(
-        mode=mode,
-        inference_status=DEMO_INFERENCE_READY,
-        risk_signal=risk_signal,
-        risk_signal_band=str(risk_signal_display["risk_signal_band"]),
-        risk_signal_label=RISK_SIGNAL_LABEL,
-        input_validation=validation_result.input_validation,
-        model_input_compatibility=compatibility,
-        metadata=metadata,
-        limitations=validation_result.limitations,
-        readiness_note="Safe demo inference produced a default-risk signal preview.",
-    )
+        return _execute_committed_profile(profile_id, runtime, authoritative, limitation_features, limitations)
+    except RuntimeValidationError as exc:
+        return blocked_demo_inference_result(mode=mode, limitations=limitations, failure_reason=exc.code)
+    except Exception:
+        return blocked_demo_inference_result(mode=mode, limitations=limitations, failure_reason="INFERENCE_RUNTIME_FAILURE")
 
 
 def demo_inference_result_to_dict(result: DemoInferenceResult) -> dict[str, Any]:
-    """Return a JSON-friendly dictionary for UI rendering and tests."""
     return asdict(result)
