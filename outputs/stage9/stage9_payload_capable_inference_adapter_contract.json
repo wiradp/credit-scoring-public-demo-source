@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0.0",
+  "stage": 9,
+  "step": "4.2A",
+  "contract_id": "STAGE9_BASIC_FORM_PAYLOAD_INFERENCE_ADAPTER_V1",
+  "baseline_commit": "ca056b4dcddfea315b3ee9d0a9980fb7a5212fe1",
+  "source_branch": "phase8-public-demo-source",
+  "deployment_classification": {
+    "classification": "PORTFOLIO_DEMO_ONLY",
+    "public_deployment_authorized": false,
+    "public_deployment_performed": false,
+    "production_use_authorized": false,
+    "real_underwriting_use_authorized": false
+  },
+  "frozen_adapter_integrity": {
+    "relative_path": "app/src/demo_inference.py",
+    "size_bytes": 38299,
+    "sha256": "1eb8fdf3a39e4775f5817c2a4620dc7c6669d0d7ad844932f411fc25ebbc9074",
+    "unchanged_required": true,
+    "authorized_mode_remains": "SAMPLE_PROFILE"
+  },
+  "authorized_modes": {
+    "SAMPLE_PROFILE": "AUTHORIZED_BY_UNCHANGED_STAGE4_ADAPTER",
+    "BASIC_FORM": "AUTHORIZED_BY_STEP4_2A_ADAPTER",
+    "ADVANCED_EDITOR": "BLOCKED_PENDING_STEP4_2B"
+  },
+  "mode_routing": {
+    "SAMPLE_PROFILE": "app.src.demo_inference.run_safe_demo_inference",
+    "BASIC_FORM": "app.src.basic_form_inference.run_basic_form_inference",
+    "ADVANCED_EDITOR": "ADVANCED_EDITOR_CONTRACT_NOT_FROZEN",
+    "basic_form_may_masquerade_as_sample_profile": false,
+    "existing_sample_profile_equality_checks_weakened": false
+  },
+  "basic_form_authorization": {
+    "mode": "BASIC_FORM",
+    "mapping_runtime": "app/src/basic_form_runtime.py",
+    "inference_adapter": "app/src/basic_form_inference.py",
+    "source_field_count": 6,
+    "system_metadata_field_count": 2,
+    "canonical_feature_count": 49,
+    "actual_calibrated_inference_authorized": true,
+    "explicit_acknowledgement_required": true,
+    "caller_path_override_allowed": false,
+    "caller_model_override_allowed": false
+  },
+  "public_atomic_api": {
+    "public_inference_api": "run_basic_form_inference(source_inputs, system_metadata)",
+    "parameters": ["source_inputs", "system_metadata"],
+    "accepts_raw_source_and_metadata_only": true,
+    "caller_supplied_mapping_result_authorized": false,
+    "caller_supplied_canonical_payload_authorized": false,
+    "caller_supplied_fingerprint_authorized": false,
+    "caller_supplied_provenance_authorized": false,
+    "caller_supplied_limitation_status_authorized": false,
+    "caller_supplied_path_override_authorized": false
+  },
+  "mapping_result_non_authority": {
+    "mapping_result_is_bearer_authorization": false,
+    "direct_public_construction_allowed": false,
+    "dataclasses_replace_forgery_allowed": false,
+    "caller_supplied_result_authorized": false,
+    "private_helper_only": "_run_authoritative_mapping_inference",
+    "complete_payload_in_repr": false,
+    "source_inputs_in_repr": false,
+    "system_metadata_in_repr": false
+  },
+  "internal_mapping_evidence": {
+    "immutable_source_inputs_retained": true,
+    "immutable_system_metadata_retained": true,
+    "source_inputs_used_for_authoritative_rebuild_only": true,
+    "system_metadata_used_for_authoritative_rebuild_only": true,
+    "source_inputs_recorded_in_public_result_metadata": false,
+    "system_metadata_recorded_in_public_result_metadata": false
+  },
+  "authoritative_rebuild": {
+    "required_before_runtime_access": true,
+    "builder": "build_basic_form_mapping_result",
+    "retained_source_inputs_used": true,
+    "retained_system_metadata_used": true,
+    "exact_comparisons": [
+      "mode",
+      "mapping_contract_id",
+      "input_contract_id",
+      "selected_synthetic_profile_id",
+      "synthetic_completion_acknowledged",
+      "ordered_feature_names",
+      "canonical_payload_values",
+      "payload_key_order",
+      "payload_fingerprint",
+      "feature_count",
+      "value_source_counts",
+      "limitation_aware_features",
+      "safe_disclosure"
+    ],
+    "payload_exact_match_required": true,
+    "fingerprint_exact_match_required": true,
+    "runtime_access_before_authorization_completion": false
+  },
+  "profile_payload_binding": {
+    "profile_payload_exact_binding_required": true,
+    "selected_profile_reloaded_from_committed_matrix": true,
+    "baseline_passthrough_feature_count": 38,
+    "profile_id_payload_mismatch_allowed": false,
+    "failure_code": "BASIC_FORM_AUTHORIZATION_BINDING_INVALID"
+  },
+  "self_consistent_forgery_rejection": {
+    "self_consistent_payload_and_fingerprint_forgery_rejected": true,
+    "finite_direct_feature_mutation_rejected": true,
+    "finite_derived_feature_mutation_rejected": true,
+    "finite_baseline_feature_mutation_rejected": true,
+    "multiple_finite_mutations_rejected": true,
+    "profile_payload_mismatch_rejected": true
+  },
+  "runtime_access_guard": {
+    "verified_runtime_call_count_for_failed_authorization": 0,
+    "ordered_model_frame_call_count_for_failed_authorization": 0,
+    "predict_frame_call_count_for_failed_authorization": 0,
+    "probability_generated_for_failed_authorization": false
+  },
+  "mapping_result_contract": {
+    "required_exact_type": "BasicFormMappingResult",
+    "immutable": true,
+    "complete_payload_in_repr": false,
+    "ordered_feature_names_in_repr": false,
+    "raw_mapping_accepted_by_inference_adapter": false,
+    "mapping_contract_id": "STAGE9_BASIC_FORM_RUNTIME_MAPPING_V1",
+    "input_contract_id": "STAGE9_PUBLIC_INPUT_CONSTRAINT_V1",
+    "value_source_counts": {
+      "USER_SUPPLIED": 4,
+      "DERIVED": 7,
+      "SYNTHETIC_BASELINE": 38
+    },
+    "limitation_aware_features": [
+      "grade_encoded",
+      "credit_age_months"
+    ]
+  },
+  "pre_inference_validation": {
+    "exact_result_type": true,
+    "exact_mode": true,
+    "input_contract_id": true,
+    "mapping_contract_id": true,
+    "acknowledgement": true,
+    "baseline_profile_allowlist": true,
+    "feature_count": true,
+    "feature_set": true,
+    "feature_order": true,
+    "finite_numeric_values": true,
+    "purpose_allowlist": true,
+    "term_exact_integer_allowlist": true,
+    "is_60_month_exact_integer_flag": true,
+    "value_source_counts": true,
+    "limitation_aware_set": true,
+    "payload_fingerprint_recomputed": true
+  },
+  "frozen_adapter_reuse": {
+    "import_style": "from app.src import demo_inference as frozen_adapter",
+    "allowed_primitives": [
+      "_verified_runtime",
+      "_ordered_model_frame",
+      "_predict_frame",
+      "threshold_relation",
+      "guardrail_metadata",
+      "blocked_demo_inference_result",
+      "DemoInferenceResult",
+      "RuntimeValidationError",
+      "AVAILABLE",
+      "UNAVAILABLE",
+      "MODEL_INPUT_COMPATIBLE",
+      "MODEL_SHA256"
+    ],
+    "joblib_load_duplicated": false,
+    "bundle_validation_duplicated": false,
+    "model_validation_duplicated": false,
+    "calibrator_validation_duplicated": false,
+    "model_frame_construction_duplicated": false,
+    "model_prediction_duplicated": false,
+    "calibrator_prediction_duplicated": false,
+    "threshold_relation_duplicated": false
+  },
+  "probability_contract": {
+    "source": "actual frozen-adapter calibrated output",
+    "finite_required": true,
+    "minimum": 0.0,
+    "maximum": 1.0,
+    "fallback_probability_allowed": false,
+    "fabricated_probability_allowed": false,
+    "credit_decision_output_allowed": false
+  },
+  "failure_code_contract": {
+    "codes": [
+      "BASIC_FORM_RESULT_TYPE_INVALID",
+      "BASIC_FORM_MODE_INVALID",
+      "BASIC_FORM_INPUT_CONTRACT_INVALID",
+      "BASIC_FORM_MAPPING_CONTRACT_INVALID",
+      "BASIC_FORM_ACKNOWLEDGEMENT_REQUIRED",
+      "BASIC_FORM_PROFILE_ID_INVALID",
+      "BASIC_FORM_FEATURE_COUNT_INVALID",
+      "BASIC_FORM_FEATURE_SET_INVALID",
+      "BASIC_FORM_FEATURE_ORDER_INVALID",
+      "BASIC_FORM_FEATURE_VALUE_INVALID",
+      "BASIC_FORM_PURPOSE_INVALID",
+      "BASIC_FORM_TERM_INVALID",
+      "BASIC_FORM_PROVENANCE_INVALID",
+      "BASIC_FORM_LIMITATION_STATUS_INVALID",
+      "BASIC_FORM_PAYLOAD_FINGERPRINT_MISMATCH",
+      "BASIC_FORM_AUTHORIZATION_BINDING_INVALID",
+      "ADVANCED_EDITOR_CONTRACT_NOT_FROZEN",
+      "INFERENCE_RUNTIME_FAILURE"
+    ],
+    "public_ui_exposure_authorized": false,
+    "fallback_probability_on_failure": false,
+    "complete_payload_in_failure": false,
+    "absolute_path_in_failure": false
+  },
+  "privacy_boundary": {
+    "fictional_synthetic_values_only": true,
+    "complete_payload_logging_allowed": false,
+    "complete_payload_recording_allowed": false,
+    "raw_input_logging_allowed": false,
+    "personal_data_allowed": false,
+    "external_transmission_allowed": false,
+    "telemetry_allowed": false
+  },
+  "governance_boundary": {
+    "portfolio_demo_only": true,
+    "credit_decision_generated": false,
+    "approval_recommendation_generated": false,
+    "rejection_recommendation_generated": false,
+    "credit_score_generated": false,
+    "fairness_clearance_claimed": false,
+    "legal_compliance_claimed": false,
+    "production_readiness_claimed": false
+  },
+  "non_goals": {
+    "streamlit_ui_modified": false,
+    "advanced_editor_implemented": false,
+    "sample_profile_adapter_modified": false,
+    "model_modified": false,
+    "threshold_modified": false,
+    "public_deployment_performed": false
+  },
+  "next_step_authorization": {
+    "human_artifact_audit_authorized": true,
+    "git_scope_review_authorized": true,
+    "staging_authorized": false,
+    "commit_authorized": false,
+    "stage9_step4_2b_authorized": false,
+    "stage9_step5_rerun_authorized": false,
+    "public_deployment_authorized": false
+  },
+  "validation_status": "PASS",
+  "generated_at_utc": "2026-07-19T13:10:57Z"
+}

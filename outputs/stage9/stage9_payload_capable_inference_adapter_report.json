@@ -1,0 +1,287 @@
+{
+  "repository_preconditions": {
+    "target_repository": "/home/wira/Documents/Project/credit-scoring-public-demo-source",
+    "branch": "phase8-public-demo-source",
+    "head": "ca056b4dcddfea315b3ee9d0a9980fb7a5212fe1",
+    "head_subject": "Freeze Basic Form runtime mapping contract",
+    "parent": "6bbe87f99421cb837ae073cd19597763d8baed0c",
+    "tracked_file_count": 72,
+    "initial_working_tree_clean": true,
+    "status": "PASS"
+  },
+  "frozen_artifact_integrity": {
+    "status": "PASS",
+    "all_required_sizes_match": true,
+    "all_required_sha256_match": true,
+    "model_deserialized_during_precondition_audit": false,
+    "demo_inference_sha256": "1eb8fdf3a39e4775f5817c2a4620dc7c6669d0d7ad844932f411fc25ebbc9074",
+    "stage4_test_sha256": "fa277e2a3fc323739e1e86e9e2b51ea779cbc836f7a43980189ffef449cac2b8",
+    "step4_1a_contract_sha256": "d94e3a5de3d36e9856a2821303f00a749debc69a416f318e0dff50199b83bdae",
+    "step4_1b_contract_sha256": "62404f80935b1459c722d4fe72db48da5cd558916a6c9b1501cb8f59e7a6ac06",
+    "model_manifest_sha256": "9c49149b1a3f72fc6e0f6fe5e5efa84f5c81f65224c1bd08daded1f6231461fd",
+    "model_binary_sha256": "b022b545bd7bb4294018a26a7d10af977e3c452b7f219dbdd9113adeac367cbf",
+    "threshold_sha256": "e45a19822f77d6b74cf5e76c0c0e6ff2f993bad4ab91e507509b3d74d410e28b",
+    "sample_profile_matrix_sha256": "c16f1786900ae0ec7878aac2dbc87018c34de459ae9a36dfabf0a43ca92f1bd6"
+  },
+  "previous_step5_safe_failure": {
+    "correctly_failed_closed": true,
+    "sample_profile_only_adapter_identified": true,
+    "basic_form_fixture_equality_conflict_identified": true,
+    "advanced_editor_executable_contract_missing": true
+  },
+  "source_change_scope": {
+    "created_file_count": 8,
+    "modified_existing_file_count": 0,
+    "unexpected_file_count": 0,
+    "application_ui_modified": false,
+    "demo_inference_adapter_modified": false,
+    "prior_tests_modified": false
+  },
+  "adapter_architecture": {
+    "basic_form_runtime": "app/src/basic_form_runtime.py",
+    "basic_form_adapter": "app/src/basic_form_inference.py",
+    "contract_driven_mapping": true,
+    "separate_basic_form_authorization": true,
+    "basic_form_masquerades_as_sample_profile": false,
+    "raw_mapping_accepted": false
+  },
+  "authorization_boundary_revision": {
+    "independent_finding_confirmed": true,
+    "previous_validation_proved_self_consistency_only": true,
+    "bearer_authorization_removed": true,
+    "revision_scope_limited_to_authorization_boundary": true,
+    "failure_code": "BASIC_FORM_AUTHORIZATION_BINDING_INVALID"
+  },
+  "public_atomic_api": {
+    "enabled": true,
+    "function": "run_basic_form_inference",
+    "parameters": ["source_inputs", "system_metadata"],
+    "accepts_raw_source_and_metadata_only": true,
+    "accepts_mapping_result": false,
+    "accepts_canonical_payload": false,
+    "accepts_caller_fingerprint": false,
+    "accepts_path_override": false
+  },
+  "mapping_result_non_authority": {
+    "caller_supplied_result_authorized": false,
+    "direct_construction_authorizes_inference": false,
+    "dataclasses_replace_authorizes_inference": false,
+    "mapping_result_is_bearer_authorization": false,
+    "source_inputs_retained_immutably": true,
+    "system_metadata_retained_immutably": true,
+    "source_inputs_in_repr": false,
+    "system_metadata_in_repr": false,
+    "complete_payload_in_repr": false
+  },
+  "authoritative_rebuild": {
+    "required": true,
+    "completed_before_runtime_access": true,
+    "payload_exact_match_required": true,
+    "payload_key_order_exact_match_required": true,
+    "fingerprint_exact_match_required": true,
+    "profile_id_exact_match_required": true,
+    "provenance_exact_match_required": true,
+    "limitation_set_exact_match_required": true,
+    "safe_disclosure_exact_match_required": true
+  },
+  "profile_payload_binding": {
+    "exact": true,
+    "selected_profile_reloaded_from_committed_matrix": true,
+    "baseline_passthrough_count": 38,
+    "direct_feature_count": 4,
+    "derived_feature_count": 7,
+    "profile_payload_mismatches_rejected": true
+  },
+  "self_consistent_forgery_tests": {
+    "all_rejected": true,
+    "out_of_range_dti_with_matching_fingerprint_rejected": true,
+    "invalid_loan_with_matching_fingerprint_rejected": true,
+    "altered_derived_value_with_matching_fingerprint_rejected": true,
+    "altered_baseline_value_with_matching_fingerprint_rejected": true,
+    "multiple_finite_mutations_with_matching_fingerprint_rejected": true,
+    "profile_payload_binding_mismatch_rejected": true,
+    "manual_construction_forgery_rejected": true,
+    "dataclasses_replace_forgery_rejected": true,
+    "runtime_access_count": 0
+  },
+  "runtime_access_guard": {
+    "verified_runtime_not_called_for_forgery": true,
+    "model_frame_not_constructed_for_forgery": true,
+    "predict_not_called_for_forgery": true,
+    "verified_runtime_call_count": 0,
+    "ordered_model_frame_call_count": 0,
+    "predict_frame_call_count": 0,
+    "forgery_probability_generated": false
+  },
+  "sample_profile_adapter_preservation": {
+    "modified": false,
+    "authorized_mode": "SAMPLE_PROFILE",
+    "all_five_committed_profiles_infer": true,
+    "exact_fixture_protection_preserved": true,
+    "forged_payload_rejected": true,
+    "cross_profile_payload_rejected": true,
+    "unknown_profile_rejected": true,
+    "missing_profile_rejected": true
+  },
+  "basic_form_runtime_mapping": {
+    "implemented": true,
+    "source_field_count": 6,
+    "metadata_field_count": 2,
+    "golden_vector_count": 7,
+    "model_feature_count": 49,
+    "all_golden_vectors_match": true,
+    "all_payload_fingerprints_match": true,
+    "baseline_passthrough_count": 38,
+    "value_source_counts": {
+      "USER_SUPPLIED": 4,
+      "DERIVED": 7,
+      "SYNTHETIC_BASELINE": 38
+    },
+    "limitation_aware_features": [
+      "grade_encoded",
+      "credit_age_months"
+    ]
+  },
+  "basic_form_authorization": {
+    "authorized": true,
+    "exact_mapping_result_type_required": true,
+    "raw_mapping_rejected": true,
+    "acknowledgement_required": true,
+    "baseline_profile_allowlist_required": true,
+    "mapping_contract_id_required": true,
+    "input_contract_id_required": true
+  },
+  "pre_inference_validation": {
+    "mapping_result_revalidated": true,
+    "payload_fingerprint_recomputed": true,
+    "provenance_revalidated": true,
+    "limitation_status_revalidated": true,
+    "acknowledgement_revalidated": true,
+    "feature_count_set_order_revalidated": true,
+    "finite_values_revalidated": true,
+    "purpose_term_and_flag_revalidated": true,
+    "all_required_mutations_rejected": true
+  },
+  "frozen_runtime_reuse": {
+    "module_alias": "frozen_adapter",
+    "primitives_used": [
+      "_verified_runtime",
+      "_ordered_model_frame",
+      "_predict_frame",
+      "threshold_relation",
+      "guardrail_metadata",
+      "blocked_demo_inference_result",
+      "DemoInferenceResult"
+    ],
+    "joblib_load_duplicated": false,
+    "model_frame_construction_duplicated": false,
+    "model_prediction_duplicated": false,
+    "calibrator_prediction_duplicated": false,
+    "threshold_relation_duplicated": false
+  },
+  "actual_inference_results": {
+    "executed": true,
+    "public_atomic_api_used_for_all_vectors": true,
+    "caller_supplied_mapping_result_used": false,
+    "authoritative_rebuild_completed_for_all_vectors": true,
+    "vector_count": 7,
+    "successful_count": 7,
+    "failed_count": 0,
+    "all_probabilities_finite": true,
+    "all_probabilities_within_zero_one": true,
+    "unique_probability_count": 7,
+    "fallback_probability_implemented": false,
+    "fabricated_probability_implemented": false
+  },
+  "determinism_validation": {
+    "all_mapping_fingerprints_repeat": true,
+    "all_calibrated_probabilities_repeat": true,
+    "monotonic_risk_ordering_asserted": false
+  },
+  "sample_profile_regression": {
+    "test_count_in_existing_suite": 27,
+    "existing_suite_pass_count": 27,
+    "protection_tests_in_new_suite_passed": true,
+    "status": "PASS"
+  },
+  "advanced_editor_block": {
+    "authorized": false,
+    "inference_executed": false,
+    "probability_generated": false,
+    "failure_code": "ADVANCED_EDITOR_CONTRACT_NOT_FROZEN",
+    "model_runtime_accessed_by_block": false,
+    "stage9_step4_2b_required": true
+  },
+  "privacy_boundary": {
+    "complete_payload_recorded_in_smoke_results": false,
+    "complete_payload_recorded_in_reports": false,
+    "complete_payload_in_mapping_result_repr": false,
+    "source_values_in_failure_text": false,
+    "absolute_paths_in_failure_text": false,
+    "personal_data_used": false,
+    "raw_input_logged": false,
+    "canonical_payload_logged": false,
+    "network_calls_added": false,
+    "telemetry_added": false
+  },
+  "governance_boundary": {
+    "portfolio_demo_only": true,
+    "credit_decision_generated": false,
+    "approval_recommendation_generated": false,
+    "rejection_recommendation_generated": false,
+    "credit_score_generated": false,
+    "fairness_claimed": false,
+    "legal_compliance_claimed": false,
+    "production_ready_claimed": false
+  },
+  "regression_tests": {
+    "step4": {"test_count": 27, "pass_count": 27},
+    "step4_1a": {"test_count": 19, "pass_count": 19},
+    "step4_1b": {"test_count": 32, "pass_count": 32},
+    "step4_2a": {"test_count": 29, "pass_count": 29},
+    "total_test_count": 107,
+    "failure_count": 0,
+    "error_count": 0,
+    "syntax_validation_passed": true,
+    "status": "PASS"
+  },
+  "runtime_state": {
+    "basic_form_runtime_implemented": true,
+    "basic_form_payload_inference_authorized": true,
+    "basic_form_actual_inference_executed": true,
+    "sample_profile_adapter_modified": false,
+    "sample_profile_mode_still_authorized": true,
+    "advanced_editor_authorized": false,
+    "advanced_editor_inference_executed": false,
+    "streamlit_ui_modified": false,
+    "public_deployment_performed": false,
+    "production_use_authorized": false,
+    "real_underwriting_use_authorized": false
+  },
+  "limitations": {
+    "synthetic_baseline_completion_feature_count": 38,
+    "limitation_aware_historical_features": [
+      "grade_encoded",
+      "credit_age_months"
+    ],
+    "advanced_editor_executable_contract_available": false,
+    "fairness_clearance": false,
+    "legal_compliance_conclusion": false,
+    "production_readiness": false
+  },
+  "next_step_authorization": {
+    "human_artifact_audit_authorized": true,
+    "git_scope_review_authorized": true,
+    "staging_authorized": false,
+    "commit_authorized": false,
+    "stage9_step4_2b_authorized": false,
+    "stage9_step5_rerun_authorized": false,
+    "public_deployment_authorized": false
+  },
+  "validation_result": {
+    "status": "PASS",
+    "ready_for_human_audit": true,
+    "all_completion_criteria_met": true
+  },
+  "generated_at_utc": "2026-07-19T13:10:57Z"
+}
