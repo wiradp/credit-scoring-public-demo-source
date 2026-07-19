@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "Stage 9",
+  "step": "Step 4.1A",
+  "baseline_commit": "e23f00aeb34243571ed6bfe998f5ce845ae2ed12",
+  "source_branch": "phase8-public-demo-source",
+  "artifact_count": 5,
+  "artifacts": [
+    {"relative_path": "outputs/stage9/stage9_public_input_constraint_contract.json", "size_bytes": 20812, "sha256": "d94e3a5de3d36e9856a2821303f00a749debc69a416f318e0dff50199b83bdae", "media_type": "application/json", "purpose": "Authoritative frozen public-input constraint contract", "baseline_commit": "e23f00aeb34243571ed6bfe998f5ce845ae2ed12", "source_branch": "phase8-public-demo-source", "generation_status": "CREATED", "validation_status": "PASS", "generated_at_utc": "2026-07-19T03:17:12Z"},
+    {"relative_path": "outputs/stage9/stage9_public_input_constraint_golden_vectors.json", "size_bytes": 16402, "sha256": "9d7ef9bb54a1bfb07954b99176f3ddc5a966ed7ad22f0e2c8d03071fd6a4982a", "media_type": "application/json", "purpose": "Synthetic golden vectors for constraint-only validation", "baseline_commit": "e23f00aeb34243571ed6bfe998f5ce845ae2ed12", "source_branch": "phase8-public-demo-source", "generation_status": "CREATED", "validation_status": "PASS", "generated_at_utc": "2026-07-19T03:17:12Z"},
+    {"relative_path": "outputs/stage9/stage9_public_input_constraint_report.md", "size_bytes": 11549, "sha256": "a4719bf88929d6f04530fa1e57e3b5c3f4f8fa212a2f3eb827ca90e5eddbc86a", "media_type": "text/markdown", "purpose": "Human-readable evidence and freeze report", "baseline_commit": "e23f00aeb34243571ed6bfe998f5ce845ae2ed12", "source_branch": "phase8-public-demo-source", "generation_status": "CREATED", "validation_status": "PASS", "generated_at_utc": "2026-07-19T03:17:12Z"},
+    {"relative_path": "outputs/stage9/stage9_public_input_constraint_report.json", "size_bytes": 13679, "sha256": "a3135d5aa8d99e767438b40aa3818229500249ac302aaf0bcfdea579e298a71e", "media_type": "application/json", "purpose": "Machine-readable evidence and validation report", "baseline_commit": "e23f00aeb34243571ed6bfe998f5ce845ae2ed12", "source_branch": "phase8-public-demo-source", "generation_status": "CREATED", "validation_status": "PASS", "generated_at_utc": "2026-07-19T03:17:12Z"},
+    {"relative_path": "tests/test_stage9_public_input_constraint_contract.py", "size_bytes": 18663, "sha256": "787b33e81f2fe426e3930e22829c69f825215e2e4a6692e702284c192c3224dd", "media_type": "text/x-python", "purpose": "Independent standard-library contract and golden-vector tests", "baseline_commit": "e23f00aeb34243571ed6bfe998f5ce845ae2ed12", "source_branch": "phase8-public-demo-source", "generation_status": "CREATED", "validation_status": "PASS", "generated_at_utc": "2026-07-19T03:17:12Z"}
+  ],
+  "generation_status": "COMPLETE",
+  "validation_status": "PASS",
+  "generated_at_utc": "2026-07-19T03:17:12Z"
+}
