@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "Stage 9",
+  "step": "Step 4.1B second targeted mutation-audit revision",
+  "contract_id": "STAGE9_BASIC_FORM_RUNTIME_MAPPING_V1",
+  "baseline_commit": "6bbe87f99421cb837ae073cd19597763d8baed0c",
+  "source_branch": "phase8-public-demo-source",
+  "deployment_classification": "PORTFOLIO_DEMO_ONLY",
+  "second_independent_mutation_audit_findings": {
+    "finding_count": 4,
+    "unused_registry_operation_gap_closed": true,
+    "structural_operand_reference_gap_closed": true,
+    "fingerprint_partition_gap_closed": true,
+    "row_level_limitation_alignment_gap_closed": true,
+    "status": "PASS"
+  },
+  "revision_scope": {
+    "revised_existing_untracked_file_count": 6,
+    "created_file_count": 0,
+    "modified_tracked_file_count": 0,
+    "staged_file_count": 0,
+    "application_source_modified": false,
+    "status": "PASS"
+  },
+  "previous_revision_closures": {
+    "contract_driven_request_assembly": true,
+    "structured_operation_parameters": true,
+    "operation_parameter_mutations_effective": true,
+    "complete_baseline_numeric_validation": true,
+    "baseline_mapping_status_validation": true,
+    "derived_output_validation": true,
+    "contract_driven_fingerprinting": true,
+    "exact_15_code_coverage": true,
+    "valid_request_fingerprints_unchanged": true,
+    "status": "PASS"
+  },
+  "exact_operation_registry_closure": {
+    "expected_registry_operation_count": 12,
+    "actual_registry_operation_count": 12,
+    "executable_operation_count": 11,
+    "baseline_passthrough_operation_count": 1,
+    "baseline_passthrough_operation_id": "PRESERVE_BASELINE",
+    "registry_operation_ids": ["DIRECT_DTI", "DIRECT_LOAN_AMNT", "DIRECT_PURPOSE", "DIRECT_TERM", "DERIVE_LOG_ANNUAL_INC", "DERIVE_LOG_LOAN_AMNT", "DERIVE_HOME_OWNERSHIP", "DERIVE_PAYMENT_TO_INCOME", "DERIVE_LOAN_TO_INCOME", "DERIVE_DEBT_TO_INCOME_REVOL", "DERIVE_IS_60_MONTH", "PRESERVE_BASELINE"],
+    "registry_id_set_exact": true,
+    "operation_ids_unique": true,
+    "unused_operation_count": 0,
+    "unexpected_operation_count": 0,
+    "missing_operation_count": 0,
+    "extra_unused_operation_rejected": true,
+    "second_baseline_operation_rejected": true,
+    "missing_ordered_operation_rejected": true,
+    "status": "PASS"
+  },
+  "structural_operand_reference_closure": {
+    "initial_available_public_source_fields": ["annual_inc", "dti", "home_ownership", "loan_amnt", "purpose", "term_months"],
+    "initial_available_baseline_feature_count": 49,
+    "allowed_source_classifications": ["PUBLIC_SOURCE_FIELD", "BASELINE_CANONICAL_FEATURE", "PRIOR_OPERATION_TARGET"],
+    "all_operation_source_fields_resolve": true,
+    "all_ratio_numerators_resolve": true,
+    "all_ratio_denominators_resolve": true,
+    "all_mapping_references_resolve": true,
+    "all_allowlist_references_resolve": true,
+    "target_becomes_available_after_operation": true,
+    "unknown_source_rejected_before_assembly": true,
+    "unknown_numerator_rejected_before_assembly": true,
+    "unknown_denominator_rejected_before_assembly": true,
+    "unknown_mapping_reference_rejected_before_assembly": true,
+    "unknown_allowlist_reference_rejected_before_assembly": true,
+    "status": "PASS"
+  },
+  "available_context_construction": {
+    "public_source_count": 6,
+    "baseline_feature_count": 49,
+    "metadata_excluded": ["synthetic_baseline_profile_id", "synthetic_completion_acknowledged"],
+    "required_operand_classification": {"annual_inc": ["PUBLIC_SOURCE_FIELD"], "dti": ["PUBLIC_SOURCE_FIELD", "BASELINE_CANONICAL_FEATURE"], "home_ownership": ["PUBLIC_SOURCE_FIELD"], "loan_amnt": ["PUBLIC_SOURCE_FIELD", "BASELINE_CANONICAL_FEATURE"], "purpose": ["PUBLIC_SOURCE_FIELD", "BASELINE_CANONICAL_FEATURE"], "term_months": ["PUBLIC_SOURCE_FIELD", "BASELINE_CANONICAL_FEATURE"], "installment": ["BASELINE_CANONICAL_FEATURE"], "revol_bal": ["BASELINE_CANONICAL_FEATURE"]},
+    "status": "PASS"
+  },
+  "fingerprint_representation_partition": {
+    "class_counts": {"direct_user_numeric": 2, "exact_integer": 2, "float32_derived": 6, "category": 1, "baseline_numeric": 38, "total": 49},
+    "classes_pairwise_disjoint": true,
+    "class_union_equals_model_set": true,
+    "baseline_numeric_equals_baseline_passthrough_set": true,
+    "duplicates_within_class_rejected": true,
+    "overlap_rejected": true,
+    "missing_class_feature_rejected": true,
+    "unexpected_feature_rejected": true,
+    "status": "PASS"
+  },
+  "fingerprint_class_overlap_rejection": {
+    "mutation": "open_acc added to direct_user_numeric while remaining baseline_numeric",
+    "rejected_before_serialization": true,
+    "failure_code": "BASIC_FORM_MAPPING_CONTRACT_INVALID",
+    "status": "PASS"
+  },
+  "row_level_limitation_alignment": {
+    "profile_count": 5,
+    "required_features": ["grade_encoded", "credit_age_months"],
+    "required_limitation_count_per_profile": 2,
+    "required_ready_count_per_profile": 47,
+    "all_profile_sets_exact": true,
+    "global_and_row_level_contracts_agree": true,
+    "mismatch_mutation_rejected": true,
+    "mismatch_failure_code": "BASIC_FORM_BASELINE_NOT_READY",
+    "status": "PASS"
+  },
+  "mapping_failure_code_coverage": {
+    "expected_code_count": 15,
+    "vector_code_count": 15,
+    "missing_codes": [],
+    "unexpected_codes": [],
+    "set_equality": true,
+    "status": "PASS"
+  },
+  "revised_golden_vector_results": {
+    "request_level_vector_count": 7,
+    "operation_unit_vector_count": 17,
+    "invalid_mapping_vector_count": 21,
+    "total_vector_count": 45,
+    "new_invalid_vector_ids": ["INVALID_EXTRA_UNUSED_REGISTRY_OPERATION", "INVALID_UNRESOLVED_OPERATION_REFERENCE", "INVALID_FINGERPRINT_CLASS_OVERLAP", "INVALID_ROW_LEVEL_LIMITATION_STATUS_MISMATCH"],
+    "all_valid_mapping_vectors_match": true,
+    "all_operation_vectors_match": true,
+    "all_invalid_vectors_fail_closed": true,
+    "valid_payload_fingerprints_unchanged": true,
+    "status": "PASS"
+  },
+  "revised_test_results": {
+    "step4_test_count": 27,
+    "step4_test_pass_count": 27,
+    "step4_1a_test_count": 19,
+    "step4_1a_test_pass_count": 19,
+    "step4_1b_test_count": 32,
+    "step4_1b_test_pass_count": 32,
+    "combined_test_count": 78,
+    "failures": 0,
+    "errors": 0,
+    "request_level_vectors_use_only_authoritative_assembly": true,
+    "step4_1b_standard_library_only": true,
+    "step4_1b_model_loaded": false,
+    "step4_1b_prediction_executed": false,
+    "status": "PASS"
+  },
+  "post_revision_runtime_state": {
+    "application_source_modified": false,
+    "mapping_runtime_implemented": false,
+    "public_input_ui_implemented": false,
+    "model_loaded_by_step4_1b_test": false,
+    "model_predict_executed_by_step4_1b_test": false,
+    "calibrator_predict_executed_by_step4_1b_test": false,
+    "probability_generated_by_step4_1b_test": false,
+    "public_deployment_performed": false
+  },
+  "privacy_boundary": {
+    "synthetic_vectors_only": true,
+    "personal_data_used": false,
+    "complete_model_payload_recorded": false,
+    "complete_model_matrix_recorded": false,
+    "probability_recorded": false
+  },
+  "next_step_authorization": {
+    "human_reaudit_authorized": true,
+    "git_scope_review_authorized": true,
+    "stage9_step5_rerun_authorized": false,
+    "next_implementation_step_authorized": false,
+    "public_deployment_authorized": false
+  },
+  "validation_result": "PASS",
+  "generated_at_utc": "2026-07-19T10:25:06Z"
+}

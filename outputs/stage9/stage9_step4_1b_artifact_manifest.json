@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "Stage 9",
+  "step": "Step 4.1B second targeted mutation-audit revision",
+  "baseline_commit": "6bbe87f99421cb837ae073cd19597763d8baed0c",
+  "source_branch": "phase8-public-demo-source",
+  "artifact_count": 5,
+  "artifacts": [
+    {
+      "relative_path": "outputs/stage9/stage9_basic_form_runtime_mapping_contract.json",
+      "size_bytes": 25592,
+      "sha256": "62404f80935b1459c722d4fe72db48da5cd558916a6c9b1501cb8f59e7a6ac06",
+      "media_type": "application/json",
+      "purpose": "Second revised authoritative Basic Form runtime mapping contract",
+      "baseline_commit": "6bbe87f99421cb837ae073cd19597763d8baed0c",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "REVISED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-19T10:25:06Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_basic_form_runtime_mapping_golden_vectors.json",
+      "size_bytes": 26204,
+      "sha256": "27f9e24e89ae278abff4121a1fb7893ec969a8a246d46792d12d9059bae6dd1b",
+      "media_type": "application/json",
+      "purpose": "Second revised synthetic mapping, operation, and fail-closed golden vectors",
+      "baseline_commit": "6bbe87f99421cb837ae073cd19597763d8baed0c",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "REVISED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-19T10:25:06Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_basic_form_runtime_mapping_report.md",
+      "size_bytes": 7779,
+      "sha256": "9f806cd185e85618dddd2508504c81739bc6a3dc9b841f020d2b2a846d560262",
+      "media_type": "text/markdown",
+      "purpose": "Second revised human-readable mutation-audit closure report",
+      "baseline_commit": "6bbe87f99421cb837ae073cd19597763d8baed0c",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "REVISED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-19T10:25:06Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_basic_form_runtime_mapping_report.json",
+      "size_bytes": 7391,
+      "sha256": "9b8abd03bb6670e12d34105a3e2889eebe162a4e128e4353f105f226ecf9b333",
+      "media_type": "application/json",
+      "purpose": "Second revised machine-readable mutation-audit closure report",
+      "baseline_commit": "6bbe87f99421cb837ae073cd19597763d8baed0c",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "REVISED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-19T10:25:06Z"
+    },
+    {
+      "relative_path": "tests/test_stage9_basic_form_runtime_mapping_contract.py",
+      "size_bytes": 77649,
+      "sha256": "41b7e5d443180b3b0d4bbc85ad4385012657470849aa963c8caa432284692546",
+      "media_type": "text/x-python",
+      "purpose": "Second revised independent standard-library executable mapping contract tests",
+      "baseline_commit": "6bbe87f99421cb837ae073cd19597763d8baed0c",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "REVISED",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-19T10:25:06Z"
+    }
+  ],
+  "generation_status": "COMPLETE",
+  "validation_status": "PASS",
+  "generated_at_utc": "2026-07-19T10:25:06Z"
+}

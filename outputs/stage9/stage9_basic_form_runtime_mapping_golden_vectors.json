@@ -1,0 +1,760 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "STAGE9_BASIC_FORM_RUNTIME_MAPPING_V1",
+  "request_level_vectors": [
+    {
+      "vector_id": "REQUEST_STANDARD_36",
+      "source_inputs": {
+        "annual_inc": 65000.0,
+        "dti": 18.27,
+        "home_ownership": "MORTGAGE",
+        "loan_amnt": 12000.0,
+        "purpose": "other",
+        "term_months": 36
+      },
+      "system_metadata": {
+        "synthetic_baseline_profile_id": "SP_LOW_RISK_SIGNAL",
+        "synthetic_completion_acknowledged": true
+      },
+      "expected_status": "valid",
+      "expected_impacted_feature_outputs": {
+        "dti": 18.27,
+        "loan_amnt": 12000.0,
+        "purpose": "other",
+        "term_months": 36,
+        "log_annual_inc": 11.082158088684082,
+        "log_loan_amnt": 9.392745018005371,
+        "home_ownership_encoded": 2.0,
+        "payment_to_income": 0.0036923077423125505,
+        "loan_to_income": 0.1846153885126114,
+        "debt_to_income_revol": 0.0003076923021581024,
+        "is_60_month": 0
+      },
+      "expected_float32_bits": {
+        "log_loan_amnt": 1091979439,
+        "payment_to_income": 997325477,
+        "home_ownership_encoded": 1073741824,
+        "loan_to_income": 1044188113,
+        "debt_to_income_revol": 966873539,
+        "log_annual_inc": 1093750917
+      },
+      "expected_value_source_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "expected_limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "expected_limitation_aware_count": 2,
+      "expected_unchanged_baseline_feature_count": 38,
+      "expected_ordered_payload_sha256": "66065ef6cef154f7630df8ccb1ebad40402e9d4eee28fa82051f5d9be0f84c79",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "REQUEST_60_MONTH",
+      "source_inputs": {
+        "annual_inc": 90000.0,
+        "dti": 12.5,
+        "home_ownership": "OWN",
+        "loan_amnt": 20000.0,
+        "purpose": "car",
+        "term_months": 60
+      },
+      "system_metadata": {
+        "synthetic_baseline_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+        "synthetic_completion_acknowledged": true
+      },
+      "expected_status": "valid",
+      "expected_impacted_feature_outputs": {
+        "dti": 12.5,
+        "loan_amnt": 20000.0,
+        "purpose": "car",
+        "term_months": 60,
+        "log_annual_inc": 11.407575607299805,
+        "log_loan_amnt": 9.90353775024414,
+        "home_ownership_encoded": 1.0,
+        "payment_to_income": 0.006666666828095913,
+        "loan_to_income": 0.2222222238779068,
+        "debt_to_income_revol": 0.0005555555690079927,
+        "is_60_month": 1
+      },
+      "expected_float32_bits": {
+        "log_loan_amnt": 1092515044,
+        "payment_to_income": 1004172302,
+        "home_ownership_encoded": 1065353216,
+        "loan_to_income": 1046711865,
+        "debt_to_income_revol": 974234292,
+        "log_annual_inc": 1094092142
+      },
+      "expected_value_source_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "expected_limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "expected_limitation_aware_count": 2,
+      "expected_unchanged_baseline_feature_count": 38,
+      "expected_ordered_payload_sha256": "6d7d3989e77e79b706a40fedbc074e7fb8f13fe89b01dc3d9d97be94d6deed60",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "REQUEST_PROFILE_HIGHER_RENT",
+      "source_inputs": {
+        "annual_inc": 70000.0,
+        "dti": 22.2,
+        "home_ownership": "RENT",
+        "loan_amnt": 15000.0,
+        "purpose": "debt_consolidation",
+        "term_months": 36
+      },
+      "system_metadata": {
+        "synthetic_baseline_profile_id": "SP_HIGHER_RISK_SIGNAL",
+        "synthetic_completion_acknowledged": true
+      },
+      "expected_status": "valid",
+      "expected_impacted_feature_outputs": {
+        "dti": 22.2,
+        "loan_amnt": 15000.0,
+        "purpose": "debt_consolidation",
+        "term_months": 36,
+        "log_annual_inc": 11.156265258789062,
+        "log_loan_amnt": 9.615872383117676,
+        "home_ownership_encoded": 3.0,
+        "payment_to_income": 0.01371428556740284,
+        "loan_to_income": 0.2142857164144516,
+        "debt_to_income_revol": 0.0011428571306169033,
+        "is_60_month": 0
+      },
+      "expected_float32_bits": {
+        "log_loan_amnt": 1092213405,
+        "payment_to_income": 1012969954,
+        "home_ownership_encoded": 1077936128,
+        "loan_to_income": 1046179255,
+        "debt_to_income_revol": 982895596,
+        "log_annual_inc": 1093828624
+      },
+      "expected_value_source_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "expected_limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "expected_limitation_aware_count": 2,
+      "expected_unchanged_baseline_feature_count": 38,
+      "expected_ordered_payload_sha256": "fd4f2f4c148c561e993f605f67c29f89e50c85a6ed009cb022162d6917b0fbba",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "REQUEST_PROFILE_MIXED_OTHER",
+      "source_inputs": {
+        "annual_inc": 80000.0,
+        "dti": 10.0,
+        "home_ownership": "OTHER",
+        "loan_amnt": 10000.0,
+        "purpose": "home_improvement",
+        "term_months": 60
+      },
+      "system_metadata": {
+        "synthetic_baseline_profile_id": "SP_MIXED_SIGNAL",
+        "synthetic_completion_acknowledged": true
+      },
+      "expected_status": "valid",
+      "expected_impacted_feature_outputs": {
+        "dti": 10.0,
+        "loan_amnt": 10000.0,
+        "purpose": "home_improvement",
+        "term_months": 60,
+        "log_annual_inc": 11.289793968200684,
+        "log_loan_amnt": 9.210440635681152,
+        "home_ownership_encoded": 4.0,
+        "payment_to_income": 0.005249999929219484,
+        "loan_to_income": 0.125,
+        "debt_to_income_revol": 0.00043750001350417733,
+        "is_60_month": 1
+      },
+      "expected_float32_bits": {
+        "log_loan_amnt": 1091788279,
+        "payment_to_income": 1001130033,
+        "home_ownership_encoded": 1082130432,
+        "loan_to_income": 1040187392,
+        "debt_to_income_revol": 971333698,
+        "log_annual_inc": 1093968639
+      },
+      "expected_value_source_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "expected_limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "expected_limitation_aware_count": 2,
+      "expected_unchanged_baseline_feature_count": 38,
+      "expected_ordered_payload_sha256": "1316de74dd77f501b9e9f71b3c3dacb6a7e29ee6341af22c4c0cfb0e670857ca",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "REQUEST_PROFILE_LIMITATION_DTI_SCALE",
+      "source_inputs": {
+        "annual_inc": 100000.0,
+        "dti": 18.27,
+        "home_ownership": "MORTGAGE",
+        "loan_amnt": 25000.0,
+        "purpose": "medical",
+        "term_months": 36
+      },
+      "system_metadata": {
+        "synthetic_baseline_profile_id": "SP_LIMITATION_TRANSPARENCY",
+        "synthetic_completion_acknowledged": true
+      },
+      "expected_status": "valid",
+      "expected_impacted_feature_outputs": {
+        "dti": 18.27,
+        "loan_amnt": 25000.0,
+        "purpose": "medical",
+        "term_months": 36,
+        "log_annual_inc": 11.512935638427734,
+        "log_loan_amnt": 10.126670837402344,
+        "home_ownership_encoded": 2.0,
+        "payment_to_income": 0.007199999876320362,
+        "loan_to_income": 0.25,
+        "debt_to_income_revol": 0.0006000000284984708,
+        "is_60_month": 0
+      },
+      "expected_float32_bits": {
+        "log_loan_amnt": 1092749016,
+        "payment_to_income": 1005317626,
+        "home_ownership_encoded": 1073741824,
+        "loan_to_income": 1048576000,
+        "debt_to_income_revol": 974997842,
+        "log_annual_inc": 1094202620
+      },
+      "expected_value_source_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "expected_limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "expected_limitation_aware_count": 2,
+      "expected_unchanged_baseline_feature_count": 38,
+      "expected_ordered_payload_sha256": "ce8191fdd6cd80c5467c94cdee5cd20fb0d02d3dc5d4df5945efc4a10ebd2fe3",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "REQUEST_NUMERIC_LOWER_BOUNDS",
+      "source_inputs": {
+        "annual_inc": 18500.0,
+        "dti": 2.1500000953674316,
+        "home_ownership": "RENT",
+        "loan_amnt": 1609.7500000000082,
+        "purpose": "vacation",
+        "term_months": 36
+      },
+      "system_metadata": {
+        "synthetic_baseline_profile_id": "SP_LOW_RISK_SIGNAL",
+        "synthetic_completion_acknowledged": true
+      },
+      "expected_status": "valid",
+      "expected_impacted_feature_outputs": {
+        "dti": 2.1500000953674316,
+        "loan_amnt": 1609.7500000000082,
+        "purpose": "vacation",
+        "term_months": 36,
+        "log_annual_inc": 9.825579643249512,
+        "log_loan_amnt": 7.38445520401001,
+        "home_ownership_encoded": 3.0,
+        "payment_to_income": 0.01297297328710556,
+        "loan_to_income": 0.08701351284980774,
+        "debt_to_income_revol": 0.0010810811072587967,
+        "is_60_month": 0
+      },
+      "expected_float32_bits": {
+        "log_loan_amnt": 1089228149,
+        "payment_to_income": 1012173976,
+        "home_ownership_encoded": 1077936128,
+        "loan_to_income": 1035088932,
+        "debt_to_income_revol": 982364944,
+        "log_annual_inc": 1092433299
+      },
+      "expected_value_source_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "expected_limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "expected_limitation_aware_count": 2,
+      "expected_unchanged_baseline_feature_count": 38,
+      "expected_ordered_payload_sha256": "58bf3099abd7202d1de201657560cca9d6db352a96a343c20e8be40c57070ed9",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "REQUEST_NUMERIC_UPPER_BOUNDS",
+      "source_inputs": {
+        "annual_inc": 260690.31999999564,
+        "dti": 38.720001220703125,
+        "home_ownership": "OWN",
+        "loan_amnt": 35000.0,
+        "purpose": "wedding",
+        "term_months": 60
+      },
+      "system_metadata": {
+        "synthetic_baseline_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+        "synthetic_completion_acknowledged": true
+      },
+      "expected_status": "valid",
+      "expected_impacted_feature_outputs": {
+        "dti": 38.720001220703125,
+        "loan_amnt": 35000.0,
+        "purpose": "wedding",
+        "term_months": 60,
+        "log_annual_inc": 12.471092224121094,
+        "log_loan_amnt": 10.46313190460205,
+        "home_ownership_encoded": 1.0,
+        "payment_to_income": 0.002301581436768174,
+        "loan_to_income": 0.1342589110136032,
+        "debt_to_income_revol": 0.0001917984482133761,
+        "is_60_month": 1
+      },
+      "expected_float32_bits": {
+        "log_loan_amnt": 1093101821,
+        "payment_to_income": 991352353,
+        "home_ownership_encoded": 1065353216,
+        "loan_to_income": 1040808747,
+        "debt_to_income_revol": 961092993,
+        "log_annual_inc": 1095207320
+      },
+      "expected_value_source_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "expected_limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "expected_limitation_aware_count": 2,
+      "expected_unchanged_baseline_feature_count": 38,
+      "expected_ordered_payload_sha256": "878888c8f4b89a697da0c927a7fb4c95d62fa8e9180509640a1498f258482e5d",
+      "model_inference_executed": false
+    }
+  ],
+  "operation_unit_vectors": [
+    {
+      "vector_id": "OP_LOG_ANNUAL",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "LOG1P_FLOAT32",
+      "input_operands": {
+        "value": 65000.0
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 11.082158088684082,
+      "expected_float32_uint32_bits": 1093750917
+    },
+    {
+      "vector_id": "OP_LOG_LOAN",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "LOG1P_FLOAT32",
+      "input_operands": {
+        "value": 12000.0
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 9.392745018005371,
+      "expected_float32_uint32_bits": 1091979439
+    },
+    {
+      "vector_id": "OP_HOME_MORTGAGE",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "ORDINAL_MAP_FLOAT32",
+      "input_operands": {
+        "value": "MORTGAGE"
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 2.0,
+      "expected_float32_uint32_bits": 1073741824
+    },
+    {
+      "vector_id": "OP_HOME_OWN",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "ORDINAL_MAP_FLOAT32",
+      "input_operands": {
+        "value": "OWN"
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 1.0,
+      "expected_float32_uint32_bits": 1065353216
+    },
+    {
+      "vector_id": "OP_HOME_RENT",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "ORDINAL_MAP_FLOAT32",
+      "input_operands": {
+        "value": "RENT"
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 3.0,
+      "expected_float32_uint32_bits": 1077936128
+    },
+    {
+      "vector_id": "OP_HOME_OTHER",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "ORDINAL_MAP_FLOAT32",
+      "input_operands": {
+        "value": "OTHER"
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 4.0,
+      "expected_float32_uint32_bits": 1082130432
+    },
+    {
+      "vector_id": "OP_PAYMENT_NORMAL",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "RATIO_CLIP_FLOAT32",
+      "input_operands": {
+        "numerator": 500.0,
+        "denominator": 5000.0,
+        "clip_lower": 0,
+        "clip_upper": 10
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 0.10000000149011612,
+      "expected_float32_uint32_bits": 1036831949
+    },
+    {
+      "vector_id": "OP_PAYMENT_UPPER_CLIP",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "RATIO_CLIP_FLOAT32",
+      "input_operands": {
+        "numerator": 1000.0,
+        "denominator": 10.0,
+        "clip_lower": 0,
+        "clip_upper": 10
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 10.0,
+      "expected_float32_uint32_bits": 1092616192
+    },
+    {
+      "vector_id": "OP_LOAN_NORMAL",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "RATIO_CLIP_FLOAT32",
+      "input_operands": {
+        "numerator": 12000.0,
+        "denominator": 65000.0,
+        "clip_lower": 0,
+        "clip_upper": 20
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 0.1846153885126114,
+      "expected_float32_uint32_bits": 1044188113
+    },
+    {
+      "vector_id": "OP_LOAN_UPPER_CLIP",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "RATIO_CLIP_FLOAT32",
+      "input_operands": {
+        "numerator": 1000.0,
+        "denominator": 10.0,
+        "clip_lower": 0,
+        "clip_upper": 20
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 20.0,
+      "expected_float32_uint32_bits": 1101004800
+    },
+    {
+      "vector_id": "OP_REVOL_NORMAL",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "RATIO_CLIP_FLOAT32",
+      "input_operands": {
+        "numerator": 5000.0,
+        "denominator": 65000.0,
+        "clip_lower": 0,
+        "clip_upper": 50
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 0.07692307978868484,
+      "expected_float32_uint32_bits": 1033734617
+    },
+    {
+      "vector_id": "OP_REVOL_UPPER_CLIP",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "RATIO_CLIP_FLOAT32",
+      "input_operands": {
+        "numerator": 1000.0,
+        "denominator": 10.0,
+        "clip_lower": 0,
+        "clip_upper": 50
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_decimal_value": 50.0,
+      "expected_float32_uint32_bits": 1112014848
+    },
+    {
+      "vector_id": "OP_TERM_FLAG_FALSE",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "EQUALS_FLAG_INT8",
+      "input_operands": {
+        "value": 36,
+        "comparison_value": 60
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_value": 0
+    },
+    {
+      "vector_id": "OP_TERM_FLAG_TRUE",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "EQUALS_FLAG_INT8",
+      "input_operands": {
+        "value": 60,
+        "comparison_value": 60
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_value": 1
+    },
+    {
+      "vector_id": "OP_IDENTITY_NUMERIC",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "IDENTITY_NUMERIC",
+      "input_operands": {
+        "value": 18.27
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_value": 18.27
+    },
+    {
+      "vector_id": "OP_IDENTITY_EXACT_INTEGER",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "IDENTITY_EXACT_INTEGER",
+      "input_operands": {
+        "value": 36
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_value": 36
+    },
+    {
+      "vector_id": "OP_IDENTITY_CATEGORICAL",
+      "vector_class": "OPERATION_UNIT_VECTOR_ONLY",
+      "public_request_status": "NOT_A_PUBLIC_REQUEST",
+      "operation_type": "IDENTITY_CATEGORICAL",
+      "input_operands": {
+        "value": "other"
+      },
+      "expected_status": "valid",
+      "model_inference_executed": false,
+      "expected_value": "other"
+    }
+  ],
+  "invalid_mapping_vectors": [
+    {
+      "vector_id": "INVALID_UNKNOWN_BASELINE",
+      "failure_scenario": "unknown baseline profile",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_BASELINE_ID_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_BASELINE_COUNT",
+      "failure_scenario": "baseline feature count mismatch",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_BASELINE_FEATURE_COUNT_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_BASELINE_DUPLICATE",
+      "failure_scenario": "duplicate baseline canonical feature",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_BASELINE_FEATURE_DUPLICATE",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_MISSING_INSTALLMENT",
+      "failure_scenario": "missing baseline installment",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_BASELINE_DEPENDENCY_MISSING",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_MISSING_REVOL_BAL",
+      "failure_scenario": "missing baseline revol_bal",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_BASELINE_DEPENDENCY_MISSING",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_NONFINITE_BASELINE",
+      "failure_scenario": "non-finite baseline dependency",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_BASELINE_VALUE_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_BASELINE_SET",
+      "failure_scenario": "baseline model-feature set mismatch",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_BASELINE_FEATURE_SET_MISMATCH",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_TWELFTH_OVERRIDE",
+      "failure_scenario": "unauthorized twelfth feature override",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_IMPACT_CLOSURE_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_OPERATION_TYPE",
+      "failure_scenario": "unsupported operation type",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_OPERATION_TYPE_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_MODEL_ORDER",
+      "failure_scenario": "model feature order mismatch",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_MODEL_ORDER_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_PROVENANCE_COUNTS",
+      "failure_scenario": "provenance count mismatch",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_PROVENANCE_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_LIMITATION_SET",
+      "failure_scenario": "limitation-aware set mismatch",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_LIMITATION_STATUS_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_MAPPING_CONTRACT_INCOMPLETE_OPERATION",
+      "failure_scenario": "required structured operation parameter missing",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_MAPPING_CONTRACT_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_BASELINE_NOT_READY",
+      "failure_scenario": "baseline row has disallowed mapping_status",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_BASELINE_NOT_READY",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_DERIVED_VALUE_NONFINITE",
+      "failure_scenario": "test-only injected non-finite derived operation result",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_DERIVED_VALUE_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_PAYLOAD_FINGERPRINT_MISMATCH",
+      "failure_scenario": "valid assembled payload compared with deliberately altered expected hash",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_PAYLOAD_FINGERPRINT_MISMATCH",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_NONFINITE_BASELINE_PASSTHROUGH",
+      "failure_scenario": "non-finite non-dependency baseline feature",
+      "mutated_feature": "open_acc",
+      "mutated_value_description": "NaN test mutation",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_BASELINE_VALUE_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_EXTRA_UNUSED_REGISTRY_OPERATION",
+      "failure_scenario": "extra unused operation exists in operation registry",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_MAPPING_CONTRACT_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_UNRESOLVED_OPERATION_REFERENCE",
+      "failure_scenario": "operation contains unresolved source or operand reference",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_MAPPING_CONTRACT_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_FINGERPRINT_CLASS_OVERLAP",
+      "failure_scenario": "one model feature belongs to multiple fingerprint representation classes",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_MAPPING_CONTRACT_INVALID",
+      "model_inference_executed": false
+    },
+    {
+      "vector_id": "INVALID_ROW_LEVEL_LIMITATION_STATUS_MISMATCH",
+      "failure_scenario": "row-level READY_WITH_LIMITATION set does not equal frozen limitation-aware feature set",
+      "expected_status": "invalid",
+      "expected_failure_code": "BASIC_FORM_BASELINE_NOT_READY",
+      "model_inference_executed": false
+    }
+  ],
+  "summary": {
+    "request_level_vector_count": 7,
+    "operation_unit_vector_count": 17,
+    "invalid_mapping_vector_count": 21,
+    "total_vector_count": 45
+  },
+  "privacy": {
+    "personal_data_used": false,
+    "synthetic_vectors_only": true,
+    "complete_model_payload_recorded": false,
+    "model_matrix_recorded": false,
+    "probability_recorded": false
+  },
+  "model_inference_executed": false,
+  "generated_at_utc": "2026-07-19T10:25:06Z"
+}
