@@ -1,0 +1,455 @@
+{
+  "repository_preconditions": {
+    "status": "PASS",
+    "branch": "phase8-public-demo-source",
+    "head": "56b06ae1c4e6e6fdd75f1d399139d267a1bb50d5",
+    "subject": "Authorize controlled Basic Form payload inference",
+    "tracked_file_count": 80,
+    "initial_working_tree_clean": true
+  },
+  "frozen_artifact_integrity": {
+    "status": "PASS",
+    "integrity_phase_model_deserialized": false
+  },
+  "environment_preflight": {
+    "status": "PASS",
+    "python_executable": "/usr/bin/python3",
+    "interpreter_note": "Host provides python3 rather than python; normal HOME and user site retained.",
+    "joblib_import": "PASS",
+    "pandas_import": "PASS",
+    "sklearn_import": "PASS",
+    "streamlit_import": "PASS"
+  },
+  "baseline_runtime_preflight": {
+    "status": "PASS",
+    "discovered_count": 56,
+    "executed_count": 56,
+    "pass_count": 56,
+    "failure_count": 0,
+    "error_count": 0,
+    "import_error_count": 0,
+    "model_deserialization_authorized": true,
+    "controlled_inference_authorized": true
+  },
+  "previous_safe_failures": {
+    "raw_profile_authority": {
+      "status": "RESOLVED_BY_CANONICAL_RESET_PROJECTION",
+      "conflict_count": 7,
+      "conflicts": [
+        {
+          "profile_id": "SP_LOW_RISK_SIGNAL",
+          "feature": "term_months",
+          "raw_value": 20,
+          "finding": "OUTSIDE_EXECUTABLE_ALLOWLIST"
+        },
+        {
+          "profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "feature": "term_months",
+          "raw_value": 50,
+          "finding": "OUTSIDE_EXECUTABLE_ALLOWLIST"
+        },
+        {
+          "profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "feature": "term_months",
+          "raw_value": 80,
+          "finding": "OUTSIDE_EXECUTABLE_ALLOWLIST"
+        },
+        {
+          "profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "feature": "is_60_month",
+          "raw_value": 1,
+          "finding": "TERM_FLAG_RELATIONSHIP_INVALID"
+        },
+        {
+          "profile_id": "SP_MIXED_SIGNAL",
+          "feature": "term_months",
+          "raw_value": 35,
+          "finding": "OUTSIDE_EXECUTABLE_ALLOWLIST"
+        },
+        {
+          "profile_id": "SP_MIXED_SIGNAL",
+          "feature": "is_60_month",
+          "raw_value": 1,
+          "finding": "TERM_FLAG_RELATIONSHIP_INVALID"
+        },
+        {
+          "profile_id": "SP_LIMITATION_TRANSPARENCY",
+          "feature": "is_60_month",
+          "raw_value": 0,
+          "finding": "TERM_FLAG_RELATIONSHIP_INVALID"
+        }
+      ],
+      "code_defect": false
+    },
+    "regression_policy": {
+      "status": "RESOLVED_BY_SPLIT_REGRESSION_POLICY",
+      "previous_contract_generation_succeeded": true,
+      "previous_standalone_tests": {
+        "passed": 19,
+        "total": 19
+      },
+      "previous_full_regression_import_failure": true,
+      "previous_rollback_completed": true,
+      "previous_baseline_restored": true,
+      "code_defect": false
+    }
+  },
+  "raw_profile_conflicts": {
+    "confirmed": true,
+    "conflict_count": 7,
+    "invalid_term_count": 4,
+    "term_flag_conflict_count": 3,
+    "raw_profiles_used_as_exact_resets": false
+  },
+  "corrected_authority_sources": [
+    "artifacts/model/model_artifact_manifest.json",
+    "outputs/stage9/stage9_basic_form_runtime_mapping_contract.json",
+    "outputs/stage9/stage9_basic_form_runtime_mapping_golden_vectors.json",
+    "artifacts/contracts/cell_group_7/schema/canonical_demo_input_schema.csv",
+    "artifacts/contracts/cell_group_7/sample_profiles/sample_profile_feature_matrix.csv",
+    "outputs/stage9/stage9_public_inference_contract.json",
+    "outputs/stage9/stage9_payload_capable_inference_adapter_contract.json"
+  ],
+  "authority_precedence": [
+    "MODEL_MAPPING_SCHEMA_EXACT_ORDER",
+    "STEP4_1B_EXACT_PARTITION",
+    "SAMPLE_PROFILE_MATRIX_38_BASELINE_VALUES",
+    "MAPPED_STEP4_1B_VECTOR_11_OVERWRITE_VALUES",
+    "MAPPED_STEP4_1B_EXPECTED_FINGERPRINT",
+    "FROZEN_GOVERNANCE_CONTRACTS"
+  ],
+  "source_conflicts_after_precedence": {
+    "conflict_count": 0,
+    "conflicts": []
+  },
+  "source_change_scope": {
+    "created_file_count": 6,
+    "modified_existing_file_count": 0,
+    "application_source_modified": false
+  },
+  "feature_schema": {
+    "feature_count": 49,
+    "order_match": true
+  },
+  "feature_partition": {
+    "baseline_passthrough_count": 38,
+    "direct_count": 4,
+    "derived_count": 7,
+    "projected_overwrite_count": 11,
+    "total_feature_count": 49,
+    "sets_disjoint": true
+  },
+  "golden_vector_profile_mapping": {
+    "mapping": {
+      "SP_LOW_RISK_SIGNAL": "REQUEST_STANDARD_36",
+      "SP_MEDIUM_RISK_SIGNAL": "REQUEST_60_MONTH",
+      "SP_HIGHER_RISK_SIGNAL": "REQUEST_PROFILE_HIGHER_RENT",
+      "SP_MIXED_SIGNAL": "REQUEST_PROFILE_MIXED_OTHER",
+      "SP_LIMITATION_TRANSPARENCY": "REQUEST_PROFILE_LIMITATION_DTI_SCALE"
+    },
+    "valid": true
+  },
+  "canonical_reset_projection_algorithm": {
+    "raw_matrix_modified": false,
+    "baseline_authority": "SAMPLE_PROFILE_MATRIX",
+    "overwrite_authority": "STEP4_1B_EXPECTED_IMPACTED_OUTPUTS",
+    "raw_overwrite_values_used": false
+  },
+  "canonical_reset_projections": {
+    "projection_count": 5,
+    "projection_ids": [
+      "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION::SP_LOW_RISK_SIGNAL",
+      "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION::SP_MEDIUM_RISK_SIGNAL",
+      "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION::SP_HIGHER_RISK_SIGNAL",
+      "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION::SP_MIXED_SIGNAL",
+      "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION::SP_LIMITATION_TRANSPARENCY"
+    ],
+    "all_feature_counts_valid": true,
+    "all_feature_sets_valid": true,
+    "all_feature_orders_valid": true,
+    "all_values_finite": true,
+    "all_purpose_values_valid": true,
+    "all_term_values_valid": true,
+    "all_term_flags_valid": true,
+    "all_term_flag_invariants_valid": true,
+    "all_fingerprints_match": true
+  },
+  "projection_fingerprint_validation": {
+    "algorithm": "SHA-256",
+    "all_match": true,
+    "fingerprints": {
+      "SP_LOW_RISK_SIGNAL": "66065ef6cef154f7630df8ccb1ebad40402e9d4eee28fa82051f5d9be0f84c79",
+      "SP_MEDIUM_RISK_SIGNAL": "6d7d3989e77e79b706a40fedbc074e7fb8f13fe89b01dc3d9d97be94d6deed60",
+      "SP_HIGHER_RISK_SIGNAL": "fd4f2f4c148c561e993f605f67c29f89e50c85a6ed009cb022162d6917b0fbba",
+      "SP_MIXED_SIGNAL": "1316de74dd77f501b9e9f71b3c3dacb6a7e29ee6341af22c4c0cfb0e670857ca",
+      "SP_LIMITATION_TRANSPARENCY": "ce8191fdd6cd80c5467c94cdee5cd20fb0d02d3dc5d4df5945efc4a10ebd2fe3"
+    }
+  },
+  "request_contract": {
+    "exact_top_level_fields": [
+      "mode",
+      "system_metadata",
+      "payload_rows"
+    ],
+    "mode": "ADVANCED_EDITOR",
+    "system_metadata": {
+      "exact_fields": [
+        "advanced_editor_profile_id",
+        "advanced_editor_acknowledged",
+        "edited_feature_names"
+      ],
+      "allowed_profile_ids": [
+        "SP_LOW_RISK_SIGNAL",
+        "SP_MEDIUM_RISK_SIGNAL",
+        "SP_HIGHER_RISK_SIGNAL",
+        "SP_MIXED_SIGNAL",
+        "SP_LIMITATION_TRANSPARENCY"
+      ],
+      "acknowledgement_required_value": true,
+      "edited_feature_names_policy": "UNIQUE_KNOWN_EDITABLE_NAMES_EXACT_EDITABLE_DIFFERENCE_SET"
+    },
+    "payload_rows": {
+      "type": "ORDERED_LIST",
+      "row_count": 49,
+      "exact_row_fields": [
+        "feature_index",
+        "feature_name",
+        "value"
+      ],
+      "exact_model_order_required": true,
+      "nested_values_allowed": false
+    }
+  },
+  "feature_registry_summary": {
+    "row_count": 49,
+    "complete": true
+  },
+  "transport_class_summary": {
+    "CATEGORY": 1,
+    "EXACT_INTEGER": 2,
+    "DISCRETE_NUMERIC": 10,
+    "CONTINUOUS_NUMERIC": 34,
+    "LOCKED_NUMERIC": 2
+  },
+  "demo_validation_envelope": {
+    "source": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+    "expanded": false,
+    "dti_divided_by_100": false,
+    "training_range_claimed": false,
+    "classification": "CONTROLLED_PUBLIC_PORTFOLIO_DEMO_ENVELOPE",
+    "not_claimed_as": [
+      "TRAINING_DATA_RANGE",
+      "UNDERWRITING_RANGE",
+      "LEGAL_RANGE",
+      "REGULATORY_RANGE",
+      "UNIVERSAL_FINANCIAL_VALIDITY_RANGE"
+    ]
+  },
+  "reset_policy": {
+    "profile_ids": [
+      "SP_LOW_RISK_SIGNAL",
+      "SP_MEDIUM_RISK_SIGNAL",
+      "SP_HIGHER_RISK_SIGNAL",
+      "SP_MIXED_SIGNAL",
+      "SP_LIMITATION_TRANSPARENCY"
+    ],
+    "profile_count": 5,
+    "raw_profiles_used_as_exact_resets": false,
+    "raw_matrix_modified": false,
+    "baseline_source_count_per_projection": 38,
+    "overwrite_source_count_per_projection": 11
+  },
+  "editability_policy": {
+    "exact_difference_set_required": true,
+    "difference_set_domain": "EDITABLE_FEATURES_ONLY",
+    "read_only_derived_changes_are_validator_controlled": true,
+    "hidden_edits_rejected": true,
+    "false_edit_declarations_rejected": true,
+    "locked_edit_declarations_rejected": true,
+    "caller_counts_trusted": false
+  },
+  "limitation_policy": {
+    "limitation_aware_features": [
+      "grade_encoded",
+      "credit_age_months"
+    ],
+    "count": 2,
+    "exact_set_required": true,
+    "editable": false,
+    "selected_projection_exact_value_required": true,
+    "public_demo_governance_restriction": true
+  },
+  "provenance_policy": {
+    "allowed_classes": [
+      "CANONICAL_RESET_PROJECTION",
+      "USER_EDITED"
+    ],
+    "counts_derived": true,
+    "difference_count_domain": "EDITABLE_FEATURES_ONLY",
+    "read_only_derived_fields_retain_canonical_reset_projection_provenance": true,
+    "exact_projection_counts": {
+      "CANONICAL_RESET_PROJECTION": 49,
+      "USER_EDITED": 0
+    },
+    "lower_level_reset_sources": {
+      "SAMPLE_PROFILE_BASELINE_PASSTHROUGH": 38,
+      "STEP4_1B_EXPECTED_IMPACTED_OUTPUT": 11
+    }
+  },
+  "cross_feature_invariants": [
+    {
+      "invariant_id": "TERM_FLAG_CONSISTENCY",
+      "expression": "is_60_month == int(term_months == 60)",
+      "required": true,
+      "flag_caller_editable": false
+    }
+  ],
+  "payload_fingerprint": {
+    "algorithm": "SHA-256",
+    "input_encoding": "UTF-8",
+    "canonical_feature_order_reference": "model_feature_contract.ordered_feature_names",
+    "record_format": "feature_index|feature_name|logical_type_tag|canonical_value_representation",
+    "record_separator": "LF",
+    "type_tags": {
+      "category": "CATEGORY",
+      "exact_integer": "INT8",
+      "numeric": "NUMERIC"
+    },
+    "float32_derived_representation": "UNSIGNED_32_BIT_IEEE754_BITS_BASE10",
+    "direct_user_numeric_representation": "PYTHON_FORMAT_DOT_17G_FLOAT64",
+    "baseline_numeric_representation": "PYTHON_FORMAT_DOT_17G_FLOAT64",
+    "exact_integer_representation": "BASE10_INTEGER_TEXT",
+    "purpose_representation": "EXACT_UTF8_CATEGORY",
+    "feature_representation_classes": {
+      "direct_user_numeric": [
+        "dti",
+        "loan_amnt"
+      ],
+      "exact_integer": [
+        "term_months",
+        "is_60_month"
+      ],
+      "float32_derived": [
+        "log_annual_inc",
+        "log_loan_amnt",
+        "home_ownership_encoded",
+        "payment_to_income",
+        "loan_to_income",
+        "debt_to_income_revol"
+      ],
+      "category": [
+        "purpose"
+      ],
+      "baseline_numeric_reference": "dependency_partition.synthetic_baseline_passthrough"
+    },
+    "supported_policy_dispatch_required": true,
+    "unsupported_policy_failure_code": "BASIC_FORM_MAPPING_CONTRACT_INVALID",
+    "fingerprint_mismatch_failure_code": "BASIC_FORM_PAYLOAD_FINGERPRINT_MISMATCH",
+    "complete_payload_recorded_in_artifacts": false,
+    "deterministic": true,
+    "caller_supplied_fingerprint_authorized": false,
+    "future_validator_derives_fingerprint": true,
+    "reset_projection_fingerprint_source": "MAPPED_STEP4_1B_EXPECTED_ORDERED_PAYLOAD_SHA256"
+  },
+  "failure_code_contract": {
+    "count": 37,
+    "all_required_present": true
+  },
+  "privacy_boundary": {
+    "fictional_values_only": true,
+    "identity_fields_allowed": false,
+    "free_text_allowed": false,
+    "nested_values_allowed": false,
+    "prohibited_fields": [
+      "full_name",
+      "nik",
+      "national_id",
+      "address",
+      "email",
+      "telephone_number",
+      "bank_account",
+      "customer_id",
+      "real_person_application_id",
+      "employer_identity",
+      "personal_narrative",
+      "free_text_notes",
+      "document_upload",
+      "image_upload",
+      "path_override",
+      "model_override",
+      "contract_override"
+    ]
+  },
+  "golden_vector_summary": {
+    "INVALID_CATEGORY": 1,
+    "INVALID_DISCRETE": 10,
+    "INVALID_EXACT_INTEGER": 1,
+    "INVALID_LOCKED_FEATURE": 3,
+    "INVALID_NUMERIC": 34,
+    "INVALID_STRUCTURAL": 27,
+    "PROJECTION_CONSTRUCTION": 5,
+    "VALID_CANONICAL_RESET": 5,
+    "VALID_EDIT": 46,
+    "total_vector_count": 132,
+    "valid_canonical_reset_vector_count": 5,
+    "features_with_valid_boundary_coverage": 49,
+    "features_with_invalid_value_coverage": 49,
+    "locked_features_with_mutation_coverage": 3,
+    "full_feature_coverage": true
+  },
+  "standalone_tests": {
+    "status": "PASS",
+    "discovered_count": 19,
+    "executed_count": 19,
+    "pass_count": 19,
+    "failure_count": 0,
+    "error_count": 0,
+    "import_error_count": 0
+  },
+  "full_regression": {
+    "status": "PASS",
+    "expected_prior_test_count": 107,
+    "discovered_count": 126,
+    "executed_count": 126,
+    "pass_count": 126,
+    "failure_count": 0,
+    "error_count": 0,
+    "import_error_count": 0
+  },
+  "runtime_state": {
+    "advanced_editor_validation_contract_frozen": true,
+    "advanced_editor_feature_count": 49,
+    "canonical_reset_projection_count": 5,
+    "advanced_editor_ui_implemented": false,
+    "advanced_editor_runtime_validator_implemented": false,
+    "advanced_editor_inference_adapter_implemented": false,
+    "advanced_editor_inference_executed": false,
+    "new_step4_2b_code_deserialized_model": false,
+    "new_step4_2b_code_executed_inference": false,
+    "controlled_inference_executed_only_by_existing_committed_regression": true,
+    "sample_profile_matrix_modified": false,
+    "sample_profile_adapter_modified": false,
+    "basic_form_runtime_modified": false,
+    "basic_form_inference_modified": false,
+    "model_modified": false,
+    "threshold_modified": false,
+    "public_deployment_performed": false,
+    "production_use_authorized": false,
+    "real_underwriting_use_authorized": false
+  },
+  "limitations": [
+    "The envelope is limited to five fictional canonical reset projections.",
+    "Advanced Editor runtime and UI are not implemented.",
+    "The read-only term flag is validator-derived and excluded from caller edit declarations."
+  ],
+  "next_step_authorization": {
+    "human_artifact_audit_authorized": true,
+    "git_scope_review_authorized": true,
+    "staging_authorized": false,
+    "commit_authorized": false,
+    "stage9_step5_rerun_authorized": false,
+    "public_deployment_authorized": false
+  },
+  "validation_result": "PASS",
+  "generated_at_utc": "2026-07-19T15:00:00Z"
+}

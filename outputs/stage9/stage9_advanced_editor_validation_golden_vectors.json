@@ -1,0 +1,5958 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "STAGE9_ADVANCED_EDITOR_VALIDATION_V1",
+  "special_numeric_tokens": {
+    "NAN": "runtime float NaN",
+    "POSITIVE_INFINITY": "runtime positive infinity",
+    "NEGATIVE_INFINITY": "runtime negative infinity"
+  },
+  "vectors": [
+    {
+      "vector_id": "VALID_CANONICAL_RESET_SP_LOW_RISK_SIGNAL",
+      "vector_group": "VALID_CANONICAL_RESET",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "source_vector_id": "REQUEST_STANDARD_36",
+      "mutations": {},
+      "edited_feature_names": [],
+      "expected_result": "VALID",
+      "expected_failure_code": null,
+      "expected_provenance_counts": {
+        "CANONICAL_RESET_PROJECTION": 49,
+        "USER_EDITED": 0
+      },
+      "expected_payload_fingerprint": "66065ef6cef154f7630df8ccb1ebad40402e9d4eee28fa82051f5d9be0f84c79"
+    },
+    {
+      "vector_id": "PROJECTION_CONSTRUCTION_SP_LOW_RISK_SIGNAL",
+      "vector_group": "PROJECTION_CONSTRUCTION",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "source_vector_id": "REQUEST_STANDARD_36",
+      "evidence": {
+        "baseline_features_retained": 38,
+        "projected_features_overlaid": 11,
+        "raw_term_placeholder_ignored": true,
+        "raw_is_60_month_placeholder_ignored": true,
+        "term_flag_invariant_valid": true,
+        "projection_fingerprint_exact": true
+      },
+      "expected_result": "VALID"
+    },
+    {
+      "vector_id": "VALID_CANONICAL_RESET_SP_MEDIUM_RISK_SIGNAL",
+      "vector_group": "VALID_CANONICAL_RESET",
+      "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+      "source_vector_id": "REQUEST_60_MONTH",
+      "mutations": {},
+      "edited_feature_names": [],
+      "expected_result": "VALID",
+      "expected_failure_code": null,
+      "expected_provenance_counts": {
+        "CANONICAL_RESET_PROJECTION": 49,
+        "USER_EDITED": 0
+      },
+      "expected_payload_fingerprint": "6d7d3989e77e79b706a40fedbc074e7fb8f13fe89b01dc3d9d97be94d6deed60"
+    },
+    {
+      "vector_id": "PROJECTION_CONSTRUCTION_SP_MEDIUM_RISK_SIGNAL",
+      "vector_group": "PROJECTION_CONSTRUCTION",
+      "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+      "source_vector_id": "REQUEST_60_MONTH",
+      "evidence": {
+        "baseline_features_retained": 38,
+        "projected_features_overlaid": 11,
+        "raw_term_placeholder_ignored": true,
+        "raw_is_60_month_placeholder_ignored": true,
+        "term_flag_invariant_valid": true,
+        "projection_fingerprint_exact": true
+      },
+      "expected_result": "VALID"
+    },
+    {
+      "vector_id": "VALID_CANONICAL_RESET_SP_HIGHER_RISK_SIGNAL",
+      "vector_group": "VALID_CANONICAL_RESET",
+      "base_profile_id": "SP_HIGHER_RISK_SIGNAL",
+      "source_vector_id": "REQUEST_PROFILE_HIGHER_RENT",
+      "mutations": {},
+      "edited_feature_names": [],
+      "expected_result": "VALID",
+      "expected_failure_code": null,
+      "expected_provenance_counts": {
+        "CANONICAL_RESET_PROJECTION": 49,
+        "USER_EDITED": 0
+      },
+      "expected_payload_fingerprint": "fd4f2f4c148c561e993f605f67c29f89e50c85a6ed009cb022162d6917b0fbba"
+    },
+    {
+      "vector_id": "PROJECTION_CONSTRUCTION_SP_HIGHER_RISK_SIGNAL",
+      "vector_group": "PROJECTION_CONSTRUCTION",
+      "base_profile_id": "SP_HIGHER_RISK_SIGNAL",
+      "source_vector_id": "REQUEST_PROFILE_HIGHER_RENT",
+      "evidence": {
+        "baseline_features_retained": 38,
+        "projected_features_overlaid": 11,
+        "raw_term_placeholder_ignored": true,
+        "raw_is_60_month_placeholder_ignored": true,
+        "term_flag_invariant_valid": true,
+        "projection_fingerprint_exact": true
+      },
+      "expected_result": "VALID"
+    },
+    {
+      "vector_id": "VALID_CANONICAL_RESET_SP_MIXED_SIGNAL",
+      "vector_group": "VALID_CANONICAL_RESET",
+      "base_profile_id": "SP_MIXED_SIGNAL",
+      "source_vector_id": "REQUEST_PROFILE_MIXED_OTHER",
+      "mutations": {},
+      "edited_feature_names": [],
+      "expected_result": "VALID",
+      "expected_failure_code": null,
+      "expected_provenance_counts": {
+        "CANONICAL_RESET_PROJECTION": 49,
+        "USER_EDITED": 0
+      },
+      "expected_payload_fingerprint": "1316de74dd77f501b9e9f71b3c3dacb6a7e29ee6341af22c4c0cfb0e670857ca"
+    },
+    {
+      "vector_id": "PROJECTION_CONSTRUCTION_SP_MIXED_SIGNAL",
+      "vector_group": "PROJECTION_CONSTRUCTION",
+      "base_profile_id": "SP_MIXED_SIGNAL",
+      "source_vector_id": "REQUEST_PROFILE_MIXED_OTHER",
+      "evidence": {
+        "baseline_features_retained": 38,
+        "projected_features_overlaid": 11,
+        "raw_term_placeholder_ignored": true,
+        "raw_is_60_month_placeholder_ignored": true,
+        "term_flag_invariant_valid": true,
+        "projection_fingerprint_exact": true
+      },
+      "expected_result": "VALID"
+    },
+    {
+      "vector_id": "VALID_CANONICAL_RESET_SP_LIMITATION_TRANSPARENCY",
+      "vector_group": "VALID_CANONICAL_RESET",
+      "base_profile_id": "SP_LIMITATION_TRANSPARENCY",
+      "source_vector_id": "REQUEST_PROFILE_LIMITATION_DTI_SCALE",
+      "mutations": {},
+      "edited_feature_names": [],
+      "expected_result": "VALID",
+      "expected_failure_code": null,
+      "expected_provenance_counts": {
+        "CANONICAL_RESET_PROJECTION": 49,
+        "USER_EDITED": 0
+      },
+      "expected_payload_fingerprint": "ce8191fdd6cd80c5467c94cdee5cd20fb0d02d3dc5d4df5945efc4a10ebd2fe3"
+    },
+    {
+      "vector_id": "PROJECTION_CONSTRUCTION_SP_LIMITATION_TRANSPARENCY",
+      "vector_group": "PROJECTION_CONSTRUCTION",
+      "base_profile_id": "SP_LIMITATION_TRANSPARENCY",
+      "source_vector_id": "REQUEST_PROFILE_LIMITATION_DTI_SCALE",
+      "evidence": {
+        "baseline_features_retained": 38,
+        "projected_features_overlaid": 11,
+        "raw_term_placeholder_ignored": true,
+        "raw_is_60_month_placeholder_ignored": true,
+        "term_flag_invariant_valid": true,
+        "projection_fingerprint_exact": true
+      },
+      "expected_result": "VALID"
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::acc_open_past_24mths",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "acc_open_past_24mths"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "acc_open_past_24mths": 20
+          },
+          "edited_feature_names": [
+            "acc_open_past_24mths"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "acc_open_past_24mths": 80
+          },
+          "edited_feature_names": [
+            "acc_open_past_24mths"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::bankruptcy_flag",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "bankruptcy_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "mutations": {
+            "bankruptcy_flag": 0
+          },
+          "edited_feature_names": [
+            "bankruptcy_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bankruptcy_flag": 1
+          },
+          "edited_feature_names": [
+            "bankruptcy_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::bc_open_to_buy",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "bc_open_to_buy"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy": 20
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy": 80
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::bc_open_to_buy_missing_flag",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "bc_open_to_buy_missing_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy_missing_flag": 0
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy_missing_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy_missing_flag": 1
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy_missing_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::bc_util",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "bc_util"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "bc_util": 20
+          },
+          "edited_feature_names": [
+            "bc_util"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util": 80
+          },
+          "edited_feature_names": [
+            "bc_util"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::bc_util_missing_flag",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "bc_util_missing_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "mutations": {
+            "bc_util_missing_flag": 0
+          },
+          "edited_feature_names": [
+            "bc_util_missing_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util_missing_flag": 1
+          },
+          "edited_feature_names": [
+            "bc_util_missing_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::debt_to_income_revol",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "debt_to_income_revol"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "debt_to_income_revol": 0.0003076923021581024
+          },
+          "edited_feature_names": [
+            "debt_to_income_revol"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "debt_to_income_revol": 0.0011428571306169033
+          },
+          "edited_feature_names": [
+            "debt_to_income_revol"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::delinq_2yrs",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "delinq_2yrs"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "delinq_2yrs": 20
+          },
+          "edited_feature_names": [
+            "delinq_2yrs"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_2yrs": 80
+          },
+          "edited_feature_names": [
+            "delinq_2yrs"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::delinq_flag",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "delinq_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "mutations": {
+            "delinq_flag": 0
+          },
+          "edited_feature_names": [
+            "delinq_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_flag": 1
+          },
+          "edited_feature_names": [
+            "delinq_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::dti",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "dti"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "dti": 10.0
+          },
+          "edited_feature_names": [
+            "dti"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "dti": 22.2
+          },
+          "edited_feature_names": [
+            "dti"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::fico_avg",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "fico_avg"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "fico_avg": 20
+          },
+          "edited_feature_names": [
+            "fico_avg"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "fico_avg": 80
+          },
+          "edited_feature_names": [
+            "fico_avg"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::high_revol_util_flag",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "high_revol_util_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "mutations": {
+            "high_revol_util_flag": 0
+          },
+          "edited_feature_names": [
+            "high_revol_util_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "high_revol_util_flag": 1
+          },
+          "edited_feature_names": [
+            "high_revol_util_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::home_ownership_encoded",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "home_ownership_encoded"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "home_ownership_encoded": 1.0
+          },
+          "edited_feature_names": [
+            "home_ownership_encoded"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "home_ownership_encoded": 4.0
+          },
+          "edited_feature_names": [
+            "home_ownership_encoded"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::inq_last_6mths",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "inq_last_6mths"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "inq_last_6mths": 20
+          },
+          "edited_feature_names": [
+            "inq_last_6mths"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_last_6mths": 80
+          },
+          "edited_feature_names": [
+            "inq_last_6mths"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::inq_per_open_acc",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "inq_per_open_acc"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "inq_per_open_acc": 20
+          },
+          "edited_feature_names": [
+            "inq_per_open_acc"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_per_open_acc": 80
+          },
+          "edited_feature_names": [
+            "inq_per_open_acc"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::installment",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "installment"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "installment": 20
+          },
+          "edited_feature_names": [
+            "installment"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "installment": 80
+          },
+          "edited_feature_names": [
+            "installment"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::loan_amnt",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "loan_amnt"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_amnt": 10000.0
+          },
+          "edited_feature_names": [
+            "loan_amnt"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_amnt": 25000.0
+          },
+          "edited_feature_names": [
+            "loan_amnt"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::loan_to_income",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "loan_to_income"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_to_income": 0.125
+          },
+          "edited_feature_names": [
+            "loan_to_income"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_to_income": 0.25
+          },
+          "edited_feature_names": [
+            "loan_to_income"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::log_annual_inc",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "log_annual_inc"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "log_annual_inc": 11.082158088684082
+          },
+          "edited_feature_names": [
+            "log_annual_inc"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_annual_inc": 11.512935638427734
+          },
+          "edited_feature_names": [
+            "log_annual_inc"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::log_loan_amnt",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "log_loan_amnt"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_loan_amnt": 9.210440635681152
+          },
+          "edited_feature_names": [
+            "log_loan_amnt"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_loan_amnt": 10.126670837402344
+          },
+          "edited_feature_names": [
+            "log_loan_amnt"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::log_revol_bal",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "log_revol_bal"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "log_revol_bal": 20
+          },
+          "edited_feature_names": [
+            "log_revol_bal"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_revol_bal": 80
+          },
+          "edited_feature_names": [
+            "log_revol_bal"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::log_tot_cur_bal",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "log_tot_cur_bal"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "log_tot_cur_bal": 20
+          },
+          "edited_feature_names": [
+            "log_tot_cur_bal"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_tot_cur_bal": 80
+          },
+          "edited_feature_names": [
+            "log_tot_cur_bal"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::log_total_rev_hi_lim",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "log_total_rev_hi_lim"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "log_total_rev_hi_lim": 20
+          },
+          "edited_feature_names": [
+            "log_total_rev_hi_lim"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_total_rev_hi_lim": 80
+          },
+          "edited_feature_names": [
+            "log_total_rev_hi_lim"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::mo_sin_old_rev_tl_op",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "mo_sin_old_rev_tl_op"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op": 20
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op": 80
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::mo_sin_old_rev_tl_op_missing_flag",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "mo_sin_old_rev_tl_op_missing_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op_missing_flag": 0
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op_missing_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op_missing_flag": 1
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op_missing_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::mo_sin_rcnt_rev_tl_op",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "mo_sin_rcnt_rev_tl_op"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op": 20
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op": 80
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::mo_sin_rcnt_rev_tl_op_missing_flag",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "mo_sin_rcnt_rev_tl_op_missing_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op_missing_flag": 0
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op_missing_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op_missing_flag": 1
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op_missing_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::mort_acc",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "mort_acc"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "mort_acc": 20
+          },
+          "edited_feature_names": [
+            "mort_acc"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mort_acc": 80
+          },
+          "edited_feature_names": [
+            "mort_acc"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::mths_since_last_delinq",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "mths_since_last_delinq"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq": 20
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq": 80
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::mths_since_last_delinq_missing_flag",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "mths_since_last_delinq_missing_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq_missing_flag": 0
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq_missing_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq_missing_flag": 1
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq_missing_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::num_actv_bc_tl",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "num_actv_bc_tl"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "num_actv_bc_tl": 20
+          },
+          "edited_feature_names": [
+            "num_actv_bc_tl"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "num_actv_bc_tl": 80
+          },
+          "edited_feature_names": [
+            "num_actv_bc_tl"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::open_acc",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "open_acc"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "open_acc": 20
+          },
+          "edited_feature_names": [
+            "open_acc"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "open_acc": 80
+          },
+          "edited_feature_names": [
+            "open_acc"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::payment_to_income",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "payment_to_income"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "payment_to_income": 0.0036923077423125505
+          },
+          "edited_feature_names": [
+            "payment_to_income"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "payment_to_income": 0.01371428556740284
+          },
+          "edited_feature_names": [
+            "payment_to_income"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::pct_tl_nvr_dlq",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "pct_tl_nvr_dlq"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "pct_tl_nvr_dlq": 20
+          },
+          "edited_feature_names": [
+            "pct_tl_nvr_dlq"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pct_tl_nvr_dlq": 80
+          },
+          "edited_feature_names": [
+            "pct_tl_nvr_dlq"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::pub_rec",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "pub_rec"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec": 20
+          },
+          "edited_feature_names": [
+            "pub_rec"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec": 80
+          },
+          "edited_feature_names": [
+            "pub_rec"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::pub_rec_bankruptcies",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "pub_rec_bankruptcies"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_bankruptcies": 20
+          },
+          "edited_feature_names": [
+            "pub_rec_bankruptcies"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_bankruptcies": 80
+          },
+          "edited_feature_names": [
+            "pub_rec_bankruptcies"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::pub_rec_flag",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "pub_rec_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_flag": 0
+          },
+          "edited_feature_names": [
+            "pub_rec_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_flag": 1
+          },
+          "edited_feature_names": [
+            "pub_rec_flag"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::purpose",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "purpose"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "purpose": "car"
+          },
+          "edited_feature_names": [
+            "purpose"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "purpose": "wedding"
+          },
+          "edited_feature_names": [
+            "purpose"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::revol_bal",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "revol_bal"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "revol_bal": 20
+          },
+          "edited_feature_names": [
+            "revol_bal"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_bal": 80
+          },
+          "edited_feature_names": [
+            "revol_bal"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::revol_util",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "revol_util"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "revol_util": 20
+          },
+          "edited_feature_names": [
+            "revol_util"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_util": 80
+          },
+          "edited_feature_names": [
+            "revol_util"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::term_months",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "term_months",
+        "is_60_month"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "term_months": 36
+          },
+          "edited_feature_names": [
+            "term_months"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "term_months": 60
+          },
+          "edited_feature_names": [
+            "term_months"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::tot_cur_bal",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "tot_cur_bal"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "tot_cur_bal": 20
+          },
+          "edited_feature_names": [
+            "tot_cur_bal"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "tot_cur_bal": 80
+          },
+          "edited_feature_names": [
+            "tot_cur_bal"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::total_acc",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "total_acc"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "total_acc": 20
+          },
+          "edited_feature_names": [
+            "total_acc"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_acc": 80
+          },
+          "edited_feature_names": [
+            "total_acc"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::total_rev_hi_lim",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "total_rev_hi_lim"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "total_rev_hi_lim": 20
+          },
+          "edited_feature_names": [
+            "total_rev_hi_lim"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_rev_hi_lim": 80
+          },
+          "edited_feature_names": [
+            "total_rev_hi_lim"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::util_to_fico_ratio",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "util_to_fico_ratio"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "util_to_fico_ratio": 20
+          },
+          "edited_feature_names": [
+            "util_to_fico_ratio"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "util_to_fico_ratio": 80
+          },
+          "edited_feature_names": [
+            "util_to_fico_ratio"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "VALID_BOUNDARIES::verification_encoded",
+      "vector_group": "VALID_EDIT",
+      "coverage_features": [
+        "verification_encoded"
+      ],
+      "cases": [
+        {
+          "case_id": "MINIMUM_OR_FIRST",
+          "base_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "mutations": {
+            "verification_encoded": 20
+          },
+          "edited_feature_names": [
+            "verification_encoded"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "MAXIMUM_OR_LAST",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "verification_encoded": 80
+          },
+          "edited_feature_names": [
+            "verification_encoded"
+          ],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::acc_open_past_24mths",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "acc_open_past_24mths"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "acc_open_past_24mths": 19.0
+          },
+          "edited_feature_names": [
+            "acc_open_past_24mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "acc_open_past_24mths": 81.0
+          },
+          "edited_feature_names": [
+            "acc_open_past_24mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "acc_open_past_24mths": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "acc_open_past_24mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "acc_open_past_24mths": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "acc_open_past_24mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "acc_open_past_24mths": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "acc_open_past_24mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "acc_open_past_24mths": true
+          },
+          "edited_feature_names": [
+            "acc_open_past_24mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "acc_open_past_24mths": null
+          },
+          "edited_feature_names": [
+            "acc_open_past_24mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::bc_open_to_buy",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "bc_open_to_buy"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy": 19.0
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy": 81.0
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy": true
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy": null
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::bc_util",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "bc_util"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util": 19.0
+          },
+          "edited_feature_names": [
+            "bc_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util": 81.0
+          },
+          "edited_feature_names": [
+            "bc_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "bc_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "bc_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "bc_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util": true
+          },
+          "edited_feature_names": [
+            "bc_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util": null
+          },
+          "edited_feature_names": [
+            "bc_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::debt_to_income_revol",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "debt_to_income_revol"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "debt_to_income_revol": -0.9996923076978419
+          },
+          "edited_feature_names": [
+            "debt_to_income_revol"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "debt_to_income_revol": 1.001142857130617
+          },
+          "edited_feature_names": [
+            "debt_to_income_revol"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "debt_to_income_revol": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "debt_to_income_revol"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "debt_to_income_revol": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "debt_to_income_revol"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "debt_to_income_revol": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "debt_to_income_revol"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "debt_to_income_revol": true
+          },
+          "edited_feature_names": [
+            "debt_to_income_revol"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "debt_to_income_revol": null
+          },
+          "edited_feature_names": [
+            "debt_to_income_revol"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::delinq_2yrs",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "delinq_2yrs"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_2yrs": 19.0
+          },
+          "edited_feature_names": [
+            "delinq_2yrs"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_2yrs": 81.0
+          },
+          "edited_feature_names": [
+            "delinq_2yrs"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_2yrs": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "delinq_2yrs"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_2yrs": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "delinq_2yrs"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_2yrs": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "delinq_2yrs"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_2yrs": true
+          },
+          "edited_feature_names": [
+            "delinq_2yrs"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_2yrs": null
+          },
+          "edited_feature_names": [
+            "delinq_2yrs"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::dti",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "dti"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "dti": 9.0
+          },
+          "edited_feature_names": [
+            "dti"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "dti": 23.2
+          },
+          "edited_feature_names": [
+            "dti"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "dti": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "dti"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "dti": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "dti"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "dti": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "dti"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "dti": true
+          },
+          "edited_feature_names": [
+            "dti"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "dti": null
+          },
+          "edited_feature_names": [
+            "dti"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::fico_avg",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "fico_avg"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "fico_avg": 19.0
+          },
+          "edited_feature_names": [
+            "fico_avg"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "fico_avg": 81.0
+          },
+          "edited_feature_names": [
+            "fico_avg"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "fico_avg": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "fico_avg"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "fico_avg": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "fico_avg"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "fico_avg": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "fico_avg"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "fico_avg": true
+          },
+          "edited_feature_names": [
+            "fico_avg"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "fico_avg": null
+          },
+          "edited_feature_names": [
+            "fico_avg"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::inq_last_6mths",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "inq_last_6mths"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_last_6mths": 19.0
+          },
+          "edited_feature_names": [
+            "inq_last_6mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_last_6mths": 81.0
+          },
+          "edited_feature_names": [
+            "inq_last_6mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_last_6mths": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "inq_last_6mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_last_6mths": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "inq_last_6mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_last_6mths": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "inq_last_6mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_last_6mths": true
+          },
+          "edited_feature_names": [
+            "inq_last_6mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_last_6mths": null
+          },
+          "edited_feature_names": [
+            "inq_last_6mths"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::inq_per_open_acc",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "inq_per_open_acc"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_per_open_acc": 19.0
+          },
+          "edited_feature_names": [
+            "inq_per_open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_per_open_acc": 81.0
+          },
+          "edited_feature_names": [
+            "inq_per_open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_per_open_acc": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "inq_per_open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_per_open_acc": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "inq_per_open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_per_open_acc": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "inq_per_open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_per_open_acc": true
+          },
+          "edited_feature_names": [
+            "inq_per_open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "inq_per_open_acc": null
+          },
+          "edited_feature_names": [
+            "inq_per_open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::installment",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "installment"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "installment": 19.0
+          },
+          "edited_feature_names": [
+            "installment"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "installment": 81.0
+          },
+          "edited_feature_names": [
+            "installment"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "installment": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "installment"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "installment": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "installment"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "installment": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "installment"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "installment": true
+          },
+          "edited_feature_names": [
+            "installment"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "installment": null
+          },
+          "edited_feature_names": [
+            "installment"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::loan_amnt",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "loan_amnt"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_amnt": 9850.0
+          },
+          "edited_feature_names": [
+            "loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_amnt": 25150.0
+          },
+          "edited_feature_names": [
+            "loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_amnt": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_amnt": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_amnt": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_amnt": true
+          },
+          "edited_feature_names": [
+            "loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_amnt": null
+          },
+          "edited_feature_names": [
+            "loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::loan_to_income",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "loan_to_income"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_to_income": -0.875
+          },
+          "edited_feature_names": [
+            "loan_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_to_income": 1.25
+          },
+          "edited_feature_names": [
+            "loan_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_to_income": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "loan_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_to_income": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "loan_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_to_income": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "loan_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_to_income": true
+          },
+          "edited_feature_names": [
+            "loan_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "loan_to_income": null
+          },
+          "edited_feature_names": [
+            "loan_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::log_annual_inc",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "log_annual_inc"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_annual_inc": 10.082158088684082
+          },
+          "edited_feature_names": [
+            "log_annual_inc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_annual_inc": 12.512935638427734
+          },
+          "edited_feature_names": [
+            "log_annual_inc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_annual_inc": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "log_annual_inc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_annual_inc": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "log_annual_inc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_annual_inc": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "log_annual_inc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_annual_inc": true
+          },
+          "edited_feature_names": [
+            "log_annual_inc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_annual_inc": null
+          },
+          "edited_feature_names": [
+            "log_annual_inc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::log_loan_amnt",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "log_loan_amnt"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_loan_amnt": 8.210440635681152
+          },
+          "edited_feature_names": [
+            "log_loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_loan_amnt": 11.126670837402344
+          },
+          "edited_feature_names": [
+            "log_loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_loan_amnt": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "log_loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_loan_amnt": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "log_loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_loan_amnt": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "log_loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_loan_amnt": true
+          },
+          "edited_feature_names": [
+            "log_loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_loan_amnt": null
+          },
+          "edited_feature_names": [
+            "log_loan_amnt"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::log_revol_bal",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "log_revol_bal"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_revol_bal": 19.0
+          },
+          "edited_feature_names": [
+            "log_revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_revol_bal": 81.0
+          },
+          "edited_feature_names": [
+            "log_revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_revol_bal": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "log_revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_revol_bal": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "log_revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_revol_bal": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "log_revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_revol_bal": true
+          },
+          "edited_feature_names": [
+            "log_revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_revol_bal": null
+          },
+          "edited_feature_names": [
+            "log_revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::log_tot_cur_bal",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "log_tot_cur_bal"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_tot_cur_bal": 19.0
+          },
+          "edited_feature_names": [
+            "log_tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_tot_cur_bal": 81.0
+          },
+          "edited_feature_names": [
+            "log_tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_tot_cur_bal": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "log_tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_tot_cur_bal": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "log_tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_tot_cur_bal": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "log_tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_tot_cur_bal": true
+          },
+          "edited_feature_names": [
+            "log_tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_tot_cur_bal": null
+          },
+          "edited_feature_names": [
+            "log_tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::log_total_rev_hi_lim",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "log_total_rev_hi_lim"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_total_rev_hi_lim": 19.0
+          },
+          "edited_feature_names": [
+            "log_total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_total_rev_hi_lim": 81.0
+          },
+          "edited_feature_names": [
+            "log_total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_total_rev_hi_lim": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "log_total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_total_rev_hi_lim": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "log_total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_total_rev_hi_lim": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "log_total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_total_rev_hi_lim": true
+          },
+          "edited_feature_names": [
+            "log_total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "log_total_rev_hi_lim": null
+          },
+          "edited_feature_names": [
+            "log_total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::mo_sin_old_rev_tl_op",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "mo_sin_old_rev_tl_op"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op": 19.0
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op": 81.0
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op": true
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op": null
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::mo_sin_rcnt_rev_tl_op",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "mo_sin_rcnt_rev_tl_op"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op": 19.0
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op": 81.0
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op": true
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op": null
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::mort_acc",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "mort_acc"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mort_acc": 19.0
+          },
+          "edited_feature_names": [
+            "mort_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mort_acc": 81.0
+          },
+          "edited_feature_names": [
+            "mort_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mort_acc": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "mort_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mort_acc": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "mort_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mort_acc": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "mort_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mort_acc": true
+          },
+          "edited_feature_names": [
+            "mort_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mort_acc": null
+          },
+          "edited_feature_names": [
+            "mort_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::mths_since_last_delinq",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "mths_since_last_delinq"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq": 19.0
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq": 81.0
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq": true
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq": null
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::num_actv_bc_tl",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "num_actv_bc_tl"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "num_actv_bc_tl": 19.0
+          },
+          "edited_feature_names": [
+            "num_actv_bc_tl"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "num_actv_bc_tl": 81.0
+          },
+          "edited_feature_names": [
+            "num_actv_bc_tl"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "num_actv_bc_tl": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "num_actv_bc_tl"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "num_actv_bc_tl": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "num_actv_bc_tl"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "num_actv_bc_tl": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "num_actv_bc_tl"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "num_actv_bc_tl": true
+          },
+          "edited_feature_names": [
+            "num_actv_bc_tl"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "num_actv_bc_tl": null
+          },
+          "edited_feature_names": [
+            "num_actv_bc_tl"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::open_acc",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "open_acc"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "open_acc": 19.0
+          },
+          "edited_feature_names": [
+            "open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "open_acc": 81.0
+          },
+          "edited_feature_names": [
+            "open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "open_acc": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "open_acc": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "open_acc": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "open_acc": true
+          },
+          "edited_feature_names": [
+            "open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "open_acc": null
+          },
+          "edited_feature_names": [
+            "open_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::payment_to_income",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "payment_to_income"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "payment_to_income": -0.9963076922576874
+          },
+          "edited_feature_names": [
+            "payment_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "payment_to_income": 1.0137142855674028
+          },
+          "edited_feature_names": [
+            "payment_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "payment_to_income": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "payment_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "payment_to_income": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "payment_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "payment_to_income": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "payment_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "payment_to_income": true
+          },
+          "edited_feature_names": [
+            "payment_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "payment_to_income": null
+          },
+          "edited_feature_names": [
+            "payment_to_income"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::pct_tl_nvr_dlq",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "pct_tl_nvr_dlq"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pct_tl_nvr_dlq": 19.0
+          },
+          "edited_feature_names": [
+            "pct_tl_nvr_dlq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pct_tl_nvr_dlq": 81.0
+          },
+          "edited_feature_names": [
+            "pct_tl_nvr_dlq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pct_tl_nvr_dlq": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "pct_tl_nvr_dlq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pct_tl_nvr_dlq": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "pct_tl_nvr_dlq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pct_tl_nvr_dlq": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "pct_tl_nvr_dlq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pct_tl_nvr_dlq": true
+          },
+          "edited_feature_names": [
+            "pct_tl_nvr_dlq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pct_tl_nvr_dlq": null
+          },
+          "edited_feature_names": [
+            "pct_tl_nvr_dlq"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::pub_rec",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "pub_rec"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec": 19.0
+          },
+          "edited_feature_names": [
+            "pub_rec"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec": 81.0
+          },
+          "edited_feature_names": [
+            "pub_rec"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "pub_rec"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "pub_rec"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "pub_rec"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec": true
+          },
+          "edited_feature_names": [
+            "pub_rec"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec": null
+          },
+          "edited_feature_names": [
+            "pub_rec"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::pub_rec_bankruptcies",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "pub_rec_bankruptcies"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_bankruptcies": 19.0
+          },
+          "edited_feature_names": [
+            "pub_rec_bankruptcies"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_bankruptcies": 81.0
+          },
+          "edited_feature_names": [
+            "pub_rec_bankruptcies"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_bankruptcies": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "pub_rec_bankruptcies"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_bankruptcies": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "pub_rec_bankruptcies"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_bankruptcies": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "pub_rec_bankruptcies"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_bankruptcies": true
+          },
+          "edited_feature_names": [
+            "pub_rec_bankruptcies"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_bankruptcies": null
+          },
+          "edited_feature_names": [
+            "pub_rec_bankruptcies"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::revol_bal",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "revol_bal"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_bal": 19.0
+          },
+          "edited_feature_names": [
+            "revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_bal": 81.0
+          },
+          "edited_feature_names": [
+            "revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_bal": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_bal": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_bal": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_bal": true
+          },
+          "edited_feature_names": [
+            "revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_bal": null
+          },
+          "edited_feature_names": [
+            "revol_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::revol_util",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "revol_util"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_util": 19.0
+          },
+          "edited_feature_names": [
+            "revol_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_util": 81.0
+          },
+          "edited_feature_names": [
+            "revol_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_util": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "revol_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_util": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "revol_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_util": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "revol_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_util": true
+          },
+          "edited_feature_names": [
+            "revol_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "revol_util": null
+          },
+          "edited_feature_names": [
+            "revol_util"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::tot_cur_bal",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "tot_cur_bal"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "tot_cur_bal": 19.0
+          },
+          "edited_feature_names": [
+            "tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "tot_cur_bal": 81.0
+          },
+          "edited_feature_names": [
+            "tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "tot_cur_bal": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "tot_cur_bal": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "tot_cur_bal": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "tot_cur_bal": true
+          },
+          "edited_feature_names": [
+            "tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "tot_cur_bal": null
+          },
+          "edited_feature_names": [
+            "tot_cur_bal"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::total_acc",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "total_acc"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_acc": 19.0
+          },
+          "edited_feature_names": [
+            "total_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_acc": 81.0
+          },
+          "edited_feature_names": [
+            "total_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_acc": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "total_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_acc": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "total_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_acc": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "total_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_acc": true
+          },
+          "edited_feature_names": [
+            "total_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_acc": null
+          },
+          "edited_feature_names": [
+            "total_acc"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::total_rev_hi_lim",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "total_rev_hi_lim"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_rev_hi_lim": 19.0
+          },
+          "edited_feature_names": [
+            "total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_rev_hi_lim": 81.0
+          },
+          "edited_feature_names": [
+            "total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_rev_hi_lim": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_rev_hi_lim": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_rev_hi_lim": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_rev_hi_lim": true
+          },
+          "edited_feature_names": [
+            "total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "total_rev_hi_lim": null
+          },
+          "edited_feature_names": [
+            "total_rev_hi_lim"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::util_to_fico_ratio",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "util_to_fico_ratio"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "util_to_fico_ratio": 19.0
+          },
+          "edited_feature_names": [
+            "util_to_fico_ratio"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "util_to_fico_ratio": 81.0
+          },
+          "edited_feature_names": [
+            "util_to_fico_ratio"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "util_to_fico_ratio": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "util_to_fico_ratio"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "util_to_fico_ratio": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "util_to_fico_ratio"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "util_to_fico_ratio": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "util_to_fico_ratio"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "util_to_fico_ratio": true
+          },
+          "edited_feature_names": [
+            "util_to_fico_ratio"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "util_to_fico_ratio": null
+          },
+          "edited_feature_names": [
+            "util_to_fico_ratio"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_NUMERIC::verification_encoded",
+      "vector_group": "INVALID_NUMERIC",
+      "coverage_features": [
+        "verification_encoded"
+      ],
+      "cases": [
+        {
+          "case_id": "BELOW_MINIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "verification_encoded": 19.0
+          },
+          "edited_feature_names": [
+            "verification_encoded"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "ABOVE_MAXIMUM",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "verification_encoded": 81.0
+          },
+          "edited_feature_names": [
+            "verification_encoded"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE"
+        },
+        {
+          "case_id": "NAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "verification_encoded": {
+              "special_numeric": "NAN"
+            }
+          },
+          "edited_feature_names": [
+            "verification_encoded"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "POSITIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "verification_encoded": {
+              "special_numeric": "POSITIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "verification_encoded"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "NEGATIVE_INFINITY",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "verification_encoded": {
+              "special_numeric": "NEGATIVE_INFINITY"
+            }
+          },
+          "edited_feature_names": [
+            "verification_encoded"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "verification_encoded": true
+          },
+          "edited_feature_names": [
+            "verification_encoded"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "verification_encoded": null
+          },
+          "edited_feature_names": [
+            "verification_encoded"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_CATEGORY::purpose",
+      "vector_group": "INVALID_CATEGORY",
+      "coverage_features": [
+        "purpose"
+      ],
+      "cases": [
+        {
+          "case_id": "UNKNOWN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "purpose": "not_allowed"
+          },
+          "edited_feature_names": [
+            "purpose"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_CATEGORY_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "purpose": true
+          },
+          "edited_feature_names": [
+            "purpose"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "purpose": null
+          },
+          "edited_feature_names": [
+            "purpose"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_EXACT_INTEGER::term_months",
+      "vector_group": "INVALID_EXACT_INTEGER",
+      "coverage_features": [
+        "term_months"
+      ],
+      "cases": [
+        {
+          "case_id": "FLOAT_36",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "term_months": 36.0
+          },
+          "edited_feature_names": [
+            "term_months"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_EXACT_INTEGER_INVALID"
+        },
+        {
+          "case_id": "STRING_36",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "term_months": "36"
+          },
+          "edited_feature_names": [
+            "term_months"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_EXACT_INTEGER_INVALID"
+        },
+        {
+          "case_id": "INVALID_48",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "term_months": 48
+          },
+          "edited_feature_names": [
+            "term_months"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_EXACT_INTEGER_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "term_months": true
+          },
+          "edited_feature_names": [
+            "term_months"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "term_months": null
+          },
+          "edited_feature_names": [
+            "term_months"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_DISCRETE::bankruptcy_flag",
+      "vector_group": "INVALID_DISCRETE",
+      "coverage_features": [
+        "bankruptcy_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "UNKNOWN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bankruptcy_flag": 2
+          },
+          "edited_feature_names": [
+            "bankruptcy_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_DISCRETE_VALUE_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bankruptcy_flag": true
+          },
+          "edited_feature_names": [
+            "bankruptcy_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bankruptcy_flag": null
+          },
+          "edited_feature_names": [
+            "bankruptcy_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_DISCRETE::bc_open_to_buy_missing_flag",
+      "vector_group": "INVALID_DISCRETE",
+      "coverage_features": [
+        "bc_open_to_buy_missing_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "UNKNOWN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy_missing_flag": 2
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_DISCRETE_VALUE_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy_missing_flag": true
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_open_to_buy_missing_flag": null
+          },
+          "edited_feature_names": [
+            "bc_open_to_buy_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_DISCRETE::bc_util_missing_flag",
+      "vector_group": "INVALID_DISCRETE",
+      "coverage_features": [
+        "bc_util_missing_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "UNKNOWN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util_missing_flag": 2
+          },
+          "edited_feature_names": [
+            "bc_util_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_DISCRETE_VALUE_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util_missing_flag": true
+          },
+          "edited_feature_names": [
+            "bc_util_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "bc_util_missing_flag": null
+          },
+          "edited_feature_names": [
+            "bc_util_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_DISCRETE::delinq_flag",
+      "vector_group": "INVALID_DISCRETE",
+      "coverage_features": [
+        "delinq_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "UNKNOWN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_flag": 2
+          },
+          "edited_feature_names": [
+            "delinq_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_DISCRETE_VALUE_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_flag": true
+          },
+          "edited_feature_names": [
+            "delinq_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "delinq_flag": null
+          },
+          "edited_feature_names": [
+            "delinq_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_DISCRETE::high_revol_util_flag",
+      "vector_group": "INVALID_DISCRETE",
+      "coverage_features": [
+        "high_revol_util_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "UNKNOWN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "high_revol_util_flag": 2
+          },
+          "edited_feature_names": [
+            "high_revol_util_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_DISCRETE_VALUE_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "high_revol_util_flag": true
+          },
+          "edited_feature_names": [
+            "high_revol_util_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "high_revol_util_flag": null
+          },
+          "edited_feature_names": [
+            "high_revol_util_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_DISCRETE::home_ownership_encoded",
+      "vector_group": "INVALID_DISCRETE",
+      "coverage_features": [
+        "home_ownership_encoded"
+      ],
+      "cases": [
+        {
+          "case_id": "UNKNOWN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "home_ownership_encoded": 5.0
+          },
+          "edited_feature_names": [
+            "home_ownership_encoded"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_DISCRETE_VALUE_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "home_ownership_encoded": true
+          },
+          "edited_feature_names": [
+            "home_ownership_encoded"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "home_ownership_encoded": null
+          },
+          "edited_feature_names": [
+            "home_ownership_encoded"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_DISCRETE::mo_sin_old_rev_tl_op_missing_flag",
+      "vector_group": "INVALID_DISCRETE",
+      "coverage_features": [
+        "mo_sin_old_rev_tl_op_missing_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "UNKNOWN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op_missing_flag": 2
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_DISCRETE_VALUE_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op_missing_flag": true
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_old_rev_tl_op_missing_flag": null
+          },
+          "edited_feature_names": [
+            "mo_sin_old_rev_tl_op_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_DISCRETE::mo_sin_rcnt_rev_tl_op_missing_flag",
+      "vector_group": "INVALID_DISCRETE",
+      "coverage_features": [
+        "mo_sin_rcnt_rev_tl_op_missing_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "UNKNOWN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op_missing_flag": 2
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_DISCRETE_VALUE_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op_missing_flag": true
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mo_sin_rcnt_rev_tl_op_missing_flag": null
+          },
+          "edited_feature_names": [
+            "mo_sin_rcnt_rev_tl_op_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_DISCRETE::mths_since_last_delinq_missing_flag",
+      "vector_group": "INVALID_DISCRETE",
+      "coverage_features": [
+        "mths_since_last_delinq_missing_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "UNKNOWN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq_missing_flag": 2
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_DISCRETE_VALUE_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq_missing_flag": true
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "mths_since_last_delinq_missing_flag": null
+          },
+          "edited_feature_names": [
+            "mths_since_last_delinq_missing_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "INVALID_DISCRETE::pub_rec_flag",
+      "vector_group": "INVALID_DISCRETE",
+      "coverage_features": [
+        "pub_rec_flag"
+      ],
+      "cases": [
+        {
+          "case_id": "UNKNOWN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_flag": 2
+          },
+          "edited_feature_names": [
+            "pub_rec_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_DISCRETE_VALUE_INVALID"
+        },
+        {
+          "case_id": "BOOLEAN",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_flag": true
+          },
+          "edited_feature_names": [
+            "pub_rec_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID"
+        },
+        {
+          "case_id": "NULL",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "pub_rec_flag": null
+          },
+          "edited_feature_names": [
+            "pub_rec_flag"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_NULL_VALUE_INVALID"
+        }
+      ]
+    },
+    {
+      "vector_id": "LOCKED_FEATURE::grade_encoded",
+      "vector_group": "INVALID_LOCKED_FEATURE",
+      "coverage_features": [
+        "grade_encoded"
+      ],
+      "cases": [
+        {
+          "case_id": "EXACT_RESET_ACCEPTED",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {},
+          "edited_feature_names": [],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "CHANGED_VALUE",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "grade_encoded": 2
+          },
+          "edited_feature_names": [],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_LOCKED_VALUE_MISMATCH"
+        },
+        {
+          "case_id": "DECLARED_LOCKED_EDIT",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {},
+          "edited_feature_names": [
+            "grade_encoded"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_LOCKED_FEATURE_EDITED"
+        }
+      ]
+    },
+    {
+      "vector_id": "LOCKED_FEATURE::credit_age_months",
+      "vector_group": "INVALID_LOCKED_FEATURE",
+      "coverage_features": [
+        "credit_age_months"
+      ],
+      "cases": [
+        {
+          "case_id": "EXACT_RESET_ACCEPTED",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {},
+          "edited_feature_names": [],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "CHANGED_VALUE",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "credit_age_months": 97
+          },
+          "edited_feature_names": [],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_LOCKED_VALUE_MISMATCH"
+        },
+        {
+          "case_id": "DECLARED_LOCKED_EDIT",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {},
+          "edited_feature_names": [
+            "credit_age_months"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_LOCKED_FEATURE_EDITED"
+        }
+      ]
+    },
+    {
+      "vector_id": "LOCKED_FEATURE::is_60_month",
+      "vector_group": "INVALID_LOCKED_FEATURE",
+      "coverage_features": [
+        "is_60_month"
+      ],
+      "cases": [
+        {
+          "case_id": "EXACT_PROJECTION_ACCEPTED",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {},
+          "edited_feature_names": [],
+          "expected_result": "VALID",
+          "expected_failure_code": null
+        },
+        {
+          "case_id": "DIRECT_EDIT_REJECTED",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {
+            "is_60_month": 1
+          },
+          "edited_feature_names": [],
+          "direct_read_only_mutation": true,
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_RELATIONSHIP_INVALID"
+        },
+        {
+          "case_id": "DECLARATION_REJECTED",
+          "base_profile_id": "SP_LOW_RISK_SIGNAL",
+          "mutations": {},
+          "edited_feature_names": [
+            "is_60_month"
+          ],
+          "expected_result": "INVALID",
+          "expected_failure_code": "ADVANCED_EDITOR_LOCKED_FEATURE_EDITED"
+        }
+      ]
+    },
+    {
+      "vector_id": "STRUCTURAL::REQUEST_TYPE",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "REQUEST_TYPE",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_REQUEST_TYPE_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::MODE",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "MODE",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_MODE_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::MISSING_METADATA",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "MISSING_METADATA",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_SYSTEM_METADATA_FIELD_SET_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::EXTRA_METADATA",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "EXTRA_METADATA",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_SYSTEM_METADATA_FIELD_SET_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::UNKNOWN_PROFILE",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "UNKNOWN_PROFILE",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_PROFILE_ID_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::FALSE_ACK",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "FALSE_ACK",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_ACKNOWLEDGEMENT_REQUIRED"
+    },
+    {
+      "vector_id": "STRUCTURAL::EDITED_LIST_TYPE",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "EDITED_LIST_TYPE",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_EDITED_FEATURE_LIST_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::DUPLICATE_EDIT",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "DUPLICATE_EDIT",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_EDITED_FEATURE_DUPLICATE"
+    },
+    {
+      "vector_id": "STRUCTURAL::UNKNOWN_EDIT",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "UNKNOWN_EDIT",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_EDITED_FEATURE_UNKNOWN"
+    },
+    {
+      "vector_id": "STRUCTURAL::HIDDEN_EDIT",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "HIDDEN_EDIT",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_EDITED_FEATURE_SET_MISMATCH"
+    },
+    {
+      "vector_id": "STRUCTURAL::FALSE_DECLARED_EDIT",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "FALSE_DECLARED_EDIT",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_EDITED_FEATURE_SET_MISMATCH"
+    },
+    {
+      "vector_id": "STRUCTURAL::PAYLOAD_TYPE",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "PAYLOAD_TYPE",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_PAYLOAD_TYPE_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::MISSING_ROW",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "MISSING_ROW",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_PAYLOAD_ROW_COUNT_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::EXTRA_ROW",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "EXTRA_ROW",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_PAYLOAD_ROW_COUNT_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::DUPLICATE_ROW",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "DUPLICATE_ROW",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_FEATURE_DUPLICATE"
+    },
+    {
+      "vector_id": "STRUCTURAL::WRONG_INDEX",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "WRONG_INDEX",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_FEATURE_INDEX_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::WRONG_NAME",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "WRONG_NAME",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_FEATURE_NAME_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::WRONG_ORDER",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "WRONG_ORDER",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_FEATURE_ORDER_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::EXTRA_ROW_FIELD",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "EXTRA_ROW_FIELD",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_PAYLOAD_ROW_SHAPE_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::MISSING_ROW_FIELD",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "MISSING_ROW_FIELD",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_PAYLOAD_ROW_SHAPE_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::NESTED_OBJECT",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "NESTED_OBJECT",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_NESTED_VALUE_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::NESTED_ARRAY",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "NESTED_ARRAY",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_NESTED_VALUE_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::PROFILE_PROJECTION_MISMATCH",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "PROFILE_PROJECTION_MISMATCH",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_RESET_PROJECTION_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::TERM_FLAG_MISMATCH_36_1",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "TERM_FLAG_MISMATCH_36_1",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_RELATIONSHIP_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::TERM_FLAG_MISMATCH_60_0",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "TERM_FLAG_MISMATCH_60_0",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_RELATIONSHIP_INVALID"
+    },
+    {
+      "vector_id": "STRUCTURAL::IDENTITY_INJECTION",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "IDENTITY_INJECTION",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_IDENTITY_FIELD_PROHIBITED"
+    },
+    {
+      "vector_id": "STRUCTURAL::FREE_TEXT_INJECTION",
+      "vector_group": "INVALID_STRUCTURAL",
+      "base_profile_id": "SP_LOW_RISK_SIGNAL",
+      "scenario": "FREE_TEXT_INJECTION",
+      "expected_result": "INVALID",
+      "expected_failure_code": "ADVANCED_EDITOR_FREE_TEXT_FIELD_PROHIBITED"
+    }
+  ],
+  "summary": {
+    "INVALID_CATEGORY": 1,
+    "INVALID_DISCRETE": 10,
+    "INVALID_EXACT_INTEGER": 1,
+    "INVALID_LOCKED_FEATURE": 3,
+    "INVALID_NUMERIC": 34,
+    "INVALID_STRUCTURAL": 27,
+    "PROJECTION_CONSTRUCTION": 5,
+    "VALID_CANONICAL_RESET": 5,
+    "VALID_EDIT": 46,
+    "total_vector_count": 132,
+    "valid_canonical_reset_vector_count": 5,
+    "features_with_valid_boundary_coverage": 49,
+    "features_with_invalid_value_coverage": 49,
+    "locked_features_with_mutation_coverage": 3,
+    "full_feature_coverage": true
+  },
+  "model_deserialized": false,
+  "inference_executed": false,
+  "generated_at_utc": "2026-07-19T15:00:00Z"
+}

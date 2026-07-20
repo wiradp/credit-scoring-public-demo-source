@@ -1,0 +1,3471 @@
+{
+  "schema_version": "1.0.0",
+  "stage": 9,
+  "step": "4.2B",
+  "contract_id": "STAGE9_ADVANCED_EDITOR_VALIDATION_V1",
+  "baseline_commit": "56b06ae1c4e6e6fdd75f1d399139d267a1bb50d5",
+  "source_branch": "phase8-public-demo-source",
+  "deployment_classification": "PORTFOLIO_DEMO_ONLY",
+  "previous_safe_failures": {
+    "raw_profile_authority": {
+      "status": "RESOLVED_BY_CANONICAL_RESET_PROJECTION",
+      "conflict_count": 7,
+      "conflicts": [
+        {
+          "profile_id": "SP_LOW_RISK_SIGNAL",
+          "feature": "term_months",
+          "raw_value": 20,
+          "finding": "OUTSIDE_EXECUTABLE_ALLOWLIST"
+        },
+        {
+          "profile_id": "SP_MEDIUM_RISK_SIGNAL",
+          "feature": "term_months",
+          "raw_value": 50,
+          "finding": "OUTSIDE_EXECUTABLE_ALLOWLIST"
+        },
+        {
+          "profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "feature": "term_months",
+          "raw_value": 80,
+          "finding": "OUTSIDE_EXECUTABLE_ALLOWLIST"
+        },
+        {
+          "profile_id": "SP_HIGHER_RISK_SIGNAL",
+          "feature": "is_60_month",
+          "raw_value": 1,
+          "finding": "TERM_FLAG_RELATIONSHIP_INVALID"
+        },
+        {
+          "profile_id": "SP_MIXED_SIGNAL",
+          "feature": "term_months",
+          "raw_value": 35,
+          "finding": "OUTSIDE_EXECUTABLE_ALLOWLIST"
+        },
+        {
+          "profile_id": "SP_MIXED_SIGNAL",
+          "feature": "is_60_month",
+          "raw_value": 1,
+          "finding": "TERM_FLAG_RELATIONSHIP_INVALID"
+        },
+        {
+          "profile_id": "SP_LIMITATION_TRANSPARENCY",
+          "feature": "is_60_month",
+          "raw_value": 0,
+          "finding": "TERM_FLAG_RELATIONSHIP_INVALID"
+        }
+      ],
+      "code_defect": false
+    },
+    "regression_policy": {
+      "status": "RESOLVED_BY_SPLIT_REGRESSION_POLICY",
+      "previous_contract_generation_succeeded": true,
+      "previous_standalone_tests": {
+        "passed": 19,
+        "total": 19
+      },
+      "previous_full_regression_import_failure": true,
+      "previous_rollback_completed": true,
+      "previous_baseline_restored": true,
+      "code_defect": false
+    }
+  },
+  "authority_sources": [
+    {
+      "relative_path": "artifacts/model/model_artifact_manifest.json",
+      "size_bytes": 5225,
+      "sha256": "9c49149b1a3f72fc6e0f6fe5e5efa84f5c81f65224c1bd08daded1f6231461fd",
+      "conflicts_after_precedence": []
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_basic_form_runtime_mapping_contract.json",
+      "size_bytes": 25592,
+      "sha256": "62404f80935b1459c722d4fe72db48da5cd558916a6c9b1501cb8f59e7a6ac06",
+      "conflicts_after_precedence": []
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_basic_form_runtime_mapping_golden_vectors.json",
+      "size_bytes": 26204,
+      "sha256": "27f9e24e89ae278abff4121a1fb7893ec969a8a246d46792d12d9059bae6dd1b",
+      "conflicts_after_precedence": []
+    },
+    {
+      "relative_path": "artifacts/contracts/cell_group_7/schema/canonical_demo_input_schema.csv",
+      "size_bytes": 39372,
+      "sha256": "787f7ada4a6e96e68b2250dfc19e15cb9229d2b00fbe491c374e39ee6607470a",
+      "conflicts_after_precedence": []
+    },
+    {
+      "relative_path": "artifacts/contracts/cell_group_7/sample_profiles/sample_profile_feature_matrix.csv",
+      "size_bytes": 89769,
+      "sha256": "c16f1786900ae0ec7878aac2dbc87018c34de459ae9a36dfabf0a43ca92f1bd6",
+      "conflicts_after_precedence": []
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_public_inference_contract.json",
+      "size_bytes": 14419,
+      "sha256": "8fb783382577d73ed6d329baa8d82432c538d16a91b224a2f30987a8c795ea47",
+      "conflicts_after_precedence": []
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_payload_capable_inference_adapter_contract.json",
+      "size_bytes": 9447,
+      "sha256": "a71aff5d4324e79b9881a137140c1c70ecfc425bba77f7e645886adb5e1d05c4",
+      "conflicts_after_precedence": []
+    }
+  ],
+  "authority_precedence": [
+    "MODEL_MAPPING_SCHEMA_EXACT_ORDER",
+    "STEP4_1B_EXACT_PARTITION",
+    "SAMPLE_PROFILE_MATRIX_38_BASELINE_VALUES",
+    "MAPPED_STEP4_1B_VECTOR_11_OVERWRITE_VALUES",
+    "MAPPED_STEP4_1B_EXPECTED_FINGERPRINT",
+    "FROZEN_GOVERNANCE_CONTRACTS"
+  ],
+  "feature_schema": {
+    "feature_count": 49,
+    "ordered_feature_names": [
+      "acc_open_past_24mths",
+      "bankruptcy_flag",
+      "bc_open_to_buy",
+      "bc_open_to_buy_missing_flag",
+      "bc_util",
+      "bc_util_missing_flag",
+      "credit_age_months",
+      "debt_to_income_revol",
+      "delinq_2yrs",
+      "delinq_flag",
+      "dti",
+      "fico_avg",
+      "grade_encoded",
+      "high_revol_util_flag",
+      "home_ownership_encoded",
+      "inq_last_6mths",
+      "inq_per_open_acc",
+      "installment",
+      "is_60_month",
+      "loan_amnt",
+      "loan_to_income",
+      "log_annual_inc",
+      "log_loan_amnt",
+      "log_revol_bal",
+      "log_tot_cur_bal",
+      "log_total_rev_hi_lim",
+      "mo_sin_old_rev_tl_op",
+      "mo_sin_old_rev_tl_op_missing_flag",
+      "mo_sin_rcnt_rev_tl_op",
+      "mo_sin_rcnt_rev_tl_op_missing_flag",
+      "mort_acc",
+      "mths_since_last_delinq",
+      "mths_since_last_delinq_missing_flag",
+      "num_actv_bc_tl",
+      "open_acc",
+      "payment_to_income",
+      "pct_tl_nvr_dlq",
+      "pub_rec",
+      "pub_rec_bankruptcies",
+      "pub_rec_flag",
+      "purpose",
+      "revol_bal",
+      "revol_util",
+      "term_months",
+      "tot_cur_bal",
+      "total_acc",
+      "total_rev_hi_lim",
+      "util_to_fico_ratio",
+      "verification_encoded"
+    ],
+    "all_three_authorities_agree": true
+  },
+  "feature_partition": {
+    "synthetic_baseline_passthrough": [
+      "acc_open_past_24mths",
+      "bankruptcy_flag",
+      "bc_open_to_buy",
+      "bc_open_to_buy_missing_flag",
+      "bc_util",
+      "bc_util_missing_flag",
+      "credit_age_months",
+      "delinq_2yrs",
+      "delinq_flag",
+      "fico_avg",
+      "grade_encoded",
+      "high_revol_util_flag",
+      "inq_last_6mths",
+      "inq_per_open_acc",
+      "installment",
+      "log_revol_bal",
+      "log_tot_cur_bal",
+      "log_total_rev_hi_lim",
+      "mo_sin_old_rev_tl_op",
+      "mo_sin_old_rev_tl_op_missing_flag",
+      "mo_sin_rcnt_rev_tl_op",
+      "mo_sin_rcnt_rev_tl_op_missing_flag",
+      "mort_acc",
+      "mths_since_last_delinq",
+      "mths_since_last_delinq_missing_flag",
+      "num_actv_bc_tl",
+      "open_acc",
+      "pct_tl_nvr_dlq",
+      "pub_rec",
+      "pub_rec_bankruptcies",
+      "pub_rec_flag",
+      "revol_bal",
+      "revol_util",
+      "tot_cur_bal",
+      "total_acc",
+      "total_rev_hi_lim",
+      "util_to_fico_ratio",
+      "verification_encoded"
+    ],
+    "direct_user_supplied": [
+      "dti",
+      "loan_amnt",
+      "purpose",
+      "term_months"
+    ],
+    "derived": [
+      "log_annual_inc",
+      "log_loan_amnt",
+      "home_ownership_encoded",
+      "payment_to_income",
+      "loan_to_income",
+      "debt_to_income_revol",
+      "is_60_month"
+    ],
+    "projected_overwrite": [
+      "debt_to_income_revol",
+      "dti",
+      "home_ownership_encoded",
+      "is_60_month",
+      "loan_amnt",
+      "loan_to_income",
+      "log_annual_inc",
+      "log_loan_amnt",
+      "payment_to_income",
+      "purpose",
+      "term_months"
+    ],
+    "counts": {
+      "SYNTHETIC_BASELINE_PASSTHROUGH": 38,
+      "DIRECT_USER_SUPPLIED": 4,
+      "DERIVED": 7,
+      "PROJECTED_OVERWRITE": 11,
+      "TOTAL": 49
+    },
+    "pairwise_disjoint": true,
+    "union_equals_feature_schema": true
+  },
+  "canonical_reset_projection_contract": {
+    "classification": "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION",
+    "raw_profiles_used_as_exact_resets": false,
+    "baseline_authority": "SAMPLE_PROFILE_MATRIX",
+    "baseline_count": 38,
+    "overwrite_authority": "STEP4_1B_EXPECTED_IMPACTED_OUTPUTS",
+    "overwrite_count": 11,
+    "raw_matrix_modified": false,
+    "raw_overwrite_values_used": false,
+    "profile_vector_mapping": {
+      "SP_LOW_RISK_SIGNAL": "REQUEST_STANDARD_36",
+      "SP_MEDIUM_RISK_SIGNAL": "REQUEST_60_MONTH",
+      "SP_HIGHER_RISK_SIGNAL": "REQUEST_PROFILE_HIGHER_RENT",
+      "SP_MIXED_SIGNAL": "REQUEST_PROFILE_MIXED_OTHER",
+      "SP_LIMITATION_TRANSPARENCY": "REQUEST_PROFILE_LIMITATION_DTI_SCALE"
+    },
+    "fingerprint_match_required": true
+  },
+  "canonical_reset_projections": [
+    {
+      "projection_id": "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION::SP_LOW_RISK_SIGNAL",
+      "profile_id": "SP_LOW_RISK_SIGNAL",
+      "source_vector_id": "REQUEST_STANDARD_36",
+      "classification": "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION",
+      "baseline_value_count": 38,
+      "overwrite_value_count": 11,
+      "payload_rows": [
+        {
+          "feature_index": 0,
+          "feature_name": "acc_open_past_24mths",
+          "value": 20
+        },
+        {
+          "feature_index": 1,
+          "feature_name": "bankruptcy_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 2,
+          "feature_name": "bc_open_to_buy",
+          "value": 20
+        },
+        {
+          "feature_index": 3,
+          "feature_name": "bc_open_to_buy_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 4,
+          "feature_name": "bc_util",
+          "value": 20
+        },
+        {
+          "feature_index": 5,
+          "feature_name": "bc_util_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 6,
+          "feature_name": "credit_age_months",
+          "value": 96
+        },
+        {
+          "feature_index": 7,
+          "feature_name": "debt_to_income_revol",
+          "value": 0.0003076923021581024
+        },
+        {
+          "feature_index": 8,
+          "feature_name": "delinq_2yrs",
+          "value": 20
+        },
+        {
+          "feature_index": 9,
+          "feature_name": "delinq_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 10,
+          "feature_name": "dti",
+          "value": 18.27
+        },
+        {
+          "feature_index": 11,
+          "feature_name": "fico_avg",
+          "value": 20
+        },
+        {
+          "feature_index": 12,
+          "feature_name": "grade_encoded",
+          "value": 1
+        },
+        {
+          "feature_index": 13,
+          "feature_name": "high_revol_util_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 14,
+          "feature_name": "home_ownership_encoded",
+          "value": 2.0
+        },
+        {
+          "feature_index": 15,
+          "feature_name": "inq_last_6mths",
+          "value": 20
+        },
+        {
+          "feature_index": 16,
+          "feature_name": "inq_per_open_acc",
+          "value": 20
+        },
+        {
+          "feature_index": 17,
+          "feature_name": "installment",
+          "value": 20
+        },
+        {
+          "feature_index": 18,
+          "feature_name": "is_60_month",
+          "value": 0
+        },
+        {
+          "feature_index": 19,
+          "feature_name": "loan_amnt",
+          "value": 12000.0
+        },
+        {
+          "feature_index": 20,
+          "feature_name": "loan_to_income",
+          "value": 0.1846153885126114
+        },
+        {
+          "feature_index": 21,
+          "feature_name": "log_annual_inc",
+          "value": 11.082158088684082
+        },
+        {
+          "feature_index": 22,
+          "feature_name": "log_loan_amnt",
+          "value": 9.392745018005371
+        },
+        {
+          "feature_index": 23,
+          "feature_name": "log_revol_bal",
+          "value": 20
+        },
+        {
+          "feature_index": 24,
+          "feature_name": "log_tot_cur_bal",
+          "value": 20
+        },
+        {
+          "feature_index": 25,
+          "feature_name": "log_total_rev_hi_lim",
+          "value": 20
+        },
+        {
+          "feature_index": 26,
+          "feature_name": "mo_sin_old_rev_tl_op",
+          "value": 20
+        },
+        {
+          "feature_index": 27,
+          "feature_name": "mo_sin_old_rev_tl_op_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 28,
+          "feature_name": "mo_sin_rcnt_rev_tl_op",
+          "value": 20
+        },
+        {
+          "feature_index": 29,
+          "feature_name": "mo_sin_rcnt_rev_tl_op_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 30,
+          "feature_name": "mort_acc",
+          "value": 20
+        },
+        {
+          "feature_index": 31,
+          "feature_name": "mths_since_last_delinq",
+          "value": 20
+        },
+        {
+          "feature_index": 32,
+          "feature_name": "mths_since_last_delinq_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 33,
+          "feature_name": "num_actv_bc_tl",
+          "value": 20
+        },
+        {
+          "feature_index": 34,
+          "feature_name": "open_acc",
+          "value": 20
+        },
+        {
+          "feature_index": 35,
+          "feature_name": "payment_to_income",
+          "value": 0.0036923077423125505
+        },
+        {
+          "feature_index": 36,
+          "feature_name": "pct_tl_nvr_dlq",
+          "value": 20
+        },
+        {
+          "feature_index": 37,
+          "feature_name": "pub_rec",
+          "value": 20
+        },
+        {
+          "feature_index": 38,
+          "feature_name": "pub_rec_bankruptcies",
+          "value": 20
+        },
+        {
+          "feature_index": 39,
+          "feature_name": "pub_rec_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 40,
+          "feature_name": "purpose",
+          "value": "other"
+        },
+        {
+          "feature_index": 41,
+          "feature_name": "revol_bal",
+          "value": 20
+        },
+        {
+          "feature_index": 42,
+          "feature_name": "revol_util",
+          "value": 20
+        },
+        {
+          "feature_index": 43,
+          "feature_name": "term_months",
+          "value": 36
+        },
+        {
+          "feature_index": 44,
+          "feature_name": "tot_cur_bal",
+          "value": 20
+        },
+        {
+          "feature_index": 45,
+          "feature_name": "total_acc",
+          "value": 20
+        },
+        {
+          "feature_index": 46,
+          "feature_name": "total_rev_hi_lim",
+          "value": 20
+        },
+        {
+          "feature_index": 47,
+          "feature_name": "util_to_fico_ratio",
+          "value": 20
+        },
+        {
+          "feature_index": 48,
+          "feature_name": "verification_encoded",
+          "value": 20
+        }
+      ],
+      "expected_payload_fingerprint": "66065ef6cef154f7630df8ccb1ebad40402e9d4eee28fa82051f5d9be0f84c79",
+      "computed_payload_fingerprint": "66065ef6cef154f7630df8ccb1ebad40402e9d4eee28fa82051f5d9be0f84c79",
+      "fingerprint_match": true
+    },
+    {
+      "projection_id": "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION::SP_MEDIUM_RISK_SIGNAL",
+      "profile_id": "SP_MEDIUM_RISK_SIGNAL",
+      "source_vector_id": "REQUEST_60_MONTH",
+      "classification": "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION",
+      "baseline_value_count": 38,
+      "overwrite_value_count": 11,
+      "payload_rows": [
+        {
+          "feature_index": 0,
+          "feature_name": "acc_open_past_24mths",
+          "value": 50
+        },
+        {
+          "feature_index": 1,
+          "feature_name": "bankruptcy_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 2,
+          "feature_name": "bc_open_to_buy",
+          "value": 50
+        },
+        {
+          "feature_index": 3,
+          "feature_name": "bc_open_to_buy_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 4,
+          "feature_name": "bc_util",
+          "value": 50
+        },
+        {
+          "feature_index": 5,
+          "feature_name": "bc_util_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 6,
+          "feature_name": "credit_age_months",
+          "value": 60
+        },
+        {
+          "feature_index": 7,
+          "feature_name": "debt_to_income_revol",
+          "value": 0.0005555555690079927
+        },
+        {
+          "feature_index": 8,
+          "feature_name": "delinq_2yrs",
+          "value": 50
+        },
+        {
+          "feature_index": 9,
+          "feature_name": "delinq_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 10,
+          "feature_name": "dti",
+          "value": 12.5
+        },
+        {
+          "feature_index": 11,
+          "feature_name": "fico_avg",
+          "value": 50
+        },
+        {
+          "feature_index": 12,
+          "feature_name": "grade_encoded",
+          "value": 3
+        },
+        {
+          "feature_index": 13,
+          "feature_name": "high_revol_util_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 14,
+          "feature_name": "home_ownership_encoded",
+          "value": 1.0
+        },
+        {
+          "feature_index": 15,
+          "feature_name": "inq_last_6mths",
+          "value": 50
+        },
+        {
+          "feature_index": 16,
+          "feature_name": "inq_per_open_acc",
+          "value": 50
+        },
+        {
+          "feature_index": 17,
+          "feature_name": "installment",
+          "value": 50
+        },
+        {
+          "feature_index": 18,
+          "feature_name": "is_60_month",
+          "value": 1
+        },
+        {
+          "feature_index": 19,
+          "feature_name": "loan_amnt",
+          "value": 20000.0
+        },
+        {
+          "feature_index": 20,
+          "feature_name": "loan_to_income",
+          "value": 0.2222222238779068
+        },
+        {
+          "feature_index": 21,
+          "feature_name": "log_annual_inc",
+          "value": 11.407575607299805
+        },
+        {
+          "feature_index": 22,
+          "feature_name": "log_loan_amnt",
+          "value": 9.90353775024414
+        },
+        {
+          "feature_index": 23,
+          "feature_name": "log_revol_bal",
+          "value": 50
+        },
+        {
+          "feature_index": 24,
+          "feature_name": "log_tot_cur_bal",
+          "value": 50
+        },
+        {
+          "feature_index": 25,
+          "feature_name": "log_total_rev_hi_lim",
+          "value": 50
+        },
+        {
+          "feature_index": 26,
+          "feature_name": "mo_sin_old_rev_tl_op",
+          "value": 50
+        },
+        {
+          "feature_index": 27,
+          "feature_name": "mo_sin_old_rev_tl_op_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 28,
+          "feature_name": "mo_sin_rcnt_rev_tl_op",
+          "value": 50
+        },
+        {
+          "feature_index": 29,
+          "feature_name": "mo_sin_rcnt_rev_tl_op_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 30,
+          "feature_name": "mort_acc",
+          "value": 50
+        },
+        {
+          "feature_index": 31,
+          "feature_name": "mths_since_last_delinq",
+          "value": 50
+        },
+        {
+          "feature_index": 32,
+          "feature_name": "mths_since_last_delinq_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 33,
+          "feature_name": "num_actv_bc_tl",
+          "value": 50
+        },
+        {
+          "feature_index": 34,
+          "feature_name": "open_acc",
+          "value": 50
+        },
+        {
+          "feature_index": 35,
+          "feature_name": "payment_to_income",
+          "value": 0.006666666828095913
+        },
+        {
+          "feature_index": 36,
+          "feature_name": "pct_tl_nvr_dlq",
+          "value": 50
+        },
+        {
+          "feature_index": 37,
+          "feature_name": "pub_rec",
+          "value": 50
+        },
+        {
+          "feature_index": 38,
+          "feature_name": "pub_rec_bankruptcies",
+          "value": 50
+        },
+        {
+          "feature_index": 39,
+          "feature_name": "pub_rec_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 40,
+          "feature_name": "purpose",
+          "value": "car"
+        },
+        {
+          "feature_index": 41,
+          "feature_name": "revol_bal",
+          "value": 50
+        },
+        {
+          "feature_index": 42,
+          "feature_name": "revol_util",
+          "value": 50
+        },
+        {
+          "feature_index": 43,
+          "feature_name": "term_months",
+          "value": 60
+        },
+        {
+          "feature_index": 44,
+          "feature_name": "tot_cur_bal",
+          "value": 50
+        },
+        {
+          "feature_index": 45,
+          "feature_name": "total_acc",
+          "value": 50
+        },
+        {
+          "feature_index": 46,
+          "feature_name": "total_rev_hi_lim",
+          "value": 50
+        },
+        {
+          "feature_index": 47,
+          "feature_name": "util_to_fico_ratio",
+          "value": 50
+        },
+        {
+          "feature_index": 48,
+          "feature_name": "verification_encoded",
+          "value": 50
+        }
+      ],
+      "expected_payload_fingerprint": "6d7d3989e77e79b706a40fedbc074e7fb8f13fe89b01dc3d9d97be94d6deed60",
+      "computed_payload_fingerprint": "6d7d3989e77e79b706a40fedbc074e7fb8f13fe89b01dc3d9d97be94d6deed60",
+      "fingerprint_match": true
+    },
+    {
+      "projection_id": "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION::SP_HIGHER_RISK_SIGNAL",
+      "profile_id": "SP_HIGHER_RISK_SIGNAL",
+      "source_vector_id": "REQUEST_PROFILE_HIGHER_RENT",
+      "classification": "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION",
+      "baseline_value_count": 38,
+      "overwrite_value_count": 11,
+      "payload_rows": [
+        {
+          "feature_index": 0,
+          "feature_name": "acc_open_past_24mths",
+          "value": 80
+        },
+        {
+          "feature_index": 1,
+          "feature_name": "bankruptcy_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 2,
+          "feature_name": "bc_open_to_buy",
+          "value": 80
+        },
+        {
+          "feature_index": 3,
+          "feature_name": "bc_open_to_buy_missing_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 4,
+          "feature_name": "bc_util",
+          "value": 80
+        },
+        {
+          "feature_index": 5,
+          "feature_name": "bc_util_missing_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 6,
+          "feature_name": "credit_age_months",
+          "value": 24
+        },
+        {
+          "feature_index": 7,
+          "feature_name": "debt_to_income_revol",
+          "value": 0.0011428571306169033
+        },
+        {
+          "feature_index": 8,
+          "feature_name": "delinq_2yrs",
+          "value": 80
+        },
+        {
+          "feature_index": 9,
+          "feature_name": "delinq_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 10,
+          "feature_name": "dti",
+          "value": 22.2
+        },
+        {
+          "feature_index": 11,
+          "feature_name": "fico_avg",
+          "value": 80
+        },
+        {
+          "feature_index": 12,
+          "feature_name": "grade_encoded",
+          "value": 5
+        },
+        {
+          "feature_index": 13,
+          "feature_name": "high_revol_util_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 14,
+          "feature_name": "home_ownership_encoded",
+          "value": 3.0
+        },
+        {
+          "feature_index": 15,
+          "feature_name": "inq_last_6mths",
+          "value": 80
+        },
+        {
+          "feature_index": 16,
+          "feature_name": "inq_per_open_acc",
+          "value": 80
+        },
+        {
+          "feature_index": 17,
+          "feature_name": "installment",
+          "value": 80
+        },
+        {
+          "feature_index": 18,
+          "feature_name": "is_60_month",
+          "value": 0
+        },
+        {
+          "feature_index": 19,
+          "feature_name": "loan_amnt",
+          "value": 15000.0
+        },
+        {
+          "feature_index": 20,
+          "feature_name": "loan_to_income",
+          "value": 0.2142857164144516
+        },
+        {
+          "feature_index": 21,
+          "feature_name": "log_annual_inc",
+          "value": 11.156265258789062
+        },
+        {
+          "feature_index": 22,
+          "feature_name": "log_loan_amnt",
+          "value": 9.615872383117676
+        },
+        {
+          "feature_index": 23,
+          "feature_name": "log_revol_bal",
+          "value": 80
+        },
+        {
+          "feature_index": 24,
+          "feature_name": "log_tot_cur_bal",
+          "value": 80
+        },
+        {
+          "feature_index": 25,
+          "feature_name": "log_total_rev_hi_lim",
+          "value": 80
+        },
+        {
+          "feature_index": 26,
+          "feature_name": "mo_sin_old_rev_tl_op",
+          "value": 80
+        },
+        {
+          "feature_index": 27,
+          "feature_name": "mo_sin_old_rev_tl_op_missing_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 28,
+          "feature_name": "mo_sin_rcnt_rev_tl_op",
+          "value": 80
+        },
+        {
+          "feature_index": 29,
+          "feature_name": "mo_sin_rcnt_rev_tl_op_missing_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 30,
+          "feature_name": "mort_acc",
+          "value": 80
+        },
+        {
+          "feature_index": 31,
+          "feature_name": "mths_since_last_delinq",
+          "value": 80
+        },
+        {
+          "feature_index": 32,
+          "feature_name": "mths_since_last_delinq_missing_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 33,
+          "feature_name": "num_actv_bc_tl",
+          "value": 80
+        },
+        {
+          "feature_index": 34,
+          "feature_name": "open_acc",
+          "value": 80
+        },
+        {
+          "feature_index": 35,
+          "feature_name": "payment_to_income",
+          "value": 0.01371428556740284
+        },
+        {
+          "feature_index": 36,
+          "feature_name": "pct_tl_nvr_dlq",
+          "value": 80
+        },
+        {
+          "feature_index": 37,
+          "feature_name": "pub_rec",
+          "value": 80
+        },
+        {
+          "feature_index": 38,
+          "feature_name": "pub_rec_bankruptcies",
+          "value": 80
+        },
+        {
+          "feature_index": 39,
+          "feature_name": "pub_rec_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 40,
+          "feature_name": "purpose",
+          "value": "debt_consolidation"
+        },
+        {
+          "feature_index": 41,
+          "feature_name": "revol_bal",
+          "value": 80
+        },
+        {
+          "feature_index": 42,
+          "feature_name": "revol_util",
+          "value": 80
+        },
+        {
+          "feature_index": 43,
+          "feature_name": "term_months",
+          "value": 36
+        },
+        {
+          "feature_index": 44,
+          "feature_name": "tot_cur_bal",
+          "value": 80
+        },
+        {
+          "feature_index": 45,
+          "feature_name": "total_acc",
+          "value": 80
+        },
+        {
+          "feature_index": 46,
+          "feature_name": "total_rev_hi_lim",
+          "value": 80
+        },
+        {
+          "feature_index": 47,
+          "feature_name": "util_to_fico_ratio",
+          "value": 80
+        },
+        {
+          "feature_index": 48,
+          "feature_name": "verification_encoded",
+          "value": 80
+        }
+      ],
+      "expected_payload_fingerprint": "fd4f2f4c148c561e993f605f67c29f89e50c85a6ed009cb022162d6917b0fbba",
+      "computed_payload_fingerprint": "fd4f2f4c148c561e993f605f67c29f89e50c85a6ed009cb022162d6917b0fbba",
+      "fingerprint_match": true
+    },
+    {
+      "projection_id": "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION::SP_MIXED_SIGNAL",
+      "profile_id": "SP_MIXED_SIGNAL",
+      "source_vector_id": "REQUEST_PROFILE_MIXED_OTHER",
+      "classification": "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION",
+      "baseline_value_count": 38,
+      "overwrite_value_count": 11,
+      "payload_rows": [
+        {
+          "feature_index": 0,
+          "feature_name": "acc_open_past_24mths",
+          "value": 35
+        },
+        {
+          "feature_index": 1,
+          "feature_name": "bankruptcy_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 2,
+          "feature_name": "bc_open_to_buy",
+          "value": 35
+        },
+        {
+          "feature_index": 3,
+          "feature_name": "bc_open_to_buy_missing_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 4,
+          "feature_name": "bc_util",
+          "value": 35
+        },
+        {
+          "feature_index": 5,
+          "feature_name": "bc_util_missing_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 6,
+          "feature_name": "credit_age_months",
+          "value": 48
+        },
+        {
+          "feature_index": 7,
+          "feature_name": "debt_to_income_revol",
+          "value": 0.00043750001350417733
+        },
+        {
+          "feature_index": 8,
+          "feature_name": "delinq_2yrs",
+          "value": 35
+        },
+        {
+          "feature_index": 9,
+          "feature_name": "delinq_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 10,
+          "feature_name": "dti",
+          "value": 10.0
+        },
+        {
+          "feature_index": 11,
+          "feature_name": "fico_avg",
+          "value": 35
+        },
+        {
+          "feature_index": 12,
+          "feature_name": "grade_encoded",
+          "value": 4
+        },
+        {
+          "feature_index": 13,
+          "feature_name": "high_revol_util_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 14,
+          "feature_name": "home_ownership_encoded",
+          "value": 4.0
+        },
+        {
+          "feature_index": 15,
+          "feature_name": "inq_last_6mths",
+          "value": 35
+        },
+        {
+          "feature_index": 16,
+          "feature_name": "inq_per_open_acc",
+          "value": 35
+        },
+        {
+          "feature_index": 17,
+          "feature_name": "installment",
+          "value": 35
+        },
+        {
+          "feature_index": 18,
+          "feature_name": "is_60_month",
+          "value": 1
+        },
+        {
+          "feature_index": 19,
+          "feature_name": "loan_amnt",
+          "value": 10000.0
+        },
+        {
+          "feature_index": 20,
+          "feature_name": "loan_to_income",
+          "value": 0.125
+        },
+        {
+          "feature_index": 21,
+          "feature_name": "log_annual_inc",
+          "value": 11.289793968200684
+        },
+        {
+          "feature_index": 22,
+          "feature_name": "log_loan_amnt",
+          "value": 9.210440635681152
+        },
+        {
+          "feature_index": 23,
+          "feature_name": "log_revol_bal",
+          "value": 35
+        },
+        {
+          "feature_index": 24,
+          "feature_name": "log_tot_cur_bal",
+          "value": 35
+        },
+        {
+          "feature_index": 25,
+          "feature_name": "log_total_rev_hi_lim",
+          "value": 35
+        },
+        {
+          "feature_index": 26,
+          "feature_name": "mo_sin_old_rev_tl_op",
+          "value": 35
+        },
+        {
+          "feature_index": 27,
+          "feature_name": "mo_sin_old_rev_tl_op_missing_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 28,
+          "feature_name": "mo_sin_rcnt_rev_tl_op",
+          "value": 35
+        },
+        {
+          "feature_index": 29,
+          "feature_name": "mo_sin_rcnt_rev_tl_op_missing_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 30,
+          "feature_name": "mort_acc",
+          "value": 35
+        },
+        {
+          "feature_index": 31,
+          "feature_name": "mths_since_last_delinq",
+          "value": 35
+        },
+        {
+          "feature_index": 32,
+          "feature_name": "mths_since_last_delinq_missing_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 33,
+          "feature_name": "num_actv_bc_tl",
+          "value": 35
+        },
+        {
+          "feature_index": 34,
+          "feature_name": "open_acc",
+          "value": 35
+        },
+        {
+          "feature_index": 35,
+          "feature_name": "payment_to_income",
+          "value": 0.005249999929219484
+        },
+        {
+          "feature_index": 36,
+          "feature_name": "pct_tl_nvr_dlq",
+          "value": 35
+        },
+        {
+          "feature_index": 37,
+          "feature_name": "pub_rec",
+          "value": 35
+        },
+        {
+          "feature_index": 38,
+          "feature_name": "pub_rec_bankruptcies",
+          "value": 35
+        },
+        {
+          "feature_index": 39,
+          "feature_name": "pub_rec_flag",
+          "value": 1
+        },
+        {
+          "feature_index": 40,
+          "feature_name": "purpose",
+          "value": "home_improvement"
+        },
+        {
+          "feature_index": 41,
+          "feature_name": "revol_bal",
+          "value": 35
+        },
+        {
+          "feature_index": 42,
+          "feature_name": "revol_util",
+          "value": 35
+        },
+        {
+          "feature_index": 43,
+          "feature_name": "term_months",
+          "value": 60
+        },
+        {
+          "feature_index": 44,
+          "feature_name": "tot_cur_bal",
+          "value": 35
+        },
+        {
+          "feature_index": 45,
+          "feature_name": "total_acc",
+          "value": 35
+        },
+        {
+          "feature_index": 46,
+          "feature_name": "total_rev_hi_lim",
+          "value": 35
+        },
+        {
+          "feature_index": 47,
+          "feature_name": "util_to_fico_ratio",
+          "value": 35
+        },
+        {
+          "feature_index": 48,
+          "feature_name": "verification_encoded",
+          "value": 35
+        }
+      ],
+      "expected_payload_fingerprint": "1316de74dd77f501b9e9f71b3c3dacb6a7e29ee6341af22c4c0cfb0e670857ca",
+      "computed_payload_fingerprint": "1316de74dd77f501b9e9f71b3c3dacb6a7e29ee6341af22c4c0cfb0e670857ca",
+      "fingerprint_match": true
+    },
+    {
+      "projection_id": "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION::SP_LIMITATION_TRANSPARENCY",
+      "profile_id": "SP_LIMITATION_TRANSPARENCY",
+      "source_vector_id": "REQUEST_PROFILE_LIMITATION_DTI_SCALE",
+      "classification": "ADVANCED_EDITOR_CANONICAL_RESET_PROJECTION",
+      "baseline_value_count": 38,
+      "overwrite_value_count": 11,
+      "payload_rows": [
+        {
+          "feature_index": 0,
+          "feature_name": "acc_open_past_24mths",
+          "value": 60
+        },
+        {
+          "feature_index": 1,
+          "feature_name": "bankruptcy_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 2,
+          "feature_name": "bc_open_to_buy",
+          "value": 60
+        },
+        {
+          "feature_index": 3,
+          "feature_name": "bc_open_to_buy_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 4,
+          "feature_name": "bc_util",
+          "value": 60
+        },
+        {
+          "feature_index": 5,
+          "feature_name": "bc_util_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 6,
+          "feature_name": "credit_age_months",
+          "value": 36
+        },
+        {
+          "feature_index": 7,
+          "feature_name": "debt_to_income_revol",
+          "value": 0.0006000000284984708
+        },
+        {
+          "feature_index": 8,
+          "feature_name": "delinq_2yrs",
+          "value": 60
+        },
+        {
+          "feature_index": 9,
+          "feature_name": "delinq_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 10,
+          "feature_name": "dti",
+          "value": 18.27
+        },
+        {
+          "feature_index": 11,
+          "feature_name": "fico_avg",
+          "value": 60
+        },
+        {
+          "feature_index": 12,
+          "feature_name": "grade_encoded",
+          "value": 3
+        },
+        {
+          "feature_index": 13,
+          "feature_name": "high_revol_util_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 14,
+          "feature_name": "home_ownership_encoded",
+          "value": 2.0
+        },
+        {
+          "feature_index": 15,
+          "feature_name": "inq_last_6mths",
+          "value": 60
+        },
+        {
+          "feature_index": 16,
+          "feature_name": "inq_per_open_acc",
+          "value": 60
+        },
+        {
+          "feature_index": 17,
+          "feature_name": "installment",
+          "value": 60
+        },
+        {
+          "feature_index": 18,
+          "feature_name": "is_60_month",
+          "value": 0
+        },
+        {
+          "feature_index": 19,
+          "feature_name": "loan_amnt",
+          "value": 25000.0
+        },
+        {
+          "feature_index": 20,
+          "feature_name": "loan_to_income",
+          "value": 0.25
+        },
+        {
+          "feature_index": 21,
+          "feature_name": "log_annual_inc",
+          "value": 11.512935638427734
+        },
+        {
+          "feature_index": 22,
+          "feature_name": "log_loan_amnt",
+          "value": 10.126670837402344
+        },
+        {
+          "feature_index": 23,
+          "feature_name": "log_revol_bal",
+          "value": 60
+        },
+        {
+          "feature_index": 24,
+          "feature_name": "log_tot_cur_bal",
+          "value": 60
+        },
+        {
+          "feature_index": 25,
+          "feature_name": "log_total_rev_hi_lim",
+          "value": 60
+        },
+        {
+          "feature_index": 26,
+          "feature_name": "mo_sin_old_rev_tl_op",
+          "value": 60
+        },
+        {
+          "feature_index": 27,
+          "feature_name": "mo_sin_old_rev_tl_op_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 28,
+          "feature_name": "mo_sin_rcnt_rev_tl_op",
+          "value": 60
+        },
+        {
+          "feature_index": 29,
+          "feature_name": "mo_sin_rcnt_rev_tl_op_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 30,
+          "feature_name": "mort_acc",
+          "value": 60
+        },
+        {
+          "feature_index": 31,
+          "feature_name": "mths_since_last_delinq",
+          "value": 60
+        },
+        {
+          "feature_index": 32,
+          "feature_name": "mths_since_last_delinq_missing_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 33,
+          "feature_name": "num_actv_bc_tl",
+          "value": 60
+        },
+        {
+          "feature_index": 34,
+          "feature_name": "open_acc",
+          "value": 60
+        },
+        {
+          "feature_index": 35,
+          "feature_name": "payment_to_income",
+          "value": 0.007199999876320362
+        },
+        {
+          "feature_index": 36,
+          "feature_name": "pct_tl_nvr_dlq",
+          "value": 60
+        },
+        {
+          "feature_index": 37,
+          "feature_name": "pub_rec",
+          "value": 60
+        },
+        {
+          "feature_index": 38,
+          "feature_name": "pub_rec_bankruptcies",
+          "value": 60
+        },
+        {
+          "feature_index": 39,
+          "feature_name": "pub_rec_flag",
+          "value": 0
+        },
+        {
+          "feature_index": 40,
+          "feature_name": "purpose",
+          "value": "medical"
+        },
+        {
+          "feature_index": 41,
+          "feature_name": "revol_bal",
+          "value": 60
+        },
+        {
+          "feature_index": 42,
+          "feature_name": "revol_util",
+          "value": 60
+        },
+        {
+          "feature_index": 43,
+          "feature_name": "term_months",
+          "value": 36
+        },
+        {
+          "feature_index": 44,
+          "feature_name": "tot_cur_bal",
+          "value": 60
+        },
+        {
+          "feature_index": 45,
+          "feature_name": "total_acc",
+          "value": 60
+        },
+        {
+          "feature_index": 46,
+          "feature_name": "total_rev_hi_lim",
+          "value": 60
+        },
+        {
+          "feature_index": 47,
+          "feature_name": "util_to_fico_ratio",
+          "value": 60
+        },
+        {
+          "feature_index": 48,
+          "feature_name": "verification_encoded",
+          "value": 60
+        }
+      ],
+      "expected_payload_fingerprint": "ce8191fdd6cd80c5467c94cdee5cd20fb0d02d3dc5d4df5945efc4a10ebd2fe3",
+      "computed_payload_fingerprint": "ce8191fdd6cd80c5467c94cdee5cd20fb0d02d3dc5d4df5945efc4a10ebd2fe3",
+      "fingerprint_match": true
+    }
+  ],
+  "request_contract": {
+    "exact_top_level_fields": [
+      "mode",
+      "system_metadata",
+      "payload_rows"
+    ],
+    "mode": "ADVANCED_EDITOR",
+    "system_metadata": {
+      "exact_fields": [
+        "advanced_editor_profile_id",
+        "advanced_editor_acknowledged",
+        "edited_feature_names"
+      ],
+      "allowed_profile_ids": [
+        "SP_LOW_RISK_SIGNAL",
+        "SP_MEDIUM_RISK_SIGNAL",
+        "SP_HIGHER_RISK_SIGNAL",
+        "SP_MIXED_SIGNAL",
+        "SP_LIMITATION_TRANSPARENCY"
+      ],
+      "acknowledgement_required_value": true,
+      "edited_feature_names_policy": "UNIQUE_KNOWN_EDITABLE_NAMES_EXACT_EDITABLE_DIFFERENCE_SET"
+    },
+    "payload_rows": {
+      "type": "ORDERED_LIST",
+      "row_count": 49,
+      "exact_row_fields": [
+        "feature_index",
+        "feature_name",
+        "value"
+      ],
+      "exact_model_order_required": true,
+      "nested_values_allowed": false
+    }
+  },
+  "feature_registry": [
+    {
+      "feature_index": 0,
+      "feature_name": "acc_open_past_24mths",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 1,
+      "feature_name": "bankruptcy_flag",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "DISCRETE_NUMERIC",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        0,
+        1
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0,
+        "SP_MEDIUM_RISK_SIGNAL": 0,
+        "SP_HIGHER_RISK_SIGNAL": 1,
+        "SP_MIXED_SIGNAL": 1,
+        "SP_LIMITATION_TRANSPARENCY": 0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "COMMITTED_BOOLEAN_SCHEMA_OR_EXPLICIT_ENCODING",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 2,
+      "feature_name": "bc_open_to_buy",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 3,
+      "feature_name": "bc_open_to_buy_missing_flag",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "DISCRETE_NUMERIC",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        0,
+        1
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0,
+        "SP_MEDIUM_RISK_SIGNAL": 0,
+        "SP_HIGHER_RISK_SIGNAL": 1,
+        "SP_MIXED_SIGNAL": 1,
+        "SP_LIMITATION_TRANSPARENCY": 0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "COMMITTED_BOOLEAN_SCHEMA_OR_EXPLICIT_ENCODING",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 4,
+      "feature_name": "bc_util",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 5,
+      "feature_name": "bc_util_missing_flag",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "DISCRETE_NUMERIC",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        0,
+        1
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0,
+        "SP_MEDIUM_RISK_SIGNAL": 0,
+        "SP_HIGHER_RISK_SIGNAL": 1,
+        "SP_MIXED_SIGNAL": 1,
+        "SP_LIMITATION_TRANSPARENCY": 0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "COMMITTED_BOOLEAN_SCHEMA_OR_EXPLICIT_ENCODING",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 6,
+      "feature_name": "credit_age_months",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "LOCKED_NUMERIC",
+      "editor_control": "READ_ONLY",
+      "required": true,
+      "editable": false,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 24,
+      "maximum": 96,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 96,
+        "SP_MEDIUM_RISK_SIGNAL": 60,
+        "SP_HIGHER_RISK_SIGNAL": 24,
+        "SP_MIXED_SIGNAL": 48,
+        "SP_LIMITATION_TRANSPARENCY": 36
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "GOVERNANCE_LOCK_TO_SELECTED_PROJECTION",
+      "limitation_status": "READY_WITH_LIMITATION",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 7,
+      "feature_name": "debt_to_income_revol",
+      "partition_class": "DERIVED",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 0.0003076923021581024,
+      "maximum": 0.0011428571306169033,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0.0003076923021581024,
+        "SP_MEDIUM_RISK_SIGNAL": 0.0005555555690079927,
+        "SP_HIGHER_RISK_SIGNAL": 0.0011428571306169033,
+        "SP_MIXED_SIGNAL": 0.00043750001350417733,
+        "SP_LIMITATION_TRANSPARENCY": 0.0006000000284984708
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MEDIUM_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_HIGHER_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MIXED_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_LIMITATION_TRANSPARENCY": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "FLOAT32_DERIVED"
+    },
+    {
+      "feature_index": 8,
+      "feature_name": "delinq_2yrs",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 9,
+      "feature_name": "delinq_flag",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "DISCRETE_NUMERIC",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        0,
+        1
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0,
+        "SP_MEDIUM_RISK_SIGNAL": 0,
+        "SP_HIGHER_RISK_SIGNAL": 1,
+        "SP_MIXED_SIGNAL": 1,
+        "SP_LIMITATION_TRANSPARENCY": 0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "COMMITTED_BOOLEAN_SCHEMA_OR_EXPLICIT_ENCODING",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 10,
+      "feature_name": "dti",
+      "partition_class": "DIRECT_USER_SUPPLIED",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 10.0,
+      "maximum": 22.2,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 18.27,
+        "SP_MEDIUM_RISK_SIGNAL": 12.5,
+        "SP_HIGHER_RISK_SIGNAL": 22.2,
+        "SP_MIXED_SIGNAL": 10.0,
+        "SP_LIMITATION_TRANSPARENCY": 18.27
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MEDIUM_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_HIGHER_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MIXED_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_LIMITATION_TRANSPARENCY": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "DIRECT_USER_NUMERIC"
+    },
+    {
+      "feature_index": 11,
+      "feature_name": "fico_avg",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 12,
+      "feature_name": "grade_encoded",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "LOCKED_NUMERIC",
+      "editor_control": "READ_ONLY",
+      "required": true,
+      "editable": false,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 1,
+      "maximum": 5,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 1,
+        "SP_MEDIUM_RISK_SIGNAL": 3,
+        "SP_HIGHER_RISK_SIGNAL": 5,
+        "SP_MIXED_SIGNAL": 4,
+        "SP_LIMITATION_TRANSPARENCY": 3
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "GOVERNANCE_LOCK_TO_SELECTED_PROJECTION",
+      "limitation_status": "READY_WITH_LIMITATION",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 13,
+      "feature_name": "high_revol_util_flag",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "DISCRETE_NUMERIC",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        0,
+        1
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0,
+        "SP_MEDIUM_RISK_SIGNAL": 0,
+        "SP_HIGHER_RISK_SIGNAL": 1,
+        "SP_MIXED_SIGNAL": 1,
+        "SP_LIMITATION_TRANSPARENCY": 0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "COMMITTED_BOOLEAN_SCHEMA_OR_EXPLICIT_ENCODING",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 14,
+      "feature_name": "home_ownership_encoded",
+      "partition_class": "DERIVED",
+      "transport_class": "DISCRETE_NUMERIC",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 2.0,
+        "SP_MEDIUM_RISK_SIGNAL": 1.0,
+        "SP_HIGHER_RISK_SIGNAL": 3.0,
+        "SP_MIXED_SIGNAL": 4.0,
+        "SP_LIMITATION_TRANSPARENCY": 2.0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MEDIUM_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_HIGHER_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MIXED_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_LIMITATION_TRANSPARENCY": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT"
+      },
+      "constraint_basis": "COMMITTED_BOOLEAN_SCHEMA_OR_EXPLICIT_ENCODING",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "FLOAT32_DERIVED"
+    },
+    {
+      "feature_index": 15,
+      "feature_name": "inq_last_6mths",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 16,
+      "feature_name": "inq_per_open_acc",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 17,
+      "feature_name": "installment",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 18,
+      "feature_name": "is_60_month",
+      "partition_class": "DERIVED",
+      "transport_class": "EXACT_INTEGER",
+      "editor_control": "READ_ONLY_DERIVED",
+      "required": true,
+      "editable": false,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        0,
+        1
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0,
+        "SP_MEDIUM_RISK_SIGNAL": 1,
+        "SP_HIGHER_RISK_SIGNAL": 0,
+        "SP_MIXED_SIGNAL": 1,
+        "SP_LIMITATION_TRANSPARENCY": 0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MEDIUM_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_HIGHER_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MIXED_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_LIMITATION_TRANSPARENCY": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT"
+      },
+      "constraint_basis": "TERM_DERIVED_READ_ONLY",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "EXACT_INTEGER"
+    },
+    {
+      "feature_index": 19,
+      "feature_name": "loan_amnt",
+      "partition_class": "DIRECT_USER_SUPPLIED",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 10000.0,
+      "maximum": 25000.0,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 12000.0,
+        "SP_MEDIUM_RISK_SIGNAL": 20000.0,
+        "SP_HIGHER_RISK_SIGNAL": 15000.0,
+        "SP_MIXED_SIGNAL": 10000.0,
+        "SP_LIMITATION_TRANSPARENCY": 25000.0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MEDIUM_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_HIGHER_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MIXED_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_LIMITATION_TRANSPARENCY": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "DIRECT_USER_NUMERIC"
+    },
+    {
+      "feature_index": 20,
+      "feature_name": "loan_to_income",
+      "partition_class": "DERIVED",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 0.125,
+      "maximum": 0.25,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0.1846153885126114,
+        "SP_MEDIUM_RISK_SIGNAL": 0.2222222238779068,
+        "SP_HIGHER_RISK_SIGNAL": 0.2142857164144516,
+        "SP_MIXED_SIGNAL": 0.125,
+        "SP_LIMITATION_TRANSPARENCY": 0.25
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MEDIUM_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_HIGHER_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MIXED_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_LIMITATION_TRANSPARENCY": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "FLOAT32_DERIVED"
+    },
+    {
+      "feature_index": 21,
+      "feature_name": "log_annual_inc",
+      "partition_class": "DERIVED",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 11.082158088684082,
+      "maximum": 11.512935638427734,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 11.082158088684082,
+        "SP_MEDIUM_RISK_SIGNAL": 11.407575607299805,
+        "SP_HIGHER_RISK_SIGNAL": 11.156265258789062,
+        "SP_MIXED_SIGNAL": 11.289793968200684,
+        "SP_LIMITATION_TRANSPARENCY": 11.512935638427734
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MEDIUM_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_HIGHER_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MIXED_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_LIMITATION_TRANSPARENCY": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "FLOAT32_DERIVED"
+    },
+    {
+      "feature_index": 22,
+      "feature_name": "log_loan_amnt",
+      "partition_class": "DERIVED",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 9.210440635681152,
+      "maximum": 10.126670837402344,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 9.392745018005371,
+        "SP_MEDIUM_RISK_SIGNAL": 9.90353775024414,
+        "SP_HIGHER_RISK_SIGNAL": 9.615872383117676,
+        "SP_MIXED_SIGNAL": 9.210440635681152,
+        "SP_LIMITATION_TRANSPARENCY": 10.126670837402344
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MEDIUM_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_HIGHER_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MIXED_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_LIMITATION_TRANSPARENCY": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "FLOAT32_DERIVED"
+    },
+    {
+      "feature_index": 23,
+      "feature_name": "log_revol_bal",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 24,
+      "feature_name": "log_tot_cur_bal",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 25,
+      "feature_name": "log_total_rev_hi_lim",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 26,
+      "feature_name": "mo_sin_old_rev_tl_op",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 27,
+      "feature_name": "mo_sin_old_rev_tl_op_missing_flag",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "DISCRETE_NUMERIC",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        0,
+        1
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0,
+        "SP_MEDIUM_RISK_SIGNAL": 0,
+        "SP_HIGHER_RISK_SIGNAL": 1,
+        "SP_MIXED_SIGNAL": 1,
+        "SP_LIMITATION_TRANSPARENCY": 0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "COMMITTED_BOOLEAN_SCHEMA_OR_EXPLICIT_ENCODING",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 28,
+      "feature_name": "mo_sin_rcnt_rev_tl_op",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 29,
+      "feature_name": "mo_sin_rcnt_rev_tl_op_missing_flag",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "DISCRETE_NUMERIC",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        0,
+        1
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0,
+        "SP_MEDIUM_RISK_SIGNAL": 0,
+        "SP_HIGHER_RISK_SIGNAL": 1,
+        "SP_MIXED_SIGNAL": 1,
+        "SP_LIMITATION_TRANSPARENCY": 0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "COMMITTED_BOOLEAN_SCHEMA_OR_EXPLICIT_ENCODING",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 30,
+      "feature_name": "mort_acc",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 31,
+      "feature_name": "mths_since_last_delinq",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 32,
+      "feature_name": "mths_since_last_delinq_missing_flag",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "DISCRETE_NUMERIC",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        0,
+        1
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0,
+        "SP_MEDIUM_RISK_SIGNAL": 0,
+        "SP_HIGHER_RISK_SIGNAL": 1,
+        "SP_MIXED_SIGNAL": 1,
+        "SP_LIMITATION_TRANSPARENCY": 0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "COMMITTED_BOOLEAN_SCHEMA_OR_EXPLICIT_ENCODING",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 33,
+      "feature_name": "num_actv_bc_tl",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 34,
+      "feature_name": "open_acc",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 35,
+      "feature_name": "payment_to_income",
+      "partition_class": "DERIVED",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 0.0036923077423125505,
+      "maximum": 0.01371428556740284,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0.0036923077423125505,
+        "SP_MEDIUM_RISK_SIGNAL": 0.006666666828095913,
+        "SP_HIGHER_RISK_SIGNAL": 0.01371428556740284,
+        "SP_MIXED_SIGNAL": 0.005249999929219484,
+        "SP_LIMITATION_TRANSPARENCY": 0.007199999876320362
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MEDIUM_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_HIGHER_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MIXED_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_LIMITATION_TRANSPARENCY": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "FLOAT32_DERIVED"
+    },
+    {
+      "feature_index": 36,
+      "feature_name": "pct_tl_nvr_dlq",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 37,
+      "feature_name": "pub_rec",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 38,
+      "feature_name": "pub_rec_bankruptcies",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 39,
+      "feature_name": "pub_rec_flag",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "DISCRETE_NUMERIC",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        0,
+        1
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 0,
+        "SP_MEDIUM_RISK_SIGNAL": 0,
+        "SP_HIGHER_RISK_SIGNAL": 1,
+        "SP_MIXED_SIGNAL": 1,
+        "SP_LIMITATION_TRANSPARENCY": 0
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "COMMITTED_BOOLEAN_SCHEMA_OR_EXPLICIT_ENCODING",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 40,
+      "feature_name": "purpose",
+      "partition_class": "DIRECT_USER_SUPPLIED",
+      "transport_class": "CATEGORY",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": false,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        "car",
+        "credit_card",
+        "debt_consolidation",
+        "educational",
+        "home_improvement",
+        "house",
+        "major_purchase",
+        "medical",
+        "moving",
+        "other",
+        "renewable_energy",
+        "small_business",
+        "vacation",
+        "wedding"
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": "other",
+        "SP_MEDIUM_RISK_SIGNAL": "car",
+        "SP_HIGHER_RISK_SIGNAL": "debt_consolidation",
+        "SP_MIXED_SIGNAL": "home_improvement",
+        "SP_LIMITATION_TRANSPARENCY": "medical"
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MEDIUM_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_HIGHER_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MIXED_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_LIMITATION_TRANSPARENCY": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT"
+      },
+      "constraint_basis": "COMMITTED_PURPOSE_CATEGORY_ORDER",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "CATEGORY"
+    },
+    {
+      "feature_index": 41,
+      "feature_name": "revol_bal",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 42,
+      "feature_name": "revol_util",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 43,
+      "feature_name": "term_months",
+      "partition_class": "DIRECT_USER_SUPPLIED",
+      "transport_class": "EXACT_INTEGER",
+      "editor_control": "SELECT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": null,
+      "maximum": null,
+      "allowed_values": [
+        36,
+        60
+      ],
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 36,
+        "SP_MEDIUM_RISK_SIGNAL": 60,
+        "SP_HIGHER_RISK_SIGNAL": 36,
+        "SP_MIXED_SIGNAL": 60,
+        "SP_LIMITATION_TRANSPARENCY": 36
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MEDIUM_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_HIGHER_RISK_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_MIXED_SIGNAL": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT",
+        "SP_LIMITATION_TRANSPARENCY": "STEP4_1B_EXPECTED_IMPACTED_OUTPUT"
+      },
+      "constraint_basis": "COMMITTED_TERM_ALLOWLIST",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "EXACT_INTEGER"
+    },
+    {
+      "feature_index": 44,
+      "feature_name": "tot_cur_bal",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 45,
+      "feature_name": "total_acc",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 46,
+      "feature_name": "total_rev_hi_lim",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 47,
+      "feature_name": "util_to_fico_ratio",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    },
+    {
+      "feature_index": 48,
+      "feature_name": "verification_encoded",
+      "partition_class": "SYNTHETIC_BASELINE_PASSTHROUGH",
+      "transport_class": "CONTINUOUS_NUMERIC",
+      "editor_control": "NUMBER_INPUT",
+      "required": true,
+      "editable": true,
+      "finite_required": true,
+      "bool_allowed": false,
+      "null_allowed": false,
+      "minimum": 20,
+      "maximum": 80,
+      "allowed_values": null,
+      "reset_values_by_profile": {
+        "SP_LOW_RISK_SIGNAL": 20,
+        "SP_MEDIUM_RISK_SIGNAL": 50,
+        "SP_HIGHER_RISK_SIGNAL": 80,
+        "SP_MIXED_SIGNAL": 35,
+        "SP_LIMITATION_TRANSPARENCY": 60
+      },
+      "reset_projection_sources": {
+        "SP_LOW_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MEDIUM_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_HIGHER_RISK_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_MIXED_SIGNAL": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH",
+        "SP_LIMITATION_TRANSPARENCY": "SAMPLE_PROFILE_BASELINE_PASSTHROUGH"
+      },
+      "constraint_basis": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+      "limitation_status": "READY",
+      "fingerprint_representation_class": "BASELINE_NUMERIC"
+    }
+  ],
+  "transport_class_contract": {
+    "allowed_classes": [
+      "CATEGORY",
+      "EXACT_INTEGER",
+      "DISCRETE_NUMERIC",
+      "CONTINUOUS_NUMERIC",
+      "LOCKED_NUMERIC"
+    ],
+    "term_allowed_values": [
+      36,
+      60
+    ],
+    "is_60_month_allowed_values": [
+      0,
+      1
+    ],
+    "is_60_month_design": "READ_ONLY_DERIVED",
+    "term_edit_derives_is_60_month": true,
+    "caller_direct_is_60_month_edit_allowed": false,
+    "difference_set_domain": "EDITABLE_FEATURES_ONLY",
+    "all_numeric_values_finite": true,
+    "boolean_model_values_rejected": true
+  },
+  "demo_validation_envelope": {
+    "source": "FIVE_COMMITTED_CANONICAL_RESET_PROJECTIONS",
+    "expanded": false,
+    "dti_divided_by_100": false,
+    "training_range_claimed": false,
+    "classification": "CONTROLLED_PUBLIC_PORTFOLIO_DEMO_ENVELOPE",
+    "not_claimed_as": [
+      "TRAINING_DATA_RANGE",
+      "UNDERWRITING_RANGE",
+      "LEGAL_RANGE",
+      "REGULATORY_RANGE",
+      "UNIVERSAL_FINANCIAL_VALIDITY_RANGE"
+    ]
+  },
+  "reset_policy": {
+    "profile_ids": [
+      "SP_LOW_RISK_SIGNAL",
+      "SP_MEDIUM_RISK_SIGNAL",
+      "SP_HIGHER_RISK_SIGNAL",
+      "SP_MIXED_SIGNAL",
+      "SP_LIMITATION_TRANSPARENCY"
+    ],
+    "profile_count": 5,
+    "raw_profiles_used_as_exact_resets": false,
+    "raw_matrix_modified": false,
+    "baseline_source_count_per_projection": 38,
+    "overwrite_source_count_per_projection": 11
+  },
+  "editability_policy": {
+    "exact_difference_set_required": true,
+    "difference_set_domain": "EDITABLE_FEATURES_ONLY",
+    "read_only_derived_changes_are_validator_controlled": true,
+    "hidden_edits_rejected": true,
+    "false_edit_declarations_rejected": true,
+    "locked_edit_declarations_rejected": true,
+    "caller_counts_trusted": false
+  },
+  "limitation_policy": {
+    "limitation_aware_features": [
+      "grade_encoded",
+      "credit_age_months"
+    ],
+    "count": 2,
+    "exact_set_required": true,
+    "editable": false,
+    "selected_projection_exact_value_required": true,
+    "public_demo_governance_restriction": true
+  },
+  "provenance_policy": {
+    "allowed_classes": [
+      "CANONICAL_RESET_PROJECTION",
+      "USER_EDITED"
+    ],
+    "counts_derived": true,
+    "difference_count_domain": "EDITABLE_FEATURES_ONLY",
+    "read_only_derived_fields_retain_canonical_reset_projection_provenance": true,
+    "exact_projection_counts": {
+      "CANONICAL_RESET_PROJECTION": 49,
+      "USER_EDITED": 0
+    },
+    "lower_level_reset_sources": {
+      "SAMPLE_PROFILE_BASELINE_PASSTHROUGH": 38,
+      "STEP4_1B_EXPECTED_IMPACTED_OUTPUT": 11
+    }
+  },
+  "canonical_value_equality": {
+    "CATEGORY": "EXACT_UTF8_STRING",
+    "EXACT_INTEGER": "EXACT_INTEGER_BOOL_REJECTED",
+    "DISCRETE_NUMERIC": "FINITE_NUMERIC_EXACT_ALLOWED_VALUE",
+    "CONTINUOUS_NUMERIC": "FINITE_NORMALIZED_NUMERIC_NO_ROUNDING",
+    "LOCKED_NUMERIC": "EXACT_SELECTED_PROJECTION_VALUE"
+  },
+  "cross_feature_invariants": [
+    {
+      "invariant_id": "TERM_FLAG_CONSISTENCY",
+      "expression": "is_60_month == int(term_months == 60)",
+      "required": true,
+      "flag_caller_editable": false
+    }
+  ],
+  "payload_fingerprint_contract": {
+    "algorithm": "SHA-256",
+    "input_encoding": "UTF-8",
+    "canonical_feature_order_reference": "model_feature_contract.ordered_feature_names",
+    "record_format": "feature_index|feature_name|logical_type_tag|canonical_value_representation",
+    "record_separator": "LF",
+    "type_tags": {
+      "category": "CATEGORY",
+      "exact_integer": "INT8",
+      "numeric": "NUMERIC"
+    },
+    "float32_derived_representation": "UNSIGNED_32_BIT_IEEE754_BITS_BASE10",
+    "direct_user_numeric_representation": "PYTHON_FORMAT_DOT_17G_FLOAT64",
+    "baseline_numeric_representation": "PYTHON_FORMAT_DOT_17G_FLOAT64",
+    "exact_integer_representation": "BASE10_INTEGER_TEXT",
+    "purpose_representation": "EXACT_UTF8_CATEGORY",
+    "feature_representation_classes": {
+      "direct_user_numeric": [
+        "dti",
+        "loan_amnt"
+      ],
+      "exact_integer": [
+        "term_months",
+        "is_60_month"
+      ],
+      "float32_derived": [
+        "log_annual_inc",
+        "log_loan_amnt",
+        "home_ownership_encoded",
+        "payment_to_income",
+        "loan_to_income",
+        "debt_to_income_revol"
+      ],
+      "category": [
+        "purpose"
+      ],
+      "baseline_numeric_reference": "dependency_partition.synthetic_baseline_passthrough"
+    },
+    "supported_policy_dispatch_required": true,
+    "unsupported_policy_failure_code": "BASIC_FORM_MAPPING_CONTRACT_INVALID",
+    "fingerprint_mismatch_failure_code": "BASIC_FORM_PAYLOAD_FINGERPRINT_MISMATCH",
+    "complete_payload_recorded_in_artifacts": false,
+    "deterministic": true,
+    "caller_supplied_fingerprint_authorized": false,
+    "future_validator_derives_fingerprint": true,
+    "reset_projection_fingerprint_source": "MAPPED_STEP4_1B_EXPECTED_ORDERED_PAYLOAD_SHA256"
+  },
+  "failure_code_contract": {
+    "codes": [
+      "ADVANCED_EDITOR_REQUEST_TYPE_INVALID",
+      "ADVANCED_EDITOR_MODE_INVALID",
+      "ADVANCED_EDITOR_SYSTEM_METADATA_FIELD_SET_INVALID",
+      "ADVANCED_EDITOR_PROFILE_ID_INVALID",
+      "ADVANCED_EDITOR_ACKNOWLEDGEMENT_REQUIRED",
+      "ADVANCED_EDITOR_EDITED_FEATURE_LIST_INVALID",
+      "ADVANCED_EDITOR_EDITED_FEATURE_DUPLICATE",
+      "ADVANCED_EDITOR_EDITED_FEATURE_UNKNOWN",
+      "ADVANCED_EDITOR_LOCKED_FEATURE_EDITED",
+      "ADVANCED_EDITOR_EDITED_FEATURE_SET_MISMATCH",
+      "ADVANCED_EDITOR_PAYLOAD_TYPE_INVALID",
+      "ADVANCED_EDITOR_PAYLOAD_ROW_COUNT_INVALID",
+      "ADVANCED_EDITOR_PAYLOAD_ROW_SHAPE_INVALID",
+      "ADVANCED_EDITOR_FEATURE_INDEX_INVALID",
+      "ADVANCED_EDITOR_FEATURE_NAME_INVALID",
+      "ADVANCED_EDITOR_FEATURE_ORDER_INVALID",
+      "ADVANCED_EDITOR_FEATURE_DUPLICATE",
+      "ADVANCED_EDITOR_FEATURE_MISSING",
+      "ADVANCED_EDITOR_EXTRA_FEATURE",
+      "ADVANCED_EDITOR_NESTED_VALUE_INVALID",
+      "ADVANCED_EDITOR_VALUE_TYPE_INVALID",
+      "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID",
+      "ADVANCED_EDITOR_NULL_VALUE_INVALID",
+      "ADVANCED_EDITOR_NON_FINITE_VALUE",
+      "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE",
+      "ADVANCED_EDITOR_CATEGORY_INVALID",
+      "ADVANCED_EDITOR_EXACT_INTEGER_INVALID",
+      "ADVANCED_EDITOR_DISCRETE_VALUE_INVALID",
+      "ADVANCED_EDITOR_LOCKED_VALUE_MISMATCH",
+      "ADVANCED_EDITOR_RELATIONSHIP_INVALID",
+      "ADVANCED_EDITOR_IDENTITY_FIELD_PROHIBITED",
+      "ADVANCED_EDITOR_FREE_TEXT_FIELD_PROHIBITED",
+      "ADVANCED_EDITOR_PAYLOAD_FINGERPRINT_INVALID",
+      "ADVANCED_EDITOR_CONTRACT_INVALID",
+      "ADVANCED_EDITOR_RESET_PROJECTION_INVALID",
+      "ADVANCED_EDITOR_RESET_VECTOR_MAPPING_INVALID",
+      "ADVANCED_EDITOR_RESET_FINGERPRINT_MISMATCH"
+    ],
+    "count": 37,
+    "public_ui_exposure_authorized": false
+  },
+  "privacy_boundary": {
+    "fictional_values_only": true,
+    "identity_fields_allowed": false,
+    "free_text_allowed": false,
+    "nested_values_allowed": false,
+    "prohibited_fields": [
+      "full_name",
+      "nik",
+      "national_id",
+      "address",
+      "email",
+      "telephone_number",
+      "bank_account",
+      "customer_id",
+      "real_person_application_id",
+      "employer_identity",
+      "personal_narrative",
+      "free_text_notes",
+      "document_upload",
+      "image_upload",
+      "path_override",
+      "model_override",
+      "contract_override"
+    ]
+  },
+  "governance_boundary": {
+    "contract_freeze_only": true,
+    "advanced_editor_inference_authorized": false,
+    "new_step4_2b_model_deserialization_authorized": false,
+    "new_step4_2b_inference_authorized": false,
+    "existing_regression_model_deserialization_authorized": true,
+    "existing_regression_controlled_inference_authorized": true,
+    "public_deployment_authorized": false
+  },
+  "non_goals": [
+    "ADVANCED_EDITOR_UI",
+    "APPLICATION_RUNTIME_VALIDATOR",
+    "ADVANCED_EDITOR_INFERENCE_ADAPTER",
+    "NEW_MODEL_CALL",
+    "DEPLOYMENT",
+    "PRODUCTION_UNDERWRITING"
+  ],
+  "next_step_authorization": {
+    "human_artifact_audit_authorized": true,
+    "git_scope_review_authorized": true,
+    "staging_authorized": false,
+    "commit_authorized": false,
+    "stage9_step5_rerun_authorized": false,
+    "public_deployment_authorized": false
+  },
+  "validation_status": "PASS",
+  "generated_at_utc": "2026-07-19T15:00:00Z"
+}
