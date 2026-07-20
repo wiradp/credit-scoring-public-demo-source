@@ -8,3 +8,6 @@ font = "sans serif"
 
 [client]
 showErrorDetails = "none"
+
+[browser]
+gatherUsageStats = false

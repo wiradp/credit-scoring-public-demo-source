@@ -1,0 +1,829 @@
+{
+  "repository_preconditions": {
+    "status": "PASS",
+    "repository": "/home/wira/Documents/Project/credit-scoring-public-demo-source",
+    "branch": "phase8-public-demo-source",
+    "head": "5051f614db66e2ead73a54795e1e5c087df5e197",
+    "subject": "Complete public input and UI integration",
+    "parent": "104151999c181ce07f180001d645d7f565056f0f",
+    "tracked_file_count": 93,
+    "working_tree_clean": true,
+    "staged_file_count": 0
+  },
+  "frozen_step5_integrity": {
+    "status": "PASS",
+    "verified_file_count": 11,
+    "size_match": true,
+    "sha256_match": true,
+    "files_modified": false
+  },
+  "model_and_contract_integrity": {
+    "status": "PASS",
+    "model_sha256_valid": true,
+    "model_size_bytes": 4881685,
+    "model_is_git_lfs_pointer": false,
+    "model_is_tracked_binary": true,
+    "model_symlink": false,
+    "model_manifest_valid": true,
+    "threshold_valid": true,
+    "sample_profile_matrix_valid": true,
+    "advanced_editor_contract_valid": true
+  },
+  "environment_preflight": {
+    "status": "PASS",
+    "python_executable": "/usr/bin/python3",
+    "python_version": "3.10.12",
+    "streamlit_version": "1.51.0",
+    "pandas_version": "2.3.3",
+    "scikit_learn_version": "1.7.2",
+    "joblib_version": "1.5.3",
+    "numpy_version": "1.26.4",
+    "lightgbm_version": "4.6.0",
+    "imports_passed": true,
+    "pip_check": "PASS"
+  },
+  "baseline_regression": {
+    "status": "PASS",
+    "discovered_count": 164,
+    "executed_count": 164,
+    "pass_count": 164,
+    "failure_count": 0,
+    "error_count": 0,
+    "import_error_count": 0,
+    "duration_seconds": 5.281
+  },
+  "deployment_architecture": {
+    "status": "PASS",
+    "canonical_entry_point": "app/streamlit_app.py",
+    "canonical_dependency_file": "requirements.txt",
+    "python_version_declaration": null,
+    "system_package_declaration": null,
+    "streamlit_config_path": ".streamlit/config.toml",
+    "secrets_file_present": false,
+    "runtime_artifact_root": "repository root",
+    "model_loading_root": "repository-relative artifacts/model",
+    "contract_loading_root": "repository-relative artifacts/contracts",
+    "files": [
+      {
+        "relative_path": ".gitattributes",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": ".gitignore",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": ".streamlit/config.toml",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 227,
+        "sha256": "404025286a39a192f6733f1adc272255691686498b868baf394d381f0def65c6",
+        "deployment_responsibility": "public-safe Streamlit configuration",
+        "required_at_runtime": true,
+        "modification_necessary": "disable supported framework usage statistics"
+      },
+      {
+        "relative_path": ".streamlit/secrets.toml",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "prohibited tracked secrets file",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "Pipfile",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "Pipfile.lock",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "README.md",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/requirements.txt",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/__init__.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 50,
+        "sha256": "768ba9ad6418f5f1810c105e932303af159de2bbf6477304ece2821683fe973a",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/advanced_editor_inference.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 8033,
+        "sha256": "eaceabecd22ec584d51fea4adbedcbf7d5b29c3e598a6ced088247eae173d77c",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/advanced_editor_runtime.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 18896,
+        "sha256": "981551af627f56f0298017e8b015e4fc2ae5f6fcb9c4e4a6a6a17a645f15b84c",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/basic_form_inference.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 6818,
+        "sha256": "04d52edf6216d9970a4b42773596541b2a07cb4ba294eeae73eecfb68b37b728",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/basic_form_runtime.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 40633,
+        "sha256": "71bae84c24c2cc3f07a1ec02377f8065064db0551d2f77cc5727129c2bdaf50e",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/config.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 1144,
+        "sha256": "c4cb2460afd7e9b5fb609e11bef7416c8999cbf5a3e269a9c1d283927bf82526",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/contract_loader.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 15411,
+        "sha256": "40159b2d1d2df572abf5768b4866b4978120671ab45b9f681470ff8a27f7159d",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/demo_inference.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 38299,
+        "sha256": "1eb8fdf3a39e4775f5817c2a4620dc7c6669d0d7ad844932f411fc25ebbc9074",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/mode_view.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 8998,
+        "sha256": "7f62b0f479f009e4255215edb7a03f5c63bbbe8122dd4f16a93ea192a745369d",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/pages.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 21157,
+        "sha256": "08d451d5fb40239611dd83f59fc3866c26010b1fad4791c45f824b5e7294a9c8",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/payload_builder.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 28910,
+        "sha256": "5879cc9838151c6c3fa7bb82ec02340a5b80017b3c237e362e166b5c654e3315",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/payload_preview.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 25316,
+        "sha256": "f5cc519df9869e09c41ddbc452ad4af0ebbf7655740b1cf4772b029e19150d60",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/ui_text.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 8798,
+        "sha256": "7596bbe80f4443008b759ddcb2df17b3fcef1d8e48c416b9e94aae39635b61ff",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/src/validation_summary.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 1245,
+        "sha256": "e41a6e3e4bd8d6e22b0323dd720638ddc8ff9702580d9b1219abc9656594b739",
+        "deployment_responsibility": "application runtime module",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "app/streamlit_app.py",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 1193,
+        "sha256": "cfe0b8dbce2466e25b5ce70207c43d1c93431005b6d94733a7bea2b7b534a50b",
+        "deployment_responsibility": "canonical Streamlit entry point",
+        "required_at_runtime": true,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "environment.yml",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "packages.txt",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "poetry.lock",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "pyproject.toml",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "requirements.txt",
+        "exists": true,
+        "tracked": true,
+        "size_bytes": 264,
+        "sha256": "7c1dfd94fb548304099c3610725890f5a0147c971b7269a3b46106ccdd672753",
+        "deployment_responsibility": "canonical deployment dependency definition",
+        "required_at_runtime": true,
+        "modification_necessary": "add direct joblib declaration"
+      },
+      {
+        "relative_path": "runtime.txt",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "setup.cfg",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      },
+      {
+        "relative_path": "setup.py",
+        "exists": false,
+        "tracked": false,
+        "size_bytes": 0,
+        "sha256": null,
+        "deployment_responsibility": "repository or optional deployment convention",
+        "required_at_runtime": false,
+        "modification_necessary": "none"
+      }
+    ]
+  },
+  "entry_point": {
+    "status": "PASS",
+    "relative_path": "app/streamlit_app.py",
+    "tracked": true,
+    "regular_file": true,
+    "import_valid": true,
+    "absolute_path_dependency": false
+  },
+  "dependency_audit": {
+    "status": "PASS",
+    "canonical_file": "requirements.txt",
+    "created": false,
+    "modified": true,
+    "before_size_bytes": 250,
+    "before_sha256": "5116cacb45f3bd67fc682a15aed5ac0710c260af7d06f2803a321937f7b3e981",
+    "after_size_bytes": 264,
+    "after_sha256": "7c1dfd94fb548304099c3610725890f5a0147c971b7269a3b46106ccdd672753",
+    "declared_runtime_dependencies": [
+      "streamlit==1.51.0",
+      "pandas==2.3.3",
+      "numpy==1.26.4",
+      "scikit-learn==1.7.2",
+      "joblib==1.5.3",
+      "lightgbm==4.6.0"
+    ],
+    "missing_declaration_count": 0,
+    "unused_declaration_count": 0,
+    "conflicting_declaration_count": 0,
+    "local_path_dependency_count": 0,
+    "private_index_count": 0,
+    "credential_count": 0,
+    "syntax_valid": true,
+    "active_environment_satisfied": true
+  },
+  "streamlit_configuration": {
+    "status": "PASS",
+    "path": ".streamlit/config.toml",
+    "created": false,
+    "modified": true,
+    "before_size_bytes": 191,
+    "before_sha256": "f3cbc1aa1aa299f2e4d81ce8d82d8b80eb2b7d57bf673a80d671d64bfc0b07a5",
+    "after_size_bytes": 227,
+    "after_sha256": "404025286a39a192f6733f1adc272255691686498b868baf394d381f0def65c6",
+    "headless_compatible": true,
+    "show_error_details": "none",
+    "usage_stats_setting_supported": true,
+    "usage_stats_disabled": true,
+    "security_override_count": 0,
+    "hardcoded_port": false,
+    "hardcoded_address": false,
+    "tracked_secrets_file_count": 0,
+    "xsrf_protection_disabled": false,
+    "cors_disabled": false,
+    "secrets_file_present": false
+  },
+  "runtime_artifact_closure": {
+    "status": "PASS",
+    "artifact_count": 51,
+    "tracked_count": 51,
+    "missing_count": 0,
+    "symlink_count": 0,
+    "outside_root_count": 0,
+    "total_bytes": 6807346,
+    "manifest_path": "outputs/stage9/stage9_public_release_candidate_manifest.json"
+  },
+  "absolute_path_audit": {
+    "status": "PASS",
+    "developer_local_path_literal_count": 0,
+    "runtime_absolute_path_dependency_count": 0,
+    "user_facing_absolute_path_exposure_count": 0,
+    "repository_relative_root_derivation_valid": true
+  },
+  "secret_scan": {
+    "status": "PASS",
+    "tracked_file_count": 93,
+    "authorized_untracked_step6_file_count": 6,
+    "total_file_count": 99,
+    "scan_scope": "exact authorized release-file union",
+    "classifications": [
+      "private_key",
+      "openai_style_api_key",
+      "github_token",
+      "aws_access_key",
+      "password_assignment",
+      "credential_bearing_url",
+      "database_url_with_credentials",
+      "service_account_private_key",
+      "azure_style_key",
+      "generic_access_token"
+    ],
+    "confirmed_secret_count": 0,
+    "private_key_count": 0,
+    "tracked_secrets_file_count": 0,
+    "redacted_finding_count": 0,
+    "finding_metadata": []
+  },
+  "privacy_boundary": {
+    "status": "PASS",
+    "personal_field_count": 0,
+    "free_text_input_present": false,
+    "file_upload_present": false,
+    "camera_input_present": false,
+    "raw_input_logging_present": false,
+    "complete_payload_logging_present": false,
+    "identity_field_widget_present": false
+  },
+  "network_boundary": {
+    "status": "PASS",
+    "external_http_call_count": 0,
+    "external_socket_client_count": 0,
+    "external_network_call_present": false,
+    "telemetry_present": false,
+    "analytics_present": false,
+    "localhost_smoke_only": true
+  },
+  "persistence_boundary": {
+    "status": "PASS",
+    "database_write_count": 0,
+    "local_user_input_persistence_count": 0,
+    "user_input_persistence_present": false,
+    "raw_input_logging_present": false,
+    "complete_payload_logging_present": false
+  },
+  "release_candidate_copy": {
+    "status": "PASS",
+    "construction_method": "tempfile.TemporaryDirectory with exact authorized release-file union",
+    "temporary_directory_prefix": "stage9_step6_test_release_candidate_",
+    "fixed_directory_dependency": false,
+    "created_by_test_fixture": true,
+    "unique_per_test_invocation": true,
+    "removed_by_test_fixture": true,
+    "tracked_path_count": 93,
+    "authorized_untracked_path_count": 6,
+    "file_count": 99,
+    "total_bytes": 7581373,
+    "unexpected_untracked_path_count": 0,
+    "symlink_path_count": 0,
+    "outside_root_path_count": 0,
+    "git_metadata_present": false,
+    "virtual_environment_present": false,
+    "cache_directory_present": false,
+    "broken_symlink_count": 0,
+    "external_symlink_count": 0,
+    "runtime_artifact_closure_present": true
+  },
+  "clean_copy_import": {
+    "status": "PASS",
+    "from_root_status": "PASS",
+    "from_external_cwd_status": "PASS",
+    "custom_pythonpath_used": false,
+    "source_repository_used": false,
+    "source_git_metadata_used": false,
+    "module_origin_count": 5,
+    "module_origin_inside_candidate_count": 5,
+    "source_repository_module_count": 0,
+    "module_origins_inside_temporary_candidate": true
+  },
+  "clean_copy_runtime": {
+    "status": "PASS",
+    "model_hash_valid": true,
+    "model_manifest_valid": true,
+    "threshold_valid": true,
+    "feature_count": 49,
+    "feature_order_valid": true,
+    "purpose_category_handling_valid": true,
+    "sample_profile_count": 5,
+    "basic_form_profile_count": 5,
+    "advanced_editor_profile_count": 5,
+    "runtime_root_is_release_copy": true
+  },
+  "sample_profile_release_smoke": {
+    "status": "PASS",
+    "case_count": 5,
+    "pass_count": 5,
+    "deterministic_repeat": true
+  },
+  "basic_form_release_smoke": {
+    "status": "PASS",
+    "case_count": 7,
+    "pass_count": 7,
+    "exact_committed_probabilities_retained": true,
+    "deterministic_repeat": true
+  },
+  "advanced_editor_release_smoke": {
+    "status": "PASS",
+    "reset_case_count": 5,
+    "reset_pass_count": 5,
+    "basic_form_parity_valid": true,
+    "deterministic_repeat": true,
+    "expected_probabilities": {
+      "SP_LOW_RISK_SIGNAL": 0.18398918594172425,
+      "SP_MEDIUM_RISK_SIGNAL": 0.35650623885918004,
+      "SP_HIGHER_RISK_SIGNAL": 0.31875881523272215,
+      "SP_MIXED_SIGNAL": 0.400390625,
+      "SP_LIMITATION_TRANSPARENCY": 0.4418604651162791
+    }
+  },
+  "invalid_request_guard": {
+    "status": "PASS",
+    "case_count": 6,
+    "reject_count": 6,
+    "runtime_access_count": 0,
+    "probability_count": 0,
+    "case_classes": [
+      "false acknowledgement",
+      "hidden edit",
+      "false edit declaration",
+      "extra payload row",
+      "locked feature edit",
+      "identity-field injection"
+    ]
+  },
+  "clean_copy_apptest": {
+    "status": "PASS",
+    "passed": true,
+    "page_count": 6,
+    "page_pass_count": 6,
+    "exception_count": 0,
+    "missing_artifact_error_count": 0,
+    "absolute_path_exposure_count": 0,
+    "three_modes_present": true,
+    "basic_form_default": true,
+    "acknowledgements_default_false": true,
+    "inference_before_submission": false,
+    "required_disclosure_visible": true,
+    "profile_reset_status": "PASS",
+    "non_blocking_framework_warning_count": 3
+  },
+  "headless_startup": {
+    "status": "PASS",
+    "passed": true,
+    "method": "bounded local-only Streamlit CLI startup from independently built unique temporary candidate",
+    "candidate_method": "tempfile.TemporaryDirectory with stage9_step6_implementation_release_candidate_ prefix",
+    "candidate_removed": true,
+    "port_selection": "dynamic localhost ephemeral port",
+    "headless": true,
+    "usage_stats_disabled": true,
+    "exit_code": 124,
+    "server_started": true,
+    "health_status_code": 200,
+    "timeout_intentionally_stopped_server": true,
+    "traceback_count": 0,
+    "missing_file_count": 0,
+    "missing_import_count": 0,
+    "model_hash_failure_count": 0,
+    "contract_hash_failure_count": 0,
+    "absolute_path_failure_count": 0,
+    "external_network_required": false,
+    "server_process_remaining": false,
+    "warning_classification": "NONE"
+  },
+  "resource_profile": {
+    "status": "PASS",
+    "model_artifact_bytes": 4881685,
+    "runtime_artifact_bytes": 6807346,
+    "release_candidate_total_bytes": 7581373,
+    "tracked_repository_total_bytes": 7480736,
+    "largest_tracked_files": [
+      {
+        "relative_path": "artifacts/model/final_model_calibrated.pkl",
+        "size_bytes": 4881685
+      },
+      {
+        "relative_path": "artifacts/contracts/cell_group_7/validation/validation_contract.csv",
+        "size_bytes": 690348
+      },
+      {
+        "relative_path": "artifacts/contracts/cell_group_7/mapping/normalization_mapping_contract.csv",
+        "size_bytes": 259201
+      },
+      {
+        "relative_path": "outputs/stage9/stage9_advanced_editor_validation_golden_vectors.json",
+        "size_bytes": 176591
+      },
+      {
+        "relative_path": "artifacts/contracts/cell_group_7/widgets/widget_contract.csv",
+        "size_bytes": 124269
+      },
+      {
+        "relative_path": "outputs/stage9/stage9_advanced_editor_validation_contract.json",
+        "size_bytes": 111470
+      },
+      {
+        "relative_path": "artifacts/contracts/cell_group_7/payload/demo_payload_template.csv",
+        "size_bytes": 92252
+      },
+      {
+        "relative_path": "artifacts/contracts/cell_group_7/payload/demo_payload_field_matrix.csv",
+        "size_bytes": 92252
+      },
+      {
+        "relative_path": "artifacts/contracts/cell_group_7/sample_profiles/sample_profile_feature_matrix.csv",
+        "size_bytes": 89769
+      },
+      {
+        "relative_path": "tests/test_stage9_basic_form_runtime_mapping_contract.py",
+        "size_bytes": 77649
+      }
+    ],
+    "startup_duration_seconds": 2.000714696,
+    "first_model_verification_seconds": 1.1722676019999199,
+    "first_controlled_inference_seconds": 0.021274827002343955,
+    "repeat_inference_seconds": 0.00921221699900343,
+    "resource_warning_count": 0
+  },
+  "git_remote_readiness": {
+    "status": "PASS",
+    "remote_configured": false,
+    "remote_name": null,
+    "remote_url_classification": "NOT_CONFIGURED",
+    "current_branch_upstream_configured": false,
+    "manual_remote_publication_required": true,
+    "remote_contacted": false
+  },
+  "deployment_checklist": {
+    "status": "PASS",
+    "path": "outputs/stage9/stage9_public_deployment_checklist.md",
+    "human_completion_required": true,
+    "deployment_performed": false
+  },
+  "new_tests": {
+    "status": "PASS",
+    "discovered_count": 16,
+    "executed_count": 16,
+    "pass_count": 16,
+    "failure_count": 0,
+    "error_count": 0,
+    "import_error_count": 0,
+    "duration_seconds": 16.095
+  },
+  "syntax_validation": {
+    "status": "PASS",
+    "runtime_python_file_count": 15,
+    "syntax_error_count": 0
+  },
+  "strict_json_validation": {
+    "status": "PASS",
+    "duplicate_key_count": 0,
+    "non_finite_number_count": 0,
+    "invalid_json_count": 0
+  },
+  "source_change_scope": {
+    "status": "PASS",
+    "required_new_paths": [
+      "tests/test_stage9_public_deployment_readiness.py",
+      "outputs/stage9/stage9_public_deployment_readiness_report.md",
+      "outputs/stage9/stage9_public_deployment_readiness_report.json",
+      "outputs/stage9/stage9_public_release_candidate_manifest.json",
+      "outputs/stage9/stage9_public_deployment_checklist.md",
+      "outputs/stage9/stage9_step6_artifact_manifest.json"
+    ],
+    "conditionally_modified_paths": [
+      "requirements.txt",
+      ".streamlit/config.toml"
+    ],
+    "application_source_modified": false,
+    "step5_artifacts_modified": false,
+    "prior_tests_modified": false,
+    "model_modified": false,
+    "threshold_modified": false,
+    "sample_profile_matrix_modified": false,
+    "notebooks_modified": false,
+    "readme_modified": false,
+    "gitignore_modified": false,
+    "gitattributes_modified": false,
+    "unexpected_paths": []
+  },
+  "temporary_cleanup": {
+    "status": "PASS",
+    "test_candidate_created": true,
+    "test_candidate_removed": true,
+    "implementation_candidate_created": true,
+    "implementation_candidate_removed": true,
+    "historical_fixed_directory_present": false,
+    "test_candidate_leftover_count": 0,
+    "backup_directory_created": true,
+    "backup_directory_removed": true,
+    "backup_restore_required": false
+  },
+  "limitations": [
+    "Fictional portfolio demo only; not fairness clearance, legal compliance, production underwriting, or hosted-platform certification.",
+    "Public deployment remains unauthorized and has not occurred.",
+    "AppTest emitted non-blocking dataframe-conversion and deprecated-width warnings while recovering and rendering successfully.",
+    "No provider-specific hosted-service resource limit was asserted.",
+    "No Git remote or upstream is configured; later publication requires a separately authorized manual action."
+  ],
+  "release_readiness": {
+    "status": "PASS",
+    "classification": "READY_FOR_HUMAN_RELEASE_AUDIT",
+    "release_candidate_prepared": true,
+    "stage9_step6_ready_for_human_audit": true,
+    "public_deployment_performed": false,
+    "production_use_authorized": false,
+    "real_underwriting_use_authorized": false
+  },
+  "next_step_authorization": {
+    "human_artifact_audit_authorized": true,
+    "git_scope_review_authorized": true,
+    "staging_authorized": false,
+    "commit_authorized": false,
+    "public_deployment_authorized": false,
+    "next_implementation_step_authorized": false,
+    "remote_push_performed": false,
+    "public_deployment_performed": false,
+    "production_use_authorized": false,
+    "real_underwriting_use_authorized": false
+  },
+  "validation_result": "PASS",
+  "generated_at_utc": "2026-07-20T10:13:39.163163Z",
+  "revised_step6_test_runs": {
+    "status": "PASS",
+    "counts_equal": true,
+    "historical_fixed_directory_present_before_run1": false,
+    "run1": {
+      "discovered_count": 16,
+      "executed_count": 16,
+      "pass_count": 16,
+      "failure_count": 0,
+      "error_count": 0,
+      "import_error_count": 0,
+      "duration_seconds": 15.826,
+      "candidate_cleanup_status": "PASS",
+      "leftover_candidate_count": 0,
+      "historical_fixed_directory_present_after_run": false
+    },
+    "run2": {
+      "discovered_count": 16,
+      "executed_count": 16,
+      "pass_count": 16,
+      "failure_count": 0,
+      "error_count": 0,
+      "import_error_count": 0,
+      "duration_seconds": 16.095,
+      "candidate_cleanup_status": "PASS",
+      "leftover_candidate_count": 0,
+      "historical_fixed_directory_present_after_run": false
+    }
+  },
+  "full_regression": {
+    "status": "PASS",
+    "prior_test_count": 164,
+    "new_step6_test_count": 16,
+    "discovered_count": 180,
+    "executed_count": 180,
+    "pass_count": 180,
+    "failure_count": 0,
+    "error_count": 0,
+    "import_error_count": 0,
+    "duration_seconds": 21.271
+  }
+}
