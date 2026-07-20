@@ -20,6 +20,12 @@ PAYLOAD_MODES = [
     "CANONICAL_PAYLOAD",
 ]
 
+PUBLIC_INFERENCE_MODES = [
+    "BASIC_FORM",
+    "SAMPLE_PROFILE",
+    "ADVANCED_EDITOR",
+]
+
 BASIC_FORM_GAP_COUNT = 45
 LIMITATION_FIELDS = ["credit_age_months", "grade_encoded"]
 
@@ -185,6 +191,28 @@ def render_mode_selector(default_mode: str = "BASIC_FORM") -> str:
         for mode in PAYLOAD_MODES
     }
     return label_to_mode[selected_label]
+
+
+def render_public_inference_mode_selector(default_mode: str = "BASIC_FORM") -> str:
+    """Render the explicit three-route public inference selector."""
+
+    st = _get_streamlit()
+    safe_default = (
+        default_mode if default_mode in PUBLIC_INFERENCE_MODES else "BASIC_FORM"
+    )
+    labels = {
+        "BASIC_FORM": "Basic Form",
+        "SAMPLE_PROFILE": "Sample Profiles",
+        "ADVANCED_EDITOR": "Advanced Editor — Technical Mode",
+    }
+    selected_label = st.radio(
+        "Public Input Mode",
+        [labels[mode] for mode in PUBLIC_INFERENCE_MODES],
+        index=PUBLIC_INFERENCE_MODES.index(safe_default),
+        horizontal=True,
+        key="public_inference_mode",
+    )
+    return {label: mode for mode, label in labels.items()}[selected_label]
 
 
 def render_basic_form_gap_notice() -> None:

@@ -1,0 +1,410 @@
+{
+  "repository_preconditions": {
+    "status": "PASS",
+    "repository": "/home/wira/Documents/Project/credit-scoring-public-demo-source",
+    "branch": "phase8-public-demo-source",
+    "head": "104151999c181ce07f180001d645d7f565056f0f",
+    "head_subject": "Freeze executable Advanced Editor validation contract",
+    "parent": "56b06ae1c4e6e6fdd75f1d399139d267a1bb50d5",
+    "tracked_file_count": 86,
+    "initial_working_tree_clean": true
+  },
+  "frozen_artifact_integrity": {
+    "status": "PASS",
+    "step4_2b_artifacts_verified": 6,
+    "step4_2a_artifacts_verified": 4,
+    "stage4_adapter_verified": true,
+    "model_manifest_verified": true,
+    "model_binary_verified": true,
+    "threshold_verified": true,
+    "sample_profile_matrix_verified": true
+  },
+  "environment_preflight": {
+    "status": "PASS",
+    "python_executable": "/usr/bin/python3",
+    "joblib_import": "PASS",
+    "pandas_import": "PASS",
+    "sklearn_import": "PASS",
+    "streamlit_import": "PASS",
+    "dependencies_installed": false
+  },
+  "baseline_regression": {
+    "status": "PASS",
+    "discovered": 126,
+    "executed": 126,
+    "passed": 126,
+    "failures": 0,
+    "errors": 0,
+    "import_errors": 0
+  },
+  "architecture_discovery": {
+    "status": "PASS",
+    "inspected_paths": [
+      "app/streamlit_app.py",
+      "app/src/config.py",
+      "app/src/contract_loader.py",
+      "app/src/mode_view.py",
+      "app/src/pages.py",
+      "app/src/payload_builder.py",
+      "app/src/payload_preview.py",
+      "app/src/ui_text.py",
+      "app/src/demo_inference.py",
+      "app/src/basic_form_runtime.py",
+      "app/src/basic_form_inference.py"
+    ],
+    "existing_architecture_supported_integration": true,
+    "frozen_adapter_modification_required": false
+  },
+  "source_change_scope": {
+    "status": "PASS",
+    "modified_existing_paths": [
+      "app/src/mode_view.py",
+      "app/src/pages.py",
+      "app/src/payload_preview.py",
+      "app/src/ui_text.py"
+    ],
+    "created_application_paths": [
+      "app/src/advanced_editor_runtime.py",
+      "app/src/advanced_editor_inference.py"
+    ],
+    "conditional_paths_used": [],
+    "unexpected_paths": []
+  },
+  "mode_routing": {
+    "status": "PASS",
+    "allowlist": [
+      "SAMPLE_PROFILE",
+      "BASIC_FORM",
+      "ADVANCED_EDITOR"
+    ],
+    "default_ui_mode": "BASIC_FORM",
+    "SAMPLE_PROFILE": "app.src.demo_inference.run_safe_demo_inference",
+    "BASIC_FORM": "app.src.basic_form_inference.run_basic_form_inference",
+    "ADVANCED_EDITOR": "app.src.advanced_editor_inference.run_advanced_editor_inference",
+    "mode_masquerading_allowed": false
+  },
+  "sample_profile_integration": {
+    "status": "PASS",
+    "profile_count": 5,
+    "existing_adapter_modified": false,
+    "exact_fixture_protection_preserved": true,
+    "explicit_submission_required": true
+  },
+  "basic_form_integration": {
+    "status": "PASS",
+    "public_field_count": 6,
+    "public_fields": [
+      "annual_inc",
+      "dti",
+      "home_ownership",
+      "loan_amnt",
+      "purpose",
+      "term_months"
+    ],
+    "metadata_fields": [
+      "synthetic_baseline_profile_id",
+      "synthetic_completion_acknowledged"
+    ],
+    "atomic_api_used": true,
+    "acknowledgement_default": false,
+    "automatic_inference_enabled": false,
+    "synthetic_baseline_completion_count": 38
+  },
+  "advanced_editor_runtime": {
+    "status": "PASS",
+    "contract_id": "STAGE9_ADVANCED_EDITOR_VALIDATION_V1",
+    "public_api": "app.src.advanced_editor_runtime.validate_advanced_editor_request",
+    "feature_count": 49,
+    "profile_count": 5,
+    "editable_feature_count": 46,
+    "read_only_feature_count": 3,
+    "fixed_contract_hash_verified": true,
+    "immutable_result": true,
+    "complete_payload_excluded_from_repr": true,
+    "deep_freeze_helper_implemented": true,
+    "internal_authority_deeply_immutable": true,
+    "public_summary_deeply_immutable": true,
+    "public_summary_shares_mutable_alias": false,
+    "allowed_values_mutation_rejected": true,
+    "reset_values_mutation_rejected": true,
+    "reset_sources_mutation_rejected": true,
+    "projection_payload_mutation_rejected": true
+  },
+  "advanced_editor_inference": {
+    "status": "PASS",
+    "public_api": "app.src.advanced_editor_inference.run_advanced_editor_inference",
+    "parameters": [
+      "request"
+    ],
+    "accepts_validation_result": false,
+    "accepts_caller_payload_separately": false,
+    "accepts_caller_fingerprint": false,
+    "accepts_path_override": false,
+    "validation_before_runtime": true,
+    "frozen_runtime_primitives_reused": true,
+    "runtime_progress_fields": [
+      "runtime_loaded",
+      "frame_constructed",
+      "prediction_started",
+      "prediction_completed"
+    ],
+    "validation_failure_progress_metadata_valid": true,
+    "runtime_load_failure_progress_metadata_valid": true,
+    "frame_failure_progress_metadata_valid": true,
+    "prediction_failure_progress_metadata_valid": true,
+    "post_prediction_output_failure_metadata_valid": true
+  },
+  "advanced_editor_ui": {
+    "status": "PASS",
+    "technical_mode_label": true,
+    "registry_generated_controls": true,
+    "profile_change_resets_controls": true,
+    "acknowledgement_default": false,
+    "explicit_submission_required": true,
+    "complete_payload_rendered": false,
+    "profile_reset_apptest_status": "PASS",
+    "profile_reset_sequence": [
+      "SP_LOW_RISK_SIGNAL",
+      "EDIT_DTI",
+      "SP_MEDIUM_RISK_SIGNAL",
+      "SP_LOW_RISK_SIGNAL"
+    ],
+    "profile_a_edited_value_cleared": true,
+    "profile_b_canonical_value_loaded": true,
+    "profile_a_canonical_value_restored": true,
+    "profile_change_triggered_inference": false,
+    "profile_change_acknowledgement_reset_false": true
+  },
+  "term_flag_policy": {
+    "status": "PASS",
+    "term_months_editable": true,
+    "is_60_month_editable": false,
+    "is_60_month_derived_from_term": true,
+    "invariant_required": "is_60_month == int(term_months == 60)"
+  },
+  "limitation_policy": {
+    "status": "PASS",
+    "limitation_aware_features": [
+      "grade_encoded",
+      "credit_age_months"
+    ],
+    "grade_encoded_editable": false,
+    "credit_age_months_editable": false,
+    "disclosure_present": true
+  },
+  "result_presentation": {
+    "status": "PASS",
+    "calibrated_probability_displayed": true,
+    "threshold_relation_displayed": true,
+    "safe_metadata_only": true,
+    "complete_payload_displayed": false,
+    "approval_or_rejection_output_generated": false,
+    "persistent_disclosure_present": true
+  },
+  "privacy_boundary": {
+    "status": "PASS",
+    "personal_field_count": 0,
+    "free_text_input_present": false,
+    "file_upload_present": false,
+    "raw_input_logging_present": false,
+    "complete_payload_reporting_present": false,
+    "network_calls_added": false,
+    "telemetry_added": false,
+    "external_transmission_added": false
+  },
+  "governance_boundary": {
+    "status": "PASS",
+    "deployment_classification": "PORTFOLIO_DEMO_ONLY",
+    "lending_decision_generated": false,
+    "fairness_conclusion_generated": false,
+    "legal_conclusion_generated": false,
+    "public_deployment_performed": false
+  },
+  "sample_profile_smoke": {
+    "status": "PASS",
+    "case_count": 5,
+    "pass_count": 5,
+    "deterministic": true
+  },
+  "basic_form_smoke": {
+    "status": "PASS",
+    "case_count": 7,
+    "pass_count": 7,
+    "exact_committed_probabilities_retained": true,
+    "deterministic": true
+  },
+  "advanced_editor_reset_smoke": {
+    "status": "PASS",
+    "case_count": 5,
+    "pass_count": 5,
+    "mapped_basic_form_probability_parity": true,
+    "deterministic": true
+  },
+  "advanced_editor_edit_smoke": {
+    "status": "PASS",
+    "case_count": 5,
+    "pass_count": 5,
+    "continuous_edit_covered": true,
+    "categorical_edit_covered": true,
+    "discrete_edit_covered": true,
+    "term_36_to_60_covered": true,
+    "term_60_to_36_covered": true
+  },
+  "invalid_request_runtime_guard": {
+    "status": "PASS",
+    "case_count": 17,
+    "reject_count": 17,
+    "runtime_access_count": 0,
+    "probability_count": 0,
+    "hidden_edit": {
+      "case_id": "HIDDEN_EDIT",
+      "failure_code": "ADVANCED_EDITOR_EDITED_FEATURE_SET_MISMATCH"
+    },
+    "false_edit_declaration": {
+      "case_id": "FALSE_EDIT_DECLARATION",
+      "failure_code": "ADVANCED_EDITOR_EDITED_FEATURE_SET_MISMATCH"
+    },
+    "extra_payload_row": {
+      "case_id": "EXTRA_PAYLOAD_ROW",
+      "failure_code": "ADVANCED_EDITOR_PAYLOAD_ROW_COUNT_INVALID"
+    }
+  },
+  "streamlit_smoke": {
+    "status": "PASS",
+    "method": "streamlit.testing.v1.AppTest",
+    "exit_status": 0,
+    "uncaught_exception_count": 0,
+    "default_page_rendered": true,
+    "three_modes_present": true,
+    "inference_before_explicit_submission": false,
+    "acknowledgements_default_false": true,
+    "profile_reset_cycle_tested": true,
+    "profile_reset_cycle": "SP_LOW_RISK_SIGNAL -> edit -> SP_MEDIUM_RISK_SIGNAL -> SP_LOW_RISK_SIGNAL",
+    "profile_reset_cycle_status": "PASS"
+  },
+  "new_tests": {
+    "status": "PASS",
+    "discovered": 38,
+    "executed": 38,
+    "passed": 38,
+    "failures": 0,
+    "errors": 0,
+    "import_errors": 0
+  },
+  "full_regression": {
+    "status": "PASS",
+    "expected_prior_test_count": 126,
+    "discovered": 164,
+    "executed": 164,
+    "passed": 164,
+    "failures": 0,
+    "errors": 0,
+    "import_errors": 0
+  },
+  "syntax_validation": {
+    "status": "PASS",
+    "method": "python3 -B -m py_compile",
+    "files_checked": 7,
+    "errors": 0
+  },
+  "runtime_state": {
+    "sample_profile_ui_integrated": true,
+    "sample_profile_inference_available": true,
+    "basic_form_ui_integrated": true,
+    "basic_form_inference_available": true,
+    "advanced_editor_ui_integrated": true,
+    "advanced_editor_runtime_validator_implemented": true,
+    "advanced_editor_inference_adapter_implemented": true,
+    "advanced_editor_inference_available": true,
+    "advanced_editor_contract_id": "STAGE9_ADVANCED_EDITOR_VALIDATION_V1",
+    "advanced_editor_feature_count": 49,
+    "advanced_editor_profile_count": 5,
+    "sample_profile_adapter_modified": false,
+    "basic_form_runtime_modified": false,
+    "basic_form_inference_modified": false,
+    "step4_2b_contract_modified": false,
+    "public_deployment_performed": false,
+    "production_use_authorized": false,
+    "real_underwriting_use_authorized": false,
+    "advanced_editor_authority_deeply_immutable": true,
+    "profile_reset_apptest_passed": true,
+    "runtime_progress_metadata_implemented": true
+  },
+  "limitations": [
+    "All inputs and outputs remain fictional portfolio-demo evidence.",
+    "Advanced Editor values are limited to the frozen validation envelope.",
+    "grade_encoded and credit_age_months remain locked limitation-aware fields.",
+    "No public deployment or production underwriting use is authorized."
+  ],
+  "next_step_authorization": {
+    "human_artifact_audit_authorized": true,
+    "git_scope_review_authorized": true,
+    "staging_authorized": false,
+    "commit_authorized": false,
+    "public_deployment_authorized": false
+  },
+  "validation_result": {
+    "status": "PASS",
+    "stage9_step5_ready_for_human_audit": true,
+    "files_staged": false,
+    "commit_created": false,
+    "public_deployment_performed": false,
+    "stage9_step5_ready_for_human_reaudit": true
+  },
+  "generated_at_utc": "2026-07-20T07:22:44.046871Z",
+  "revision": "REVISION_1_ADVANCED_EDITOR_AUTHORITY_HARDENING",
+  "authority_hardening": {
+    "status": "PASS",
+    "cached_authority_recursively_immutable": true,
+    "public_summary_recursively_immutable": true,
+    "public_summary_objects_detached_from_internal_authority": true,
+    "statement": "The cached Advanced Editor validation authority and the public contract summary are recursively immutable. Public summary objects do not expose shared mutable aliases to internal validation authority."
+  },
+  "authority_poisoning_regression": {
+    "status": "PASS",
+    "authority_cache_cleared_before_post_mutation_test": false,
+    "term_48_accepted_after_mutation_attempt": false,
+    "injected_purpose_accepted_after_mutation_attempt": false,
+    "is_60_month_2_accepted_after_mutation_attempt": false,
+    "canonical_reset_count": 5,
+    "canonical_reset_valid_count": 5,
+    "canonical_reset_fingerprint_match_count": 5,
+    "canonical_reset_inference_parity_count": 5,
+    "statement": "Attempts to mutate allowed values, reset values, projection sources, and canonical reset payloads were rejected. The cached validator continued to reject unauthorized values without a cache reset."
+  },
+  "runtime_progress_metadata": {
+    "status": "PASS",
+    "fields": [
+      "runtime_loaded",
+      "frame_constructed",
+      "prediction_started",
+      "prediction_completed"
+    ],
+    "failure_stage_tests": {
+      "validation_failure": "PASS",
+      "runtime_load_failure": "PASS",
+      "frame_failure": "PASS",
+      "prediction_failure": "PASS",
+      "post_prediction_output_failure": "PASS"
+    },
+    "complete_payload_exposed": false,
+    "absolute_path_exposed": false,
+    "fallback_probability_generated": false
+  },
+  "profile_reset_apptest": {
+    "status": "PASS",
+    "sequence": "SP_LOW_RISK_SIGNAL -> edit dti -> SP_MEDIUM_RISK_SIGNAL -> SP_LOW_RISK_SIGNAL",
+    "profile_a_edited_value_cleared": true,
+    "profile_b_canonical_value_loaded": true,
+    "profile_a_canonical_value_restored": true,
+    "is_60_month_reset_matches_term": true,
+    "profile_change_triggered_inference": false,
+    "acknowledgement_reset_false_after_each_profile_change": true
+  },
+  "invalid_semantic_correction": {
+    "status": "PASS",
+    "hidden_edit_distinct": true,
+    "false_edit_declaration_distinct": true,
+    "extra_payload_row_distinct": true
+  }
+}

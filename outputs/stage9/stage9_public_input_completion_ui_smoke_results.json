@@ -1,0 +1,838 @@
+{
+  "schema_version": "1.0.1",
+  "stage": 9,
+  "step": "5_REVISION_1",
+  "classification": "PORTFOLIO_DEMO_ONLY",
+  "mode_routing": {
+    "SAMPLE_PROFILE": "app.src.demo_inference.run_safe_demo_inference",
+    "BASIC_FORM": "app.src.basic_form_inference.run_basic_form_inference",
+    "ADVANCED_EDITOR": "app.src.advanced_editor_inference.run_advanced_editor_inference"
+  },
+  "sample_profile_cases": [
+    {
+      "mode": "SAMPLE_PROFILE",
+      "case_id": "SAMPLE_SP_LOW_RISK_SIGNAL",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": null,
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 0,
+        "SYNTHETIC_BASELINE": 49,
+        "DERIVED": 0
+      },
+      "limitation_aware_features": [
+        "credit_age_months",
+        "grade_encoded"
+      ],
+      "calibrated_probability": 0.31875881523272215,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "SAMPLE_PROFILE",
+      "case_id": "SAMPLE_SP_MEDIUM_RISK_SIGNAL",
+      "fictional_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": null,
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 0,
+        "SYNTHETIC_BASELINE": 49,
+        "DERIVED": 0
+      },
+      "limitation_aware_features": [
+        "credit_age_months",
+        "grade_encoded"
+      ],
+      "calibrated_probability": 0.43903940886699505,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "SAMPLE_PROFILE",
+      "case_id": "SAMPLE_SP_HIGHER_RISK_SIGNAL",
+      "fictional_profile_id": "SP_HIGHER_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": null,
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 0,
+        "SYNTHETIC_BASELINE": 49,
+        "DERIVED": 0
+      },
+      "limitation_aware_features": [
+        "credit_age_months",
+        "grade_encoded"
+      ],
+      "calibrated_probability": 0.5721649484536082,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "SAMPLE_PROFILE",
+      "case_id": "SAMPLE_SP_MIXED_SIGNAL",
+      "fictional_profile_id": "SP_MIXED_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": null,
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 0,
+        "SYNTHETIC_BASELINE": 49,
+        "DERIVED": 0
+      },
+      "limitation_aware_features": [
+        "credit_age_months",
+        "grade_encoded"
+      ],
+      "calibrated_probability": 0.504524886877828,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "SAMPLE_PROFILE",
+      "case_id": "SAMPLE_SP_LIMITATION_TRANSPARENCY",
+      "fictional_profile_id": "SP_LIMITATION_TRANSPARENCY",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": null,
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 0,
+        "SYNTHETIC_BASELINE": 49,
+        "DERIVED": 0
+      },
+      "limitation_aware_features": [
+        "credit_age_months",
+        "grade_encoded"
+      ],
+      "calibrated_probability": 0.4418604651162791,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    }
+  ],
+  "basic_form_cases": [
+    {
+      "mode": "BASIC_FORM",
+      "case_id": "REQUEST_STANDARD_36",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "66065ef6cef154f7630df8ccb1ebad40402e9d4eee28fa82051f5d9be0f84c79",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.18398918594172425,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "BASIC_FORM",
+      "case_id": "REQUEST_60_MONTH",
+      "fictional_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "6d7d3989e77e79b706a40fedbc074e7fb8f13fe89b01dc3d9d97be94d6deed60",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.35650623885918004,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "BASIC_FORM",
+      "case_id": "REQUEST_PROFILE_HIGHER_RENT",
+      "fictional_profile_id": "SP_HIGHER_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "fd4f2f4c148c561e993f605f67c29f89e50c85a6ed009cb022162d6917b0fbba",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.31875881523272215,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "BASIC_FORM",
+      "case_id": "REQUEST_PROFILE_MIXED_OTHER",
+      "fictional_profile_id": "SP_MIXED_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "1316de74dd77f501b9e9f71b3c3dacb6a7e29ee6341af22c4c0cfb0e670857ca",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.400390625,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "BASIC_FORM",
+      "case_id": "REQUEST_PROFILE_LIMITATION_DTI_SCALE",
+      "fictional_profile_id": "SP_LIMITATION_TRANSPARENCY",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "ce8191fdd6cd80c5467c94cdee5cd20fb0d02d3dc5d4df5945efc4a10ebd2fe3",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.4418604651162791,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "BASIC_FORM",
+      "case_id": "REQUEST_NUMERIC_LOWER_BOUNDS",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "58bf3099abd7202d1de201657560cca9d6db352a96a343c20e8be40c57070ed9",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.24756756756756756,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "BASIC_FORM",
+      "case_id": "REQUEST_NUMERIC_UPPER_BOUNDS",
+      "fictional_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "878888c8f4b89a697da0c927a7fb4c95d62fa8e9180509640a1498f258482e5d",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_SUPPLIED": 4,
+        "DERIVED": 7,
+        "SYNTHETIC_BASELINE": 38
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.5675675675675675,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    }
+  ],
+  "advanced_editor_reset_cases": [
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "RESET_SP_LOW_RISK_SIGNAL",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "66065ef6cef154f7630df8ccb1ebad40402e9d4eee28fa82051f5d9be0f84c79",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_EDITED": 0,
+        "CANONICAL_RESET_PROJECTION": 49
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.18398918594172425,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT",
+      "expected_mapped_basic_form_probability": 0.18398918594172425,
+      "mapped_basic_form_probability_parity": true
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "RESET_SP_MEDIUM_RISK_SIGNAL",
+      "fictional_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "6d7d3989e77e79b706a40fedbc074e7fb8f13fe89b01dc3d9d97be94d6deed60",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_EDITED": 0,
+        "CANONICAL_RESET_PROJECTION": 49
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.35650623885918004,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT",
+      "expected_mapped_basic_form_probability": 0.35650623885918004,
+      "mapped_basic_form_probability_parity": true
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "RESET_SP_HIGHER_RISK_SIGNAL",
+      "fictional_profile_id": "SP_HIGHER_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "fd4f2f4c148c561e993f605f67c29f89e50c85a6ed009cb022162d6917b0fbba",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_EDITED": 0,
+        "CANONICAL_RESET_PROJECTION": 49
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.31875881523272215,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT",
+      "expected_mapped_basic_form_probability": 0.31875881523272215,
+      "mapped_basic_form_probability_parity": true
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "RESET_SP_MIXED_SIGNAL",
+      "fictional_profile_id": "SP_MIXED_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "1316de74dd77f501b9e9f71b3c3dacb6a7e29ee6341af22c4c0cfb0e670857ca",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_EDITED": 0,
+        "CANONICAL_RESET_PROJECTION": 49
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.400390625,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT",
+      "expected_mapped_basic_form_probability": 0.400390625,
+      "mapped_basic_form_probability_parity": true
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "RESET_SP_LIMITATION_TRANSPARENCY",
+      "fictional_profile_id": "SP_LIMITATION_TRANSPARENCY",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "ce8191fdd6cd80c5467c94cdee5cd20fb0d02d3dc5d4df5945efc4a10ebd2fe3",
+      "feature_count": 49,
+      "edited_feature_count": 0,
+      "provenance_counts": {
+        "USER_EDITED": 0,
+        "CANONICAL_RESET_PROJECTION": 49
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.4418604651162791,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT",
+      "expected_mapped_basic_form_probability": 0.4418604651162791,
+      "mapped_basic_form_probability_parity": true
+    }
+  ],
+  "advanced_editor_edit_cases": [
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "EDIT_CONTINUOUS_DTI",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "925877912b4938ea43ed5e37869714ffd5811e580a971f42b3f3af580b77d164",
+      "feature_count": 49,
+      "edited_feature_count": 1,
+      "provenance_counts": {
+        "USER_EDITED": 1,
+        "CANONICAL_RESET_PROJECTION": 48
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.18398918594172425,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "EDIT_CATEGORY_PURPOSE",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "699a213bae914464b54f209efc360a6ac8cadcc3e32419b7c9cc6799d37e7bc2",
+      "feature_count": 49,
+      "edited_feature_count": 1,
+      "provenance_counts": {
+        "USER_EDITED": 1,
+        "CANONICAL_RESET_PROJECTION": 48
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.18398918594172425,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "EDIT_DISCRETE_BANKRUPTCY",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "22fdba3329c5374c1c9b686c8b01097f6ff4d072db6805460d52b159f920a25e",
+      "feature_count": 49,
+      "edited_feature_count": 1,
+      "provenance_counts": {
+        "USER_EDITED": 1,
+        "CANONICAL_RESET_PROJECTION": 48
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.18398918594172425,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "EDIT_TERM_36_TO_60",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "0ac50d61b4f46b3e3679300f9078ff798ab794907c700aa563307a5a1a641642",
+      "feature_count": 49,
+      "edited_feature_count": 1,
+      "provenance_counts": {
+        "USER_EDITED": 1,
+        "CANONICAL_RESET_PROJECTION": 48
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.3253373313343329,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "EDIT_TERM_60_TO_36",
+      "fictional_profile_id": "SP_MEDIUM_RISK_SIGNAL",
+      "status": "available",
+      "failure_code": null,
+      "payload_fingerprint": "054e8b54bccf46b81685f5a8e932f75854e56d1d47d7ad1c3589bb93ce53888a",
+      "feature_count": 49,
+      "edited_feature_count": 1,
+      "provenance_counts": {
+        "USER_EDITED": 1,
+        "CANONICAL_RESET_PROJECTION": 48
+      },
+      "limitation_aware_features": [
+        "grade_encoded",
+        "credit_age_months"
+      ],
+      "calibrated_probability": 0.2908730158730159,
+      "threshold_relation": "At or above the model operating threshold",
+      "determinism_status": "EXACT_REPEAT"
+    }
+  ],
+  "invalid_advanced_editor_cases": [
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "FALSE_ACKNOWLEDGEMENT",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_ACKNOWLEDGEMENT_REQUIRED",
+      "failure_code": "ADVANCED_EDITOR_ACKNOWLEDGEMENT_REQUIRED",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "UNKNOWN_PROFILE",
+      "fictional_profile_id": "UNKNOWN",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_PROFILE_ID_INVALID",
+      "failure_code": "ADVANCED_EDITOR_PROFILE_ID_INVALID",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "HIDDEN_EDIT",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_EDITED_FEATURE_SET_MISMATCH",
+      "failure_code": "ADVANCED_EDITOR_EDITED_FEATURE_SET_MISMATCH",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "FALSE_EDIT_DECLARATION",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_EDITED_FEATURE_SET_MISMATCH",
+      "failure_code": "ADVANCED_EDITOR_EDITED_FEATURE_SET_MISMATCH",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "EXTRA_PAYLOAD_ROW",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_PAYLOAD_ROW_COUNT_INVALID",
+      "failure_code": "ADVANCED_EDITOR_PAYLOAD_ROW_COUNT_INVALID",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "LOCKED_GRADE_EDIT",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_LOCKED_VALUE_MISMATCH",
+      "failure_code": "ADVANCED_EDITOR_LOCKED_VALUE_MISMATCH",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "LOCKED_CREDIT_AGE_EDIT",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_LOCKED_VALUE_MISMATCH",
+      "failure_code": "ADVANCED_EDITOR_LOCKED_VALUE_MISMATCH",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "OUT_OF_RANGE_NUMBER",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE",
+      "failure_code": "ADVANCED_EDITOR_VALUE_OUT_OF_RANGE",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "INVALID_CATEGORY",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_CATEGORY_INVALID",
+      "failure_code": "ADVANCED_EDITOR_CATEGORY_INVALID",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "BOOLEAN_NUMERIC",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID",
+      "failure_code": "ADVANCED_EDITOR_BOOLEAN_VALUE_INVALID",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "NAN_NUMERIC",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE",
+      "failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "INFINITY_NUMERIC",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE",
+      "failure_code": "ADVANCED_EDITOR_NON_FINITE_VALUE",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "DIRECT_TERM_FLAG_EDIT",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_LOCKED_FEATURE_EDITED",
+      "failure_code": "ADVANCED_EDITOR_LOCKED_FEATURE_EDITED",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "TERM_FLAG_MISMATCH",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_RELATIONSHIP_INVALID",
+      "failure_code": "ADVANCED_EDITOR_RELATIONSHIP_INVALID",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "IDENTITY_FIELD_INJECTION",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_IDENTITY_FIELD_PROHIBITED",
+      "failure_code": "ADVANCED_EDITOR_IDENTITY_FIELD_PROHIBITED",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "FREE_TEXT_INJECTION",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_FREE_TEXT_FIELD_PROHIBITED",
+      "failure_code": "ADVANCED_EDITOR_FREE_TEXT_FIELD_PROHIBITED",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    },
+    {
+      "mode": "ADVANCED_EDITOR",
+      "case_id": "WRONG_FEATURE_ORDER",
+      "fictional_profile_id": "SP_LOW_RISK_SIGNAL",
+      "status": "unavailable",
+      "expected_failure_code": "ADVANCED_EDITOR_FEATURE_INDEX_INVALID",
+      "failure_code": "ADVANCED_EDITOR_FEATURE_INDEX_INVALID",
+      "payload_fingerprint": null,
+      "feature_count": null,
+      "edited_feature_count": null,
+      "provenance_counts": null,
+      "limitation_aware_features": [],
+      "calibrated_probability": null,
+      "threshold_relation": null,
+      "determinism_status": "NOT_APPLICABLE",
+      "runtime_access_count": 0,
+      "probability_generated": false
+    }
+  ],
+  "summary": {
+    "sample_profile_case_count": 5,
+    "sample_profile_pass_count": 5,
+    "basic_form_case_count": 7,
+    "basic_form_pass_count": 7,
+    "advanced_editor_reset_case_count": 5,
+    "advanced_editor_reset_pass_count": 5,
+    "advanced_editor_edit_case_count": 5,
+    "advanced_editor_edit_pass_count": 5,
+    "invalid_case_count": 17,
+    "invalid_reject_count": 17,
+    "invalid_runtime_access_count": 0,
+    "invalid_probability_count": 0,
+    "hidden_edit_semantics_valid": true,
+    "false_edit_declaration_semantics_valid": true,
+    "extra_payload_row_semantics_valid": true,
+    "advanced_editor_basic_form_parity_valid": true,
+    "all_probabilities_finite": true,
+    "all_probabilities_within_zero_one": true,
+    "all_repeat_predictions_deterministic": true,
+    "raw_input_recorded": false,
+    "complete_payload_recorded": false,
+    "personal_data_recorded": false,
+    "public_deployment_performed": false,
+    "validation_status": "PASS"
+  },
+  "generated_at_utc": "2026-07-20T07:21:10.679062Z"
+}

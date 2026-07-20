@@ -2,8 +2,8 @@
 
 APP_TITLE = "Responsible AI Credit Risk Contract Demo"
 PROJECT_TITLE = "Credit Risk Scoring + Fairness Audit"
-STAGE_LABEL = "Stage 4 — Safe Demo Inference"
-STAGE_BADGE = "Safe Demo Inference"
+STAGE_LABEL = "Stage 9 Step 5 — Public Input and UI Integration"
+STAGE_BADGE = "Three-Mode Controlled Demo Inference"
 
 OVERVIEW_INTRO = (
     "This app demonstrates a governance-aware credit risk workflow using "
@@ -12,9 +12,9 @@ OVERVIEW_INTRO = (
 )
 
 NO_INFERENCE_NOTICE = (
-    "This demo does not perform lending decisioning, thresholding, or scoring. "
-    "Stage 4 may run a guarded model behavior preview only after contract "
-    "payload and model-input checks pass."
+    "This demo never performs lending decisioning. Controlled local model "
+    "inference occurs only after a fictional request passes its mode-specific "
+    "contract checks and the user explicitly submits it."
 )
 
 PORTFOLIO_ONLY_NOTICE = (
@@ -23,9 +23,10 @@ PORTFOLIO_ONLY_NOTICE = (
 )
 
 BASIC_FORM_LIMITATION_NOTICE = (
-    "Basic Form is a simplified demo input mode. It cannot construct all "
-    "canonical model features and is suitable only for safe contract preview, "
-    "not for scoring or decisioning."
+    "Basic Form accepts six fictional public fields and transparently completes "
+    "38 model features from the selected fictional synthetic profile. "
+    "grade_encoded and credit_age_months remain locked, limitation-aware "
+    "compatibility fields."
 )
 
 PAYLOAD_PREVIEW_NOTICE = (
@@ -40,14 +41,32 @@ PAYLOAD_BUILDER_NOTICE = (
 )
 
 SAFE_DEMO_INFERENCE_NOTICE = (
-    "Stage 4 consumes the Stage 3 payload builder result and may produce a "
-    "default-risk signal preview only when all payload, model-input, and "
-    "guardrail checks pass."
+    "Choose one fictional-input mode. Inference runs only after explicit "
+    "submission and after that mode's frozen validation and runtime guards pass."
 )
 
 SAFE_DEMO_INFERENCE_LIMITATION_NOTICE = (
-    "Default-risk signal bands are descriptive demo bands for portfolio model "
-    "behavior review. They are not decision thresholds."
+    "The displayed probability and model operating-threshold relation are "
+    "portfolio-demo model behavior, not a lending outcome or recommendation."
+)
+
+PUBLIC_DEMO_RESULT_DISCLOSURE = (
+    "This output is a fictional portfolio demonstration and is not a lending "
+    "decision, approval recommendation, rejection recommendation, legal "
+    "assessment, fairness conclusion, or production underwriting result."
+)
+
+BASIC_FORM_INFERENCE_DISCLOSURE = (
+    "You supply six fictional public fields. Thirty-eight model features are "
+    "completed from the selected fictional synthetic profile; grade_encoded "
+    "and credit_age_months remain limitation-aware compatibility fields. "
+    "This portfolio demonstration is not a lending decision."
+)
+
+ADVANCED_EDITOR_INFERENCE_DISCLOSURE = (
+    "This technical editor uses 49 fictional canonical model inputs within a "
+    "narrow frozen demo envelope. It is not production underwriting software "
+    "and its output is not a lending decision."
 )
 
 GOVERNANCE_LIMITATION_NOTICE = (
@@ -127,16 +146,16 @@ WHAT_THIS_APP_DOES_NOT_DO = [
 
 MODE_DESCRIPTIONS = {
     "BASIC_FORM": (
-        "Simplified recruiter-friendly demo input mode. It is partial and keeps "
-        "the 45 documented mapping gaps visible."
+        "The simplest public fictional-input experience: six fields plus "
+        "transparent synthetic completion from a selected profile."
     ),
     "SAMPLE_PROFILE": (
         "Sample-profile mode uses contract artifacts for safe payload preview "
         "and guarded model behavior preview."
     ),
     "ADVANCED_EDITOR": (
-        "Contract-aware technical editor for broader schema compatibility "
-        "inspection. Stage 4 blocks preview if payload or model-input checks fail."
+        "Technical canonical-feature exploration within a narrow frozen demo "
+        "envelope. Validation blocks runtime access when any guard fails."
     ),
     "CANONICAL_PAYLOAD": (
         "Full canonical payload inspection mode for technical review. It is a "
@@ -147,7 +166,7 @@ MODE_DESCRIPTIONS = {
 MODE_DISPLAY_NAMES = {
     "BASIC_FORM": "Basic Form",
     "SAMPLE_PROFILE": "Sample Profile",
-    "ADVANCED_EDITOR": "Advanced Editor",
+    "ADVANCED_EDITOR": "Advanced Editor — Technical Mode",
     "CANONICAL_PAYLOAD": "Canonical Payload",
 }
 
@@ -156,7 +175,7 @@ PAGE_HELP_TEXT = {
     "Contract Readiness": "Stage 0 contract export and read-back evidence.",
     "Demo Input Modes": "Mode-level schema compatibility and limitation review.",
     "Payload Builder & Preview": "Contract-only payload builder and schema compatibility preview.",
-    "Safe Demo Inference": "Guarded default-risk signal preview and inference guardrail metadata.",
+    "Safe Demo Inference": "Three explicit fictional-input routes with guarded local inference.",
     "Governance & Limitations": "Non-production boundaries and limitation disclosures.",
 }
 

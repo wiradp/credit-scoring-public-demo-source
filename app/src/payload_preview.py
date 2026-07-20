@@ -15,7 +15,7 @@ from .demo_inference import (
 )
 from .mode_view import LIMITATION_FIELDS, normalize_mode
 from .payload_builder import PayloadBuildResult, payload_result_to_json
-from .ui_text import PAYLOAD_PREVIEW_NOTICE
+from .ui_text import PAYLOAD_PREVIEW_NOTICE, PUBLIC_DEMO_RESULT_DISCLOSURE
 
 
 PREVIEW_VALUE_NOT_AVAILABLE = "<not_available>"
@@ -599,6 +599,51 @@ def render_demo_inference_result(result: DemoInferenceResult) -> None:
 
     st.subheader("Limitations")
     render_demo_inference_limitations(result)
+
+
+def render_public_inference_result(result: DemoInferenceResult) -> None:
+    """Render only disclosure-safe Step 5 result evidence."""
+
+    st = _get_streamlit()
+    st.subheader("Controlled Inference Result")
+    if result.inference_status != DEMO_INFERENCE_READY:
+        st.warning(result.readiness_note)
+        failure_code = result.metadata.get("failure_reason") or result.inference_status
+        st.info(f"Blocked reason code: {failure_code}")
+        st.warning(PUBLIC_DEMO_RESULT_DISCLOSURE)
+        return
+
+    probability = result.calibrated_default_probability
+    st.success(result.readiness_note)
+    cols = st.columns(3)
+    cols[0].metric(
+        "Estimated model default-risk probability",
+        f"{float(probability):.4%}" if probability is not None else "Unavailable",
+    )
+    cols[1].metric("Model threshold relation", result.threshold_relation or "Unavailable")
+    cols[2].metric("Canonical feature count", result.feature_count or 0)
+
+    metadata = result.metadata
+    profile_id = (
+        result.synthetic_profile_id
+        or metadata.get("advanced_editor_profile_id")
+        or metadata.get("selected_synthetic_profile_id")
+    )
+    safe_rows: list[dict[str, object]] = [
+        {"result_item": "mode", "value": result.mode},
+        {"result_item": "fictional_profile_id", "value": profile_id},
+        {"result_item": "payload_fingerprint", "value": metadata.get("payload_fingerprint")},
+        {"result_item": "edited_feature_count", "value": metadata.get("edited_feature_count", 0)},
+        {"result_item": "provenance_counts", "value": result.value_source_counts},
+        {"result_item": "limitation_aware_features", "value": list(result.limitation_aware_features)},
+    ]
+    st.dataframe(pd.DataFrame(safe_rows), use_container_width=True, hide_index=True)
+    if metadata.get("edited_feature_names"):
+        st.caption(
+            "Edited canonical features: "
+            + ", ".join(str(name) for name in metadata["edited_feature_names"])
+        )
+    st.warning(PUBLIC_DEMO_RESULT_DISCLOSURE)
 
 
 def render_payload_result_json(result: PayloadBuildResult) -> None:
