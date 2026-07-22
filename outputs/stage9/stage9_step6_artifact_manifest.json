@@ -9,54 +9,54 @@
     {
       "relative_path": "tests/test_stage9_public_deployment_readiness.py",
       "change_type": "ADDED",
-      "size_bytes": 24788,
-      "sha256": "b9bafabf70f0b564a574d1e3c37f95c7afd5350e42660bd36735ba3455ae2d0a",
+      "size_bytes": 29328,
+      "sha256": "a347bce65f060c8aa00024daa6eeab40bb16cc22df0280978d65485a8719f5a6",
       "media_type": "text/x-python",
       "purpose": "Automated frozen-integrity, closure, clean-copy, smoke, AppTest, startup-evidence, and privacy validation.",
       "baseline_commit": "5051f614db66e2ead73a54795e1e5c087df5e197",
       "source_branch": "phase8-public-demo-source",
       "generation_status": "COMPLETE",
       "validation_status": "PASS",
-      "generated_at_utc": "2026-07-20T10:13:39.163163Z"
+      "generated_at_utc": "2026-07-22T13:55:21.000000Z"
     },
     {
       "relative_path": "outputs/stage9/stage9_public_deployment_readiness_report.md",
       "change_type": "ADDED",
-      "size_bytes": 9095,
-      "sha256": "b6746573476ffa9ad5bc551326b2f2bff6338d8cd931b1912d0157cf23212576",
+      "size_bytes": 11886,
+      "sha256": "12556c9377ad87b542d331349029d50962f97e9bbe2753f0260f601d885d0ee3",
       "media_type": "text/markdown",
       "purpose": "Human-readable public release-readiness evidence and authorization boundary.",
       "baseline_commit": "5051f614db66e2ead73a54795e1e5c087df5e197",
       "source_branch": "phase8-public-demo-source",
       "generation_status": "COMPLETE",
       "validation_status": "PASS",
-      "generated_at_utc": "2026-07-20T10:13:39.163163Z"
+      "generated_at_utc": "2026-07-22T13:55:21.000000Z"
     },
     {
       "relative_path": "outputs/stage9/stage9_public_deployment_readiness_report.json",
       "change_type": "ADDED",
-      "size_bytes": 28065,
-      "sha256": "138ff632c881acf17be92a41b2128288cd939a66e6b15b3cecdbe311686c9b4f",
+      "size_bytes": 31884,
+      "sha256": "ca315326a234335460719dd8a9a88605cc7f0d41490351ef7954d63adf218f9b",
       "media_type": "application/json",
       "purpose": "Machine-readable release-readiness validation evidence.",
       "baseline_commit": "5051f614db66e2ead73a54795e1e5c087df5e197",
       "source_branch": "phase8-public-demo-source",
       "generation_status": "COMPLETE",
       "validation_status": "PASS",
-      "generated_at_utc": "2026-07-20T10:13:39.163163Z"
+      "generated_at_utc": "2026-07-22T13:55:21.000000Z"
     },
     {
       "relative_path": "outputs/stage9/stage9_public_release_candidate_manifest.json",
       "change_type": "ADDED",
-      "size_bytes": 31433,
-      "sha256": "e871dfdeed8ddc536d58ab2389a52d199892491f9fd894b22569aeeb9506bb7c",
+      "size_bytes": 33703,
+      "sha256": "d04fc8d4d3866597c218d88c75efe09c6b4c282107de5c004cb1113a68118dd6",
       "media_type": "application/json",
       "purpose": "Runtime artifact closure and release-candidate validation manifest.",
       "baseline_commit": "5051f614db66e2ead73a54795e1e5c087df5e197",
       "source_branch": "phase8-public-demo-source",
       "generation_status": "COMPLETE",
       "validation_status": "PASS",
-      "generated_at_utc": "2026-07-20T10:13:39.163163Z"
+      "generated_at_utc": "2026-07-22T13:55:21.000000Z"
     },
     {
       "relative_path": "outputs/stage9/stage9_public_deployment_checklist.md",
@@ -69,7 +69,7 @@
       "source_branch": "phase8-public-demo-source",
       "generation_status": "COMPLETE",
       "validation_status": "PASS",
-      "generated_at_utc": "2026-07-20T10:13:39.163163Z"
+      "generated_at_utc": "2026-07-22T13:55:21.000000Z"
     },
     {
       "relative_path": "requirements.txt",
@@ -82,7 +82,7 @@
       "source_branch": "phase8-public-demo-source",
       "generation_status": "COMPLETE",
       "validation_status": "PASS",
-      "generated_at_utc": "2026-07-20T10:13:39.163163Z"
+      "generated_at_utc": "2026-07-22T13:55:21.000000Z"
     },
     {
       "relative_path": ".streamlit/config.toml",
@@ -95,10 +95,10 @@
       "source_branch": "phase8-public-demo-source",
       "generation_status": "COMPLETE",
       "validation_status": "PASS",
-      "generated_at_utc": "2026-07-20T10:13:39.163163Z"
+      "generated_at_utc": "2026-07-22T13:55:21.000000Z"
     }
   ],
   "generation_status": "COMPLETE",
   "validation_status": "PASS",
-  "generated_at_utc": "2026-07-20T10:13:39.163163Z"
+  "generated_at_utc": "2026-07-22T13:55:21.000000Z"
 }

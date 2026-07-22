@@ -1,7 +1,7 @@
 {
-  "repository_preconditions": {
+  "original_step6_preconditions": {
     "status": "PASS",
-    "repository": "/home/wira/Documents/Project/credit-scoring-public-demo-source",
+    "repository": "current Git repository root",
     "branch": "phase8-public-demo-source",
     "head": "5051f614db66e2ead73a54795e1e5c087df5e197",
     "subject": "Complete public input and UI integration",
@@ -9,6 +9,41 @@
     "tracked_file_count": 93,
     "working_tree_clean": true,
     "staged_file_count": 0
+  },
+  "revision2_preconditions": {
+    "status": "PASS",
+    "repository": "current Git repository root",
+    "branch": "phase8-public-demo-source",
+    "head": "c3be3eb2cf57a6de5661937caadfb27454df3a30",
+    "subject": "Prepare public deployment release candidate",
+    "parent": "5051f614db66e2ead73a54795e1e5c087df5e197",
+    "tracked_file_count": 99,
+    "working_tree_clean_before_revision2": true,
+    "modified_tracked_file_count": 0,
+    "untracked_file_count": 0,
+    "staged_file_count": 0
+  },
+  "repository_preconditions": {
+    "status": "PASS",
+    "repository": "current Git repository root",
+    "branch": "phase8-public-demo-source",
+    "head": "c3be3eb2cf57a6de5661937caadfb27454df3a30",
+    "subject": "Prepare public deployment release candidate",
+    "parent": "5051f614db66e2ead73a54795e1e5c087df5e197",
+    "tracked_file_count": 99,
+    "working_tree_clean": false,
+    "expected_preexisting_revision2_changes": true,
+    "modified_tracked_file_count": 5,
+    "untracked_file_count": 0,
+    "staged_file_count": 0,
+    "unexpected_path_count": 0,
+    "expected_preexisting_modified_paths": [
+      "tests/test_stage9_public_deployment_readiness.py",
+      "outputs/stage9/stage9_public_deployment_readiness_report.md",
+      "outputs/stage9/stage9_public_deployment_readiness_report.json",
+      "outputs/stage9/stage9_public_release_candidate_manifest.json",
+      "outputs/stage9/stage9_step6_artifact_manifest.json"
+    ]
   },
   "frozen_step5_integrity": {
     "status": "PASS",
@@ -31,8 +66,10 @@
   },
   "environment_preflight": {
     "status": "PASS",
-    "python_executable": "/usr/bin/python3",
+    "interpreter_selection": "active invoking interpreter",
     "python_version": "3.10.12",
+    "python_major_minor": "3.10",
+    "virtual_environment_active_during_validation": true,
     "streamlit_version": "1.51.0",
     "pandas_version": "2.3.3",
     "scikit_learn_version": "1.7.2",
@@ -40,17 +77,19 @@
     "numpy_version": "1.26.4",
     "lightgbm_version": "4.6.0",
     "imports_passed": true,
-    "pip_check": "PASS"
+    "pip_check": "PASS",
+    "pip_check_output": "No broken requirements found.",
+    "portable_interpreter_test": "PASS"
   },
   "baseline_regression": {
     "status": "PASS",
-    "discovered_count": 164,
-    "executed_count": 164,
-    "pass_count": 164,
+    "discovered_count": 182,
+    "executed_count": 182,
+    "pass_count": 182,
     "failure_count": 0,
     "error_count": 0,
     "import_error_count": 0,
-    "duration_seconds": 5.281
+    "duration_seconds": 20.828
   },
   "deployment_architecture": {
     "status": "PASS",
@@ -446,14 +485,18 @@
     "developer_local_path_literal_count": 0,
     "runtime_absolute_path_dependency_count": 0,
     "user_facing_absolute_path_exposure_count": 0,
+    "permanent_test_fixed_interpreter_path_present": false,
+    "subprocess_uses_invoking_interpreter": true,
     "repository_relative_root_derivation_valid": true
   },
   "secret_scan": {
     "status": "PASS",
-    "tracked_file_count": 93,
-    "authorized_untracked_step6_file_count": 6,
+    "tracked_file_count": 99,
+    "authorized_untracked_step6_file_count": 0,
     "total_file_count": 99,
-    "scan_scope": "exact authorized release-file union",
+    "future_stage_file_count": 0,
+    "scan_scope": "exact Step 6 release union",
+    "future_stage_secret_scan_responsibility": "stage-specific validation before staging",
     "classifications": [
       "private_key",
       "openai_style_api_key",
@@ -501,17 +544,17 @@
   },
   "release_candidate_copy": {
     "status": "PASS",
-    "construction_method": "tempfile.TemporaryDirectory with exact authorized release-file union",
+    "construction_method": "tempfile.TemporaryDirectory with exact Step 6 release union",
     "temporary_directory_prefix": "stage9_step6_test_release_candidate_",
     "fixed_directory_dependency": false,
     "created_by_test_fixture": true,
     "unique_per_test_invocation": true,
     "removed_by_test_fixture": true,
-    "tracked_path_count": 93,
-    "authorized_untracked_path_count": 6,
+    "tracked_path_count": 99,
+    "authorized_untracked_path_count": 0,
     "file_count": 99,
-    "total_bytes": 7581373,
-    "unexpected_untracked_path_count": 0,
+    "total_bytes": 7594794,
+    "excluded_future_untracked_path_count": 0,
     "symlink_path_count": 0,
     "outside_root_path_count": 0,
     "git_metadata_present": false,
@@ -520,6 +563,35 @@
     "broken_symlink_count": 0,
     "external_symlink_count": 0,
     "runtime_artifact_closure_present": true
+  },
+  "release_union_forward_compatibility": {
+    "status": "PASS",
+    "precommit_mode_name": "STEP6_PRECOMMIT",
+    "postcommit_mode_name": "POSTCOMMIT_FUTURE_STAGE",
+    "current_mode": "POSTCOMMIT_FUTURE_STAGE",
+    "authorized_step6_path_count": 6,
+    "current_tracked_step6_path_count": 6,
+    "current_authorized_step6_untracked_count": 0,
+    "current_release_union_count": 99,
+    "future_stage_probe_path_count": 6,
+    "future_stage_probe_excluded_count": 6,
+    "future_stage_probe_copied_count": 0,
+    "future_stage_probe_step6_test_status": "PASS",
+    "future_stage_probe_step6_test_discovered_count": 19,
+    "future_stage_probe_step6_test_executed_count": 19,
+    "future_stage_probe_step6_test_pass_count": 19,
+    "future_stage_probe_step6_test_failure_count": 0,
+    "future_stage_probe_step6_test_error_count": 0,
+    "future_stage_probe_step6_test_import_error_count": 0,
+    "precommit_unexpected_untracked_rejected": true,
+    "precommit_missing_authorized_rejected": true,
+    "postcommit_future_untracked_allowed": true,
+    "postcommit_future_untracked_excluded": true,
+    "candidate_file_count_unchanged": true,
+    "runtime_closure_unchanged": true,
+    "secret_scan_scope": "exact Step 6 release union",
+    "future_stage_secret_scan_responsibility": "stage-specific validation before staging",
+    "validation_status": "PASS"
   },
   "clean_copy_import": {
     "status": "PASS",
@@ -631,8 +703,10 @@
     "status": "PASS",
     "model_artifact_bytes": 4881685,
     "runtime_artifact_bytes": 6807346,
-    "release_candidate_total_bytes": 7581373,
-    "tracked_repository_total_bytes": 7480736,
+    "tracked_repository_file_count": 99,
+    "release_candidate_file_count": 99,
+    "release_candidate_total_bytes": 7594794,
+    "tracked_repository_total_bytes": 7594794,
     "largest_tracked_files": [
       {
         "relative_path": "artifacts/model/final_model_calibrated.pkl",
@@ -698,13 +772,17 @@
   },
   "new_tests": {
     "status": "PASS",
-    "discovered_count": 16,
-    "executed_count": 16,
-    "pass_count": 16,
+    "discovered_count": 19,
+    "executed_count": 19,
+    "pass_count": 19,
     "failure_count": 0,
     "error_count": 0,
     "import_error_count": 0,
-    "duration_seconds": 16.095
+    "duration_seconds": 16.352,
+    "portable_interpreter_runtime_version_test": "PASS",
+    "synthetic_precommit_policy_test": "PASS",
+    "synthetic_postcommit_policy_test": "PASS",
+    "real_stage7a_probe_test": "PASS"
   },
   "syntax_validation": {
     "status": "PASS",
@@ -719,15 +797,15 @@
   },
   "source_change_scope": {
     "status": "PASS",
-    "required_new_paths": [
+    "modified_paths": [
       "tests/test_stage9_public_deployment_readiness.py",
       "outputs/stage9/stage9_public_deployment_readiness_report.md",
       "outputs/stage9/stage9_public_deployment_readiness_report.json",
       "outputs/stage9/stage9_public_release_candidate_manifest.json",
-      "outputs/stage9/stage9_public_deployment_checklist.md",
       "outputs/stage9/stage9_step6_artifact_manifest.json"
     ],
-    "conditionally_modified_paths": [
+    "unchanged_step6_paths": [
+      "outputs/stage9/stage9_public_deployment_checklist.md",
       "requirements.txt",
       ".streamlit/config.toml"
     ],
@@ -751,6 +829,11 @@
     "implementation_candidate_removed": true,
     "historical_fixed_directory_present": false,
     "test_candidate_leftover_count": 0,
+    "future_stage_probe_created": true,
+    "future_stage_probe_path_count": 6,
+    "future_stage_probe_removed": true,
+    "future_stage_probe_leftover_count": 0,
+    "python_cache_leftover_count": 0,
     "backup_directory_created": true,
     "backup_directory_removed": true,
     "backup_restore_required": false
@@ -760,7 +843,8 @@
     "Public deployment remains unauthorized and has not occurred.",
     "AppTest emitted non-blocking dataframe-conversion and deprecated-width warnings while recovering and rendering successfully.",
     "No provider-specific hosted-service resource limit was asserted.",
-    "No Git remote or upstream is configured; later publication requires a separately authorized manual action."
+    "No Git remote or upstream is configured; later publication requires a separately authorized manual action.",
+    "The Step 6 secret scan covers only the exact Step 6 release union; future stages must scan their own newly created evidence before staging."
   ],
   "release_readiness": {
     "status": "PASS",
@@ -784,31 +868,31 @@
     "real_underwriting_use_authorized": false
   },
   "validation_result": "PASS",
-  "generated_at_utc": "2026-07-20T10:13:39.163163Z",
+  "generated_at_utc": "2026-07-22T13:55:21.000000Z",
   "revised_step6_test_runs": {
     "status": "PASS",
     "counts_equal": true,
     "historical_fixed_directory_present_before_run1": false,
     "run1": {
-      "discovered_count": 16,
-      "executed_count": 16,
-      "pass_count": 16,
+      "discovered_count": 19,
+      "executed_count": 19,
+      "pass_count": 19,
       "failure_count": 0,
       "error_count": 0,
       "import_error_count": 0,
-      "duration_seconds": 15.826,
+      "duration_seconds": 16.497,
       "candidate_cleanup_status": "PASS",
       "leftover_candidate_count": 0,
       "historical_fixed_directory_present_after_run": false
     },
     "run2": {
-      "discovered_count": 16,
-      "executed_count": 16,
-      "pass_count": 16,
+      "discovered_count": 19,
+      "executed_count": 19,
+      "pass_count": 19,
       "failure_count": 0,
       "error_count": 0,
       "import_error_count": 0,
-      "duration_seconds": 16.095,
+      "duration_seconds": 16.352,
       "candidate_cleanup_status": "PASS",
       "leftover_candidate_count": 0,
       "historical_fixed_directory_present_after_run": false
@@ -817,13 +901,13 @@
   "full_regression": {
     "status": "PASS",
     "prior_test_count": 164,
-    "new_step6_test_count": 16,
-    "discovered_count": 180,
-    "executed_count": 180,
-    "pass_count": 180,
+    "new_step6_test_count": 19,
+    "discovered_count": 183,
+    "executed_count": 183,
+    "pass_count": 183,
     "failure_count": 0,
     "error_count": 0,
     "import_error_count": 0,
-    "duration_seconds": 21.271
+    "duration_seconds": 21.984
   }
 }

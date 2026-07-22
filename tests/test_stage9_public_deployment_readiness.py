@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import ast
 import hashlib
+import importlib.metadata
 import json
 import os
 import re
@@ -12,12 +13,14 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from dataclasses import dataclass
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT_PATH = ROOT / "outputs/stage9/stage9_public_deployment_readiness_report.json"
 RC_MANIFEST_PATH = ROOT / "outputs/stage9/stage9_public_release_candidate_manifest.json"
+ACTIVE_TEST_PYTHON = Path(sys.executable)
 
 AUTHORIZED_STEP6_PATHS = (
     "tests/test_stage9_public_deployment_readiness.py",
@@ -71,29 +74,68 @@ def git_paths(*args: str) -> tuple[str, ...]:
     return tuple(item.decode("utf-8") for item in raw.split(b"\0") if item)
 
 
+@dataclass(frozen=True)
+class ReleaseUnionClassification:
+    mode: str
+    authorized_step6_untracked: tuple[str, ...]
+    excluded_future_untracked: tuple[str, ...]
+    unexpected_precommit_untracked: tuple[str, ...]
+    missing_authorized_untracked: tuple[str, ...]
+    release_union: tuple[str, ...]
+
+
+def classify_release_union(
+    tracked_paths: tuple[str, ...],
+    actual_untracked_paths: tuple[str, ...],
+    authorized_step6_paths: tuple[str, ...],
+) -> ReleaseUnionClassification:
+    """Classify the Step 6 release union without inspecting the filesystem."""
+    tracked = set(tracked_paths)
+    actual_untracked = set(actual_untracked_paths)
+    authorized_untracked = set(authorized_step6_paths) - tracked
+
+    if authorized_untracked:
+        mode = "STEP6_PRECOMMIT"
+        unexpected = actual_untracked - authorized_untracked
+        missing = authorized_untracked - actual_untracked
+        excluded_future = set()
+        if unexpected or missing:
+            raise AssertionError(
+                "Step 6 pre-commit untracked paths differ from the authorized set: "
+                f"unexpected={tuple(sorted(unexpected))!r}, "
+                f"missing={tuple(sorted(missing))!r}"
+            )
+    else:
+        mode = "POSTCOMMIT_FUTURE_STAGE"
+        unexpected = set()
+        missing = set()
+        excluded_future = actual_untracked
+
+    return ReleaseUnionClassification(
+        mode=mode,
+        authorized_step6_untracked=tuple(sorted(authorized_untracked)),
+        excluded_future_untracked=tuple(sorted(excluded_future)),
+        unexpected_precommit_untracked=tuple(sorted(unexpected)),
+        missing_authorized_untracked=tuple(sorted(missing)),
+        release_union=tuple(sorted(tracked | authorized_untracked)),
+    )
+
+
 def authorized_release_paths() -> tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...]]:
     tracked = git_paths("ls-files")
-    tracked_set = set(tracked)
     missing_authorized = tuple(
         path for path in AUTHORIZED_STEP6_PATHS if not (ROOT / path).exists()
     )
     if missing_authorized:
         raise AssertionError(f"authorized Step 6 path is missing: {missing_authorized!r}")
-    authorized_untracked = tuple(
-        path for path in AUTHORIZED_STEP6_PATHS
-        if path not in tracked_set and (ROOT / path).exists()
+    classification = classify_release_union(
+        tracked,
+        git_paths("ls-files", "--others", "--exclude-standard"),
+        AUTHORIZED_STEP6_PATHS,
     )
-    actual_untracked = git_paths("ls-files", "--others", "--exclude-standard")
-    unexpected_untracked = tuple(sorted(set(actual_untracked) - set(authorized_untracked)))
-    missing_authorized_untracked = tuple(sorted(set(actual_untracked) ^ set(authorized_untracked)))
-    if unexpected_untracked or missing_authorized_untracked:
-        raise AssertionError(
-            "release union has an unauthorized or missing untracked path: "
-            f"unexpected={unexpected_untracked!r}, symmetric_difference={missing_authorized_untracked!r}"
-        )
 
     root_resolved = ROOT.resolve()
-    union = tuple(sorted(set(tracked) | set(authorized_untracked)))
+    union = classification.release_union
     for relative_path in union:
         relative = Path(relative_path)
         if relative.is_absolute() or ".." in relative.parts:
@@ -107,7 +149,7 @@ def authorized_release_paths() -> tuple[tuple[str, ...], tuple[str, ...], tuple[
             source.resolve().relative_to(root_resolved)
         except ValueError as exc:
             raise AssertionError(f"release path escapes repository: {relative_path}") from exc
-    return union, tuple(sorted(tracked)), tuple(sorted(authorized_untracked))
+    return union, tuple(sorted(tracked)), classification.authorized_step6_untracked
 
 
 def populate_release_candidate(destination: Path) -> tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...]]:
@@ -131,7 +173,7 @@ def run_clean(code: str, *, cwd: Path) -> subprocess.CompletedProcess[str]:
     environment["PYTHONDONTWRITEBYTECODE"] = "1"
     environment["XDG_CACHE_HOME"] = tempfile.gettempdir()
     return subprocess.run(
-        [sys.executable, "-B", "-c", code],
+        [str(ACTIVE_TEST_PYTHON), "-B", "-c", code],
         cwd=cwd,
         env=environment,
         text=True,
@@ -175,6 +217,21 @@ class EntryPointAndClosureTests(unittest.TestCase):
 
 
 class DependencyAndConfigurationTests(unittest.TestCase):
+    def test_active_interpreter_and_pinned_runtime_versions(self) -> None:
+        self.assertTrue(ACTIVE_TEST_PYTHON.is_file())
+        self.assertEqual(sys.version_info[:2], (3, 10))
+        pinned_versions = {
+            "streamlit": "1.51.0",
+            "pandas": "2.3.3",
+            "numpy": "1.26.4",
+            "scikit-learn": "1.7.2",
+            "joblib": "1.5.3",
+            "lightgbm": "4.6.0",
+        }
+        for distribution, expected in pinned_versions.items():
+            with self.subTest(distribution=distribution):
+                self.assertEqual(importlib.metadata.version(distribution), expected)
+
     def test_canonical_dependency_definition(self) -> None:
         candidates = [ROOT / "requirements.txt", ROOT / "app/requirements.txt"]
         self.assertEqual([p for p in candidates if p.exists()], [ROOT / "requirements.txt"])
@@ -235,6 +292,46 @@ class StaticSafetyTests(unittest.TestCase):
                 (relative_path, label) for label, pattern in patterns if pattern.search(data)
             )
         self.assertEqual(findings, [])
+
+
+class ReleaseUnionPolicyTests(unittest.TestCase):
+    def test_precommit_policy_remains_strict(self) -> None:
+        tracked = ("app/streamlit_app.py",)
+        authorized = ("outputs/stage9/step6-a.json", "outputs/stage9/step6-b.md")
+        accepted = classify_release_union(tracked, authorized, authorized)
+        self.assertEqual(accepted.mode, "STEP6_PRECOMMIT")
+        self.assertEqual(set(accepted.authorized_step6_untracked), set(authorized))
+        self.assertEqual(set(accepted.release_union), set(tracked) | set(authorized))
+
+        with self.assertRaisesRegex(AssertionError, "unexpected=.*future-stage.json"):
+            classify_release_union(
+                tracked,
+                authorized + ("outputs/stage9/future-stage.json",),
+                authorized,
+            )
+        with self.assertRaisesRegex(AssertionError, "missing=.*step6-b.md"):
+            classify_release_union(tracked, authorized[:1], authorized)
+
+    def test_postcommit_policy_excludes_future_stage_untracked_paths(self) -> None:
+        tracked = (
+            "app/streamlit_app.py",
+            "outputs/stage9/stage9_step6_artifact_manifest.json",
+        )
+        future_stage_paths = (
+            "tests/test_stage9_localhost_final_acceptance.py",
+            "outputs/stage9/stage9_localhost_automated_acceptance_report.md",
+            "outputs/stage9/stage9_localhost_automated_acceptance_report.json",
+            "outputs/stage9/stage9_localhost_smoke_results.json",
+            "outputs/stage9/stage9_localhost_manual_acceptance_checklist.md",
+            "outputs/stage9/stage9_step7a_artifact_manifest.json",
+        )
+        classified = classify_release_union(tracked, future_stage_paths, tracked)
+        self.assertEqual(classified.mode, "POSTCOMMIT_FUTURE_STAGE")
+        self.assertEqual(classified.release_union, tuple(sorted(tracked)))
+        self.assertEqual(set(classified.excluded_future_untracked), set(future_stage_paths))
+        self.assertEqual(len(classified.excluded_future_untracked), 6)
+        self.assertTrue(set(classified.release_union).isdisjoint(future_stage_paths))
+        self.assertEqual(len(classified.release_union), len(tracked))
 
 
 class HermeticReleaseCandidateTests(unittest.TestCase):
@@ -438,12 +535,19 @@ class GeneratedEvidenceTests(unittest.TestCase):
         self.assertFalse(evidence["server_process_remaining"])
 
     def test_release_evidence_privacy(self) -> None:
+        developer_home = str(Path.home())
+        repository_root = str(ROOT)
         for path in (
+            ROOT / "tests/test_stage9_public_deployment_readiness.py",
+            ROOT / "outputs/stage9/stage9_public_deployment_readiness_report.md",
+            ROOT / "outputs/stage9/stage9_public_deployment_readiness_report.json",
             ROOT / "outputs/stage9/stage9_public_release_candidate_manifest.json",
+            ROOT / "outputs/stage9/stage9_step6_artifact_manifest.json",
             ROOT / "outputs/stage9/stage9_public_deployment_checklist.md",
         ):
             text = path.read_text(encoding="utf-8")
-            self.assertNotIn("/home/wira", text)
+            self.assertNotIn(developer_home, text)
+            self.assertNotIn(repository_root, text)
             self.assertNotRegex(text, r"-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----")
         privacy = self.report["privacy_boundary"]
         self.assertEqual(privacy["personal_field_count"], 0)

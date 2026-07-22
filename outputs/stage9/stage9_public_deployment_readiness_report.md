@@ -10,7 +10,7 @@ This step prepares and validates a release candidate only. It does not publish t
 
 ## 3. Repository Preconditions
 
-PASS. The baseline was clean with 93 tracked files, zero modified, untracked, or staged paths, and the required identity and exact Step 5 diff.
+PASS. Original Step 6 started from commit `5051f614db66e2ead73a54795e1e5c087df5e197` with 93 tracked files and a clean working tree. Revision 2 started from clean commit `c3be3eb2cf57a6de5661937caadfb27454df3a30` with 99 tracked files. Revision 2.1 started from the same HEAD with exactly five expected unstaged Revision 2 files and no untracked or staged paths; this Revision 2.1 starting state was intentionally not clean.
 
 ## 4. Frozen Step 5 Integrity
 
@@ -22,11 +22,11 @@ PASS. The tracked 4,881,685-byte model is a regular binary, not an LFS pointer o
 
 ## 6. Environment Preflight
 
-PASS. Python 3.10.12, Streamlit 1.51.0, pandas 2.3.3, scikit-learn 1.7.2, joblib 1.5.3, NumPy 1.26.4, and LightGBM 4.6.0 imported. `pip check` found no broken requirements.
+PASS. Validation used the active dedicated release virtual environment. Permanent regression subprocesses now inherit the invoking test interpreter rather than a developer-machine-specific filesystem path. Python 3.10.12, Streamlit 1.51.0, pandas 2.3.3, scikit-learn 1.7.2, joblib 1.5.3, NumPy 1.26.4, and LightGBM 4.6.0 matched the pinned runtime, and `pip check` found no broken requirements.
 
 ## 7. Baseline Regression
 
-PASS. All 164 committed tests passed before Step 6 writes; failures, errors, and import errors were zero.
+PASS. All 182 Revision 2 tests passed before Revision 2.1 writes; failures, errors, and import errors were zero.
 
 ## 8. Deployment Architecture
 
@@ -54,7 +54,7 @@ PASS. Runtime code derives roots from module locations and contains no developer
 
 ## 14. Secret Scan
 
-PASS. The exact authorized release-file union was scanned: 93 Git-tracked paths plus all six authorized pre-commit Step 6 paths, for 99 files total. High-confidence checks covered private keys, OpenAI-style keys, GitHub tokens, AWS access keys, password assignments, credential-bearing and database URLs, service-account private keys, Azure-style keys, and generic access tokens. Confirmed secrets, private keys, tracked Streamlit secrets files, and redacted findings are zero.
+PASS. The Step 6 secret scan covers the exact Step 6 release union. In the current post-commit state that is 99 Git-tracked paths plus zero authorized untracked Step 6 paths, for 99 files total. High-confidence checks covered private keys, OpenAI-style keys, GitHub tokens, AWS access keys, password assignments, credential-bearing and database URLs, service-account private keys, Azure-style keys, and generic access tokens. Confirmed secrets, private keys, tracked Streamlit secrets files, and redacted findings are zero. Future stages remain responsible for scanning their own newly created artifacts before staging.
 
 ## 15. Privacy Boundary
 
@@ -70,7 +70,15 @@ PASS. Database writes and local persistence of submitted inputs are absent.
 
 ## 18. Clean Release Candidate Construction
 
-The permanent Step 6 test suite constructs a unique temporary release candidate from the exact authorized release-file union on every test invocation. Before commit this is 93 Git-tracked paths plus the six authorized untracked Step 6 paths; after commit deduplication produces the same effective content. Every source path is repository-contained, present, regular, and non-symlink before its current working-tree bytes are copied with its repository-relative path preserved. The candidate contains 99 files and no Git metadata, virtual environment, cache, unexpected untracked path, broken or external symlink, or hidden secrets file.
+The permanent Step 6 test suite constructs a unique temporary release candidate from the exact authorized Step 6 release union on every test invocation. In `STEP6_PRECOMMIT` mode, actual untracked paths must exactly equal the existing authorized untracked Step 6 paths; an extra unrelated path or a missing authorized path fails closed. In `POSTCOMMIT_FUTURE_STAGE` mode, all six Step 6 paths are tracked, unrelated future-stage untracked paths are observed and excluded, and the release union remains the 99 tracked paths. Every included source path is repository-contained, present, regular, and non-symlink before its current working-tree bytes are copied with its repository-relative path preserved. The candidate contains 99 files and no Git metadata, virtual environment, cache, unrelated untracked path, broken or external symlink, or hidden secrets file.
+
+The permanent Step 6 regression remains strict during Step 6 pre-commit preparation, while allowing unrelated future-stage untracked evidence after all Step 6 artifacts are tracked.
+
+Unrelated future-stage files are excluded from the Step 6 release candidate and do not alter its file count, runtime closure, module origins, or clean-copy behavior.
+
+The Step 6 release union represents the current tracked repository snapshot plus authorized Step 6 pre-commit evidence. Future files remain excluded while untracked, but may become part of a later tracked repository snapshot after a future commit.
+
+Two synthetic policy tests cover strict pre-commit rejection and post-commit exclusion. A real temporary probe then created the exact six proposed Stage 7A paths as untracked files; the final 19-test Step 6 module discovered, executed, and passed all 19 tests while those paths were untracked. Future Stage 7A probe paths observed were 6, excluded were 6, and copied were 0; candidate file count was 99, candidate removed was true, and probe paths removed was true.
 
 The permanent tests do not depend on `/tmp/stage9_step6_release_candidate` or any directory created by a previous process. Test lifecycle setup creates a uniquely named `TemporaryDirectory`; lifecycle teardown removes it and verifies absence.
 
@@ -108,7 +116,7 @@ PASS. A newly built implementation-time candidate, independent of the permanent 
 
 ## 27. Runtime Resource Profile
 
-PASS. Model: 4,881,685 bytes; closure: 6,807,346 bytes; tracked baseline: 7,480,736 bytes. Initial verification: 1.172268 seconds; first inference: 0.021275 seconds; repeat: 0.009212 seconds. No undocumented provider limit was imposed.
+PASS. The current tracked repository contains 99 files totaling 7,594,794 bytes, and the post-commit Step 6 release candidate contains the same 99 files totaling 7,594,794 bytes. The totals are identical because the current release union contains 99 tracked paths and zero authorized Step 6 untracked paths. Runtime closure remains 51 files totaling 6,807,346 bytes; the model is 4,881,685 bytes. Initial verification: 1.172268 seconds; first inference: 0.021275 seconds; repeat: 0.009212 seconds. No undocumented provider limit was imposed.
 
 ## 28. Git and Remote Readiness
 
@@ -120,19 +128,19 @@ Prepared for human use. No checklist action was executed.
 
 ## 30. New Test Results
 
-PASS twice after removal of the obsolete fixed directory. Revised run 1 discovered, executed, and passed 16 tests in 15.826 seconds. Revised run 2 independently rebuilt its candidate and discovered, executed, and passed the same 16 tests in 16.095 seconds. Each run had zero failures, errors, or import errors; each removed its test-created candidate. No historical fixed directory or test-candidate directory remained after either run.
+PASS twice using the active invoking interpreter from the dedicated validation environment. Revised run 1 and revised run 2 each discovered, executed, and passed 19 tests. Each run had zero failures, errors, or import errors; each independently rebuilt and removed its test-created candidate. No historical fixed directory, test-candidate directory, Stage 7A probe, or Python cache remained after either run.
 
 ## 31. Full Regression Results
 
-PASS after candidate cleanup. The full regression discovered, executed, and passed 180 tests in 21.271 seconds: the prior 164 tests plus 16 revised Step 6 tests. Failures, errors, and import errors were zero. The obsolete fixed directory and all test-generated candidates remained absent afterward.
+PASS after candidate cleanup. The full regression discovered, executed, and passed 183 tests: the prior 164 tests plus 19 revised Step 6 tests. Failures, errors, and import errors were zero. The obsolete fixed directory, all test-generated candidates, the six Stage 7A probe paths, and Python caches remained absent afterward.
 
 ## 32. File Change Scope
 
-Only six required Step 6 files and two justified conditional deployment files changed. Application source, prior tests and evidence, model, threshold, profiles, notebooks, README, `.gitignore`, and `.gitattributes` are unchanged.
+Revision 2.1 continues to modify exactly the permanent Step 6 test and four Step 6 evidence or manifest files. It creates no path. The deployment checklist, dependency definition, Streamlit configuration, application source, prior non-Step 6 tests and evidence, model, threshold, profiles, contracts, notebooks, README, `.gitignore`, and `.gitattributes` are unchanged.
 
 ## 33. Known Limitations
 
-This is a fictional portfolio demo, not fairness clearance, legal conclusion, production underwriting, or hosted-platform compatibility certification. No remote is configured. AppTest framework warnings are non-blocking.
+This is a fictional portfolio demo, not fairness clearance, legal conclusion, production underwriting, or hosted-platform compatibility certification. No remote is configured. AppTest framework warnings are non-blocking. Step 6 deliberately does not scan excluded future-stage untracked evidence; each future stage must validate and scan its own artifacts before staging. Portable execution still requires Python 3.10 and the pinned compatible runtime packages.
 
 ## 34. Release Readiness Classification
 
@@ -140,7 +148,7 @@ This is a fictional portfolio demo, not fairness clearance, legal conclusion, pr
 
 ## 35. Authorization State
 
-Human artifact audit and Git scope review are authorized. Staging, commit, remote publication, public deployment, production use, and real underwriting use remain unauthorized.
+Human artifact audit and Git scope review are authorized. Public deployment performed is false; remote publication performed is false; production underwriting authorized is false; real lending use authorized is false. Staging, commit, remote publication, public deployment, production use, and real underwriting use remain unauthorized.
 
 No API key, password, access token, private key, or Streamlit secrets file is required for this public portfolio demo.
 
