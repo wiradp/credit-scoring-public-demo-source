@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.1.0",
+  "stage": 9,
+  "step": "7A_AUTOMATED_LOCALHOST_ACCEPTANCE",
+  "baseline_commit": "7b877ae1448423f8c7e402af7ee2455f5973d0a7",
+  "source_branch": "phase8-public-demo-source",
+  "artifact_count": 5,
+  "artifacts": [
+    {
+      "relative_path": "tests/test_stage9_localhost_final_acceptance.py",
+      "change_type": "ADDED",
+      "size_bytes": 39501,
+      "sha256": "2e625cfb1b72d830ec2427687320fd34a341cda504cf658579e6cb5748b9d123",
+      "media_type": "text/x-python",
+      "purpose": "Portable permanent automated localhost acceptance test",
+      "baseline_commit": "7b877ae1448423f8c7e402af7ee2455f5973d0a7",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "COMPLETE",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-23T04:26:31Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_localhost_automated_acceptance_report.md",
+      "change_type": "ADDED",
+      "size_bytes": 7230,
+      "sha256": "80d03e27871e945b1ef4a1c5be72b57edb5fd51307bb1e9a4a456e158a1223d4",
+      "media_type": "text/markdown",
+      "purpose": "Human-readable automated localhost acceptance evidence",
+      "baseline_commit": "7b877ae1448423f8c7e402af7ee2455f5973d0a7",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "COMPLETE",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-23T04:26:31Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_localhost_automated_acceptance_report.json",
+      "change_type": "ADDED",
+      "size_bytes": 9894,
+      "sha256": "1d0a1112aee2571ac20c045c8a43fb2bfdd6f9dd65ae8377c758e43b98d74a53",
+      "media_type": "application/json",
+      "purpose": "Machine-readable automated localhost acceptance evidence",
+      "baseline_commit": "7b877ae1448423f8c7e402af7ee2455f5973d0a7",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "COMPLETE",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-23T04:26:31Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_localhost_smoke_results.json",
+      "change_type": "ADDED",
+      "size_bytes": 6074,
+      "sha256": "264e3da5139a9c5f17e9ca7a8cb1a6a84cc1e21a284731123ae64430ad5b5e3b",
+      "media_type": "application/json",
+      "purpose": "Privacy-minimized localhost and three-mode smoke results",
+      "baseline_commit": "7b877ae1448423f8c7e402af7ee2455f5973d0a7",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "COMPLETE",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-23T04:26:31Z"
+    },
+    {
+      "relative_path": "outputs/stage9/stage9_localhost_manual_acceptance_checklist.md",
+      "change_type": "ADDED",
+      "size_bytes": 7149,
+      "sha256": "bb7f2f0475870a5c0145626c1bcb710bd155846b84a22d80a8e4108b6dd41c96",
+      "media_type": "text/markdown",
+      "purpose": "Pending project-owner browser acceptance runbook and checklist",
+      "baseline_commit": "7b877ae1448423f8c7e402af7ee2455f5973d0a7",
+      "source_branch": "phase8-public-demo-source",
+      "generation_status": "COMPLETE",
+      "validation_status": "PASS",
+      "generated_at_utc": "2026-07-23T04:26:31Z"
+    }
+  ],
+  "generation_status": "COMPLETE",
+  "validation_status": "PASS",
+  "generated_at_utc": "2026-07-23T04:26:31Z"
+}

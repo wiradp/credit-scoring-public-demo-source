@@ -418,8 +418,27 @@ def render_contract_readiness() -> None:
         return
 
     summary = bundle["readiness_summary"]
-    cols = st.columns(4)
-    cols[0].metric("Stage 0 Status", _safe_metric(summary.get("stage_0_status")))
+    st.markdown(
+        """
+        <style>
+        .st-key-contract-readiness-stage-0-status [data-testid="stMetricValue"],
+        .st-key-contract-readiness-stage-0-status [data-testid="stMetricValue"] > div {
+            height: auto;
+            min-height: 48px;
+            overflow: visible;
+            overflow-wrap: anywhere;
+            text-overflow: clip;
+            white-space: normal;
+            font-size: 24px;
+            line-height: 1.25;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    cols = st.columns([1.5, 1, 1, 1])
+    with cols[0].container(key="contract-readiness-stage-0-status"):
+        st.metric("Stage 0 Status", _safe_metric(summary.get("stage_0_status")))
     cols[1].metric("Exported Artifacts", _safe_metric(summary.get("artifacts_exported")))
     cols[2].metric("Payload Modes", _safe_metric(summary.get("payload_modes")))
     cols[3].metric("Canonical Features", _safe_metric(summary.get("canonical_features")))

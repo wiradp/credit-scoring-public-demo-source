@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.1.0",
+  "stage": 9,
+  "step": "7A_REVISION_1",
+  "tested_branch": "phase8-public-demo-source",
+  "tested_baseline_commit": "7b877ae1448423f8c7e402af7ee2455f5973d0a7",
+  "tested_baseline_subject": "Harden portable release evidence",
+  "validation_environment": {
+    "interpreter_selection": "active invoking interpreter",
+    "python_version": "3.10.12",
+    "streamlit_version": "1.51.0",
+    "pandas_version": "2.3.3",
+    "numpy_version": "1.26.4",
+    "scikit_learn_version": "1.7.2",
+    "joblib_version": "1.5.3",
+    "lightgbm_version": "4.6.0",
+    "pip_check_status": "PASS"
+  },
+  "localhost_entry_point": "app/streamlit_app.py",
+  "bind_address": "127.0.0.1",
+  "port_classification": "DYNAMIC_EPHEMERAL_LOCALHOST_PORT",
+  "observed_port": 46641,
+  "server_started": true,
+  "health_status_code": 200,
+  "health_response": "ok",
+  "root_responded": true,
+  "public_bind_present": false,
+  "external_network_required": false,
+  "traceback_count": 0,
+  "missing_import_count": 0,
+  "missing_artifact_count": 0,
+  "model_hash_failure_count": 0,
+  "contract_hash_failure_count": 0,
+  "process_cleanup": {
+    "server_terminated": true,
+    "server_process_remaining": false,
+    "port_released": true,
+    "temporary_server_log_removed": true,
+    "temporary_operation_directory_removed": true
+  },
+  "repository_lifecycle_compatibility": {
+    "status": "PASS",
+    "current_mode": "STEP7A_PRECOMMIT_UNTRACKED",
+    "precommit_untracked_fixture_pass": true,
+    "precommit_staged_fixture_pass": true,
+    "postcommit_future_stage_fixture_pass": true,
+    "unexpected_precommit_untracked_rejected": true,
+    "missing_precommit_path_rejected": true,
+    "unexpected_staged_path_rejected": true,
+    "missing_staged_path_rejected": true,
+    "future_stage_untracked_allowed_postcommit": true,
+    "future_stage_untracked_excluded": true,
+    "missing_committed_step7a_path_rejected": true
+  },
+  "six_page_acceptance": {
+    "page_count": 6,
+    "page_pass_count": 6,
+    "exception_count": 0,
+    "missing_artifact_error_count": 0,
+    "absolute_developer_path_exposure_count": 0
+  },
+  "three_mode_acceptance": {
+    "modes": ["Basic Form", "Sample Profiles", "Advanced Editor — Technical Mode"],
+    "basic_form_default": true,
+    "acknowledgements_default_false": true,
+    "inference_before_submission": false,
+    "required_disclosure_visible": true
+  },
+  "basic_form_backend_acceptance": {
+    "case_count": 7,
+    "pass_count": 7,
+    "exact_probability_match": true,
+    "deterministic": true,
+    "cases": [
+      {"case_id": "REQUEST_STANDARD_36", "status": "PASS", "expected_probability_match": true, "deterministic": true},
+      {"case_id": "REQUEST_60_MONTH", "status": "PASS", "expected_probability_match": true, "deterministic": true},
+      {"case_id": "REQUEST_PROFILE_HIGHER_RENT", "status": "PASS", "expected_probability_match": true, "deterministic": true},
+      {"case_id": "REQUEST_PROFILE_MIXED_OTHER", "status": "PASS", "expected_probability_match": true, "deterministic": true},
+      {"case_id": "REQUEST_PROFILE_LIMITATION_DTI_SCALE", "status": "PASS", "expected_probability_match": true, "deterministic": true},
+      {"case_id": "REQUEST_NUMERIC_LOWER_BOUNDS", "status": "PASS", "expected_probability_match": true, "deterministic": true},
+      {"case_id": "REQUEST_NUMERIC_UPPER_BOUNDS", "status": "PASS", "expected_probability_match": true, "deterministic": true}
+    ]
+  },
+  "basic_form_ui_acceptance": {
+    "case_count": 1,
+    "pass_count": 1,
+    "case_id": "REQUEST_STANDARD_36",
+    "status": "PASS",
+    "widget_discovery_status": "PASS",
+    "explicit_submit_invoked": true,
+    "false_acknowledgement_blocked": true,
+    "inference_before_valid_submission": false,
+    "result_after_valid_submission": true,
+    "rendered_probability_match": true,
+    "rendered_result_deterministic": true,
+    "rendered_result_disclosure_visible": true,
+    "fresh_instance_run_count": 2,
+    "exception_count": 0
+  },
+  "sample_profile_backend_acceptance": {
+    "case_count": 5,
+    "pass_count": 5,
+    "deterministic": true
+  },
+  "advanced_editor_backend_acceptance": {
+    "case_count": 5,
+    "pass_count": 5,
+    "basic_form_parity": true,
+    "deterministic": true
+  },
+  "profile_reset_acceptance": {
+    "status": "PASS",
+    "stale_edit_removed": true,
+    "profile_b_loaded": true,
+    "profile_a_restored": true,
+    "term_flag_consistent": true,
+    "acknowledgement_reset_false": true,
+    "automatic_inference_present": false
+  },
+  "invalid_input_acceptance": {
+    "case_count": 8,
+    "reject_count": 8,
+    "runtime_access_count": 0,
+    "probability_count": 0,
+    "traceback_count": 0
+  },
+  "privacy_boundary": {
+    "personal_identity_field_count": 0,
+    "free_text_input_present": false,
+    "file_upload_present": false,
+    "camera_input_present": false,
+    "raw_input_logging_present": false,
+    "complete_payload_logging_present": false,
+    "user_input_persistence_present": false,
+    "external_transmission_present": false
+  },
+  "governance_source_audit": {
+    "status": "PASS",
+    "prohibited_affirmative_claim_count": 0
+  },
+  "rendered_governance_acceptance": {
+    "status": "PASS",
+    "pre_submission_demo_disclosure_visible": true,
+    "pre_submission_non_outcome_disclosure_visible": true,
+    "post_result_fictional_disclosure_visible": true,
+    "post_result_non_decision_disclosure_visible": true,
+    "post_result_production_limitation_visible": true,
+    "post_result_fairness_limitation_visible": true,
+    "post_result_legal_limitation_visible": true,
+    "governance_page_fairness_limitation_visible": true,
+    "governance_page_legal_limitation_visible": true,
+    "governance_page_deployment_limitation_visible": true,
+    "prohibited_affirmative_rendered_claim_count": 0
+  },
+  "manual_browser_gate": {
+    "status": "PENDING_HUMAN_REVIEW",
+    "manual_review_performed": false,
+    "manual_pass_claimed": false
+  },
+  "validation_status": "PASS",
+  "classification": "READY_FOR_HUMAN_ARTIFACT_REAUDIT",
+  "generated_at_utc": "2026-07-23T04:26:31Z"
+}

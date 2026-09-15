@@ -1,0 +1,305 @@
+{
+  "schema_version": "1.1.0",
+  "stage": 9,
+  "step": "7A_REVISION_1",
+  "repository_preconditions": {
+    "status": "PASS",
+    "branch": "phase8-public-demo-source",
+    "baseline_commit": "7b877ae1448423f8c7e402af7ee2455f5973d0a7",
+    "baseline_subject": "Harden portable release evidence",
+    "baseline_parent": "c3be3eb2cf57a6de5661937caadfb27454df3a30",
+    "tracked_file_count": 99,
+    "initial_untracked_file_count": 6,
+    "modified_tracked_file_count": 0,
+    "staged_file_count": 0
+  },
+  "repository_lifecycle_compatibility": {
+    "status": "PASS",
+    "current_mode": "STEP7A_PRECOMMIT_UNTRACKED",
+    "baseline_commit_object_valid": true,
+    "baseline_is_current_head_or_ancestor": true,
+    "precommit_untracked_mode_supported": true,
+    "precommit_staged_mode_supported": true,
+    "postcommit_future_stage_mode_supported": true,
+    "unexpected_precommit_untracked_rejected": true,
+    "missing_precommit_path_rejected": true,
+    "unexpected_staged_path_rejected": true,
+    "missing_staged_path_rejected": true,
+    "future_stage_untracked_allowed_postcommit": true,
+    "future_stage_untracked_excluded_from_step7a_scope": true,
+    "missing_committed_step7a_path_rejected": true
+  },
+  "frozen_step6_integrity": {
+    "status": "PASS",
+    "checked_file_count": 8,
+    "mismatch_count": 0,
+    "permanent_test_count": 19,
+    "prior_committed_regression_count": 183,
+    "runtime_artifact_count": 51,
+    "runtime_artifact_total_bytes": 6807346,
+    "model_artifact_bytes": 4881685
+  },
+  "application_and_model_integrity": {
+    "status": "PASS",
+    "application_source_integrity": "PASS",
+    "model_sha256": "PASS",
+    "model_regular_binary": true,
+    "model_lfs_pointer": false,
+    "model_symlink": false,
+    "threshold_integrity": "PASS",
+    "model_manifest_integrity": "PASS",
+    "sample_profile_matrix_integrity": "PASS",
+    "advanced_editor_contract_integrity": "PASS"
+  },
+  "environment_preflight": {
+    "status": "PASS",
+    "interpreter_selection": "active invoking interpreter",
+    "python_version": "3.10.12",
+    "virtual_environment_active": true,
+    "streamlit_version": "1.51.0",
+    "pandas_version": "2.3.3",
+    "numpy_version": "1.26.4",
+    "scikit_learn_version": "1.7.2",
+    "joblib_version": "1.5.3",
+    "lightgbm_version": "4.6.0",
+    "pip_check_status": "PASS"
+  },
+  "baseline_regression": {
+    "step7a": {
+      "status": "PASS",
+      "discovered_count": 21,
+      "executed_count": 21,
+      "pass_count": 21,
+      "failure_count": 0,
+      "error_count": 0,
+      "import_error_count": 0
+    },
+    "full": {
+      "status": "PASS",
+      "discovered_count": 204,
+      "executed_count": 204,
+      "pass_count": 204,
+      "failure_count": 0,
+      "error_count": 0,
+      "import_error_count": 0
+    }
+  },
+  "localhost_startup": {
+    "status": "PASS",
+    "entry_point": "app/streamlit_app.py",
+    "bind_address": "127.0.0.1",
+    "observed_port": 46641,
+    "port_classification": "DYNAMIC_EPHEMERAL_LOCALHOST_PORT",
+    "server_started": true,
+    "traceback_count": 0,
+    "missing_import_count": 0,
+    "missing_artifact_count": 0,
+    "model_hash_failure_count": 0,
+    "contract_hash_failure_count": 0
+  },
+  "localhost_health": {
+    "status": "PASS",
+    "status_code": 200,
+    "response": "ok",
+    "root_responded": true,
+    "classification": "LOCALHOST_ONLY"
+  },
+  "localhost_network_boundary": {
+    "status": "PASS",
+    "bind_address": "127.0.0.1",
+    "public_bind_present": false,
+    "external_host_contacted": false,
+    "external_network_required": false,
+    "tunnel_present": false
+  },
+  "localhost_process_cleanup": {
+    "status": "PASS",
+    "server_terminated": true,
+    "server_process_remaining": false,
+    "port_released": true,
+    "temporary_log_removed": true,
+    "temporary_operation_directory_removed": true
+  },
+  "six_page_acceptance": {
+    "status": "PASS",
+    "page_count": 6,
+    "page_pass_count": 6,
+    "exception_count": 0,
+    "missing_artifact_error_count": 0,
+    "absolute_path_exposure_count": 0
+  },
+  "three_mode_acceptance": {
+    "status": "PASS",
+    "mode_count": 3,
+    "basic_form_default": true,
+    "acknowledgements_default_false": true,
+    "inference_before_submission": false,
+    "required_disclosure_visible": true
+  },
+  "basic_form_backend_acceptance": {
+    "status": "PASS",
+    "case_count": 7,
+    "pass_count": 7,
+    "exact_probability_valid": true,
+    "deterministic": true
+  },
+  "basic_form_ui_acceptance": {
+    "status": "PASS",
+    "case_count": 1,
+    "pass_count": 1,
+    "case_id": "REQUEST_STANDARD_36",
+    "widget_discovery_status": "PASS",
+    "explicit_submit_invoked": true,
+    "false_acknowledgement_blocked": true,
+    "inference_before_valid_submission": false,
+    "result_after_valid_submission": true,
+    "rendered_probability_match": true,
+    "rendered_result_deterministic": true,
+    "rendered_result_disclosure_visible": true,
+    "fresh_instance_run_count": 2,
+    "exception_count": 0
+  },
+  "sample_profile_backend_acceptance": {
+    "status": "PASS",
+    "case_count": 5,
+    "pass_count": 5,
+    "deterministic": true
+  },
+  "advanced_editor_backend_acceptance": {
+    "status": "PASS",
+    "case_count": 5,
+    "pass_count": 5,
+    "basic_form_parity": true,
+    "deterministic": true
+  },
+  "profile_reset_acceptance": {
+    "status": "PASS",
+    "stale_edit_removed": true,
+    "term_flag_consistent": true,
+    "acknowledgement_reset_false": true,
+    "automatic_inference_present": false
+  },
+  "invalid_input_acceptance": {
+    "status": "PASS",
+    "case_count": 8,
+    "reject_count": 8,
+    "runtime_access_count": 0,
+    "probability_count": 0,
+    "traceback_count": 0
+  },
+  "privacy_boundary": {
+    "status": "PASS",
+    "personal_identity_field_count": 0,
+    "free_text_input_present": false,
+    "file_upload_present": false,
+    "camera_input_present": false,
+    "raw_input_logging_present": false,
+    "complete_payload_logging_present": false,
+    "user_input_persistence_present": false,
+    "external_transmission_present": false
+  },
+  "governance_source_audit": {
+    "status": "PASS",
+    "fictional_demo_language_present": true,
+    "non_decision_language_present": true,
+    "production_limitation_present": true,
+    "fairness_limitation_present": true,
+    "legal_limitation_present": true,
+    "prohibited_affirmative_claim_count": 0
+  },
+  "rendered_governance_acceptance": {
+    "status": "PASS",
+    "pre_submission_demo_disclosure_visible": true,
+    "pre_submission_non_outcome_disclosure_visible": true,
+    "post_result_fictional_disclosure_visible": true,
+    "post_result_non_decision_disclosure_visible": true,
+    "post_result_production_limitation_visible": true,
+    "post_result_fairness_limitation_visible": true,
+    "post_result_legal_limitation_visible": true,
+    "governance_page_fairness_limitation_visible": true,
+    "governance_page_legal_limitation_visible": true,
+    "governance_page_deployment_limitation_visible": true,
+    "prohibited_affirmative_rendered_claim_count": 0
+  },
+  "manual_browser_review": {
+    "status": "PENDING_HUMAN_REVIEW",
+    "manual_review_performed": false,
+    "manual_pass_claimed": false,
+    "blocking_issue_count": null,
+    "non_blocking_note_count": null
+  },
+  "new_step7a_tests": {
+    "status": "PASS",
+    "run1": {"discovered_count": 35, "executed_count": 35, "pass_count": 35, "failure_count": 0, "error_count": 0, "import_error_count": 0},
+    "run2": {"discovered_count": 35, "executed_count": 35, "pass_count": 35, "failure_count": 0, "error_count": 0, "import_error_count": 0}
+  },
+  "full_regression": {
+    "status": "PASS",
+    "prior_test_count": 183,
+    "revised_step7a_test_count": 35,
+    "expected_count": 218,
+    "discovered_count": 218,
+    "executed_count": 218,
+    "pass_count": 218,
+    "failure_count": 0,
+    "error_count": 0,
+    "import_error_count": 0
+  },
+  "syntax_validation": {
+    "status": "PASS",
+    "syntax_error_count": 0
+  },
+  "strict_json_validation": {
+    "status": "PASS",
+    "invalid_json_count": 0,
+    "duplicate_key_count": 0,
+    "non_finite_number_count": 0
+  },
+  "fixed_point_finalization": {
+    "status": "PASS",
+    "maximum_iterations": 10,
+    "iteration_count": 2,
+    "consecutive_stable_iterations": 2
+  },
+  "source_change_scope": {
+    "status": "PASS",
+    "authorized_untracked_path_count": 6,
+    "modified_tracked_file_count": 0,
+    "staged_file_count": 0,
+    "unexpected_path_count": 0
+  },
+  "temporary_cleanup": {
+    "status": "PASS",
+    "server_process_remaining": false,
+    "port_released": true,
+    "temporary_log_remaining": false,
+    "temporary_operation_directory_remaining": false,
+    "python_cache_leftover_count": 0
+  },
+  "limitations": [
+    "Seven Basic Form cases validate the backend controlled-inference path; one canonical case separately validates actual Streamlit widget entry and submission.",
+    "Automated AppTest evidence does not equal completed human browser acceptance.",
+    "Visual layout, responsiveness, readability, and real-browser interaction remain pending.",
+    "No public deployment, production-use conclusion, legal certification, or fairness clearance is provided."
+  ],
+  "acceptance_readiness": {
+    "classification": "READY_FOR_HUMAN_ARTIFACT_REAUDIT",
+    "revision1_automated_acceptance_passed": true,
+    "human_artifact_reaudit_complete": false,
+    "human_browser_review_complete": false,
+    "stage7a_complete": false
+  },
+  "next_step_authorization": {
+    "human_artifact_reaudit_authorized": true,
+    "human_browser_review_authorized": false,
+    "staging_authorized": false,
+    "commit_authorized": false,
+    "public_deployment_authorized": false,
+    "next_implementation_step_authorized": false
+  },
+  "validation_result": {
+    "validation_status": "PASS",
+    "classification": "READY_FOR_HUMAN_ARTIFACT_REAUDIT"
+  },
+  "generated_at_utc": "2026-07-23T04:26:31Z"
+}

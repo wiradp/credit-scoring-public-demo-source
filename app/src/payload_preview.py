@@ -615,13 +615,47 @@ def render_public_inference_result(result: DemoInferenceResult) -> None:
 
     probability = result.calibrated_default_probability
     st.success(result.readiness_note)
-    cols = st.columns(3)
-    cols[0].metric(
-        "Estimated model default-risk probability",
-        f"{float(probability):.4%}" if probability is not None else "Unavailable",
+    st.markdown(
+        """
+        <style>
+        .st-key-safe-demo-probability-metric [data-testid="stMetricLabel"],
+        .st-key-safe-demo-probability-metric [data-testid="stMetricLabel"] > div,
+        .st-key-safe-demo-probability-metric [data-testid="stMetricLabel"] [data-testid="stMarkdownContainer"],
+        .st-key-safe-demo-probability-metric [data-testid="stMetricLabel"] p,
+        .st-key-safe-demo-model-threshold-relation [data-testid="stMetricLabel"],
+        .st-key-safe-demo-canonical-feature-count [data-testid="stMetricLabel"] {
+            height: auto;
+            align-items: start;
+            overflow: visible;
+            overflow-wrap: anywhere;
+            text-overflow: clip;
+            white-space: normal;
+        }
+        .st-key-safe-demo-model-threshold-relation [data-testid="stMetricValue"],
+        .st-key-safe-demo-model-threshold-relation [data-testid="stMetricValue"] > div {
+            height: auto;
+            min-height: 48px;
+            overflow: visible;
+            overflow-wrap: anywhere;
+            text-overflow: clip;
+            white-space: normal;
+            font-size: 24px;
+            line-height: 1.25;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
     )
-    cols[1].metric("Model threshold relation", result.threshold_relation or "Unavailable")
-    cols[2].metric("Canonical feature count", result.feature_count or 0)
+    cols = st.columns([1, 2, 1])
+    with cols[0].container(key="safe-demo-probability-metric"):
+        st.metric(
+            "Estimated model default-risk probability",
+            f"{float(probability):.4%}" if probability is not None else "Unavailable",
+        )
+    with cols[1].container(key="safe-demo-model-threshold-relation"):
+        st.metric("Model threshold relation", result.threshold_relation or "Unavailable")
+    with cols[2].container(key="safe-demo-canonical-feature-count"):
+        st.metric("Canonical feature count", result.feature_count or 0)
 
     metadata = result.metadata
     profile_id = (
