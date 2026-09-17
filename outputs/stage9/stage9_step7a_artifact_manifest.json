@@ -61,8 +61,8 @@
     {
       "relative_path": "outputs/stage9/stage9_localhost_manual_acceptance_checklist.md",
       "change_type": "ADDED",
-      "size_bytes": 7149,
-      "sha256": "bb7f2f0475870a5c0145626c1bcb710bd155846b84a22d80a8e4108b6dd41c96",
+      "size_bytes": 7034,
+      "sha256": "9b66ca8116f154c1d417f640507eb06736b2120cd73917080ed2bb577687c74c",
       "media_type": "text/markdown",
       "purpose": "Pending project-owner browser acceptance runbook and checklist",
       "baseline_commit": "7b877ae1448423f8c7e402af7ee2455f5973d0a7",
