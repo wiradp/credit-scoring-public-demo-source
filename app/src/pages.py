@@ -188,8 +188,16 @@ def _render_sample_profile_inference(bundle: dict[str, Any]) -> None:
         return
     with st.form("sample_profile_inference_form"):
         selected_label = st.selectbox("Fictional sample profile", list(sample_options))
+        acknowledged = st.checkbox(
+            "I understand that 38 features use a fictional synthetic baseline and this output is not a lending decision.",
+            value=False,
+            key="sample_profile_acknowledgement",
+        )
         submitted = st.form_submit_button("Run controlled inference")
     if submitted:
+        if not acknowledged:
+            st.warning(PUBLIC_DEMO_RESULT_DISCLOSURE)
+            return
         payload_result = build_payload_from_mode(
             mode="SAMPLE_PROFILE",
             contract_bundle=bundle,
