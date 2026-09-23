@@ -27,23 +27,17 @@
     "status": "PASS",
     "repository": "current Git repository root",
     "branch": "phase8-public-demo-source",
-    "head": "c3be3eb2cf57a6de5661937caadfb27454df3a30",
-    "subject": "Prepare public deployment release candidate",
-    "parent": "5051f614db66e2ead73a54795e1e5c087df5e197",
-    "tracked_file_count": 99,
+    "head": "06579e72522bc23dc830d49612e8fb20b01a1970",
+    "subject": "Reconcile Step 8.4 release manifest",
+    "parent": "7cb1f7065342b6f233744355efac17c6226dfcd7",
+    "tracked_file_count": 105,
     "working_tree_clean": false,
-    "expected_preexisting_revision2_changes": true,
-    "modified_tracked_file_count": 5,
-    "untracked_file_count": 0,
+    "expected_preexisting_revision2_changes": false,
+    "modified_tracked_file_count": 0,
+    "untracked_file_count": 3,
     "staged_file_count": 0,
     "unexpected_path_count": 0,
-    "expected_preexisting_modified_paths": [
-      "tests/test_stage9_public_deployment_readiness.py",
-      "outputs/stage9/stage9_public_deployment_readiness_report.md",
-      "outputs/stage9/stage9_public_deployment_readiness_report.json",
-      "outputs/stage9/stage9_public_release_candidate_manifest.json",
-      "outputs/stage9/stage9_step6_artifact_manifest.json"
-    ]
+    "expected_preexisting_modified_paths": []
   },
   "frozen_step5_integrity": {
     "status": "PASS",
@@ -703,10 +697,10 @@
     "status": "PASS",
     "model_artifact_bytes": 4881685,
     "runtime_artifact_bytes": 6807346,
-    "tracked_repository_file_count": 99,
+    "tracked_repository_file_count": 105,
     "release_candidate_file_count": 99,
     "release_candidate_total_bytes": 7594794,
-    "tracked_repository_total_bytes": 7594794,
+    "tracked_repository_total_bytes": 7670320,
     "largest_tracked_files": [
       {
         "relative_path": "artifacts/model/final_model_calibrated.pkl",

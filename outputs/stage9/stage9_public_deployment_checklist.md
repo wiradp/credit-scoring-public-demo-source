@@ -1,4 +1,12 @@
-# Stage 9 Step 6 — Public Deployment Checklist
+# Stage 9 — Controlled Public Deployment Checklist
+
+## Current Handoff Identity
+
+- Current HEAD: `06579e72522bc23dc830d49612e8fb20b01a1970`
+- Current tracked repository files: 105
+- Controlled deployment release-candidate scope: 99 files
+- The six additional tracked paths are historical deployment evidence or test-only files and are intentionally excluded from the controlled release candidate.
+- Historical Step 6 and Stage 7A references below are retained as provenance and procedure, not as the current HEAD identity.
 
 ## A. Release Candidate Identity
 
@@ -11,7 +19,7 @@
 ## C. Required Branch and Commit
 
 - Branch: `phase8-public-demo-source`
-- [ ] Use only a separately human-approved post-Step-6 commit.
+- [ ] Use only the current controlled-demo handoff commit after separate human authorization.
 
 ## D. Streamlit Entry Point
 
@@ -77,6 +85,6 @@
 
 ## O. Deployment Authorization Gate
 
-Do not deploy until the Step 6 artifacts have passed human audit, Git scope review, staging audit, commit, and post-commit audit.
+Do not deploy until the current controlled-demo handoff and its 99-file release candidate have passed human audit, Git scope review, staging audit, commit, and post-commit audit.
 
 Current public deployment authorization: **false**. This checklist performs no release action.

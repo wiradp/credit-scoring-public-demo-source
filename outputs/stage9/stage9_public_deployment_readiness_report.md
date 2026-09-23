@@ -1,8 +1,8 @@
-# Stage 9 Step 6 — Public Deployment Readiness Report
+# Stage 9 — Controlled Public Deployment Readiness Report
 
 ## 1. Document Control
 
-Stage 9 Step 6; baseline `5051f614db66e2ead73a54795e1e5c087df5e197`; branch `phase8-public-demo-source`; classification `READY_FOR_HUMAN_RELEASE_AUDIT`.
+Current controlled-demo handoff: HEAD `06579e72522bc23dc830d49612e8fb20b01a1970`; branch `phase8-public-demo-source`; 105 tracked repository files. The 99-file controlled deployment release candidate remains the authoritative release scope. Step 6 baseline `5051f614db66e2ead73a54795e1e5c087df5e197` and later Stage 7A records below are retained as historical provenance. Classification: `READY_FOR_HUMAN_RELEASE_AUDIT`.
 
 ## 2. Scope and Non-Goals
 
@@ -10,7 +10,7 @@ This step prepares and validates a release candidate only. It does not publish t
 
 ## 3. Repository Preconditions
 
-PASS. Original Step 6 started from commit `5051f614db66e2ead73a54795e1e5c087df5e197` with 93 tracked files and a clean working tree. Revision 2 started from clean commit `c3be3eb2cf57a6de5661937caadfb27454df3a30` with 99 tracked files. Revision 2.1 started from the same HEAD with exactly five expected unstaged Revision 2 files and no untracked or staged paths; this Revision 2.1 starting state was intentionally not clean.
+PASS for current handoff identity. Current HEAD is `06579e72522bc23dc830d49612e8fb20b01a1970` (`Reconcile Step 8.4 release manifest`), with 105 tracked repository files and no modified or staged tracked paths. Three unrelated pre-existing untracked paths remain outside the controlled release scope. The original Step 6, Revision 2, and Revision 2.1 states below remain historical provenance for the 99-file release candidate.
 
 ## 4. Frozen Step 5 Integrity
 
@@ -54,7 +54,7 @@ PASS. Runtime code derives roots from module locations and contains no developer
 
 ## 14. Secret Scan
 
-PASS. The Step 6 secret scan covers the exact Step 6 release union. In the current post-commit state that is 99 Git-tracked paths plus zero authorized untracked Step 6 paths, for 99 files total. High-confidence checks covered private keys, OpenAI-style keys, GitHub tokens, AWS access keys, password assignments, credential-bearing and database URLs, service-account private keys, Azure-style keys, and generic access tokens. Confirmed secrets, private keys, tracked Streamlit secrets files, and redacted findings are zero. Future stages remain responsible for scanning their own newly created artifacts before staging.
+PASS for the controlled release scope. The Step 6 secret scan covers the exact 99-file release union plus zero authorized untracked Step 6 paths. The current repository has 105 tracked files; later historical deployment evidence and test-only files remain outside this controlled release union. High-confidence checks covered private keys, OpenAI-style keys, GitHub tokens, AWS access keys, password assignments, credential-bearing and database URLs, service-account private keys, Azure-style keys, and generic access tokens. Confirmed secrets, private keys, tracked Streamlit secrets files, and redacted findings are zero. Future stages remain responsible for scanning their own newly created artifacts before staging.
 
 ## 15. Privacy Boundary
 
@@ -76,7 +76,7 @@ The permanent Step 6 regression remains strict during Step 6 pre-commit preparat
 
 Unrelated future-stage files are excluded from the Step 6 release candidate and do not alter its file count, runtime closure, module origins, or clean-copy behavior.
 
-The Step 6 release union represents the current tracked repository snapshot plus authorized Step 6 pre-commit evidence. Future files remain excluded while untracked, but may become part of a later tracked repository snapshot after a future commit.
+The Step 6 release union represents the controlled 99-file deployment snapshot plus authorized Step 6 pre-commit evidence. The current repository contains 105 tracked files because later historical deployment evidence and test-only files were committed after the Step 6 snapshot; those files remain excluded from this controlled release candidate.
 
 Two synthetic policy tests cover strict pre-commit rejection and post-commit exclusion. A real temporary probe then created the exact six proposed Stage 7A paths as untracked files; the final 19-test Step 6 module discovered, executed, and passed all 19 tests while those paths were untracked. Future Stage 7A probe paths observed were 6, excluded were 6, and copied were 0; candidate file count was 99, candidate removed was true, and probe paths removed was true.
 
@@ -116,7 +116,7 @@ PASS. A newly built implementation-time candidate, independent of the permanent 
 
 ## 27. Runtime Resource Profile
 
-PASS. The current tracked repository contains 99 files totaling 7,594,794 bytes, and the post-commit Step 6 release candidate contains the same 99 files totaling 7,594,794 bytes. The totals are identical because the current release union contains 99 tracked paths and zero authorized Step 6 untracked paths. Runtime closure remains 51 files totaling 6,807,346 bytes; the model is 4,881,685 bytes. Initial verification: 1.172268 seconds; first inference: 0.021275 seconds; repeat: 0.009212 seconds. No undocumented provider limit was imposed.
+PASS. The current tracked repository contains 105 files totaling 7,670,320 bytes. The controlled post-commit release candidate remains 99 files totaling 7,594,794 bytes; the six later historical evidence/test-only files are excluded by scope. Runtime closure remains 51 files totaling 6,807,346 bytes; the model is 4,881,685 bytes. Initial verification: 1.172268 seconds; first inference: 0.021275 seconds; repeat: 0.009212 seconds. No undocumented provider limit was imposed.
 
 ## 28. Git and Remote Readiness
 
@@ -136,7 +136,7 @@ PASS after candidate cleanup. The full regression discovered, executed, and pass
 
 ## 32. File Change Scope
 
-Revision 2.1 continues to modify exactly the permanent Step 6 test and four Step 6 evidence or manifest files. It creates no path. The deployment checklist, dependency definition, Streamlit configuration, application source, prior non-Step 6 tests and evidence, model, threshold, profiles, contracts, notebooks, README, `.gitignore`, and `.gitattributes` are unchanged.
+The current handoff preserves the controlled 99-file release candidate and changes no runtime, model, threshold, or release-manifest scope. The six later tracked files are historical deployment evidence or test-only paths and remain outside the controlled release candidate.
 
 ## 33. Known Limitations
 
