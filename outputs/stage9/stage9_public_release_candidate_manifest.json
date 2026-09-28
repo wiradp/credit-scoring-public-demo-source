@@ -195,8 +195,8 @@
     },
     {
       "relative_path": "app/src/ui_text.py",
-      "size_bytes": 8798,
-      "sha256": "7596bbe80f4443008b759ddcb2df17b3fcef1d8e48c416b9e94aae39635b61ff",
+      "size_bytes": 8770,
+      "sha256": "554dbc810d82722e56646557315a1dd18956d1407ac55d8cbeaf332c8dea981c",
       "media_type": "text/x-python",
       "runtime_role": "application_module",
       "tracked": true,

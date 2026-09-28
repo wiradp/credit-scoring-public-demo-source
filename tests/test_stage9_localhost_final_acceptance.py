@@ -71,7 +71,7 @@ FROZEN_HASHES = {
     "app/src/pages.py": "08d451d5fb40239611dd83f59fc3866c26010b1fad4791c45f824b5e7294a9c8",
     "app/src/mode_view.py": "7f62b0f479f009e4255215edb7a03f5c63bbbe8122dd4f16a93ea192a745369d",
     "app/src/payload_preview.py": "f5cc519df9869e09c41ddbc452ad4af0ebbf7655740b1cf4772b029e19150d60",
-    "app/src/ui_text.py": "7596bbe80f4443008b759ddcb2df17b3fcef1d8e48c416b9e94aae39635b61ff",
+    "app/src/ui_text.py": "554dbc810d82722e56646557315a1dd18956d1407ac55d8cbeaf332c8dea981c",
     "artifacts/model/final_model_calibrated.pkl": "b022b545bd7bb4294018a26a7d10af977e3c452b7f219dbdd9113adeac367cbf",
     "artifacts/model/final_threshold.json": "e45a19822f77d6b74cf5e76c0c0e6ff2f993bad4ab91e507509b3d74d410e28b",
     "artifacts/model/model_artifact_manifest.json": "9c49149b1a3f72fc6e0f6fe5e5efa84f5c81f65224c1bd08daded1f6231461fd",

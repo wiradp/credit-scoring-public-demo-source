@@ -301,8 +301,8 @@
         "relative_path": "app/src/ui_text.py",
         "exists": true,
         "tracked": true,
-        "size_bytes": 8798,
-        "sha256": "7596bbe80f4443008b759ddcb2df17b3fcef1d8e48c416b9e94aae39635b61ff",
+        "size_bytes": 8770,
+        "sha256": "554dbc810d82722e56646557315a1dd18956d1407ac55d8cbeaf332c8dea981c",
         "deployment_responsibility": "application runtime module",
         "required_at_runtime": true,
         "modification_necessary": "none"

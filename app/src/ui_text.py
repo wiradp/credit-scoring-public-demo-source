@@ -2,7 +2,7 @@
 
 APP_TITLE = "Responsible AI Credit Risk Contract Demo"
 PROJECT_TITLE = "Credit Risk Scoring + Fairness Audit"
-STAGE_LABEL = "Stage 9 Step 5 — Public Input and UI Integration"
+STAGE_LABEL = "Controlled Public Demo"
 STAGE_BADGE = "Three-Mode Controlled Demo Inference"
 
 OVERVIEW_INTRO = (
