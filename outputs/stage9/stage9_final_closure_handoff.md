@@ -3,7 +3,7 @@
 ## Final repository identity
 
 - Branch: `phase8-public-demo-source`
-- HEAD: `60bb80ea6322f0a81bc3644d90badf4b39431d92`
+- Closure verification baseline: `c8f2396107ff8fc6df9b019e36e99dce1a7899b8`
 - Closure status: `CLOSED / PASS`
 
 ## Public deployment
