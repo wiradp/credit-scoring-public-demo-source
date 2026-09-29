@@ -54,7 +54,7 @@ Canonical references:
 - `outputs/stage9/stage9_localhost_automated_acceptance_report.md`
 - `outputs/stage9/stage9_localhost_manual_acceptance_checklist.md`
 
-The readiness and acceptance artifacts provide the repository-backed deployment-readiness and localhost evidence. Their embedded historical baselines are retained as provenance; this handoff records the current closure HEAD above.
+The readiness and acceptance artifacts provide the repository-backed deployment-readiness and localhost evidence. Their embedded historical baselines are retained as provenance. This baseline identifies the repository state independently verified immediately before the final closure metadata repair. It is not a claim about the current Git HEAD.
 
 ## Post-deploy evidence
 
